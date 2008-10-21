@@ -1,0 +1,90 @@
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.111000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.030000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateBlogPosts (1)
+  [4;35;1mSQL (0.141000)[0m   [0mCREATE TABLE `blog_posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.060000)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `blog_posts`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW KEYS FROM `blog_posts`[0m
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-21 15:27:24) [GET]
+  Session ID: 87a4e540bd2111f975fef41e65436eca
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts/]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-21 15:32:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"new", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/new
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.02000 (28%) | DB: 0.01000 (14%) | 200 OK [http://localhost/blog_posts/new]
+
+
+Processing BlogPostsController#create (for 127.0.0.1 at 2008-10-21 15:32:57) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlODY2MjljMGFhZGE1OGZiZDdiNDAyYjkxNzMxNDJk%0AMmIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b0564cf92ea80b1d2322b76239b9cd5cca5543ff
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"49bcc19b694d6b83fe1f9793ce7cf096e67cab40", "action"=>"create", "controller"=>"blog_posts", "blog_post"=>{"title"=>"Mano pirmas postas", "body"=>"Sveiki, čia mano pirmas postas. Hohoho kaip faina."}}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mBlogPost Create (0.020000)[0m   [0;1mINSERT INTO `blog_posts` (`updated_at`, `body`, `title`, `created_at`) VALUES('2008-10-21 15:32:57', 'Sveiki, čia mano pirmas postas. Hohoho kaip faina.', 'Mano pirmas postas', '2008-10-21 15:32:57')[0m
+  [4;35;1mSQL (0.040000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/blog_posts/1
+Completed in 0.12000 (8 reqs/sec) | DB: 0.06000 (50%) | 302 Found [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-21 15:32:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlODY2MjljMGFhZGE1OGZiZDdiNDAyYjkxNzMxNDJk%0AMmIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIidCbG9nUG9zdCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0%0AZWQuBjoKQHVzZWR7BjsHVA%3D%3D--1af536544b8e52f3f6f48834574a6b5b2d55a7ec
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.020000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 1) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+Completed in 0.04100 (24 reqs/sec) | Rendering: 0.01100 (26%) | DB: 0.02000 (48%) | 200 OK [http://localhost/blog_posts/1]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-21 15:33:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlODY2MjljMGFhZGE1OGZiZDdiNDAyYjkxNzMxNDJk%0AMmIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b0564cf92ea80b1d2322b76239b9cd5cca5543ff
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.02000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-21 15:33:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlODY2MjljMGFhZGE1OGZiZDdiNDAyYjkxNzMxNDJk%0AMmIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b0564cf92ea80b1d2322b76239b9cd5cca5543ff
+  Parameters: {"action"=>"new", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/new
+Completed in 0.10100 (9 reqs/sec) | Rendering: 0.04000 (39%) | DB: 0.01000 (9%) | 200 OK [http://localhost/blog_posts/new]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-21 15:33:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlODY2MjljMGFhZGE1OGZiZDdiNDAyYjkxNzMxNDJk%0AMmIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b0564cf92ea80b1d2322b76239b9cd5cca5543ff
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.12000 (8 reqs/sec) | Rendering: 0.03000 (25%) | DB: 0.01000 (8%) | 200 OK [http://localhost/blog_posts]
