@@ -1,0 +1,13 @@
+<p>
+  <b>Blog post:</b>
+  <%=h @comment.blog_post %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @comment.body %>
+</p>
+
+
+<%= link_to 'Edit', [:edit, @blog_post, @comment] %> |
+<%= link_to 'Back', blog_post_comments_path(@blog_post) %>

@@ -1,8 +1,4 @@
 <p>
-  <b>Time:</b>
-  <%=h @blog_post.time %>
-</p>
-<p>
   <b>Title:</b>
   <%=h @blog_post.title %>
 </p>
@@ -13,5 +9,6 @@
 </p>
 
 
+<%= link_to 'Comments', blog_post_comments_path(@blog_post) %>
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>

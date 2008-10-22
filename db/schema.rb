@@ -16,7 +16,13 @@ ActiveRecord::Schema.define(:version => 2) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "time"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "blog_post_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

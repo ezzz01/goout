@@ -25,7 +25,6 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts/new.xml
   def new
     @blog_post = BlogPost.new
-	@time = Time.now
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @blog_post }

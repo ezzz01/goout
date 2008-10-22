@@ -9,7 +9,6 @@
 
 <% for blog_post in @blog_posts %>
   <tr>
-    <td><%=h blog_post.time %></td>
     <td><%=h blog_post.title %></td>
     <td><%=h blog_post.body %></td>
     <td><%= link_to 'Show', blog_post %></td>
