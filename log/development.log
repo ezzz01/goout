@@ -6100,3 +6100,330 @@ ActionController::UnknownAction (No action responded to new):
     script/server:3
 
 Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 15:49:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts/]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 15:49:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 6) [0m
+Rendered comments/_comment (0.01000)
+Completed in 0.07100 (14 reqs/sec) | Rendering: 0.04100 (57%) | DB: 0.01000 (14%) | 200 OK [http://localhost/blog_posts/6]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 15:49:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering blog_posts/index
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.02000 (33%) | DB: 0.01000 (16%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 15:49:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 6) [0m
+Rendered comments/_comment (0.01000)
+Completed in 0.09100 (10 reqs/sec) | Rendering: 0.04100 (45%) | DB: 0.02000 (21%) | 200 OK [http://localhost/blog_posts/6]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 15:49:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.05000 (20 reqs/sec) | Rendering: 0.02000 (40%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 15:49:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.03000 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 15:49:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.010000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/show
+  [4;36;1mComment Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 1) [0m
+Rendered comments/_comment (0.01000)
+Completed in 0.20000 (4 reqs/sec) | Rendering: 0.02000 (9%) | DB: 0.01000 (4%) | 200 OK [http://localhost/admin/blog_posts/1]
+
+
+Processing BlogPostsController#destroy (for 127.0.0.1 at 2008-10-23 15:49:56) [DELETE]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"authenticity_token"=>"3580eed33bb83fcb41b7db34f16763a2c2eb20b4", "_method"=>"delete", "action"=>"destroy", "id"=>"1", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.010000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 1) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mBlogPost Destroy (0.031000)[0m   [0m DELETE FROM `blog_posts`
+ WHERE `id` = 1
+[0m
+  [4;36;1mSQL (0.040000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/blog_posts
+Completed in 0.14100 (7 reqs/sec) | DB: 0.09100 (64%) | 302 Found [http://localhost/admin/blog_posts/1]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 15:49:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts]
+
+
+Processing BlogPostsController#edit (for 127.0.0.1 at 2008-10-23 15:50:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/edit
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.02000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts/2/edit]
+
+
+Processing BlogPostsController#update (for 127.0.0.1 at 2008-10-23 15:50:10) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"3580eed33bb83fcb41b7db34f16763a2c2eb20b4", "_method"=>"put", "action"=>"update", "id"=>"2", "controller"=>"admin/blog_posts", "blog_post"=>{"title"=>"Antras postas II", "body"=>"Lew lew Pataisymas"}}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 2) [0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mBlogPost Update (0.040000)[0m   [0;1mUPDATE `blog_posts` SET `created_at` = '2008-10-22 12:57:43', `title` = 'Antras postas II', `body` = 'Lew lew Pataisymas', `updated_at` = '2008-10-23 15:50:10' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.040000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/admin/blog_posts/2
+Completed in 0.13000 (7 reqs/sec) | DB: 0.08000 (61%) | 302 Found [http://localhost/admin/blog_posts/2]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 15:50:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIidCbG9nUG9zdCB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0%0AZWQuBjoKQHVzZWR7BjsHVA%3D%3D--98564fd0d001cf656489ef8a6a7fcf8e02d238c8
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/show
+  [4;36;1mComment Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 2) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts/2]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 15:50:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.17100 (5 reqs/sec) | Rendering: 0.13100 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-23 15:50:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"new", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/new
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.02000 (33%) | DB: 0.01000 (16%) | 200 OK [http://localhost/admin/blog_posts/new]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-23 16:52:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"new", "controller"=>"admin/blog_posts"}
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5d10e5c @filter=:authenticate>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 401 Unauthorized [http://localhost/admin/blog_posts/new]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-23 16:52:12) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"new", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Columns (0.020000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/new
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.01000 (14%) | DB: 0.02000 (28%) | 200 OK [http://localhost/admin/blog_posts/new]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:52:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.02000 (28%) | DB: 0.01000 (14%) | 200 OK [http://localhost/admin/blog_posts/]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:52:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.01000 (14%) | DB: 0.01000 (14%) | 200 OK [http://localhost/admin/blog_posts/]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 16:52:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/show
+  [4;36;1mComment Columns (0.030000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 2) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.07100 (14 reqs/sec) | Rendering: 0.02100 (29%) | DB: 0.03000 (42%) | 200 OK [http://localhost/admin/blog_posts/2]
+
+
+Processing BlogPostsController#destroy (for 127.0.0.1 at 2008-10-23 16:52:32) [DELETE]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"authenticity_token"=>"3580eed33bb83fcb41b7db34f16763a2c2eb20b4", "_method"=>"delete", "action"=>"destroy", "id"=>"2", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 2) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mBlogPost Destroy (0.000000)[0m   [0m DELETE FROM `blog_posts`
+ WHERE `id` = 2
+[0m
+  [4;36;1mSQL (0.070000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/blog_posts
+Completed in 0.09000 (11 reqs/sec) | DB: 0.07000 (77%) | 302 Found [http://localhost/admin/blog_posts/2]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:52:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5d45620 @filter=:authenticate>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 401 Unauthorized [http://localhost/admin/blog_posts]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:52:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01000 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts]
+
+
+Processing BlogPostsController#edit (for 127.0.0.1 at 2008-10-23 16:52:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/edit
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.02000 (28%) | DB: 0.01000 (14%) | 200 OK [http://localhost/admin/blog_posts/4/edit]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-23 16:52:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"new", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/new
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.02000 (28%) | DB: 0.01000 (14%) | 200 OK [http://localhost/admin/blog_posts/new]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:52:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/index
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.01000 (16%) | 200 OK [http://localhost/admin/blog_posts/]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-23 16:52:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"new", "controller"=>"admin/blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/new
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/blog_posts/new]
+
+
+Processing BlogPostsController#create (for 127.0.0.1 at 2008-10-23 16:52:52) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3580eed33bb83fcb41b7db34f16763a2c2eb20b4", "action"=>"create", "controller"=>"admin/blog_posts", "blog_post"=>{"title"=>"asf", "body"=>"asfa"}}
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mBlogPost Create (0.000000)[0m   [0mINSERT INTO `blog_posts` (`updated_at`, `body`, `title`, `created_at`) VALUES('2008-10-23 16:52:52', 'asfa', 'asf', '2008-10-23 16:52:52')[0m
+  [4;36;1mSQL (0.030000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/blog_posts/7
+Completed in 0.08000 (12 reqs/sec) | DB: 0.04000 (50%) | 302 Found [http://localhost/admin/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 16:52:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIidCbG9nUG9zdCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0%0AZWQuBjoKQHVzZWR7BjsHVA%3D%3D--b3b9d2fc28c31925a1cd6fe964112619dc1b3ff0
+  Parameters: {"action"=>"show", "id"=>"7", "controller"=>"admin/blog_posts"}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 7) [0m
+Rendering template within layouts/application
+Rendering admin/blog_posts/show
+  [4;35;1mComment Columns (0.010000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 7) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.05000 (19 reqs/sec) | Rendering: 0.02000 (39%) | DB: 0.01000 (19%) | 200 OK [http://localhost/admin/blog_posts/7]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 16:53:08) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"7", "controller"=>"admin/blog_posts"}
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5cea464 @filter=:authenticate>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 401 Unauthorized [http://localhost/admin/blog_posts/7]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 16:53:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"7", "controller"=>"admin/blog_posts"}
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5cbef30 @filter=:authenticate>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 401 Unauthorized [http://localhost/admin/blog_posts/7]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:53:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5c92ed0 @filter=:authenticate>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 401 Unauthorized [http://localhost/admin/blog_posts/]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 16:53:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"admin/blog_posts"}
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5c6631c @filter=:authenticate>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 401 Unauthorized [http://localhost/admin/blog_posts/]

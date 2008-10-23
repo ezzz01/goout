@@ -1,4 +1,13 @@
 class Admin::BlogPostsController < ApplicationController
+  before_filter :authenticate
+
+  def authenticate
+	authenticate_or_request_with_http_basic do |name, pass|
+		#User.authenticate(name, pass)
+		name == 'user' && pass == 'pass'
+	end
+  end
+  
   # GET /blog_posts
   # GET /blog_posts.xml
   def index
