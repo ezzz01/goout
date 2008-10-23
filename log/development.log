@@ -4047,3 +4047,293 @@ Rendering template within layouts/blog_posts
 Rendering blog_posts/index
   [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
 Completed in 0.06100 (16 reqs/sec) | Rendering: 0.01000 (16%) | DB: 0.02100 (34%) | 200 OK [http://localhost/blog_posts/]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-22 20:07:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Load (0.030000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.11000 (9 reqs/sec) | Rendering: 0.01000 (9%) | DB: 0.04000 (36%) | 200 OK [http://localhost/blog_posts/]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:07:12) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;35;1mComment Columns (0.030000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+  [4;35;1mComment Load (0.000000)[0m   [0mSELECT * FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.13000 (7 reqs/sec) | Rendering: 0.05000 (38%) | DB: 0.03000 (23%) | 200 OK [http://localhost/blog_posts/3]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2008-10-22 20:07:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"blog_post_id"=>"3", "action"=>"index", "controller"=>"comments"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+  [4;36;1mComment Load (0.000000)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+Rendering template within layouts/comments
+Rendering comments/index
+  [4;35;1mComment Columns (0.010000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 0.04000 (24 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.02000 (50%) | 200 OK [http://localhost/blog_posts/3/comments]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:08:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+  [4;36;1mComment Load (0.000000)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.10000 (10 reqs/sec) | Rendering: 0.04000 (40%) | DB: 0.02000 (20%) | 200 OK [http://localhost/blog_posts/3]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:08:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;35;1mComment Columns (0.000000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+  [4;35;1mComment Load (0.000000)[0m   [0mSELECT * FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.12000 (8 reqs/sec) | Rendering: 0.07000 (58%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts/3]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2008-10-22 20:08:44) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"blog_post_id"=>"3", "commit"=>"Create", "authenticity_token"=>"407ebfec2dd29b42247a85b1ce6c04d8e15a72e4", "action"=>"create", "controller"=>"comments", "comment"=>{"body"=>"cia mano komentaras. neliesti!!"}}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+  [4;36;1mComment Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.000000)[0m   [0;1mINSERT INTO `comments` (`blog_post_id`, `updated_at`, `body`, `created_at`) VALUES(3, '2008-10-22 20:08:44', 'cia mano komentaras. neliesti!!', '2008-10-22 20:08:44')[0m
+  [4;35;1mSQL (0.060000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/blog_posts/3
+Completed in 0.15000 (6 reqs/sec) | DB: 0.08000 (53%) | 302 Found [http://localhost/blog_posts/3/comments]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:08:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiZDb21tZW50IHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRl%0AZC4GOgpAdXNlZHsGOwdU--357ff075be929272d43cd4280a9d0a475d77f027
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+  [4;36;1mComment Load (0.000000)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.blog_post_id = 3) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.05000 (20 reqs/sec) | Rendering: 0.02000 (40%) | DB: 0.01000 (20%) | 200 OK [http://localhost/blog_posts/3]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-22 20:08:50) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#destroy (for 127.0.0.1 at 2008-10-22 20:09:21) [DELETE]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"authenticity_token"=>"407ebfec2dd29b42247a85b1ce6c04d8e15a72e4", "_method"=>"delete", "action"=>"destroy", "id"=>"3", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.010000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 3) [0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mBlogPost Destroy (0.000000)[0m   [0;1m DELETE FROM `blog_posts`
+ WHERE `id` = 3
+[0m
+  [4;35;1mSQL (0.050000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/blog_posts
+Completed in 0.10000 (9 reqs/sec) | DB: 0.07000 (70%) | 302 Found [http://localhost/blog_posts/3]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-22 20:09:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:09:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 1) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 1) [0m
+Rendered comments/_comment (0.01000)
+Completed in 0.09000 (11 reqs/sec) | Rendering: 0.04000 (44%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts/1]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:09:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 2) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 2) [0m
+Rendered comments/_comment (0.01000)
+Completed in 0.10000 (10 reqs/sec) | Rendering: 0.05000 (50%) | DB: 0.02000 (20%) | 200 OK [http://localhost/blog_posts/2]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-22 20:10:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"new", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/new
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.01000 (16%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts/new]
+
+
+Processing BlogPostsController#create (for 127.0.0.1 at 2008-10-22 20:11:02) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"407ebfec2dd29b42247a85b1ce6c04d8e15a72e4", "action"=>"create", "controller"=>"blog_posts", "blog_post"=>{"title"=>"Naujas postas", "body"=>"Apie vėžlių gyvenimą."}}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mBlogPost Create (0.000000)[0m   [0mINSERT INTO `blog_posts` (`updated_at`, `body`, `title`, `created_at`) VALUES('2008-10-22 20:11:02', 'Apie vėžlių gyvenimą.', 'Naujas postas', '2008-10-22 20:11:02')[0m
+  [4;36;1mSQL (0.040000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/blog_posts/4
+Completed in 0.07000 (14 reqs/sec) | DB: 0.04000 (57%) | 302 Found [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-22 20:11:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIidCbG9nUG9zdCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0%0AZWQuBjoKQHVzZWR7BjsHVA%3D%3D--f9354c2a124b5089df3fef6adac289d7efed80b5
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.010000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 4) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;35;1mComment Columns (0.000000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 4) [0m
+Rendered comments/_comment (0.00000)
+Completed in 0.04000 (25 reqs/sec) | Rendering: 0.02000 (50%) | DB: 0.01000 (25%) | 200 OK [http://localhost/blog_posts/4]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-22 20:11:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDhjNTY3NWUxODc2MjliNTE4YzIyZjI4Nzk5ZjQ4%0AZDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--8d5c750bb256d155c640dd695cffe830a5c11e48
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;36;1mBlogPost Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.04000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#new (for 127.0.0.1 at 2008-10-23 13:08:01) [GET]
+  Session ID: 771de8c6d00b25f928a58a2749f45a56
+  Parameters: {"action"=>"new", "controller"=>"blog_posts"}
+  [4;36;1mSQL (0.030000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mBlogPost Columns (0.111000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/new
+Completed in 0.25100 (3 reqs/sec) | Rendering: 0.09000 (35%) | DB: 0.14100 (56%) | 200 OK [http://localhost/blog_posts/new]
+
+
+Processing BlogPostsController#create (for 127.0.0.1 at 2008-10-23 13:08:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3580eed33bb83fcb41b7db34f16763a2c2eb20b4", "action"=>"create", "controller"=>"blog_posts", "blog_post"=>{"title"=>"Labas rytas", "body"=>"Groja muzika\r\nSkauda galvą."}}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mBlogPost Create (0.080000)[0m   [0mINSERT INTO `blog_posts` (`updated_at`, `body`, `title`, `created_at`) VALUES('2008-10-23 13:08:16', 'Groja muzika\r\nSkauda galvą.', 'Labas rytas', '2008-10-23 13:08:16')[0m
+  [4;36;1mSQL (0.050000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/blog_posts/5
+Completed in 0.20000 (4 reqs/sec) | DB: 0.13000 (64%) | 302 Found [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 13:08:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIidCbG9nUG9zdCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0%0AZWQuBjoKQHVzZWR7BjsHVA%3D%3D--b3b9d2fc28c31925a1cd6fe964112619dc1b3ff0
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.010000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 5) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;35;1mComment Columns (0.060000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.020000)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 5) [0m
+Rendered comments/_comment (0.08000)
+Completed in 0.22100 (4 reqs/sec) | Rendering: 0.12100 (54%) | DB: 0.09000 (40%) | 200 OK [http://localhost/blog_posts/5]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2008-10-23 13:08:31) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"blog_post_id"=>"5", "commit"=>"Create", "authenticity_token"=>"3580eed33bb83fcb41b7db34f16763a2c2eb20b4", "action"=>"create", "controller"=>"comments", "comment"=>{"body"=>"O, man irgi skauda galvą."}}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 5) [0m
+  [4;35;1mComment Columns (0.010000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mBEGIN[0m
+  [4;35;1mComment Create (0.000000)[0m   [0mINSERT INTO `comments` (`blog_post_id`, `updated_at`, `body`, `created_at`) VALUES(5, '2008-10-23 13:08:31', 'O, man irgi skauda galvą.', '2008-10-23 13:08:31')[0m
+  [4;36;1mSQL (0.040000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/blog_posts/5
+Completed in 0.13000 (7 reqs/sec) | DB: 0.06000 (46%) | 302 Found [http://localhost/blog_posts/5/comments]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 13:08:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiZDb21tZW50IHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRl%0AZC4GOgpAdXNlZHsGOwdU--9614f7b0eb92c1059cff7c460ec3a728d8dcd4e2
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+  [4;36;1mBlogPost Load (0.010000)[0m   [0;1mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 5) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;35;1mComment Columns (0.010000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 5) [0m
+  [4;35;1mComment Load (0.000000)[0m   [0mSELECT * FROM `comments` WHERE (comments.blog_post_id = 5) [0m
+Rendered comments/_comment (0.11000)
+Completed in 0.31000 (3 reqs/sec) | Rendering: 0.19000 (61%) | DB: 0.02000 (6%) | 200 OK [http://localhost/blog_posts/5]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 13:08:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Load (0.000000)[0m   [0;1mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;35;1mBlogPost Columns (0.000000)[0m   [0mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.10100 (9 reqs/sec) | Rendering: 0.04000 (39%) | DB: 0.00000 (0%) | 200 OK [http://localhost/blog_posts]
+
+
+Processing BlogPostsController#show (for 127.0.0.1 at 2008-10-23 13:08:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"blog_posts"}
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` WHERE (`blog_posts`.`id` = 5) [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/show
+  [4;36;1mComment Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (comments.blog_post_id = 5) [0m
+  [4;36;1mComment Load (0.000000)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.blog_post_id = 5) [0m
+Rendered comments/_comment (0.01000)
+Completed in 0.12000 (8 reqs/sec) | Rendering: 0.06000 (50%) | DB: 0.02000 (16%) | 200 OK [http://localhost/blog_posts/5]
+
+
+Processing BlogPostsController#index (for 127.0.0.1 at 2008-10-23 13:08:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWJhZWUwYWMwMTBiNTM2NTExZWU5NGE1Y2EwZWYz%0AMTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1aa6ea91dc6afa45febd867bccdbb24fddeb087b
+  Parameters: {"action"=>"index", "controller"=>"blog_posts"}
+  [4;35;1mBlogPost Load (0.000000)[0m   [0mSELECT * FROM `blog_posts` [0m
+Rendering template within layouts/blog_posts
+Rendering blog_posts/index
+  [4;36;1mBlogPost Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.01000 (16%) | DB: 0.01000 (16%) | 200 OK [http://localhost/blog_posts]
