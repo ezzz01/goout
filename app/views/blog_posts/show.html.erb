@@ -11,6 +11,8 @@
 <% unless @blog_post.comments.empty? %>
 	<h3>Comments</h3>
 	<% @blog_post.comments.each do |comment| %>
+			<p><%= Locale.set("lt") 
+			comment.created_at.localize("%Y %B %d") %>
 	<p><%= h comment.body %></p>
 	<% end %>
 <% end %>

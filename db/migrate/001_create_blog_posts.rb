@@ -1,6 +1,6 @@
 class CreateBlogPosts < ActiveRecord::Migration
   def self.up
-    create_table :blog_posts do |t|
+    create_table :blog_posts, :options => 'default charset=utf8' do |t|
       t.string :title
       t.text :body
 
