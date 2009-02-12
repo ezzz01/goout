@@ -9234,3 +9234,122 @@ Rendering blog_posts/show
   [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
 Rendered comments/_comment (0.02000)
 Completed in 0.07000 (14 reqs/sec) | Rendering: 0.04000 (57%) | DB: 0.01000 (14%) | 200 OK [http://localhost/blog_posts/1]
+  [4;36;1mSQL (0.040000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.080000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.040000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.010000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.040000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.010000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-12 12:09:13) [GET]
+  Session ID: 2511cdfd2399c45315ea5ef7b1de3ea5
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.21000 (1050%) | 200 OK [http://localhost/]
+
+
+Processing SiteController#about (for 127.0.0.1 at 2009-02-12 12:09:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"about", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/about
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site/about]
+
+
+Processing SiteController#help (for 127.0.0.1 at 2009-02-12 12:09:18) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"help", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/help
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01000 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site/help]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-12 12:09:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/index
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SiteController#about (for 127.0.0.1 at 2009-02-12 12:10:35) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"about", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/about
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site/about]
+
+
+Processing SiteController#help (for 127.0.0.1 at 2009-02-12 12:10:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"help", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/help
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site/help]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-12 12:10:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/site
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-12 12:11:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--a5b7e409595a2b72907849c29ed62d13750633fc
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/about" with {:method=>:get}):
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/mongrel_rails:128:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/mongrel_rails:281
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
