@@ -1,0 +1,36 @@
+body {
+font-family: sans-serif;
+background: white;
+margin: 4;
+text-align: left;
+}
+
+fieldset{
+  margin-top: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+legend{
+  padding: .4em 1em;
+}
+
+label{
+  width: 10em;
+  float: left;
+  text-align: right;
+  margin-right: 0.2em;
+  display: block;
+}
+
+.submit{
+  margin-left: 12.5em;
+}
+
+#notice {
+  border: 1px solid;
+  padding: 1em;
+  margin: 1em;
+  margin-bottom: 2em;
+  font: bold;
+}

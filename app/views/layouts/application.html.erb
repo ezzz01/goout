@@ -1,17 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>BlogPosts: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+<title><%= @title %></title>
+<%= stylesheet_link_tag "site" %>
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield  %>
+  <%= nav_link "Start page", "site" %>
+  <%= nav_link "About", "site", "about"  %>
+  <%= nav_link "Help", "site", "help" %> 
+  <%= nav_link "Register", "user", "register" %> 
+        <% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
+<%= yield %>
 
 </body>
 </html>
+
