@@ -1,0 +1,8 @@
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mROLLBACK[0m
