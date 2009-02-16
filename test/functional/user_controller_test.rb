@@ -1,6 +1,15 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserControllerTest < ActionController::TestCase
+  fixtures :users
+
+  def setup
+    @controller = UserController.new
+    @request = ActionController::TestRequest.new
+    @response = ActionController::TestResponse.new
+    @valid_user = users(:valid_user)
+  end
+
   def test_registration_page
     get :register
     assert_response :success
@@ -43,4 +52,30 @@ class UserControllerTest < ActionController::TestCase
     assert_template "register"
       #todo, kai veiks klaidu rodymas registracijos formoje
   end
+
+  def test_login_page
+    get :login
+    assert_response :success
+    assert_template "login"
+    assert_tag "form", :attributes => { :action =>'/user/login', :method => 'post' }
+    assert_tag "input", :attributes => {
+                        :name => "user[username]",
+                        :type => "text"}
+    assert_tag "input", :attributes => {
+                        :name => "user[password]",
+                        :type => "password"}
+    assert_tag "input", :attributes => {
+                        :type => "submit",
+                        :value => "Login" }
+  end
+
+  def test_login_success
+    try_to_login @valid_user
+  end
+
+  private
+  def try_to_login(user)
+    post :login, :user => { :username => user.username, :password => user.password }
+  end
+
 end
