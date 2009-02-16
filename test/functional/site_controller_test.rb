@@ -16,7 +16,7 @@ class SiteControllerTest < ActionController::TestCase
 
   def test_help
     get :help
-    assert_response :help
+    assert_response :success 
     assert_template "help"
   end
 
