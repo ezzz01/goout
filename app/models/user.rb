@@ -23,5 +23,17 @@ class User < ActiveRecord::Base
       errors.add(:username, "cannot include spaces.")
     end
   end
+ 
+  def login!(session)
+    session[:user_id] = self.id
+  end
   
+  def self.logout!(session)
+    session[:user_id] = nil 
+  end
+
+  def clear_password!
+    self.password = nil
+  end
+
 end

@@ -9,8 +9,14 @@
   <%= nav_link "Start page", "site" %>
   <%= nav_link "About", "site", "about"  %>
   <%= nav_link "Help", "site", "help" %> 
-  <%= nav_link "Login", "user", "login" %>
-  <%= nav_link "Register", "user", "register" %> 
+  <span style="float:right">
+  <% if logged_in? -%>
+      <%= nav_link "Logout", "user", "logout" %>
+  <% else -%>
+      <%= nav_link "Login", "user", "login" %>
+      <%= nav_link "Register", "user", "register" %> 
+  <% end -%>
+</span>
         <% if flash[:notice] -%>
           <div id="notice"><%= flash[:notice] %></div>
         <% end -%>

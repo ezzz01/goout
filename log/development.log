@@ -13255,3 +13255,886 @@ Processing UserController#register (for 127.0.0.1 at 2009-02-16 23:03:04) [GET]
 Rendering template within layouts/application
 Rendering user/register
 Completed in 0.20000 (4 reqs/sec) | Rendering: 0.15000 (75%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/register]
+  [4;36;1mSQL (0.050000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.020000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.100000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.030000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.030000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.030000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.020000)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.130000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.060000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mdescribe `globalize_countries`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW KEYS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mdescribe `globalize_languages`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW KEYS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.171000)[0m   [0;1mSHOW FIELDS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mdescribe `globalize_translations`[0m
+  [4;36;1mSQL (0.040000)[0m   [0;1mSHOW KEYS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mSHOW FIELDS FROM `sessions`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mdescribe `sessions`[0m
+  [4;35;1mSQL (0.140000)[0m   [0mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (0.080000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.641000)[0m   [0mDROP DATABASE IF EXISTS `su_test`[0m
+  [4;36;1mSQL (0.060000)[0m   [0;1mCREATE DATABASE `su_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'blog_posts': DROP TABLE `blog_posts`[0m
+  [4;36;1mSQL (0.101000)[0m   [0;1mCREATE TABLE `blog_posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'comments': DROP TABLE `comments`[0m
+  [4;36;1mSQL (0.080000)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `blog_post_id` int(11) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'globalize_countries': DROP TABLE `globalize_countries`[0m
+  [4;36;1mSQL (0.070000)[0m   [0;1mCREATE TABLE `globalize_countries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `date_format` varchar(255) DEFAULT NULL, `currency_format` varchar(255) DEFAULT NULL, `currency_code` varchar(3) DEFAULT NULL, `thousands_sep` varchar(2) DEFAULT NULL, `decimal_sep` varchar(2) DEFAULT NULL, `currency_decimal_sep` varchar(2) DEFAULT NULL, `number_grouping_scheme` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.571000)[0m   [0mCREATE INDEX `index_globalize_countries_on_code` ON `globalize_countries` (`code`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_languages': DROP TABLE `globalize_languages`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `globalize_languages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2) DEFAULT NULL, `iso_639_2` varchar(3) DEFAULT NULL, `iso_639_3` varchar(3) DEFAULT NULL, `rfc_3066` varchar(255) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `english_name_locale` varchar(255) DEFAULT NULL, `english_name_modifier` varchar(255) DEFAULT NULL, `native_name` varchar(255) DEFAULT NULL, `native_name_locale` varchar(255) DEFAULT NULL, `native_name_modifier` varchar(255) DEFAULT NULL, `macro_language` tinyint(1) DEFAULT NULL, `direction` varchar(255) DEFAULT NULL, `pluralization` varchar(255) DEFAULT NULL, `scope` varchar(1) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.160000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_1` ON `globalize_languages` (`iso_639_1`)[0m
+  [4;35;1mSQL (0.170000)[0m   [0mCREATE INDEX `index_globalize_languages_on_iso_639_2` ON `globalize_languages` (`iso_639_2`)[0m
+  [4;36;1mSQL (0.241000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_3` ON `globalize_languages` (`iso_639_3`)[0m
+  [4;35;1mSQL (0.180000)[0m   [0mCREATE INDEX `index_globalize_languages_on_rfc_3066` ON `globalize_languages` (`rfc_3066`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_translations': DROP TABLE `globalize_translations`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `globalize_translations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL, `tr_key` varchar(255) DEFAULT NULL, `table_name` varchar(255) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, `facet` varchar(255) DEFAULT NULL, `built_in` tinyint(1) DEFAULT 1, `language_id` int(11) DEFAULT NULL, `pluralization_index` int(11) DEFAULT NULL, `text` text DEFAULT NULL, `namespace` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.250000)[0m   [0;1mCREATE INDEX `index_globalize_translations_on_tr_key_and_language_id` ON `globalize_translations` (`tr_key`, `language_id`)[0m
+  [4;35;1mSQL (0.171000)[0m   [0mCREATE INDEX `globalize_translations_table_name_and_item_and_language` ON `globalize_translations` (`table_name`, `item_id`, `language_id`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'sessions': DROP TABLE `sessions`[0m
+  [4;35;1mSQL (0.090000)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) DEFAULT '' NOT NULL, `data` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.290000)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (0.180000)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT NULL, `password` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.071000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.070000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `schema_info`[0m
+  [4;35;1mSQL (0.050000)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `globalize_countries`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `globalize_languages`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `globalize_translations`[0m
+  [4;36;1mSQL (0.030000)[0m   [0;1mSHOW KEYS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `sessions`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.300000)[0m   [0mDROP DATABASE IF EXISTS `su_test`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCREATE DATABASE `su_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'blog_posts': DROP TABLE `blog_posts`[0m
+  [4;36;1mSQL (0.080000)[0m   [0;1mCREATE TABLE `blog_posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'comments': DROP TABLE `comments`[0m
+  [4;36;1mSQL (0.070000)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `blog_post_id` int(11) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'globalize_countries': DROP TABLE `globalize_countries`[0m
+  [4;36;1mSQL (0.080000)[0m   [0;1mCREATE TABLE `globalize_countries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `date_format` varchar(255) DEFAULT NULL, `currency_format` varchar(255) DEFAULT NULL, `currency_code` varchar(3) DEFAULT NULL, `thousands_sep` varchar(2) DEFAULT NULL, `decimal_sep` varchar(2) DEFAULT NULL, `currency_decimal_sep` varchar(2) DEFAULT NULL, `number_grouping_scheme` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.191000)[0m   [0mCREATE INDEX `index_globalize_countries_on_code` ON `globalize_countries` (`code`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_languages': DROP TABLE `globalize_languages`[0m
+  [4;35;1mSQL (0.090000)[0m   [0mCREATE TABLE `globalize_languages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2) DEFAULT NULL, `iso_639_2` varchar(3) DEFAULT NULL, `iso_639_3` varchar(3) DEFAULT NULL, `rfc_3066` varchar(255) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `english_name_locale` varchar(255) DEFAULT NULL, `english_name_modifier` varchar(255) DEFAULT NULL, `native_name` varchar(255) DEFAULT NULL, `native_name_locale` varchar(255) DEFAULT NULL, `native_name_modifier` varchar(255) DEFAULT NULL, `macro_language` tinyint(1) DEFAULT NULL, `direction` varchar(255) DEFAULT NULL, `pluralization` varchar(255) DEFAULT NULL, `scope` varchar(1) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.220000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_1` ON `globalize_languages` (`iso_639_1`)[0m
+  [4;35;1mSQL (0.180000)[0m   [0mCREATE INDEX `index_globalize_languages_on_iso_639_2` ON `globalize_languages` (`iso_639_2`)[0m
+  [4;36;1mSQL (0.171000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_3` ON `globalize_languages` (`iso_639_3`)[0m
+  [4;35;1mSQL (0.180000)[0m   [0mCREATE INDEX `index_globalize_languages_on_rfc_3066` ON `globalize_languages` (`rfc_3066`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_translations': DROP TABLE `globalize_translations`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `globalize_translations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL, `tr_key` varchar(255) DEFAULT NULL, `table_name` varchar(255) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, `facet` varchar(255) DEFAULT NULL, `built_in` tinyint(1) DEFAULT 1, `language_id` int(11) DEFAULT NULL, `pluralization_index` int(11) DEFAULT NULL, `text` text DEFAULT NULL, `namespace` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.200000)[0m   [0;1mCREATE INDEX `index_globalize_translations_on_tr_key_and_language_id` ON `globalize_translations` (`tr_key`, `language_id`)[0m
+  [4;35;1mSQL (0.231000)[0m   [0mCREATE INDEX `globalize_translations_table_name_and_item_and_language` ON `globalize_translations` (`table_name`, `item_id`, `language_id`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'sessions': DROP TABLE `sessions`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) DEFAULT '' NOT NULL, `data` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.180000)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (0.180000)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT NULL, `password` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.060000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.010000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `schema_info`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.010000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `globalize_countries`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `globalize_languages`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `globalize_translations`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW FIELDS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `sessions`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.320000)[0m   [0mDROP DATABASE IF EXISTS `su_test`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCREATE DATABASE `su_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'blog_posts': DROP TABLE `blog_posts`[0m
+  [4;36;1mSQL (0.120000)[0m   [0;1mCREATE TABLE `blog_posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'comments': DROP TABLE `comments`[0m
+  [4;36;1mSQL (0.090000)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `blog_post_id` int(11) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'globalize_countries': DROP TABLE `globalize_countries`[0m
+  [4;36;1mSQL (0.090000)[0m   [0;1mCREATE TABLE `globalize_countries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `date_format` varchar(255) DEFAULT NULL, `currency_format` varchar(255) DEFAULT NULL, `currency_code` varchar(3) DEFAULT NULL, `thousands_sep` varchar(2) DEFAULT NULL, `decimal_sep` varchar(2) DEFAULT NULL, `currency_decimal_sep` varchar(2) DEFAULT NULL, `number_grouping_scheme` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.200000)[0m   [0mCREATE INDEX `index_globalize_countries_on_code` ON `globalize_countries` (`code`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_languages': DROP TABLE `globalize_languages`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `globalize_languages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2) DEFAULT NULL, `iso_639_2` varchar(3) DEFAULT NULL, `iso_639_3` varchar(3) DEFAULT NULL, `rfc_3066` varchar(255) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `english_name_locale` varchar(255) DEFAULT NULL, `english_name_modifier` varchar(255) DEFAULT NULL, `native_name` varchar(255) DEFAULT NULL, `native_name_locale` varchar(255) DEFAULT NULL, `native_name_modifier` varchar(255) DEFAULT NULL, `macro_language` tinyint(1) DEFAULT NULL, `direction` varchar(255) DEFAULT NULL, `pluralization` varchar(255) DEFAULT NULL, `scope` varchar(1) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.211000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_1` ON `globalize_languages` (`iso_639_1`)[0m
+  [4;35;1mSQL (0.270000)[0m   [0mCREATE INDEX `index_globalize_languages_on_iso_639_2` ON `globalize_languages` (`iso_639_2`)[0m
+  [4;36;1mSQL (0.190000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_3` ON `globalize_languages` (`iso_639_3`)[0m
+  [4;35;1mSQL (0.151000)[0m   [0mCREATE INDEX `index_globalize_languages_on_rfc_3066` ON `globalize_languages` (`rfc_3066`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_translations': DROP TABLE `globalize_translations`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `globalize_translations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL, `tr_key` varchar(255) DEFAULT NULL, `table_name` varchar(255) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, `facet` varchar(255) DEFAULT NULL, `built_in` tinyint(1) DEFAULT 1, `language_id` int(11) DEFAULT NULL, `pluralization_index` int(11) DEFAULT NULL, `text` text DEFAULT NULL, `namespace` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.190000)[0m   [0;1mCREATE INDEX `index_globalize_translations_on_tr_key_and_language_id` ON `globalize_translations` (`tr_key`, `language_id`)[0m
+  [4;35;1mSQL (0.180000)[0m   [0mCREATE INDEX `globalize_translations_table_name_and_item_and_language` ON `globalize_translations` (`table_name`, `item_id`, `language_id`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'sessions': DROP TABLE `sessions`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) DEFAULT '' NOT NULL, `data` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.171000)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (0.170000)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT NULL, `password` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.050000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.010000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `schema_info`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.010000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `globalize_countries`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `globalize_languages`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mdescribe `globalize_translations`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `sessions`[0m
+  [4;35;1mSQL (0.060000)[0m   [0mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.230000)[0m   [0mDROP DATABASE IF EXISTS `su_test`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCREATE DATABASE `su_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'blog_posts': DROP TABLE `blog_posts`[0m
+  [4;36;1mSQL (0.080000)[0m   [0;1mCREATE TABLE `blog_posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'comments': DROP TABLE `comments`[0m
+  [4;36;1mSQL (0.071000)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `blog_post_id` int(11) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'globalize_countries': DROP TABLE `globalize_countries`[0m
+  [4;36;1mSQL (0.130000)[0m   [0;1mCREATE TABLE `globalize_countries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `date_format` varchar(255) DEFAULT NULL, `currency_format` varchar(255) DEFAULT NULL, `currency_code` varchar(3) DEFAULT NULL, `thousands_sep` varchar(2) DEFAULT NULL, `decimal_sep` varchar(2) DEFAULT NULL, `currency_decimal_sep` varchar(2) DEFAULT NULL, `number_grouping_scheme` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.160000)[0m   [0mCREATE INDEX `index_globalize_countries_on_code` ON `globalize_countries` (`code`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_languages': DROP TABLE `globalize_languages`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `globalize_languages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2) DEFAULT NULL, `iso_639_2` varchar(3) DEFAULT NULL, `iso_639_3` varchar(3) DEFAULT NULL, `rfc_3066` varchar(255) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `english_name_locale` varchar(255) DEFAULT NULL, `english_name_modifier` varchar(255) DEFAULT NULL, `native_name` varchar(255) DEFAULT NULL, `native_name_locale` varchar(255) DEFAULT NULL, `native_name_modifier` varchar(255) DEFAULT NULL, `macro_language` tinyint(1) DEFAULT NULL, `direction` varchar(255) DEFAULT NULL, `pluralization` varchar(255) DEFAULT NULL, `scope` varchar(1) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.170000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_1` ON `globalize_languages` (`iso_639_1`)[0m
+  [4;35;1mSQL (0.161000)[0m   [0mCREATE INDEX `index_globalize_languages_on_iso_639_2` ON `globalize_languages` (`iso_639_2`)[0m
+  [4;36;1mSQL (0.180000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_3` ON `globalize_languages` (`iso_639_3`)[0m
+  [4;35;1mSQL (0.220000)[0m   [0mCREATE INDEX `index_globalize_languages_on_rfc_3066` ON `globalize_languages` (`rfc_3066`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_translations': DROP TABLE `globalize_translations`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `globalize_translations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL, `tr_key` varchar(255) DEFAULT NULL, `table_name` varchar(255) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, `facet` varchar(255) DEFAULT NULL, `built_in` tinyint(1) DEFAULT 1, `language_id` int(11) DEFAULT NULL, `pluralization_index` int(11) DEFAULT NULL, `text` text DEFAULT NULL, `namespace` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.181000)[0m   [0;1mCREATE INDEX `index_globalize_translations_on_tr_key_and_language_id` ON `globalize_translations` (`tr_key`, `language_id`)[0m
+  [4;35;1mSQL (0.190000)[0m   [0mCREATE INDEX `globalize_translations_table_name_and_item_and_language` ON `globalize_translations` (`table_name`, `item_id`, `language_id`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'sessions': DROP TABLE `sessions`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) DEFAULT '' NOT NULL, `data` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.180000)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (0.171000)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.140000)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT NULL, `password` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.050000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `schema_info`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSHOW FIELDS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `blog_posts`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `blog_posts`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `globalize_countries`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_countries`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `globalize_languages`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW KEYS FROM `globalize_languages`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.010000)[0m   [0mdescribe `globalize_translations`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `globalize_translations`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW FIELDS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mdescribe `sessions`[0m
+  [4;35;1mSQL (0.071000)[0m   [0mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.310000)[0m   [0mDROP DATABASE IF EXISTS `su_test`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCREATE DATABASE `su_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'blog_posts': DROP TABLE `blog_posts`[0m
+  [4;36;1mSQL (0.110000)[0m   [0;1mCREATE TABLE `blog_posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'comments': DROP TABLE `comments`[0m
+  [4;36;1mSQL (0.281000)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `blog_post_id` int(11) DEFAULT NULL, `body` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'globalize_countries': DROP TABLE `globalize_countries`[0m
+  [4;36;1mSQL (0.120000)[0m   [0;1mCREATE TABLE `globalize_countries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `date_format` varchar(255) DEFAULT NULL, `currency_format` varchar(255) DEFAULT NULL, `currency_code` varchar(3) DEFAULT NULL, `thousands_sep` varchar(2) DEFAULT NULL, `decimal_sep` varchar(2) DEFAULT NULL, `currency_decimal_sep` varchar(2) DEFAULT NULL, `number_grouping_scheme` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.220000)[0m   [0mCREATE INDEX `index_globalize_countries_on_code` ON `globalize_countries` (`code`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_languages': DROP TABLE `globalize_languages`[0m
+  [4;35;1mSQL (0.080000)[0m   [0mCREATE TABLE `globalize_languages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2) DEFAULT NULL, `iso_639_2` varchar(3) DEFAULT NULL, `iso_639_3` varchar(3) DEFAULT NULL, `rfc_3066` varchar(255) DEFAULT NULL, `english_name` varchar(255) DEFAULT NULL, `english_name_locale` varchar(255) DEFAULT NULL, `english_name_modifier` varchar(255) DEFAULT NULL, `native_name` varchar(255) DEFAULT NULL, `native_name_locale` varchar(255) DEFAULT NULL, `native_name_modifier` varchar(255) DEFAULT NULL, `macro_language` tinyint(1) DEFAULT NULL, `direction` varchar(255) DEFAULT NULL, `pluralization` varchar(255) DEFAULT NULL, `scope` varchar(1) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.231000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_1` ON `globalize_languages` (`iso_639_1`)[0m
+  [4;35;1mSQL (0.230000)[0m   [0mCREATE INDEX `index_globalize_languages_on_iso_639_2` ON `globalize_languages` (`iso_639_2`)[0m
+  [4;36;1mSQL (0.210000)[0m   [0;1mCREATE INDEX `index_globalize_languages_on_iso_639_3` ON `globalize_languages` (`iso_639_3`)[0m
+  [4;35;1mSQL (0.211000)[0m   [0mCREATE INDEX `index_globalize_languages_on_rfc_3066` ON `globalize_languages` (`rfc_3066`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'globalize_translations': DROP TABLE `globalize_translations`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `globalize_translations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL, `tr_key` varchar(255) DEFAULT NULL, `table_name` varchar(255) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, `facet` varchar(255) DEFAULT NULL, `built_in` tinyint(1) DEFAULT 1, `language_id` int(11) DEFAULT NULL, `pluralization_index` int(11) DEFAULT NULL, `text` text DEFAULT NULL, `namespace` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.220000)[0m   [0;1mCREATE INDEX `index_globalize_translations_on_tr_key_and_language_id` ON `globalize_translations` (`tr_key`, `language_id`)[0m
+  [4;35;1mSQL (0.260000)[0m   [0mCREATE INDEX `globalize_translations_table_name_and_item_and_language` ON `globalize_translations` (`table_name`, `item_id`, `language_id`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'sessions': DROP TABLE `sessions`[0m
+  [4;35;1mSQL (0.081000)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) DEFAULT '' NOT NULL, `data` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.160000)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (0.200000)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.070000)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT NULL, `password` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.040000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.010000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM `schema_info`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.011000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 12:28:13) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.02000 (49 reqs/sec) | Rendering: 0.01000 (49%) | DB: 0.01100 (54%) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 12:28:21) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#register (for 127.0.0.1 at 2009-02-17 12:28:24) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"register", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/register
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.06000 (85%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/register]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 12:28:26) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.05000 (71%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 12:28:33) [POST]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"user"=>{"username"=>"my_user", "password"=>"vienasdu"}, "commit"=>"Login", "authenticity_token"=>"59a2c47f7589abf683b9a1226ddfcf3aaf9813c0", "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Columns (0.010000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` = 'my_user' AND `users`.`password` = 'vienasdu') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.04000 (25 reqs/sec) | Rendering: 0.01000 (25%) | DB: 0.01000 (25%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 12:28:59) [POST]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"user"=>{"username"=>"new_user", "password"=>"vienasdu"}, "commit"=>"Login", "authenticity_token"=>"59a2c47f7589abf683b9a1226ddfcf3aaf9813c0", "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Columns (0.000000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` = 'new_user' AND `users`.`password` = 'vienasdu') LIMIT 1[0m
+Redirected to http://localhost:3000/user
+Completed in 0.04000 (25 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 12:28:59) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 12:29:15) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.01000 (100 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 12:29:16) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:26:45) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-17 14:26:50) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/user-" with {:method=>:get}):
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/mongrel_rails:128:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/mongrel_rails:281
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:26:53) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.05000 (20 reqs/sec) | Rendering: 0.02000 (40%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:27:04) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.01000 (99 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:04) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:27:08) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:27:09) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.01000 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:27:13) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:27:18) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/index]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:27:23) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/index]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:27:24) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.02000 (50 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:24) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:28) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:30) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.02100 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:27:31) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.02000 (50 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:31) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:35) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:27:36) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:28:09) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.01000 (100 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:28:09) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:32:42) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:33:59) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:34:02) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.01000 (100 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:34:02) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:34:03) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:34:04) [GET]
+  Session ID: 6d3bcfd7456a7d0ae3b65857512893df
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:34:23) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 14:34:25) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.06000 (85%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 14:34:32) [POST]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"user"=>{"username"=>"new_user", "password"=>"vienasdu"}, "commit"=>"Login", "authenticity_token"=>"d7efd6c060f0c8ce8e2e84683c4ea968f1733e6c", "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Columns (0.130000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` = 'new_user' AND `users`.`password` = 'vienasdu') LIMIT 1[0m
+Redirected to http://localhost:3000/user
+Completed in 0.17000 (5 reqs/sec) | DB: 0.13000 (76%) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:34:32) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:34:36) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:34:36) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:35:14) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.05000 (20 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:35:15) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:35:17) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 14:35:20) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.05000 (83%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 14:35:25) [POST]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"user"=>{"username"=>"new_user", "password"=>"vienasdu"}, "commit"=>"Login", "authenticity_token"=>"d7efd6c060f0c8ce8e2e84683c4ea968f1733e6c", "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Columns (0.010000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` = 'new_user' AND `users`.`password` = 'vienasdu') LIMIT 1[0m
+Redirected to http://localhost:3000/user
+Completed in 0.07000 (14 reqs/sec) | DB: 0.01000 (14%) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:35:25) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.02100 (47 reqs/sec) | Rendering: 0.02100 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-17 14:35:29) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Redirected to http://localhost:3000/site
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-17 14:35:29) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.01000 (100 reqs/sec) | Rendering: 0.01000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:35:50) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Redirected to http://localhost:3000/user/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x4cf8038 @filter=:protect>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 14:35:50) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-17 14:36:01) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Redirected to http://localhost:3000/user/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x4c47fe4 @filter=:protect>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-17 14:36:01) [GET]
+  Session ID: 189ce4bf1b419d9e60caddcdee71bda7
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.02000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]
+  [4;35;1mSQL (0.010000)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-18 10:05:53) [GET]
+  Session ID: 942dd3439512ba5e36e080c0b6992510
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 2.01300 (0 reqs/sec) | Rendering: 1.48200 (73%) | DB: 0.02000 (0%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-18 12:12:21) [GET]
+  Session ID: 942dd3439512ba5e36e080c0b6992510
+  Parameters: {"action"=>"login", "controller"=>"user"}
+
+
+NoMethodError (undefined method `param_posted?' for #<UserController:0x4c9ca1c>):
+    /app/controllers/user_controller.rb:25:in `login'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/mongrel_rails:128:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/bin/mongrel_rails:281
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
