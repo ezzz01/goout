@@ -9,6 +9,9 @@
     <label for="password">Password:</label>
     <%= f.password_field :password, :size => User::PASSWORD_SIZE, :maxlength => User::PASSWORD_MAX_LENGTH %>
     <br />
+    
+    <label for="remember_me">Remember Me?:</label>
+      <%= f.check_box :remember_me %>
 
     <%= submit_tag "Login", :class => "submit" %>
   </fieldset>

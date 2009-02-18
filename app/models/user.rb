@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   validates_format_of :username,
                       :with => /^[A-Z0-9_-]*$/i,
                       :message => "must contain only letters, numbers, underscores and dashes"
+
+  attr_accessor :remember_me
+
   def validate
     errors.add(:email, "must be valid.") unless email.include? ("@")
     if username.include?(" ")
