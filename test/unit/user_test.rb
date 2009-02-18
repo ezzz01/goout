@@ -13,6 +13,14 @@ class UserTest < ActiveSupport::TestCase
 
   def test_user_invalidity
     assert !@invalid_user.valid?
+    #attributes = [:username, :email, :password]
+    #attributes.each do |attribute|
+    #  assert @invalid_user.errors.invalid?(attribute)
+    #end
+  end
+  
+  def test_count
+    assert_equal 2, User.count
   end
 
 end
