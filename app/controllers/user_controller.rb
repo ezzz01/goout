@@ -22,11 +22,16 @@ class UserController < ApplicationController
 
   def login
     @title = "Login"
-    if param_posted?(:user)
+    if request.get?
+      @user = User.new(:remember_me => cookies[:remember_me] || "0")
+    elsif param_posted?(:user)
       @user = User.new(params[:user])
       user = User.find_by_username_and_password(@user.username, @user.password)
       if user
         user.login!(session) 
+        if @user.remember_me == "1"
+          cookies[:remember_me] = { :value => "1", :expires => 4.months.from_now }
+        end
         flash[:notice] = "User #{user.username} logged in"
         redirect_to_forwarding_url
       else

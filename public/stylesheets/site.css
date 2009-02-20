@@ -15,6 +15,11 @@ legend{
   padding: .4em 1em;
 }
 
+.form_row{
+  white-space: nowrap;
+  padding-bottom: .5em;
+}
+
 label{
   width: 10em;
   float: left;
@@ -33,4 +38,12 @@ label{
   margin: 1em;
   margin-bottom: 2em;
   font: bold;
+}
+
+.debug_dump{
+  border-top: 1px dashed black;
+  text-align: left;
+  background: #ccc;
+  margin: 0;
+  padding: .5em;
 }
