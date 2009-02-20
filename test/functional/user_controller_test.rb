@@ -75,10 +75,12 @@ class UserControllerTest < ActionController::TestCase
     assert_tag "input", :attributes => {
                         :type => "submit",
                         :value => "Login" }
+    assert_tag "input", :attributes => { :name => "user[remember_me]", :type => "checkbox" }
   end
 
   def test_login_success
     assert_equal @valid_user.password, "myu"
+
 #    try_to_login @users["valid_user"]
     #assert logged_in?
     #assert_equal @valid_user, session[:user_id]

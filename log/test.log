@@ -4589,3 +4589,572 @@ Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://tes
   [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
   [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
   [4;35;1mSQL (0.000000)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.060000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.010000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.040000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+
+
+Processing UserController#index (for 0.0.0.0 at 2009-02-20 18:48:03) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"user"}
+Redirected to http://test.host/user/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x386c330 @filter=:protect>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.11000 (109999%) | 302 Found [http://test.host/user]
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-02-20 18:48:03) [GET]
+  Session ID: 
+  Parameters: {"action"=>"login", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.05000 (83%) | DB: 0.00000 (0%) | 200 OK [http://test.host/user/login]
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+
+
+Processing UserController#register (for 0.0.0.0 at 2009-02-20 18:48:03) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"username"=>"aa/test", "password"=>"123", "email"=>"net@@ei@sinas,lt"}, "action"=>"register", "controller"=>"user"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'aa/test') LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'net@@ei@sinas,lt') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user/register
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.02000 (100%) | DB: 0.00000 (0%) | 200 OK [http://test.host/user/register?user%5Bemail%5D=net%40%40ei%40sinas%2Clt&user%5Bpassword%5D=123&user%5Busername%5D=aa%2Ftest]
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+
+
+Processing UserController#register (for 0.0.0.0 at 2009-02-20 18:48:03) [GET]
+  Session ID: 
+  Parameters: {"action"=>"register", "controller"=>"user"}
+Rendering template within layouts/application
+Rendering user/register
+Completed in 0.01100 (90 reqs/sec) | Rendering: 0.01100 (100%) | DB: 0.00000 (0%) | 200 OK [http://test.host/user/register]
+  [4;36;1mSQL (0.000000)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+
+
+Processing UserController#register (for 0.0.0.0 at 2009-02-20 18:48:03) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"username"=>"new_username", "password"=>"mynewpass", "email"=>"myemail@post.de"}, "action"=>"register", "controller"=>"user"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'new_username') LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myemail@post.de') LIMIT 1[0m
+  [4;36;1mUser Create (0.010000)[0m   [0;1mINSERT INTO `users` (`updated_at`, `username`, `password`, `created_at`, `email`) VALUES('2009-02-20 18:48:03', 'new_username', 'mynewpass', '2009-02-20 18:48:03', 'myemail@post.de')[0m
+Redirected to http://test.host/user
+Completed in 0.02000 (50 reqs/sec) | DB: 0.01000 (50%) | 302 Found [http://test.host/user/register?user%5Bemail%5D=myemail%40post.de&user%5Bpassword%5D=mynewpass&user%5Busername%5D=new_username]
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'new_username' AND `users`.`email` = 'myemail@post.de') LIMIT 1[0m
+  [4;36;1mSQL (0.030000)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.010000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-20 20:43:46) [POST]
+  Session ID: 08154daff8cd085b3375bf926f3f7ff6
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"mylongpassword", "remember_me"=>"1"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'myusername' AND `users`.`password` = 'mylongpassword') LIMIT 1[0m
+Cookie set: remember_me=1; path=/; expires=Sat, 20 Jun 2009 18:43:46 GMT
+  [4;36;1mUser Load (0.020000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.000000)[0m   [0;1mUPDATE `users` SET `created_at` = '2009-02-20 20:43:46', `username` = 'myusername', `authorization_token` = '06ffcd7594c07584b4ce47dccdd56fcacee7101c', `email` = 'myuser@mysite.com', `password` = 'mylongpassword', `updated_at` = '2009-02-20 20:43:46' WHERE `id` = 1[0m
+Cookie set: authorization_token=06ffcd7594c07584b4ce47dccdd56fcacee7101c; path=/; expires=Sat, 20 Jun 2009 18:43:46 GMT
+Redirected to http://www.example.com/user
+Completed in 0.03000 (33 reqs/sec) | DB: 0.02000 (66%) | 302 Found [http://www.example.com/user/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-20 20:43:46) [GET]
+  Session ID: 08154daff8cd085b3375bf926f3f7ff6
+  Parameters: {"action"=>"index", "controller"=>"site"}
+
+
+NoMethodError (undefined method `logged_in?' for #<SiteController:0x37b5518>):
+    /app/controllers/application.rb:15:in `check_authorization'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process_without_test'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/test_process.rb:15:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:279:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:172:in `get'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `get'
+    test/integration/remember_me_test.rb:16:in `test_remember_me'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:547:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit.rb:278
+    test/integration/remember_me_test.rb:11
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.040000)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-20 20:44:15) [POST]
+  Session ID: 15fc70ec1da4d92898a0626290321f0f
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"mylongpassword", "remember_me"=>"1"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'myusername' AND `users`.`password` = 'mylongpassword') LIMIT 1[0m
+Cookie set: remember_me=1; path=/; expires=Sat, 20 Jun 2009 18:44:15 GMT
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.000000)[0m   [0;1mUPDATE `users` SET `created_at` = '2009-02-20 20:44:14', `username` = 'myusername', `authorization_token` = '06ffcd7594c07584b4ce47dccdd56fcacee7101c', `email` = 'myuser@mysite.com', `password` = 'mylongpassword', `updated_at` = '2009-02-20 20:44:15' WHERE `id` = 1[0m
+Cookie set: authorization_token=06ffcd7594c07584b4ce47dccdd56fcacee7101c; path=/; expires=Sat, 20 Jun 2009 18:44:15 GMT
+Redirected to http://www.example.com/user
+Completed in 0.02000 (50 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://www.example.com/user/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-20 20:44:15) [GET]
+  Session ID: 15fc70ec1da4d92898a0626290321f0f
+  Parameters: {"action"=>"index", "controller"=>"site"}
+
+
+NoMethodError (undefined method `logged_in?' for #<SiteController:0x37bc854>):
+    /app/controllers/application.rb:15:in `check_authorization'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process_without_test'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/test_process.rb:15:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:279:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:172:in `get'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `get'
+    test/integration/remember_me_test.rb:16:in `test_remember_me'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:547:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit.rb:278
+    test/integration/remember_me_test.rb:11
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.100000)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.010000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-20 21:49:48) [POST]
+  Session ID: 0493f0d41177c24fd743de5c0353d948
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"mylongpassword", "remember_me"=>"1"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'myusername' AND `users`.`password` = 'mylongpassword') LIMIT 1[0m
+Cookie set: remember_me=1; path=/; expires=Sat, 20 Jun 2009 19:49:48 GMT
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.000000)[0m   [0;1mUPDATE `users` SET `created_at` = '2009-02-20 21:49:48', `username` = 'myusername', `authorization_token` = '01ed670f5f92a46c74ea6bd81be51fc646f59583', `email` = 'myuser@mysite.com', `password` = 'mylongpassword', `updated_at` = '2009-02-20 21:49:48' WHERE `id` = 1[0m
+Cookie set: authorization_token=01ed670f5f92a46c74ea6bd81be51fc646f59583; path=/; expires=Sat, 20 Jun 2009 19:49:48 GMT
+Redirected to http://www.example.com/user
+Completed in 0.02000 (50 reqs/sec) | DB: 0.01000 (50%) | 302 Found [http://www.example.com/user/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-20 21:49:48) [GET]
+  Session ID: 0493f0d41177c24fd743de5c0353d948
+  Parameters: {"action"=>"index", "controller"=>"site"}
+
+
+NoMethodError (undefined method `logged_in?' for #<SiteController:0x37bae50>):
+    /app/controllers/application.rb:15:in `check_authorization'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process_without_test'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/test_process.rb:15:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:279:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:172:in `get'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `get'
+    test/integration/remember_me_test.rb:16:in `test_remember_me'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:547:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit.rb:278
+    test/integration/remember_me_test.rb:11
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.070000)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.010000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-20 21:53:03) [POST]
+  Session ID: 6c6d880dffd7fbf1d8ca949ef10dd49d
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"mylongpassword", "remember_me"=>"1"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'myusername' AND `users`.`password` = 'mylongpassword') LIMIT 1[0m
+Cookie set: remember_me=1; path=/; expires=Sat, 20 Jun 2009 19:53:03 GMT
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.000000)[0m   [0;1mUPDATE `users` SET `created_at` = '2009-02-20 21:53:03', `username` = 'myusername', `authorization_token` = '01ed670f5f92a46c74ea6bd81be51fc646f59583', `email` = 'myuser@mysite.com', `password` = 'mylongpassword', `updated_at` = '2009-02-20 21:53:03' WHERE `id` = 1[0m
+Cookie set: authorization_token=01ed670f5f92a46c74ea6bd81be51fc646f59583; path=/; expires=Sat, 20 Jun 2009 19:53:03 GMT
+Redirected to http://www.example.com/user
+Completed in 0.02000 (50 reqs/sec) | DB: 0.01000 (50%) | 302 Found [http://www.example.com/user/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-20 21:53:03) [GET]
+  Session ID: 6c6d880dffd7fbf1d8ca949ef10dd49d
+  Parameters: {"action"=>"index", "controller"=>"site"}
+
+
+NoMethodError (undefined method `logged_in?' for #<SiteController:0x37ba824>):
+    /app/controllers/application.rb:15:in `check_authorization'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process_without_test'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/test_process.rb:15:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:279:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:172:in `get'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `get'
+    test/integration/remember_me_test.rb:16:in `test_remember_me'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:547:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit.rb:278
+    test/integration/remember_me_test.rb:11
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.031000)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.010000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.010000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-20 21:55:30) [POST]
+  Session ID: c3ece3843818d6e8f714fa75a389a8ac
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"mylongpassword", "remember_me"=>"1"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'myusername' AND `users`.`password` = 'mylongpassword') LIMIT 1[0m
+Cookie set: remember_me=1; path=/; expires=Sat, 20 Jun 2009 19:55:30 GMT
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.000000)[0m   [0;1mUPDATE `users` SET `created_at` = '2009-02-20 21:55:30', `username` = 'myusername', `authorization_token` = '01ed670f5f92a46c74ea6bd81be51fc646f59583', `email` = 'myuser@mysite.com', `password` = 'mylongpassword', `updated_at` = '2009-02-20 21:55:30' WHERE `id` = 1[0m
+Cookie set: authorization_token=01ed670f5f92a46c74ea6bd81be51fc646f59583; path=/; expires=Sat, 20 Jun 2009 19:55:30 GMT
+Redirected to http://www.example.com/user
+Completed in 0.02000 (50 reqs/sec) | DB: 0.02000 (100%) | 302 Found [http://www.example.com/user/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-20 21:55:30) [GET]
+  Session ID: c3ece3843818d6e8f714fa75a389a8ac
+  Parameters: {"action"=>"index", "controller"=>"site"}
+
+
+NoMethodError (undefined method `logged_in?' for #<SiteController:0x37ba9a0>):
+    /app/controllers/application.rb:15:in `check_authorization'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process_without_test'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/test_process.rb:15:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:279:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:172:in `get'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `get'
+    test/integration/remember_me_test.rb:16:in `test_remember_me'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:547:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit.rb:278
+    test/integration/remember_me_test.rb:11
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.030000)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mGlobalize::Language Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;35;1mGlobalize::Language Load (0.000000)[0m   [0mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`rfc_3066` = 'en-US') LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_languages` WHERE (`globalize_languages`.`iso_639_1` = 'en') LIMIT 1[0m
+  [4;35;1mGlobalize::Country Columns (0.000000)[0m   [0mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;36;1mGlobalize::Country Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_countries` WHERE (`globalize_countries`.`code` = 'US') LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-20 21:57:37) [POST]
+  Session ID: 11914ea54c3217431013dd4d347e83d3
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"mylongpassword", "remember_me"=>"1"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'myusername' AND `users`.`password` = 'mylongpassword') LIMIT 1[0m
+Cookie set: remember_me=1; path=/; expires=Sat, 20 Jun 2009 19:57:37 GMT
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (users.username = 'myusername' AND users.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (users.email = 'myuser@mysite.com' AND users.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.000000)[0m   [0;1mUPDATE `users` SET `created_at` = '2009-02-20 21:57:37', `username` = 'myusername', `authorization_token` = '01ed670f5f92a46c74ea6bd81be51fc646f59583', `email` = 'myuser@mysite.com', `password` = 'mylongpassword', `updated_at` = '2009-02-20 21:57:37' WHERE `id` = 1[0m
+Cookie set: authorization_token=01ed670f5f92a46c74ea6bd81be51fc646f59583; path=/; expires=Sat, 20 Jun 2009 19:57:37 GMT
+Redirected to http://www.example.com/user
+Completed in 0.02000 (50 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://www.example.com/user/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-20 21:57:37) [GET]
+  Session ID: 11914ea54c3217431013dd4d347e83d3
+  Parameters: {"action"=>"index", "controller"=>"site"}
+
+
+NoMethodError (undefined method `logged_in?' for #<SiteController:0x3f718ec>):
+    /app/controllers/application.rb:15:in `check_authorization'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process_without_test'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/test_process.rb:15:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:279:in `process'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:172:in `get'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `send!'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:397:in `get'
+    ./test/integration/remember_me_test.rb:16:in `test_remember_me'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/integration.rb:547:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/1.8/test/unit.rb:278
+    C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/rake-0.8.1/lib/rake/rake_test_loader.rb:5
+
+Rendering C:/cygwin/home/ezhux1/myProjects/InstantRails2/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;35;1mSQL (0.080000)[0m   [0mROLLBACK[0m

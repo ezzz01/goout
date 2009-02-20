@@ -29,9 +29,7 @@ class UserController < ApplicationController
       user = User.find_by_username_and_password(@user.username, @user.password)
       if user
         user.login!(session) 
-        if @user.remember_me == "1"
-          cookies[:remember_me] = { :value => "1", :expires => 4.months.from_now }
-        end
+        @user.remember_me? ? user.remember!(cookies) : user.forget!(cookies) 
         flash[:notice] = "User #{user.username} logged in"
         redirect_to_forwarding_url
       else
@@ -42,7 +40,7 @@ class UserController < ApplicationController
   end
 
   def logout
-    User.logout!(session)
+    User.logout!(session, cookies)
     flash[:notice] = "Logged out"
     redirect_to :action => "index", :controller => "Site"
   end
