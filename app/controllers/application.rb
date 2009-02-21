@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
       user.login!(session) if user
     end
   end
+
+  def param_posted?(sym)
+    request.post? and params[sym]
+  end
+
 end

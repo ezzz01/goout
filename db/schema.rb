@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(:version => 5) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "specs", :force => true do |t|
+    t.integer  "user_id",                    :null => false
+    t.string   "first_name", :default => ""
+    t.string   "last_name",  :default => ""
+    t.date     "birthdate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

@@ -50,7 +50,6 @@ class UserControllerTest < ActionController::TestCase
       #todo, kai veiks klaidu rodymas registracijos formoje
   end
 
-
   def test_login_page
     get :login
     assert_response :success
@@ -99,8 +98,24 @@ class UserControllerTest < ActionController::TestCase
     #assert_template "index"
   end
 
+  def test_edit_page
+    #authorize @valid_user
+    assert_response :success
+    assert_template "edit"
+    assert_form_tag "/user/edit"
+    assert_email_field @valid_user.email
+    assert_password_field "current_password"
+    assert_password_field
+    assert_password_field "password_confirmation"
+    assert_submit_button "Update"
+  end
+
 
   private
+  def authorize(user)
+    @request.session[:user_id] = user.id
+  end
+
   def try_to_login(user)
     post :login, :user => { :username => user.username, :password => user.password }
   end

@@ -56,6 +56,8 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
+  DB_STRING_MAX_LENGTH = 255
+  HTML_TEXT_FIELD_SIZE = 25
 end
 include Globalize
 Locale.set_base_language('en-US')
