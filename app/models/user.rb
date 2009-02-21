@@ -1,5 +1,8 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  attr_accessor :remember_me
+  attr_accessor :current_password
+
   USERNAME_MIN_LENGTH = 4
   USERNAME_MAX_LENGTH = 20
   PASSWORD_MIN_LENGTH = 4
@@ -12,6 +15,7 @@ class User < ActiveRecord::Base
   PASSWORD_RANGE = PASSWORD_MIN_LENGTH..PASSWORD_MAX_LENGTH
 
   validates_uniqueness_of :username, :email
+  validates_confirmation_of :password
   validates_length_of     :username, :within => USERNAME_RANGE
   validates_length_of     :password, :within => PASSWORD_RANGE
   validates_length_of     :email,   :maximum => EMAIL_MAX_LENGTH 
@@ -19,7 +23,6 @@ class User < ActiveRecord::Base
                       :with => /^[A-Z0-9_-]*$/i,
                       :message => "must contain only letters, numbers, underscores and dashes"
 
-  attr_accessor :remember_me
 
   def validate
     errors.add(:email, "must be valid.") unless email.include? ("@")
@@ -59,6 +62,20 @@ class User < ActiveRecord::Base
 
   def clear_password!
     self.password = nil
+    self.password_confirmation = nil
+    self.current_password = nil
+  end
+
+  def correct_password?(params)
+    current_password = params[:user][:current_password]
+    password == current_password
+  end
+
+  def password_errors(params)
+    self.password = params[:user][:password]
+    self.password_confirmation = params[:user][:password_confirmation]
+    valid?
+    errors.add(:current_password, "is incorrect")
   end
 
   private

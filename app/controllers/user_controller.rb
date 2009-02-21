@@ -1,9 +1,10 @@
 class UserController < ApplicationController
   include ApplicationHelper
-  before_filter :protect, :only => "index"
+  before_filter :protect, :only => ["index", "edit"]
 
   def index
     @title = "User profile"
+    @user = User.find(session[:user_id])
   end
 
   def register
@@ -45,6 +46,26 @@ class UserController < ApplicationController
     redirect_to :action => "index", :controller => "Site"
   end
 
+  def edit
+    @title = "Edit basic info"
+    @user = User.find(session[:user_id])
+    if param_posted?(:user)
+      attribute = params[:attribute]
+      case attribute
+      when "email"
+        try_to_update @user, attribute
+      when "password"
+        if @user.correct_password?(params)
+          try_to_update @user, attribute
+        else
+          @user.password_errors(params)
+        end
+      end
+    end
+    @user.clear_password!
+  end
+
+
   private 
   def protect
     unless logged_in? 
@@ -64,6 +85,13 @@ class UserController < ApplicationController
       session[:protected_page] = nil
       redirect_to redirect_url
     else
+      redirect_to :action => "index"
+    end
+  end
+
+  def try_to_update(user, attribute)
+    if user.update_attributes(params[:user])
+      flash[:notice] = "User #{attribute} updated."
       redirect_to :action => "index"
     end
   end

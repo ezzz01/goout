@@ -21,21 +21,11 @@ class UserControllerTest < ActionController::TestCase
     get :register
     assert_response :success
     assert_template "register"
-    assert_tag "form", :attributes => { :action => "/user/register", 
-                                          :method => "post" }
-    assert_tag "input", :attributes => { :name => "user[username]", 
-                                          :type => "text", 
-                                          :size => User::USERNAME_SIZE, 
-                                          :maxlength => User::USERNAME_MAX_LENGTH }
-    assert_tag "input", :attributes => { :name => "user[email]", 
-                                          :type => "text", 
-                                          :size => User::EMAIL_SIZE, 
-                                          :maxlength => User::EMAIL_MAX_LENGTH }
-    assert_tag "input", :attributes => { :name => "user[password]", 
-                                          :type => "password", 
-                                          :size => User::PASSWORD_SIZE, 
-                                          :maxlength => User::PASSWORD_MAX_LENGTH }
-    assert_tag "input", :attributes => { :type => "submit" }
+    assert_form_tag "/user/register"
+    assert_username_field
+    assert_email_field
+    assert_password_field
+    assert_submit_button "Register"
   end
 
   def test_registration_success
@@ -113,6 +103,22 @@ class UserControllerTest < ActionController::TestCase
   private
   def try_to_login(user)
     post :login, :user => { :username => user.username, :password => user.password }
+  end
+
+  def assert_email_field(email = nil, options = {})
+    assert_input_field("user[email]", email, "text",
+                       User::EMAIL_SIZE, User::EMAIL_MAX_LENGTH, options)
+  end
+
+  def assert_password_field(password_field_name = "password", options = {})
+    blank = nil
+    assert_input_field("user[#{password_field_name}]", blank, "password",
+                       User::PASSWORD_SIZE, User::PASSWORD_MAX_LENGTH, options)
+  end
+
+  def assert_username_field(username = nil, options = {})
+    assert_input_field("user[username]", username, "text",
+                       User::USERNAME_SIZE, User::USERNAME_MAX_LENGTH, options)
   end
 
 end
