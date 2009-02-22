@@ -20716,3 +20716,197 @@ Processing UserController#index (for 127.0.0.1 at 2009-02-22 17:24:23) [GET]
 Rendering template within layouts/application
 Rendering user/index
 Completed in 0.39100 (2 reqs/sec) | Rendering: 0.25100 (64%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 17:26:03) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"edit", "controller"=>"spec"}
+  [4;36;1mUser Columns (0.010000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;36;1mSpec Load (0.000000)[0m   [0;1mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering spec/edit
+  [4;35;1mSpec Columns (0.000000)[0m   [0mSHOW FIELDS FROM `specs`[0m
+Completed in 0.08000 (12 reqs/sec) | Rendering: 0.03000 (37%) | DB: 0.01000 (12%) | 200 OK [http://localhost/spec/edit]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 17:26:13) [POST]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff77d4e7ff6feb2243ba919a985082b8b3deac3b", "action"=>"edit", "spec"=>{"birthdate(1i)"=>"1921", "birthdate(2i)"=>"2", "birthdate(3i)"=>"2", "first_name"=>"hm, pagaliau2", "last_name"=>"velsvieskimanvel2"}, "controller"=>"spec"}
+  [4;36;1mUser Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;36;1mSpec Load (0.000000)[0m   [0;1mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+  [4;35;1mSpec Columns (0.000000)[0m   [0mSHOW FIELDS FROM `specs`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mSpec Update (0.000000)[0m   [0mUPDATE `specs` SET `created_at` = '2009-02-22 17:22:05', `last_name` = 'velsvieskimanvel2', `user_id` = 11, `first_name` = 'hm, pagaliau2', `birthdate` = '1921-02-02', `updated_at` = '2009-02-22 17:26:13' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/user
+Completed in 0.07000 (14 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/spec/edit]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-22 17:26:13) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"index", "controller"=>"user"}
+  [4;35;1mUser Columns (0.000000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.26000 (3 reqs/sec) | Rendering: 0.04000 (15%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 19:33:11) [POST]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff77d4e7ff6feb2243ba919a985082b8b3deac3b", "action"=>"edit", "spec"=>{"birthdate(1i)"=>"2009", "birthdate(2i)"=>"12", "birthdate(3i)"=>"31", "first_name"=>"hm, pagaliau2", "last_name"=>"velsvieskimanvel2"}, "controller"=>"spec"}
+  [4;35;1mUser Columns (0.060000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;35;1mSpec Load (0.030000)[0m   [0mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+  [4;36;1mSpec Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `specs`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/application
+Rendering spec/edit
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.031000)[0m   [0;1mSELECT * FROM `globalize_translations` WHERE (tr_key = 'spec' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = '%d errors prohibited this spec from being saved' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_translations` WHERE (tr_key = 'There were problems with the following fields:' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'Birthdate is invalid' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mGlobalize::ViewTranslation Create (0.000000)[0m   [0;1mINSERT INTO `globalize_translations` (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `namespace`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Birthdate is invalid', NULL, 'ViewTranslation', NULL, NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.040000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.010000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'is invalid' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mGlobalize::ViewTranslation Create (0.000000)[0m   [0;1mINSERT INTO `globalize_translations` (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `namespace`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'is invalid', NULL, 'ViewTranslation', NULL, NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.020000)[0m   [0mCOMMIT[0m
+Completed in 0.31100 (3 reqs/sec) | Rendering: 0.04000 (12%) | DB: 0.19100 (61%) | 200 OK [http://localhost/spec/edit]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 19:36:59) [POST]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff77d4e7ff6feb2243ba919a985082b8b3deac3b", "action"=>"edit", "spec"=>{"birthdate(1i)"=>"2009", "birthdate(2i)"=>"12", "birthdate(3i)"=>"31", "first_name"=>"hm, pagaliau2", "last_name"=>"velsvieskimanvel2"}, "controller"=>"spec"}
+  [4;36;1mUser Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;36;1mSpec Load (0.000000)[0m   [0;1mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+  [4;35;1mSpec Columns (0.010000)[0m   [0mSHOW FIELDS FROM `specs`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering spec/edit
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'spec' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_translations` WHERE (tr_key = '%d errors prohibited this spec from being saved' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.010000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'There were problems with the following fields:' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_translations` WHERE (tr_key = 'Birthdate is invalid' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'is invalid' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+Completed in 0.48100 (2 reqs/sec) | Rendering: 0.41100 (85%) | DB: 0.02000 (4%) | 200 OK [http://localhost/spec/edit]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 19:37:05) [POST]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff77d4e7ff6feb2243ba919a985082b8b3deac3b", "action"=>"edit", "spec"=>{"birthdate(1i)"=>"2009", "birthdate(2i)"=>"1", "birthdate(3i)"=>"16", "first_name"=>"hm, pagaliau2", "last_name"=>"velsvieskimanvel2"}, "controller"=>"spec"}
+  [4;35;1mUser Columns (0.010000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;35;1mSpec Load (0.000000)[0m   [0mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+  [4;36;1mSpec Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `specs`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mSpec Update (0.000000)[0m   [0;1mUPDATE `specs` SET `created_at` = '2009-02-22 17:22:05', `last_name` = 'velsvieskimanvel2', `user_id` = 11, `first_name` = 'hm, pagaliau2', `birthdate` = '2009-01-16', `updated_at` = '2009-02-22 19:37:05' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/user
+Completed in 0.06000 (16 reqs/sec) | DB: 0.01000 (16%) | 302 Found [http://localhost/spec/edit]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-02-22 19:37:05) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"index", "controller"=>"user"}
+  [4;36;1mUser Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+Rendering template within layouts/application
+Rendering user/index
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.03000 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 19:37:08) [POST]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff77d4e7ff6feb2243ba919a985082b8b3deac3b", "action"=>"edit", "spec"=>{"birthdate(1i)"=>"2009", "birthdate(2i)"=>"12", "birthdate(3i)"=>"31", "first_name"=>"hm, pagaliau2", "last_name"=>"velsvieskimanvel2"}, "controller"=>"spec"}
+  [4;36;1mUser Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;36;1mSpec Load (0.000000)[0m   [0;1mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+  [4;35;1mSpec Columns (0.000000)[0m   [0mSHOW FIELDS FROM `specs`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering spec/edit
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'spec' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_translations` WHERE (tr_key = '%d errors prohibited this spec from being saved' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'There were problems with the following fields:' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0;1mSELECT * FROM `globalize_translations` WHERE (tr_key = 'Birthdate is invalid' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000000)[0m   [0mSELECT * FROM `globalize_translations` WHERE (tr_key = 'is invalid' AND language_id = 1819 AND pluralization_index = 1 AND namespace IS NULL) AND ( (`globalize_translations`.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mCOMMIT[0m
+Completed in 0.12000 (8 reqs/sec) | Rendering: 0.05000 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/spec/edit]
+
+
+Processing SpecController#edit (for 127.0.0.1 at 2009-02-22 19:37:10) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"edit", "controller"=>"spec"}
+  [4;35;1mUser Columns (0.000000)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.010000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;35;1mSpec Load (0.010000)[0m   [0mSELECT * FROM `specs` WHERE (specs.user_id = 11) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering spec/edit
+  [4;36;1mSpec Columns (0.000000)[0m   [0;1mSHOW FIELDS FROM `specs`[0m
+Completed in 0.09000 (11 reqs/sec) | Rendering: 0.02000 (22%) | DB: 0.02000 (22%) | 200 OK [http://localhost/spec/edit]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-02-22 19:37:14) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"logout", "controller"=>"user"}
+Cookie set: authorization_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/site
+Completed in 0.06000 (16 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/user/logout]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2009-02-22 19:37:14) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.03000 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/site]
+
+
+Processing SpecController#login (for 127.0.0.1 at 2009-02-22 19:37:20) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"login", "controller"=>"spec"}
+Redirected to http://localhost:3000/user/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x4ce93d0 @filter=:protect>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/spec/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-02-22 19:37:20) [GET]
+  Session ID: 6c6395214a07179e43654a8a707ef253
+  Parameters: {"action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Columns (0.000000)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user/login
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.09000 (64%) | DB: 0.00000 (0%) | 200 OK [http://localhost/user/login]

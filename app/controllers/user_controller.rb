@@ -67,14 +67,6 @@ class UserController < ApplicationController
 
 
   private 
-  def protect
-    unless logged_in? 
-      session[:protected_page] = request.request_uri
-      flash[:notice] = "Please login"
-      redirect_to :action => "login"
-      return false
-    end
-  end
 
   def param_posted? (symbol)
     request.post? and params[symbol]
