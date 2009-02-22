@@ -10,11 +10,13 @@ class SpecController < ApplicationController
     @user.spec ||= Spec.new
     @spec = @user.spec
     if param_posted?(:spec)
+        flash[:notice] = "Changes saved"
       if @user.spec.update_attributes(params[:spec])
-        flash[:notice] = "Chenges saved"
+        flash[:notice] = "Changes saved"
         redirect_to :controller => "user", :action => "index"
+      else
+        flash[:notice] = "Could not save"
       end
     end
   end
-
 end

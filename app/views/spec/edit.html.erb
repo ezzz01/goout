@@ -1,7 +1,6 @@
 <% form_for :spec do |f| %>
   <fieldset>
     <legend><%= @title %></legend>
-
     <%= error_messages_for 'spec' %>
     <%= text_field_for f, "first_name" %>
     <%= text_field_for f, "last_name" %>
@@ -14,5 +13,5 @@
                                 :order => [:day, :month, :year] %>
     </div>
     <%= submit_tag "Update", :class => "submit" %>
-  </fieldset>
+ </fieldset>
 <% end %>

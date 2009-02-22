@@ -1,6 +1,6 @@
 class CreateSpecs < ActiveRecord::Migration
   def self.up
-    create_table :specs do |t|
+    create_table :specs, :options => 'default charset=utf8' do |t|
       t.column :user_id, :integer, :null => false
       t.column :first_name, :string, :default => ""
       t.column :last_name, :string, :default => ""
