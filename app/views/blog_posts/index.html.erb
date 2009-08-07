@@ -1,8 +1,8 @@
 <h1>Listing blog_posts</h1>
-
+<p><%= flash[:notice] %></p>
 <table>
   <tr>
-    <th><%=t :time %></th>
+    <th><%=t :mydate %></th>
     <th><%=t :title %></th>
     <th><%=t :body %></th>
 	<th></th>
@@ -10,7 +10,7 @@
 
 <% for blog_post in @blog_posts %>
   <tr>
-    <td><%= blog_post.created_at %></td>
+    <td><%= l blog_post.created_at %></td>
     <td><%=h blog_post.title %></td>
     <td><%=h blog_post.body %></td>
     <td><%= link_to 'Show', blog_post %></td>

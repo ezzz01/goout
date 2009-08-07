@@ -2,7 +2,32 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 lt:
-  time: "Laikas"
+  mydate: "Data"
   title: "Pavadinimas"
   body: "Body?"
   hello: "Sveikas, pasauli"
+  new_comment: "Naujas komentaras"
+
+  time:
+    formats:
+      default: "%Y-%m-%d" 
+      short: "%m-%d" 
+      long: "%Y-%m-%d %H:%M" 
+    am: "am" 
+    pm: "pm" 
+    
+  
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d" 
+
+    day_names: [Pirmadienis, Antradienis, Trečiadienis, Ketvirtadienis, Penktadienis, Šeštadienis, Sekmadienis]
+    abbr_day_names: [Pirm., Antr., Treč., Ketv., Penkt., Šešt., Sekm.]
+     
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Sausio, Vasario, Kovo, Balandžio, Gegužės, Birželio, Liepos, Rugpūčio, Rugsėjo, Spalio, Lapkričio, Gruodžio]
+    abbr_month_names: [~, Saus., Vas., Kov., Bal., Geg., Birž., Liep., Rugpj., Rugs., Spal., Lapk., Gruod.]
+    # Used in date_select and datime_select.
+    order: [ :year, :month, :day ]
+      
