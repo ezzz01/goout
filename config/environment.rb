@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
+#RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -59,6 +59,6 @@ Rails::Initializer.run do |config|
   DB_STRING_MAX_LENGTH = 255
   HTML_TEXT_FIELD_SIZE = 25
 end
-include Globalize
-Locale.set_base_language('en-US')
-Locale.set 'en-US'
+#include Globalize
+#Locale.set_base_language('en-US')
+#Locale.set 'en-US'

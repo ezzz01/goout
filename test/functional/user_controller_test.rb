@@ -112,9 +112,6 @@ class UserControllerTest < ActionController::TestCase
 
 
   private
-  def authorize(user)
-    @request.session[:user_id] = user.id
-  end
 
   def try_to_login(user)
     post :login, :user => { :username => user.username, :password => user.password }

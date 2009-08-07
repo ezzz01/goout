@@ -59,4 +59,10 @@ class Test::Unit::TestCase
     tag.merge!(options)
     assert_tag tag
   end
+
+  def authorize(user)
+    puts user.id
+    @request.session[:user_id] = user.id
+  end
+
 end

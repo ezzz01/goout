@@ -4,6 +4,7 @@
 <head>
 <title><%= @title %></title>
 <%= stylesheet_link_tag "site" %>
+<%= stylesheet_link_tag "profile" %>
 <%= javascript_include_tag :defaults %>
 </head>
 <body>
@@ -22,6 +23,7 @@
           <div id="notice"><%= flash[:notice] %></div>
         <% end -%>
 <%= yield %>
+<br clear="all">
 <% if ENV["RAILS_ENV"] == "development" %>
   <a href="#" onclick="Element.toggle('params_debug_info');return false"> params</a> |
   <a href="#" onclick="Element.toggle('session_debug_info');return false"> session</a> |

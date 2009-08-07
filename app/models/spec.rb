@@ -12,4 +12,8 @@ class Spec < ActiveRecord::Base
                         :in => VALID_DATES,
                         :allow_nil => true,
                         :message => "is invalid"
+  def full_name
+    [first_name, last_name].join(" ")
+  end
+
 end

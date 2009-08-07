@@ -1,10 +1,13 @@
 class UserController < ApplicationController
   include ApplicationHelper
+  helper :profile
   before_filter :protect, :only => ["index", "edit"]
 
   def index
     @title = "User profile"
     @user = User.find(session[:user_id])
+    @user.spec ||= Spec.new
+    @spec = @user.spec
   end
 
   def register
