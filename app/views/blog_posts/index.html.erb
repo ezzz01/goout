@@ -2,17 +2,15 @@
 
 <table>
   <tr>
-	<th>Time</td>
-    <th>Title</th>
-    <th>Body</th>
+    <th><%=t :time %></th>
+    <th><%=t :title %></th>
+    <th><%=t :body %></th>
 	<th></th>
   </tr>
 
 <% for blog_post in @blog_posts %>
   <tr>
-		  <td><%= Locale.set("lt")
-		  blog_post.created_at.localize("%Y %B %d")
-		  %></td>
+    <td><%= blog_post.created_at %></td>
     <td><%=h blog_post.title %></td>
     <td><%=h blog_post.body %></td>
     <td><%= link_to 'Show', blog_post %></td>

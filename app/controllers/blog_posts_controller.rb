@@ -2,6 +2,7 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.xml
   def index
+ 
     @blog_posts = BlogPost.find(:all)
 
     respond_to do |format|

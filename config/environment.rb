@@ -58,7 +58,8 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   DB_STRING_MAX_LENGTH = 255
   HTML_TEXT_FIELD_SIZE = 25
+  
+  # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+   config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+   config.i18n.default_locale = :lt
 end
-#include Globalize
-#Locale.set_base_language('en-US')
-#Locale.set 'en-US'
