@@ -1,6 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   has_one :spec
+  has_one :blog
 
   attr_accessor :remember_me
   attr_accessor :current_password

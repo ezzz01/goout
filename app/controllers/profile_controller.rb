@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
 
   def index
-    @title = "User profile"
+    @title = "Profiles"
   end
 
   def show
