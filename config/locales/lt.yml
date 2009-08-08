@@ -8,6 +8,22 @@ lt:
   hello: "Sveikas, pasauli"
   new_comment: "Naujas komentaras"
 
+  activerecord:
+    errors:
+      template:
+        header: "a"
+        body: " "
+
+      models:
+        user:
+          attributes:
+            username:
+              too_short: "per trumpas"
+
+            password:
+              too_short: "per trumpas"
+      template:
+        
   time:
     formats:
       default: "%Y-%m-%d" 
