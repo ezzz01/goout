@@ -26,7 +26,7 @@ lt:
     abbr_day_names: [Pirm., Antr., Treč., Ketv., Penkt., Šešt., Sekm.]
      
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, Sausio, Vasario, Kovo, Balandžio, Gegužės, Birželio, Liepos, Rugpūčio, Rugsėjo, Spalio, Lapkričio, Gruodžio]
+    month_names: [~, Sausio, Vasario, Kovo, Balandžio, Gegužės, Birželio, Liepos, Rugpjūčio, Rugsėjo, Spalio, Lapkričio, Gruodžio]
     abbr_month_names: [~, Saus., Vas., Kov., Bal., Geg., Birž., Liep., Rugpj., Rugs., Spal., Lapk., Gruod.]
     # Used in date_select and datime_select.
     order: [ :year, :month, :day ]
