@@ -1,18 +1,18 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
-  def test_should_get_index
+  test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:comments)
   end
 
-  def test_should_get_new
+  test "should get new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_comment
+  test "should create comment" do
     assert_difference('Comment.count') do
       post :create, :comment => { }
     end
@@ -20,24 +20,24 @@ class CommentsControllerTest < ActionController::TestCase
     assert_redirected_to comment_path(assigns(:comment))
   end
 
-  def test_should_show_comment
-    get :show, :id => comments(:one).id
+  test "should show comment" do
+    get :show, :id => comments(:one).to_param
     assert_response :success
   end
 
-  def test_should_get_edit
-    get :edit, :id => comments(:one).id
+  test "should get edit" do
+    get :edit, :id => comments(:one).to_param
     assert_response :success
   end
 
-  def test_should_update_comment
-    put :update, :id => comments(:one).id, :comment => { }
+  test "should update comment" do
+    put :update, :id => comments(:one).to_param, :comment => { }
     assert_redirected_to comment_path(assigns(:comment))
   end
 
-  def test_should_destroy_comment
+  test "should destroy comment" do
     assert_difference('Comment.count', -1) do
-      delete :destroy, :id => comments(:one).id
+      delete :destroy, :id => comments(:one).to_param
     end
 
     assert_redirected_to comments_path

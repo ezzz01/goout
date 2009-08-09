@@ -1,10 +1,20 @@
 <h1>Editing comment</h1>
 
-<%= error_messages_for :comment %>
+<% form_for(@comment) do |f| %>
+  <%= f.error_messages %>
 
-<%= render :partial => @comment, 
-  :locals => { :button_name => "Update"} %>
+  <p>
+    <%= f.label :post %><br />
+    <%= f.text_field :post %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
 
-<%= link_to 'Show', [@blog_post, @comment] %> |
-<%= link_to 'Back', blog_post_comments_path(@blog_post) %>
-
+<%= link_to 'Show', @comment %> |
+<%= link_to 'Back', comments_path %>

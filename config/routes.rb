@@ -1,9 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :posts
+  map.resources :tags
 
-  map.resources :blogs do |blog|
-    blog.resources :posts
-  end
+
+  map.resources :comments
+
+
+  map.resources :blogs, :has_many => :posts
 
   map.resources :users
 
@@ -11,9 +13,6 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
   	admin.resources :blog_posts
   end
-
-
-  map.resources :blog_posts, :has_many => :comments
 
   map.resources :comments
   

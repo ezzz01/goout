@@ -1,7 +1,7 @@
 class CreateComments < ActiveRecord::Migration
   def self.up
     create_table :comments, :options => 'default charset=utf8' do |t|
-      t.references :blog_post
+      t.references :post
       t.text :body
 
       t.timestamps

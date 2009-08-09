@@ -1,6 +1,6 @@
 <p>
-  <b>Blog post:</b>
-  <%=h @comment.blog_post %>
+  <b>Post:</b>
+  <%=h @comment.post %>
 </p>
 
 <p>
@@ -9,5 +9,5 @@
 </p>
 
 
-<%= link_to 'Edit', [:edit, @blog_post, @comment] %> |
-<%= link_to 'Back', blog_post_comments_path(@blog_post) %>
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

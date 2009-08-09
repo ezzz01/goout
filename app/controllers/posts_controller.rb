@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @pages, @posts = paginate(@blog.posts)
+    @posts = @blog.posts
+    @post.blog = @blog
     @title = "Blog management"
 
     respond_to do |format|
