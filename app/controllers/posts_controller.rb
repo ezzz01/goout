@@ -4,9 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = @blog.posts
-    @post.blog = @blog
-    @title = "Blog management"
+    @posts = Post.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,7 +46,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     respond_to do |format|
-      if @blog.post << @post 
+      if @post.save 
         flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to post_url(:id => @post) }
         format.xml  { render :xml => post_url(:id => @post), :status => :created, :location => post_url(:id => @post) }
@@ -91,13 +89,13 @@ class PostsController < ApplicationController
   private
 
   def protect_blog
-    @blog = Blog.find(params[:blog_id])
+  #  @blog = Blog.find(params[:blog_id])
     user = User.find(session[:user_id])
-    unless @blog.user == user
-      flash[:notice] = "That isn't your blog!"
-      redirect_to posts_url
-      return false
-    end
+  #  unless @blog.user == user
+  #    flash[:notice] = "That isn't your blog!"
+  #    redirect_to posts_url
+  #    return false
+  #  end
   end
 
 end

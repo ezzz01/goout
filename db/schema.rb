@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090809154107) do
+ActiveRecord::Schema.define(:version => 20090809160517) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(:version => 20090809154107) do
   add_index "globalize_translations", ["tr_key", "language_id"], :name => "index_globalize_translations_on_tr_key_and_language_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "blog_id"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"

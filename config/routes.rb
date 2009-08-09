@@ -1,15 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tags
 
-  map.resources :tags
-
-  map.resources :tags
-
-
   map.resources :comments
 
-
-  map.resources :blogs, :has_many => :posts
+  map.resources :posts
 
   map.resources :users
 
