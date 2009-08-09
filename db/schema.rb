@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090808103253) do
+ActiveRecord::Schema.define(:version => 20090808173534) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -19,10 +19,9 @@ ActiveRecord::Schema.define(:version => 20090808103253) do
   end
 
   create_table "blogs", :force => true do |t|
-    t.string   "title"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -84,6 +83,14 @@ ActiveRecord::Schema.define(:version => 20090808103253) do
   add_index "globalize_translations", ["table_name", "item_id", "language_id"], :name => "globalize_translations_table_name_and_item_and_language"
   add_index "globalize_translations", ["tr_key", "language_id"], :name => "index_globalize_translations_on_tr_key_and_language_id"
 
+  create_table "posts", :force => true do |t|
+    t.integer  "blog_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :default => "", :null => false
     t.text     "data"
@@ -110,7 +117,6 @@ ActiveRecord::Schema.define(:version => 20090808103253) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "authorization_token"
-    t.integer  "blog_id"
   end
 
 end

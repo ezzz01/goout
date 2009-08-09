@@ -1,10 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :posts
+
+  map.resources :blogs do |blog|
+    blog.resources :posts
+  end
+
   map.resources :users
 
 
   map.namespace :admin do |admin|
   	admin.resources :blog_posts
   end
+
 
   map.resources :blog_posts, :has_many => :comments
 
