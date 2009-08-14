@@ -19,10 +19,14 @@
   <b>Comments:</b>
   <%=h @post.comments.size %>
 </p>
-
-<% @post.comments.each do |comment| %>
-  <p><%= h comment.body %></p>    
+<% unless @post.comments.empty? %>
+    <% @post.comments.each do |comment| %>
+      <p><%= h comment.body %></p>    
+  <% end %>
 <% end %>
-<%= link_to 'Comments', post_comments_path(@post) %>
+
+<h3>New Comment</h3>
+<%= render :partial => @comment = Comment.new, :locals => {:button_name => 'Create'} %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
