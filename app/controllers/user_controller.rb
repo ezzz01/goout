@@ -8,7 +8,7 @@ class UserController < ApplicationController
     @user = User.find(session[:user_id])
     @user.spec ||= Spec.new
     @spec = @user.spec
-#    @posts = @user.blog ||= Blog.new
+    @posts = @user.posts
   end
 
   def register

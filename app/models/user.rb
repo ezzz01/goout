@@ -1,7 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   has_one :spec
-  has_many :posts
+  has_many :posts, :order => "created_at DESC"
 
   attr_accessor :remember_me
   attr_accessor :current_password

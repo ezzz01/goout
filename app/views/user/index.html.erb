@@ -42,7 +42,11 @@
     <%= link_to "(edit)", :controller => "spec", :action => "edit" %>
   </span>
   <hr noshade />
-  <%= link_to "(manage)", posts_path(@blog) %>
-  My Bio
+  <% unless @posts.empty? %>
+    <h3>Blog posts</h3>
+        <% @posts.each do |post| %>
+          <p><%= post.body %></p>
+        <% end %>
+  <% end %>
 </div>
 
