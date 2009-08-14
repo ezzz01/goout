@@ -3,8 +3,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :posts, :has_many => :comments
 
-  map.resources :users
-
+  map.resources :users do |user|
+    user.resources :posts do |post|
+      post.resources :comments
+    end
+  end
 
   map.namespace :admin do |admin|
   	admin.resources :blog_posts
