@@ -12,7 +12,8 @@ class UserController < ApplicationController
   end
 
   def register
-    @title = "Register"
+    @title = t(:register)
+    @register_button = t(:register_button) 
     if param_posted?(:user) 
       @user = User.new(params[:user])
       @user.blog = Blog.new
@@ -27,7 +28,9 @@ class UserController < ApplicationController
   end
 
   def login
-    @title = "Login"
+    @title = t(:login)
+    @register = t(:register)
+    @login_button = t(:login_button)
     if request.get?
       @user = User.new(:remember_me => cookies[:remember_me] || "0")
     elsif param_posted?(:user)

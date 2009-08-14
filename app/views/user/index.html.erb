@@ -8,11 +8,11 @@
     <div class="sidebar_box_contents">
       <table>
         <tr>
-          <td class="label">Username:</td>
+          <td class="label"><%=t :username %></td>
           <td><%= @user.username %></td>
         </tr>
         <tr>
-          <td class="label">Email:</td>
+          <td class="label"><%=t :email %></td>
           <td><%= @user.email %></td>
         </tr>
       </table>  
@@ -45,6 +45,7 @@
   <% unless @posts.empty? %>
     <h3>Blog posts</h3>
         <% @posts.each do |post| %>
+          <p><%=t post.created_at %></p>
           <p><%= post.body %></p>
         <% end %>
   <% end %>

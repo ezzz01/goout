@@ -5,7 +5,17 @@
   :mydate => "Data",
   :title => "Pavadinimas",
   :body => "Body?",
-  :hello => "Sveikas, pasauli",
+  #register, login, user profile
+  :register => "Registracija",
+  :login => "Prisijungti",
+  :register_button => "Registruotis",
+  :login_button => "Prisijungti",
+  :enter_your_details => "Įveskite savo duomenis",
+  :username => "Vartotojo vardas", 
+  :email => "El. paštas",
+  :password => "Slaptažodis",
+  :remember_me => "Prisiminti mane?",
+  #blog
   :new_comment => "Naujas komentaras",
 
   :models => {
