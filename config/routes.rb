@@ -1,9 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tags
 
-  map.resources :posts, :has_many => :comments
-
-  map.resources :users do |user|
+  map.resources :users, :shallow => true do |user|
     user.resources :posts do |post|
       post.resources :comments
     end
