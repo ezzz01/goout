@@ -1,16 +1,7 @@
 <h1>New post</h1>
-
 <% form_for(@post, :url => user_posts_path) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-  <%=
-    # f.label :blog_id 
-    %><br />
-  <%=
-      #f.text_field :blog_id 
-    %>
-  </p>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>

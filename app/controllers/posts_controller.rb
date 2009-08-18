@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   include ApplicationHelper
   helper :profile
-  before_filter :protect, :protect_blog
+  before_filter :protect
+  before_filter :protect_blog, :only => ["new", "create", "edit", "update", "destroy"]
   # GET /posts
   # GET /posts.xml
   def index
@@ -91,12 +92,12 @@ class PostsController < ApplicationController
 
   def protect_blog
   #  @blog = Blog.find(params[:blog_id])
-    user = User.find(session[:user_id])
-  #  unless @blog.user == user
-  #    flash[:notice] = "That isn't your blog!"
-  #    redirect_to posts_url
-  #    return false
-  #  end
+    #user = User.find(session[:user_id])
+    #unless params[:user_id] == user
+    #  flash[:notice] = "That isn't your blog!"
+    #  redirect_to user_posts_url
+    #  return false
+    #end
   end
 
 end
