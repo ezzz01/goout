@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  include ApplicationHelper
   helper :profile
   before_filter :protect, :protect_blog
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = User.find(params[:user_id]).posts
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }

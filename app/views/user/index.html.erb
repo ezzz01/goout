@@ -45,7 +45,7 @@
   <% unless @posts.empty? %>
     <h3>Blog posts</h3>
         <% @posts.each do |post| %>
-          <p><%=t post.created_at %></p>
+          <p><%=l post.created_at %></p>
           <p><%= post.body %></p>
         <% end %>
   <% end %>
