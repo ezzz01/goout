@@ -19,4 +19,8 @@ module ApplicationHelper
     content_tag("div", "#{label} #{form_field}", :class => "form_row")
   end
 
+  def paginated?
+    @pages and @pages.length > 1
+  end
+
 end
