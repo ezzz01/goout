@@ -16,7 +16,6 @@ class UserController < ApplicationController
     @register_button = t(:register_button) 
     if param_posted?(:user) 
       @user = User.new(params[:user])
-      @user.blog = Blog.new
       if @user.save
         @user.login!(session) 
         flash[:notice] = "User #{@user.username} created"

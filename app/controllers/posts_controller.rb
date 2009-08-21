@@ -91,8 +91,7 @@ class PostsController < ApplicationController
   private
 
   def protect_blog
-  #  @blog = Blog.find(params[:blog_id])
-    #user = User.find(session[:user_id])
+    user = User.find(session[:user_id])
     #unless params[:user_id] == user
     #  flash[:notice] = "That isn't your blog!"
     #  redirect_to user_posts_url
