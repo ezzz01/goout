@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     @post.user_id = params[:user_id]
 
     respond_to do |format|
-      if @post.save 
+      if @post.duplicate? or @post.save 
         flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to user_url(:id => @post.user_id) }
         format.xml  { render :xml => post_url(:id => @post), :status => :created, :location => post_url(:id => @post) }
