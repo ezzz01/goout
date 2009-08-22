@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  has_many :comments
+  has_many :comments, :order => "created_at", :dependent => :destroy
 
   validates_presence_of :body
   validates_length_of :title, :maximum => 100

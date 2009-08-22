@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include ApplicationHelper
   helper :profile
-  before_filter :protec, :only => ["new", "create", "edit", "update", "destroy"]
+  before_filter :protect, :only => ["new", "create", "edit", "update", "destroy"]
   before_filter :protect_blog, :only => ["new", "create", "edit", "update", "destroy"]
 
   # GET /posts
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
-    @anonymous = t(:anonymous)
+  @anonymous = t(:anonymous)
     @title = @post.title
     respond_to do |format|
       format.html # show.html.erb
@@ -53,8 +53,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.duplicate? or @post.save 
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to user_url(:id => @post.user_id) }
-        format.xml  { render :xml => post_url(:id => @post), :status => :created, :location => post_url(:id => @post) }
+        format.html { redirect_to user_posts_url(:id => @post.user_id) }
+        format.xml  { render :xml => user_posts_url(@post.user_id), :status => :created, :location => post_url(:id => @post) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
@@ -86,7 +86,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to(posts_url) }
+      format.html { redirect_to(user_posts_url(@post.user_id)) }
       format.xml  { head :ok }
     end
   end
