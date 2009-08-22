@@ -18,7 +18,12 @@
   <b><%= t(:comments) %>:</b> <%=h @post.comments.size %>
   </p>
     <% @post.comments.each do |comment| %>
-      <p><%=  comment.user_id.nil? ? @anonymous : User.find(comment.user_id).username %>
+      <p>
+        <%= if comment.user_id.nil? 
+            @anonymous
+          else
+            link_to comment.user.username, profile_for(comment.user) 
+          end %>
       <%= h comment.created_at.as_lt_words %></p>
       <p><%= h comment.body %></p>    
       <br />
