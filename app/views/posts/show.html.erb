@@ -6,28 +6,26 @@
 </p>
 
 <p>
-  <b>Title:</b>
-  <%=h @post.title %>
+  <b><%=h @post.title %></b>
 </p>
 
 <p>
-  <b>Body:</b>
   <%=h @post.body %>
 </p>
 
 <% unless @post.comments.empty? %>
   <p>
-    <b>Comments:</b> <%=h @post.comments.size %>
+  <b><%= t(:comments) %>:</b> <%=h @post.comments.size %>
   </p>
     <% @post.comments.each do |comment| %>
-      <p><%=  comment.user_id.nil? ? "Anonimas" : User.find(comment.user_id).username %>
+      <p><%=  comment.user_id.nil? ? @anonymous : User.find(comment.user_id).username %>
       <%= h comment.created_at.as_lt_words %></p>
       <p><%= h comment.body %></p>    
       <br />
   <% end %>
 <% end %>
 
-<h3>New Comment</h3>
+<h3><%= t(:new_comment) %></h3>
 <%= render :partial => @comment = Comment.new, :locals => {:button_name => 'Create'} %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

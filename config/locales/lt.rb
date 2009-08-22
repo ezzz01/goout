@@ -17,6 +17,9 @@
   :remember_me => "Prisiminti mane?",
   #blog
   :new_comment => "Naujas komentaras",
+  :comments => "Komentarų",
+  #comments
+  :anonymous => "Anonimas",
 
   :models => {
       :user => {
