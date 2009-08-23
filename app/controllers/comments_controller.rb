@@ -34,6 +34,14 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @comment }
+      format.js {
+        render :update do |page|
+          page.hide "add_comment_link_for_post_#{@post.id}"
+          page.replace_html "new_comment_form_for_post_#{@post.id}",
+            :partial => "new_comment", 
+            :locals => {:button_name => t(:send)}
+        end
+      }
     end
   end
 
@@ -47,14 +55,25 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(params[:comment])
     @comment.user_id = session[:user_id] 
+
     respond_to do |format|
-      if @comment.save
+      if @comment.duplicate? or @comment.save
         flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to(@post) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.js {render :update do |page|
+              page.replace_html "comments_for_post_#{@post.id}",
+                :partial => "comment",
+                :locals => {:button_name => t(:send)},
+                :collection => @post.comments 
+#              page.show "add_comment_link_for_post_#{@post.id}"
+             # page.hide "new_comment_form_for_post_#{@post.id}"
+          end
+        }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        format.js { render :nothing => true}
       end
     end
   end

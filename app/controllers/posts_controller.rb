@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @posts = User.find(params[:user_id]).posts
-    @anonymous = t(:anonymous)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
@@ -19,7 +18,6 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
-  @anonymous = t(:anonymous)
     @title = @post.title
     respond_to do |format|
       format.html # show.html.erb

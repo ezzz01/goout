@@ -1,10 +1,9 @@
-<% form_for([@post, @comment]) do |f| %>
-  <p>
-    <%= f.text_area :body %>
-  </p>
-
-  <p>
-    <%= f.submit button_name %>
-  </p>
-<% end %>
-
+<div id="comment_<%= comment.id %>">
+ <%= if comment.user_id.nil? 
+   t(:anonymous)
+ else
+ link_to comment.user.username, profile_for(comment.user) 
+end %>
+<%= h comment.created_at.as_lt_words %></p>
+<p><%= sanitize comment.body %></p>    
+</div>

@@ -1,11 +1,4 @@
 <p>
-  <b>Blog:</b>
-  <%=
- #   h @post.blog_id 
-  %>
-</p>
-
-<p>
   <b><%=h @post.title %></b>
 </p>
 
@@ -13,25 +6,23 @@
   <%=h @post.body %>
 </p>
 
-<% unless @post.comments.empty? %>
-  <p>
+<p>
   <b><%= t(:comments) %>:</b> <%=h @post.comments.size %>
-  </p>
-    <% @post.comments.each do |comment| %>
-      <p>
-        <%= if comment.user_id.nil? 
-            @anonymous
-          else
-            link_to comment.user.username, profile_for(comment.user) 
-          end %>
-      <%= h comment.created_at.as_lt_words %></p>
-      <p><%= h comment.body %></p>    
-      <br />
-  <% end %>
-<% end %>
+</p>
 
-<h3><%= t(:new_comment) %></h3>
-<%= render :partial => @comment = Comment.new, :locals => {:button_name => 'Create'} %>
+<div id="comments_for_post_<%= @post.id %>">
+
+   <%= render :partial => "comments/comment", :collection => @post.comments %>
+
+  <div id="add_comment_link_for_post_<%= @post.id %>">
+    <%= link_to_remote t(:new_comment), :url => new_post_comment_path(@post.id), :method => :get %>
+  </div>
+
+  <div id="new_comment_form_for_post_<%= @post.id %>">
+
+  </div>
+
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', url_for(:back) %>

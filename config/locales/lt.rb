@@ -15,6 +15,7 @@
   :email => "El. paštas",
   :password => "Slaptažodis",
   :remember_me => "Prisiminti mane?",
+  :send => "Siųsti",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",
