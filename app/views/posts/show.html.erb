@@ -7,22 +7,21 @@
 </p>
 
 <p>
-  <b><%= t(:comments) %>:</b> <%=h @post.comments.size %>
+  <b><%= t(:comments) %>:</b>
+  <span id="comments_number_for_post_<%= @post.id %>"><%=h @post.comments.size %></span>
 </p>
 
 <div id="comments_for_post_<%= @post.id %>">
 
    <%= render :partial => "comments/comment", :collection => @post.comments %>
 
-  <div id="add_comment_link_for_post_<%= @post.id %>">
-    <%= link_to_remote t(:new_comment), :url => new_post_comment_path(@post.id), :method => :get %>
-  </div>
-
-  <div id="new_comment_form_for_post_<%= @post.id %>">
-
-  </div>
-
 </div>
+
+<div id="add_comment_link_for_post_<%= @post.id %>">
+  <%= link_to_remote t(:new_comment), :url => new_post_comment_path(@post.id), :method => :get %>
+</div>
+
+<div id="new_comment_form_for_post_<%= @post.id %>"></div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', url_for(:back) %>

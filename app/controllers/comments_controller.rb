@@ -40,6 +40,7 @@ class CommentsController < ApplicationController
           page.replace_html "new_comment_form_for_post_#{@post.id}",
             :partial => "new_comment", 
             :locals => {:button_name => t(:send)}
+          page.show "new_comment_form_for_post_#{@post.id}"
         end
       }
     end
@@ -58,7 +59,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.duplicate? or @comment.save
-        flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to(@post) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
         format.js {render :update do |page|
@@ -66,8 +66,9 @@ class CommentsController < ApplicationController
                 :partial => "comment",
                 :locals => {:button_name => t(:send)},
                 :collection => @post.comments 
-#              page.show "add_comment_link_for_post_#{@post.id}"
-             # page.hide "new_comment_form_for_post_#{@post.id}"
+              page.replace_html "comments_number_for_post_#{@post.id}", @post.comments.size
+              page.show "add_comment_link_for_post_#{@post.id}"
+              page.hide "new_comment_form_for_post_#{@post.id}"
           end
         }
       else
