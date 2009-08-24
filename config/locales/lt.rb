@@ -16,6 +16,7 @@
   :password => "Slaptažodis",
   :remember_me => "Prisiminti mane?",
   :send => "Siųsti",
+  :delete => "Ištrinti",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",

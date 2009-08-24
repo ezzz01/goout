@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
- before_filter :load_post
+ before_filter :load_post, :only => ["new", "create"]
 
   def load_post
     @post = Post.find(params[:post_id])
@@ -99,12 +99,18 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
-    @comment = @post.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
     @comment.destroy
 
     respond_to do |format|
       format.html { redirect_to(post_comments_url(@post)) }
       format.xml  { head :ok }
+      format.js { render :update do |page|
+        page.remove "comment_#{@comment.id}"
+        page.replace_html "comments_number_for_post_#{@post.id}", @post.comments.size
+      end
+      }
     end
   end
 end
