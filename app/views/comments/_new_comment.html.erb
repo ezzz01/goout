@@ -4,7 +4,12 @@
   </p>
 
   <p>
-    <%= f.submit button_name %>
+  <%= f.submit button_name %> 
+  <%= button_to_function t(:cancel) do |page|
+        page.visual_effect :blind_up, "new_comment_form_for_post_#{@post.id}"
+        page.show "add_comment_link_for_post_#{@post.id}"
+      end
+  %>
   </p>
 <% end %>
 

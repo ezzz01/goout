@@ -17,6 +17,7 @@
   :remember_me => "Prisiminti mane?",
   :send => "Siųsti",
   :delete => "Ištrinti",
+  :cancel => "Atšaukti",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",

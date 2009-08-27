@@ -2,5 +2,5 @@
 
 <%= error_messages_for :comment %>
 
-<%= render :partial => @comment, :locals => {:button_name => "Create"} %>
+<%= render :partial => @comment, :locals => {:button_name => t(:create)} %>
 <%= link_to 'Back', post_comments_path(@post) %>
