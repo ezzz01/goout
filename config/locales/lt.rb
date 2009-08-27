@@ -5,6 +5,7 @@
   :mydate => "Data",
   :title => "Pavadinimas",
   :body => "Body?",
+  :tags => "Žymės",
   #register, login, user profile
   :register => "Registracija",
   :login => "Prisijungti",
@@ -18,6 +19,7 @@
   :send => "Siųsti",
   :delete => "Ištrinti",
   :cancel => "Atšaukti",
+
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",

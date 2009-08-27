@@ -45,9 +45,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
+    @tags_split = params[:post][:tags].split(',')
+    @tags = Array.new
+    @tags_split.each do |tag|
+      @tag = Tag.new(:tag => tag)
+      @tags << @tag
+    end
+    params[:post][:tags] = @tags
     @post = Post.new(params[:post])
     @post.user_id = params[:user_id]
-
     respond_to do |format|
       if @post.duplicate? or @post.save 
         flash[:notice] = 'Post was successfully created.'
