@@ -18,7 +18,11 @@
 </div>
 
 <div id="add_comment_link_for_post_<%= @post.id %>">
-  <%= link_to_remote t(:new_comment), :url => new_post_comment_path(@post.id), :method => :get %>
+  <%= link_to_remote t(:new_comment),
+    {:url => new_post_comment_path(@post.id), 
+    :method => :get},
+    :href => new_post_comment_path(@post)
+  %>
 </div>
 
 <div id="new_comment_form_for_post_<%= @post.id %>"></div>
