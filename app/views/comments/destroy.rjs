@@ -1,0 +1,5 @@
+page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 2
+page.visual_effect :toggle_blind, "comment_#{@comment.id}", :duration => 2
+#page.visual_effect :fade, "comment_#{@comment.id}"
+#page.remove "comment_#{@comment.id}"
+page.replace_html "comments_number_for_post_#{@post.id}", @post.comments.size

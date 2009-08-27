@@ -34,15 +34,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @comment }
-      format.js {
-        render :update do |page|
-          page.hide "add_comment_link_for_post_#{@post.id}"
-          page.replace_html "new_comment_form_for_post_#{@post.id}",
-            :partial => "new_comment", 
-            :locals => {:button_name => t(:send)}
-          page.show "new_comment_form_for_post_#{@post.id}"
-        end
-      }
+      format.js #new.rjs 
     end
   end
 
@@ -61,16 +53,7 @@ class CommentsController < ApplicationController
       if @comment.duplicate? or @comment.save
         format.html { redirect_to(@post) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-        format.js {render :update do |page|
-              page.replace_html "comments_for_post_#{@post.id}",
-                :partial => "comment",
-                :locals => {:button_name => t(:send)},
-                :collection => @post.comments 
-              page.replace_html "comments_number_for_post_#{@post.id}", @post.comments.size
-              page.show "add_comment_link_for_post_#{@post.id}"
-              page.hide "new_comment_form_for_post_#{@post.id}"
-          end
-        }
+        format.js #create.rjs
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
@@ -106,11 +89,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(post_comments_url(@post)) }
       format.xml  { head :ok }
-      format.js { render :update do |page|
-        page.remove "comment_#{@comment.id}"
-        page.replace_html "comments_number_for_post_#{@post.id}", @post.comments.size
-      end
-      }
+      format.js #destroy.rjs 
     end
   end
 end
