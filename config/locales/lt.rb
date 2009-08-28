@@ -26,17 +26,30 @@
   #comments
   :anonymous => "Anonimas",
 
+  #custom_errors
+  :username_error => "turi susidėti tik iš raidžių, skaičių, brūkšių (-) ir pabraukimo brūkšnių (-)",
+  :no_spaces => "neturi turėti tarpų",
+  :not_correct => "neteisingas",
+  :must_be_valid => "turi būti teisingas",
+
+
   :models => {
       :user => {
         :attributes => {
-          :username => {
-            :too_short => "per trumpas"
-            }
+          :username => "Vartotojo vardas",
+          :password => "Slaptažodis",
           }
         }  
   },
 
   :activerecord => {
+    :attributes => {
+        :user => {  
+          :username => "Vartotojo vardas",
+          :password => "Slaptažodis",
+          :email => "El. paštas"
+        }
+    },
     :errors => {
       :template => {
         :header => {

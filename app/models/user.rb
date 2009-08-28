@@ -23,15 +23,17 @@ class User < ActiveRecord::Base
   validates_length_of     :username, :within => USERNAME_RANGE
   validates_length_of     :password, :within => PASSWORD_RANGE
   validates_length_of     :email,   :maximum => EMAIL_MAX_LENGTH 
+  validates_format_of :email,
+                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
+                      :message => I18n.t(:must_be_valid) 
   validates_format_of :username,
                       :with => /^[A-Z0-9_-]*$/i,
-                      :message => "must contain only letters, numbers, underscores and dashes"
+                      :message => I18n.t(:username_error)
 
 
   def validate
-    errors.add(:email, "must be valid.") unless email.include? ("@")
     if username.include?(" ")
-      errors.add(:username, "cannot include spaces.")
+      errors.add(:username, I18n.t(:no_spaces))
     end
   end
  
@@ -79,7 +81,7 @@ class User < ActiveRecord::Base
     self.password = params[:user][:password]
     self.password_confirmation = params[:user][:password_confirmation]
     valid?
-    errors.add(:current_password, "is incorrect")
+    errors.add(:current_password, I18n.t(:not_correct))
   end
 
   private
