@@ -1,25 +1,38 @@
 <h1>Listing posts</h1>
 
 <table>
-  <tr>
-    <th></th>
-    <th><%= t(:title) %></th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= l post.created_at %></td>
-    <td><%=h post.title %></td>
+    <td colspan="2">
+      <b><%=h post.title %></b>
+      <%= l post.created_at %>
+    </td>
+  </tr>
+  <% unless post.tag_list.size == 0 %>
+  <tr>
+    <td colspan="2">
+      <b><%= t(:tags) %></b>: 
+        <% post.tag_list.each do |tag| %>
+        <%= link_to tag, user_posts_url(post.user) %>
+        <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
     <td><%=h post.body %></td>
-    <td><%=h post.comments.size %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= link_to t(:comments) + ": " + post.comments.size.to_s, post %> <%=  %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
   </tr>
 <% end %>
 </table>

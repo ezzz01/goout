@@ -1,7 +1,9 @@
 <p>
   <h3><%=h @post.title %></h3>
 </p>
-
+<p>
+  <b><%= t(:tags) %></b>: <%=h @post.tag_list %>
+</p>
 <p>
   <%=h @post.body %>
 </p>
