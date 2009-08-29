@@ -2,15 +2,6 @@
   <h3><%=h @post.title %></h3>
 </p>
 
-<% if @post.tags.size > 0 %>
-  <p>
-    <b><%= t(:tags) %></b>:
-      <% for i in 0...@post.tags.size %>
-        <%= @post.tags[i].tag %>
-    <% end %>
-  </p>
-<% end %>
-
 <p>
   <%=h @post.body %>
 </p>

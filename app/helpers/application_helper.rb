@@ -13,9 +13,13 @@ module ApplicationHelper
   end
 
   def text_field_for(form, field, size=HTML_TEXT_FIELD_SIZE, 
-                     maxlength=DB_STRING_MAX_LENGTH)
+                     maxlength=DB_STRING_MAX_LENGTH, *value )
     label = content_tag("label", "#{field.humanize}:", :for => field)
-    form_field = form.text_field field, :size => size, :maxlength => maxlength
+    if value.empty?
+      form_field = form.text_field field, :size => size, :maxlength => maxlength 
+    else
+      form_field = form.text_field field, :size => size, :maxlength => maxlength, :value => value 
+    end
     content_tag("div", "#{label} #{form_field}", :class => "form_row")
   end
 
