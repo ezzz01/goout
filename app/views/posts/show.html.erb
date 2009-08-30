@@ -21,13 +21,13 @@
 
 <div id="add_comment_link_for_post_<%= @post.id %>">
   <%= link_to_remote t(:new_comment),
-    {:url => new_post_comment_path(@post.id), 
+    {:url => new_user_post_comment_path(@post.user_id, @post), 
     :method => :get},
-    :href => new_post_comment_path(@post)
+    :href => new_user_post_comment_path(@post.user_id, @post)
   %>
 </div>
 
 <div id="new_comment_form_for_post_<%= @post.id %>"></div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_user_post_path(@post.user_id, @post) %> |
 <%= link_to 'Back', url_for(:back) %>

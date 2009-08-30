@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
- before_filter :load_post, :only => ["new", "create"]
+ before_filter :load_post, :only => ["index", "show", "new", "create"]
 
   def load_post
     @post = Post.find(params[:post_id])
@@ -8,23 +8,13 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
   def index
-    @comments = Comment.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @comments }
-    end
+    redirect_to user_post_path(@post.user_id, @post) 
   end
 
   # GET /comments/1
   # GET /comments/1.xml
   def show
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @comment }
-    end
+    redirect_to user_post_path(@post.user_id, @post) 
   end
 
   # GET /comments/new

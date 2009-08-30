@@ -47,7 +47,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user_id = params[:user_id]
-    @post.tag_list = "First, Second"
     respond_to do |format|
       if @post.duplicate? or @post.save 
         flash[:notice] = 'Post was successfully created.'
@@ -67,7 +66,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to post_url(:id => @post) }
+        format.html { redirect_to user_post_url(@post.user_id, @post) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

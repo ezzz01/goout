@@ -22,13 +22,13 @@
   <tr>
     <td><%=h post.body %></td>
     <td>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
+      <%= link_to 'Destroy', user_posts_path, :confirm => 'Are you sure?', :method => :delete %>
     </td>
   </tr>
   <tr>
     <td colspan="2">
-      <%= link_to t(:comments) + ": " + post.comments.size.to_s, post %> <%=  %>
+      <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user, post) %> <%=  %>
     </td>
   </tr>
   <tr>

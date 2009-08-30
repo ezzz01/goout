@@ -2,5 +2,5 @@
 
 <%= render :partial => "form", :locals => {:button_name => "Update", :url_path => {:controller => "posts", :action => "update"}} %>
 
-<%= link_to 'Show', @post %> |
+<%= link_to 'Show', [@post.user, @post] %> |
 <%= link_to 'Back', url_for(:back) %>
