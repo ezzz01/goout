@@ -7,7 +7,7 @@ end %>
 <%= h comment.created_at.as_lt_words %></p>
 <span class="edit_link" style="float: right">
   <%= link_to_remote t(:delete), 
-    :url => user_post_comment_path(comment.user, comment.post, comment),
+    :url => user_post_comment_path(comment.post.user, comment.post, comment),
     :method => :delete,
     :confirm => "Are you sure?"
   %>

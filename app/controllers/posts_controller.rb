@@ -7,7 +7,15 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = User.find(params[:user_id]).posts
+    if (params[:tag_id])
+      @posts = User.find(params[:user_id]).posts.find_tagged_with(params[:tag_id])
+    else
+      @posts = User.find(params[:user_id]).posts
+    end
+    
+    @tags = User.find(params[:user_id]).posts.tag_counts
+    @user = User.find(params[:user_id])
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
@@ -86,6 +94,7 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 
   private
 
