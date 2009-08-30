@@ -15,10 +15,7 @@
   <% unless post.tag_list.size == 0 %>
   <tr>
     <td colspan="2">
-      <b><%= t(:tags) %></b>: 
-        <% post.tag_list.each do |tag| %>
-        <%= link_to tag, user_tag_posts_url(post.user, tag) %>
-        <% end %>
+      <%= render :partial => "tag_list", :locals => {:post => post} %> 
     </td>
   </tr>
   <% end %>
@@ -42,9 +39,7 @@
 </td>
 
 <td width="20%" valign="top">
-  <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
-    <%= link_to tag.name, user_tag_posts_url(@user, tag.name), :class => css_class %>
-  <% end %>
+  <%= render :partial => "tag_cloud" %>
 </td>
   </tr>
 </table>

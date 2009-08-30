@@ -2,7 +2,7 @@
   <h3><%=h @post.title %></h3>
 </p>
 <p>
-  <b><%= t(:tags) %></b>: <%=h @post.tag_list %>
+  <%= render :partial => "tag_list", :locals => {:post => @post} %> 
 </p>
 <p>
   <%=h @post.body %>
@@ -30,4 +30,4 @@
 <div id="new_comment_form_for_post_<%= @post.id %>"></div>
 
 <%= link_to 'Edit', edit_user_post_path(@post.user_id, @post) %> |
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to 'Back', user_posts_path(@post.user_id) %>
