@@ -23,7 +23,7 @@
     <td><%=h post.body %></td>
     <td>
       <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
-      <%= link_to 'Destroy', user_posts_path, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to 'Destroy', user_post_path(post.user, post), :confirm => 'Are you sure?', :method => :delete %>
     </td>
   </tr>
   <tr>
