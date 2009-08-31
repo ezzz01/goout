@@ -1,6 +1,20 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   require 'string'
+  require 'rss/1.0'
+  require 'rss/2.0'
+  require 'open-uri'
+  require 'socket'
+
+  def render_rss_feed(url)
+    content = ""
+    open(url, 0) do |s| content = s.read end
+    feed = RSS::Parser.parse(content, false)
+    @link = feed.channel.link
+    @title = feed.channel.title
+    @items = feed.channel.items[0..4] # just use the first five items
+    render :partial => 'posts/rss_view'
+  end
 
   def tag_cloud(tags, classes)
     return if tags.empty?

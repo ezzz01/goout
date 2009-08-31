@@ -1,5 +1,7 @@
 <h1>Listing posts</h1>
-
+<%- cache "statulous_blog", (Time.now + 60.minutes) do -%>
+  <%= render_rss_feed("http://yshtabi.livejournal.com/data/rss") %>
+<%- end -%>
 <table>
   <tr>
     <td width="80%">

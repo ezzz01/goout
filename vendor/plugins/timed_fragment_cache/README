@@ -1,0 +1,3 @@
+The timed fragment cache plugin allows the expiring of fragment caches based on a time period.
+
+The original plugin was authored by Richard Livsey (http://livsey.org/).  This version has been updated for Rails 2.1 based on work by Steffen Rusitschka (http://www.ruzee.com/blog/2008/07/timed_fragment_cache-on-rails-21/).  The fork was created by George Palmer (http://rowtheboat.com)
