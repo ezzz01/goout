@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     
     @tags = User.find(params[:user_id]).posts.tag_counts
     @user = User.find(params[:user_id])
+    @blog_url = @user.blog_url 
 
     respond_to do |format|
       format.html # index.html.erb

@@ -14,10 +14,16 @@
   :enter_your_details => "Įveskite savo duomenis",
   :username => "Vartotojo vardas", 
   :email => "El. paštas",
+  :blog_url => "Tinklaraščio adresas",
   :password => "Slaptažodis",
+
   :remember_me => "Prisiminti mane?",
+  :update_email => "Atnaujinti el. paštą",
+  :update_blog_url => "Atnaujinti tinklaraščio adresą",
+
   :send => "Siųsti",
   :delete => "Ištrinti",
+  :update => "Atnaujinti",
   :cancel => "Atšaukti",
 
   #blog
@@ -31,6 +37,7 @@
   :no_spaces => "neturi turėti tarpų",
   :not_correct => "neteisingas",
   :must_be_valid => "turi būti teisingas",
+  :could_not_connect => "Nepavyko gauti įrašų iš išorinio tinklaraščio. Patikrinkite adresą.",
 
 
   :models => {
@@ -38,6 +45,7 @@
         :attributes => {
           :username => "Vartotojo vardas",
           :password => "Slaptažodis",
+          :blog_url => "Tinklaraščio adresas",
           }
         }  
   },
@@ -47,7 +55,8 @@
         :user => {  
           :username => "Vartotojo vardas",
           :password => "Slaptažodis",
-          :email => "El. paštas"
+          :email => "El. paštas",
+          :blog_url => "Tinklaraščio adresas",
         }
     },
     :errors => {

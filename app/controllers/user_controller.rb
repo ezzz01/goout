@@ -61,6 +61,8 @@ class UserController < ApplicationController
       case attribute
       when "email"
         try_to_update @user, attribute
+      when "blog_url"
+        try_to_update @user, attribute
       when "password"
         if @user.correct_password?(params)
           try_to_update @user, attribute

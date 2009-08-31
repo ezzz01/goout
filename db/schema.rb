@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090830171205) do
+ActiveRecord::Schema.define(:version => 20090831162806) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -133,6 +133,8 @@ ActiveRecord::Schema.define(:version => 20090830171205) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "authorization_token"
+    t.string   "blog_url"
+    t.string   "blog_type"
   end
 
 end

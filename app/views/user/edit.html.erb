@@ -1,20 +1,38 @@
 <h2><%= @title %></h2>
 <%= error_messages_for 'user' %>
+
 <% form_for :user do |f| %>
   <fieldset>
-    <legend>Update Email</legend>
+    <legend><%= t(:update_email) %></legend>
     <%= hidden_field_tag "attribute", "email", :id => nil %>
     <div class="form_row">
-      <label for="email">Email:</label>
+      <label for="email"><%= t(:email) %>: </label>
       <%= f.text_field :email, 
                         :size => User::EMAIL_SIZE,
                         :maxlength => User::EMAIL_MAX_LENGTH %>
     </div>
     <div class="form_row">
-      <%= submit_tag "Update", :class => "submit" %>
+      <%= submit_tag t(:update), :class => "submit" %>
     </div>
   </fieldset>
 <% end %>
+
+<% form_for :user do |f| %>
+  <fieldset>
+    <legend><%= t(:update_blog_url) %></legend>
+    <%= hidden_field_tag "attribute", "blog_url", :id => nil %>
+    <div class="form_row">
+      <label for="email"><%= t(:blog_url) %>: </label>
+      <%= f.text_field :blog_url, 
+                        :size => User::BLOG_URL_SIZE,
+                        :maxlength => User::BLOG_MAX_LENGTH %>
+    </div>
+    <div class="form_row">
+      <%= submit_tag t(:update), :class => "submit" %>
+    </div>
+  </fieldset>
+<% end %>
+
 <% form_for :user do |f| %>
   <fieldset>
     <legend>Update Password</legend>

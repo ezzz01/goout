@@ -5,15 +5,41 @@ module ApplicationHelper
   require 'rss/2.0'
   require 'open-uri'
   require 'socket'
+  require "rexml/document"
+  include REXML
 
   def render_rss_feed(url)
     content = ""
-    open(url, 0) do |s| content = s.read end
-    feed = RSS::Parser.parse(content, false)
-    @link = feed.channel.link
-    @title = feed.channel.title
-    @items = feed.channel.items[0..4] # just use the first five items
-    render :partial => 'posts/rss_view'
+      open(url, 0) do |s| content = s.read end
+      content.element.each("feed/title")
+      {|elem| 
+      begin
+        rss_content = ""
+
+# Read the feed into rss_content
+open(feed) do |f|
+   rss_content = f.read
+end
+doc = Document.new rss_content
+
+doc.elements.each("feed/title") do |element|
+    puts element.text
+
+    puts " ========    "
+end
+
+#      feed = RSS::Parser.parse(content, false)
+      if feed.channel
+        @link = feed.channel.link
+        @title = feed.channel.title
+        @items = feed.channel.items[0..4] # just use the first five items
+      else
+        @link = feed.entry.link
+      end
+      render :partial => 'posts/rss_view'
+   # rescue 
+   #   render :partial => 'posts/rss_view_error'
+   # end
   end
 
   def tag_cloud(tags, classes)
