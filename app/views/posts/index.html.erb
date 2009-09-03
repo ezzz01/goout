@@ -1,15 +1,13 @@
 <h1>Listing posts</h1>
 
 <%- cache "my_blog", (Time.now + 60.minutes) do -%>
-  <%= render_rss_feed(@blog_url)
-%>
 <%- end -%>
 <table>
   <tr>
     <td width="80%">
       <table>
 
-<% @posts.each do |post| %>
+<% @posts_and_rss.each do |post| %>
   <tr>
     <td colspan="2">
       <b><%=h post.title %></b>

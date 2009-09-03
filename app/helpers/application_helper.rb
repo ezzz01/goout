@@ -8,35 +8,44 @@ module ApplicationHelper
   require "rexml/document"
   include REXML
 
-  def render_rss_feed(url)
+  def get_rss_feed(url)
     content = ""
       open(url, 0) do |s| content = s.read end
-      content.element.each("feed/title")
-      {|elem| 
-      begin
-        rss_content = ""
+      doc = Document.new content
+      #naive checking whether it's an atom or rss feed
+      if (doc.root.name == "feed")
+        feed_type = "atom"
+      else
+        feed_type = "rss"
+      end
 
-# Read the feed into rss_content
-open(feed) do |f|
-   rss_content = f.read
-end
-doc = Document.new rss_content
-
-doc.elements.each("feed/title") do |element|
-    puts element.text
-
-    puts " ========    "
-end
-
-#      feed = RSS::Parser.parse(content, false)
-      if feed.channel
+      if feed_type == "rss"
+        feed = RSS::Parser.parse(content, false) 
         @link = feed.channel.link
         @title = feed.channel.title
-        @items = feed.channel.items[0..4] # just use the first five items
-      else
-        @link = feed.entry.link
+        @items = feed.channel.items[0..4] # just use the first five items        
+      elsif feed_type == "atom"
+ #       @title = doc.root.elements["title"].text
+ #       @link = doc.root.elements["link"].attributes["href"]
+        doc.elements.each("feed/entry") do |s|
+          @post = Post.new
+          @post.title = s.elements["title"].text
+          @post.link = s.elements["link"].attributes["href"]
+          @post.body= s.elements["summary"].text
+          datetime = s.elements["published"].text
+          date = /\d{4}-\d{2}-\d{2}/.match(datetime)
+          date = date[0]
+          date = date.split("-")
+          time = /\d{2}:\d{2}:\d{2}/.match(datetime)
+          time = time[0]
+          time = time.split(":")
+          mytime = Time.local(date[0], date[1], date[2], time[0], time[1], time[2])
+          @post.created_at = mytime
+          @myposts = Array.new
+          @myposts << @post
+        end
       end
-      render :partial => 'posts/rss_view'
+
    # rescue 
    #   render :partial => 'posts/rss_view_error'
    # end

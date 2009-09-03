@@ -7,19 +7,25 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
+    @user = User.find(params[:user_id])
+    @blog_url = @user.blog_url 
+
     if (params[:tag_id])
       @posts = User.find(params[:user_id]).posts.find_tagged_with(params[:tag_id])
     else
       @posts = User.find(params[:user_id]).posts
+      if @blog_url.length > 0
+        @rssposts = get_rss_feed(@blog_url)
+        @posts_add_rss = Array.new
+        @posts_and_rss  = @rssposts
+      end
     end
     
     @tags = User.find(params[:user_id]).posts.tag_counts
-    @user = User.find(params[:user_id])
-    @blog_url = @user.blog_url 
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @posts }
+      format.xml  { render :xml => @posts_add_rss }
     end
   end
 
