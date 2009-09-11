@@ -8,7 +8,7 @@ module ApplicationHelper
   require "rexml/document"
   include REXML
 
-  def get_rss_feed(url)
+  def get_xml_feed(url)
     content = ""
       open(url, 0) do |s| content = s.read end
       doc = Document.new content
@@ -19,31 +19,24 @@ module ApplicationHelper
         feed_type = "rss"
       end
 
+      @myposts = Array.new
+
       if feed_type == "rss"
         feed = RSS::Parser.parse(content, false) 
         @link = feed.channel.link
-        @title = feed.channel.title
+        #@title = feed.channel.title
         @items = feed.channel.items[0..4] # just use the first five items        
       elsif feed_type == "atom"
- #       @title = doc.root.elements["title"].text
- #       @link = doc.root.elements["link"].attributes["href"]
         doc.elements.each("feed/entry") do |s|
-          @post = Post.new
-          @post.title = s.elements["title"].text
-          @post.link = s.elements["link"].attributes["href"]
-          @post.body= s.elements["summary"].text
+          @mypost = Post.new
+          @mypost.title = s.elements["title"].text
+          @mypost.link = s.elements["link"].attributes["href"]
+          @mypost.body= s.elements["summary"].text
           datetime = s.elements["published"].text
-          date = /\d{4}-\d{2}-\d{2}/.match(datetime)
-          date = date[0]
-          date = date.split("-")
-          time = /\d{2}:\d{2}:\d{2}/.match(datetime)
-          time = time[0]
-          time = time.split(":")
-          mytime = Time.local(date[0], date[1], date[2], time[0], time[1], time[2])
-          @post.created_at = mytime
-          @myposts = Array.new
-          @myposts << @post
+          @mypost.created_at = DateTime.parse(datetime).strftime('%Y%m%d %H:%M:%S')
+          @myposts << @mypost
         end
+        return @myposts
       end
 
    # rescue 

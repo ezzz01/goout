@@ -6,39 +6,46 @@
   <tr>
     <td width="80%">
       <table>
-
-<% @posts_and_rss.each do |post| %>
+<% @posts_and_xml.each do |post| %>
   <tr>
     <td colspan="2">
       <b><%=h post.title %></b>
-      <%= l post.created_at %>
+      <%= post.date %>
     </td>
   </tr>
-  <% unless post.tag_list.size == 0 %>
+  <% if !post.link %>
+    <% unless post.tag_list.size == 0 %>
   <tr>
     <td colspan="2">
       <%= render :partial => "tag_list", :locals => {:post => post} %> 
     </td>
   </tr>
+    <% end %>
   <% end %>
-  <tr>
-    <td><%=h post.body %></td>
+ <tr>
+    <td><%= sanitize post.description %></td>
     <td>
-      <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
-      <%= link_to 'Destroy', user_post_path(post.user, post), :confirm => 'Are you sure?', :method => :delete %>
+       <% if !post.link %>
+        <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
+        <%= link_to 'Destroy', user_post_path(post.user, post), :confirm => 'Are you sure?', :method => :delete %>
+      <% end %>
     </td>
   </tr>
   <tr>
     <td colspan="2">
-      <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user, post) %> <%=  %>
+      <% if !post.link %>
+        <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user, post) %> <%=  %>
+    <% end %>
     </td>
   </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
-  </tr>
+  </tr> 
 <% end %>
-</table>
-</td>
+  
+
+      </table>
+    </td>
 
 <td width="20%" valign="top">
   <%= render :partial => "tag_cloud" %>

@@ -15,9 +15,9 @@ class PostsController < ApplicationController
     else
       @posts = User.find(params[:user_id]).posts
       if @blog_url.length > 0
-        @rssposts = get_rss_feed(@blog_url)
-        @posts_add_rss = Array.new
-        @posts_and_rss  = @rssposts
+        @xmlposts = get_xml_feed(@blog_url)
+        @posts_add_xml = Array.new
+        @posts_and_xml  = @posts + @xmlposts
       end
     end
     

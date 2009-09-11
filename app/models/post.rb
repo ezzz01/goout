@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
   acts_as_taggable
   belongs_to :user
   has_many :comments, :order => "created_at", :dependent => :destroy
-
+  alias_attribute :date, :created_at
+  alias_attribute :description, :body
   attr_accessor :link
 
   validates_presence_of :body
