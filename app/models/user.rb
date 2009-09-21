@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validates_length_of     :username, :within => USERNAME_RANGE
   validates_length_of     :password, :within => PASSWORD_RANGE
   validates_length_of     :email,   :maximum => EMAIL_MAX_LENGTH 
-  validates_length_of     :blog_url, :maximum => BLOG_MAX_LENGTH 
+  #validates_length_of     :blog_url, :maximum => BLOG_MAX_LENGTH 
   validates_format_of :email,
                       :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                       :message => I18n.t(:must_be_valid) 
@@ -39,9 +39,9 @@ class User < ActiveRecord::Base
       errors.add(:username, I18n.t(:no_spaces))
     end
 
-    if blog_url.include?(" ")
-      errors.add(:blog_url, I18n.t(:no_spaces))
-    end
+#    if blog_url.include?(" ")
+ #     errors.add(:blog_url, I18n.t(:no_spaces))
+  #  end
   end
  
   def login!(session)

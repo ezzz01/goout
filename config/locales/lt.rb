@@ -6,6 +6,10 @@
   :title => "Pavadinimas",
   :body => "Body?",
   :tags => "Žymės",
+
+  #page titles
+  :user_profile => "Vartotojo profilis",
+  :edit_basic_info => "Redaguoti vartotojo profilį",
   #register, login, user profile
   :register => "Registracija",
   :login => "Prisijungti",
@@ -17,14 +21,22 @@
   :blog_url => "Tinklaraščio adresas",
   :password => "Slaptažodis",
 
-  :remember_me => "Prisiminti mane?",
-  :update_email => "Atnaujinti el. paštą",
+  :remember_me => "Prisiminti duomenis?",
+  :update_email => "Atnaujinti el. pašto adresą",
   :update_blog_url => "Atnaujinti tinklaraščio adresą",
 
   :send => "Siųsti",
   :delete => "Ištrinti",
   :update => "Atnaujinti",
   :cancel => "Atšaukti",
+
+  #flashes:
+  :invalid_username_password => "Neteisingas vartotojo vardas ir/arba slaptažodis",
+  :attribute_updated => "atnaujinta(s)",
+  :user => "Vartotojas",
+  :logged_in => "prisijungė",
+  :logged_out => "Atsijungėte sėkmingai",
+  :created => "sukurtas",
 
   #blog
   :new_comment => "Naujas komentaras",
@@ -45,6 +57,7 @@
         :attributes => {
           :username => "Vartotojo vardas",
           :password => "Slaptažodis",
+          :email => "El. pašto adresas",
           :blog_url => "Tinklaraščio adresas",
           }
         }  

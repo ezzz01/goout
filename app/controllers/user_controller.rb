@@ -4,7 +4,7 @@ class UserController < ApplicationController
   before_filter :protect, :only => ["index", "edit"]
 
   def index
-    @title = "User profile"
+    @title = t(:user_profile)
     @user = User.find(session[:user_id])
     @user.spec ||= Spec.new
     @spec = @user.spec
@@ -18,7 +18,7 @@ class UserController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         @user.login!(session) 
-        flash[:notice] = "User #{@user.username} created"
+        flash[:notice] = t(:user) + " #{@user.username} " + t(:created)
         redirect_to_forwarding_url
       else 
         @user.clear_password!
@@ -38,23 +38,23 @@ class UserController < ApplicationController
       if user
         user.login!(session) 
         @user.remember_me? ? user.remember!(cookies) : user.forget!(cookies) 
-        flash[:notice] = "User #{user.username} logged in"
+        flash[:notice] = t(:user) + " #{user.username} " + t(:logged_in)
         redirect_to_forwarding_url
       else
         @user.clear_password!
-        flash[:notice] = "Invalid username/password combination"
+        flash[:notice] = t(:invalid_username_password)
       end
     end
   end
 
   def logout
     User.logout!(session, cookies)
-    flash[:notice] = "Logged out"
+    flash[:notice] = t(:logged_out)
     redirect_to :action => "index", :controller => "Site"
   end
 
   def edit
-    @title = "Edit basic info"
+    @title = t(:edit_basic_info)
     @user = User.find(session[:user_id])
     if param_posted?(:user)
       attribute = params[:attribute]
@@ -92,7 +92,7 @@ class UserController < ApplicationController
 
   def try_to_update(user, attribute)
     if user.update_attributes(params[:user])
-      flash[:notice] = "User #{attribute} updated."
+      flash[:notice] = "#{attribute} "+t(:attribute_updated)
       redirect_to :action => "index"
     end
   end

@@ -16,8 +16,8 @@ class PostsController < ApplicationController
       @posts = User.find(params[:user_id]).posts
       if @blog_url.length > 0
         @xmlposts = get_xml_feed(@blog_url)
-        @posts_add_xml = Array.new
-        @posts_and_xml  = @posts + @xmlposts
+        @posts_and_xml = Array.new
+        @posts_and_xml  = (@posts + @xmlposts).sort {|a, b| b.date <=> a.date}
       end
     end
     
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @posts_add_rss }
+      format.xml  { render :xml => @posts_and_xml }
     end
   end
 
