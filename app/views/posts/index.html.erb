@@ -9,8 +9,8 @@
 <% @posts_and_xml.each do |post| %>
   <tr>
     <td colspan="2">
-      <b><%=h post.title %></b>
-      <%= post.date %>
+      <b><%=h post.title %></b><br />
+      <span class="postDate"><%= l post.date, :format => :long %></span>
     </td>
   </tr>
   <% if !post.link %>
