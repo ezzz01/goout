@@ -25,13 +25,13 @@ module ApplicationHelper
         feed = RSS::Parser.parse(content, false) 
         @link = feed.channel.link
         #@title = feed.channel.title
-        @items = feed.channel.items[0..4] # just use the first five items        
+        @items = feed.channel.items[0..10] # just use the first five items        
       elsif feed_type == "atom"
         doc.elements.each("feed/entry") do |s|
           @mypost = Post.new
           @mypost.title = s.elements["title"].text
           @mypost.link = s.elements["link"].attributes["href"]
-          @mypost.body= s.elements["summary"].text
+          @mypost.body= s.elements["content"].text
           datetime = s.elements["published"].text
           @mypost.created_at = DateTime.parse(datetime).strftime('%Y%m%d %H:%M:%S')
           @myposts << @mypost

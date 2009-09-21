@@ -9,7 +9,13 @@
 <% @posts_and_xml.each do |post| %>
   <tr>
     <td colspan="2">
-      <b><%=h post.title %></b><br />
+      <% if post.link %>
+        <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
+        <b><%= link_to post.title, post.link %></b> 
+        <% else %>
+          <b><%=h post.title %></b>
+        <% end %>
+          <br />
       <span class="postDate"><%= l post.date, :format => :long %></span>
     </td>
   </tr>
