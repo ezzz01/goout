@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @university.title %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @university.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @university.country_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_university_path(@university) %> |
+<%= link_to 'Back', universities_path %>

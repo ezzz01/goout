@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :universities
+
+  map.resources :universities
+
+  map.resources :countries
+
 
   map.resources :users  do |user|
     user.resources :tags do |tag|
