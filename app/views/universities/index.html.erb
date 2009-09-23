@@ -11,7 +11,7 @@
   <tr>
     <td><%=h university.title %></td>
     <td><%=h university.city %></td>
-    <td><%=h university.country_id %></td>
+    <td><%=h university.country.title %></td>
     <td><%= link_to 'Show', university %></td>
     <td><%= link_to 'Edit', edit_university_path(university) %></td>
     <td><%= link_to 'Destroy', university, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -13,7 +13,7 @@
   </p>
   <p>
     <%= f.label :country_id %><br />
-    <%= f.text_field :country_id %>
+    <%= select("university", "country_id", Country.find(:all).collect{ |c| [ c.title, c.id] }) %>
   </p>
   <p>
     <%= f.submit 'Update' %>
