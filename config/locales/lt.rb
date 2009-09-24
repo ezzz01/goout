@@ -49,7 +49,7 @@
   :no_spaces => "neturi turėti tarpų",
   :not_correct => "neteisingas",
   :must_be_valid => "turi būti teisingas",
-  :could_not_connect => "Nepavyko gauti įrašų iš išorinio tinklaraščio. Patikrinkite adresą.",
+  :could_not_connect => "Nepavyko gauti įrašų iš išorinio tinklaraščio. Patikrinkite adresą. <br>Rodomi tik sistemoje išsaugoti įrašai.",
 
 
   :models => {

@@ -17,7 +17,14 @@ class PostsController < ApplicationController
       if @blog_url.length > 0
         @xmlposts = get_xml_feed(@blog_url)
         @posts_and_xml = Array.new
-        @posts_and_xml  = (@posts + @xmlposts).sort {|a, b| b.date <=> a.date}
+        begin
+          @posts_and_xml  = (@posts + @xmlposts).sort {|a, b| b.date <=> a.date}
+        rescue
+          flash[:notice] = t(:could_not_connect) 
+          @posts_and_xml = @posts
+        end
+      else
+        @posts_and_xml = @posts
       end
     end
     

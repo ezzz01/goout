@@ -5,6 +5,20 @@ margin: 4;
 text-align: left;
 }
 
+h1 {
+font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 24px;
+	margin-bottom: 22px;
+	color: #333;
+}
+
+h2 {
+font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	margin-bottom: 22px;
+	color: #333;
+}
+
 fieldset{
   margin-top: 1em;
   padding-top: 2em;

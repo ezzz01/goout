@@ -10,8 +10,10 @@ module ApplicationHelper
 
   def get_xml_feed(url)
     content = ""
+    begin
       open(url, 0) do |s| content = s.read end
       doc = Document.new content
+
       #naive checking whether it's an atom or rss feed
       if (doc.root.name == "feed")
         feed_type = "atom"
@@ -38,10 +40,9 @@ module ApplicationHelper
         end
         return @myposts
       end
+          rescue 
 
-   # rescue 
-   #   render :partial => 'posts/rss_view_error'
-   # end
+          end
   end
 
   def tag_cloud(tags, classes)
