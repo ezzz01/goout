@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :countries
 
+  map.resources :studies
 
   map.resources :users  do |user|
     user.resources :tags do |tag|

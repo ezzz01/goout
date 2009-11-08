@@ -2,16 +2,7 @@
   <fieldset>
     <legend><%= @title %></legend>
     <%= error_messages_for 'spec' %>
-    <%= text_field_for f, "first_name" %>
-    <%= text_field_for f, "last_name" %>
-    <div class="form_row">
-      <label for="birthdate">Birthdate:</label>
-      <%= date_select :spec, :birthdate,
-                              :start_year => Spec::START_YEAR,
-                              :end_year => Time.now.year,
-                              :include_blank => true,
-                                :order => [:day, :month, :year] %>
-    </div>
+    <%= collection_select(:university, :id , @universities, :id, :title) %>
     <%= submit_tag "Update", :class => "submit" %>
  </fieldset>
 <% end %>

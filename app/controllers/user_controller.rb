@@ -9,6 +9,7 @@ class UserController < ApplicationController
     @user.spec ||= Spec.new
     @spec = @user.spec
     @posts = @user.posts
+    @studies = @user.universities
   end
 
   def register
