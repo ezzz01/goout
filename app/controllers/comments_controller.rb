@@ -1,9 +1,6 @@
 class CommentsController < ApplicationController
  before_filter :load_post, :only => ["index", "show", "new", "create"]
 
-  def load_post
-    @post = Post.find(params[:post_id])
-  end
  
   # GET /comments
   # GET /comments.xml
@@ -43,7 +40,7 @@ class CommentsController < ApplicationController
       if @comment.duplicate? or @comment.save
         format.html { redirect_to(@post) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-        format.js #create.rjs
+        format.js 
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
@@ -82,4 +79,11 @@ class CommentsController < ApplicationController
       format.js #destroy.rjs 
     end
   end
+
+  private
+
+  def load_post
+    @post = Post.find(params[:post_id])
+  end
+
 end
