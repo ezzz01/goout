@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  helper :profile
   before_filter :protect, :only => ["new", "create", "edit", "update", "destroy"]
   before_filter :protect_blog, :only => ["new", "create", "edit", "update", "destroy"]
 

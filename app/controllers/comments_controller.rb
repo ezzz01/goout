@@ -19,15 +19,10 @@ class CommentsController < ApplicationController
   def new
     @comment = @post.comments.build
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
-      format.js #new.rjs 
+      format.html { redirect_to user_post_path(@post.user_id, @post) }
+      format.xml  { redirect_to user_post_path(@post.user_id, @post)}# render :xml => @comment }
+      format.js 
     end
-  end
-
-  # GET /comments/1/edit
-  def edit
-    @comment = @post.comments.find(params[:id])
   end
 
   # POST /comments

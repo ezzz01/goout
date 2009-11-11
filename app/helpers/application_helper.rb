@@ -81,4 +81,8 @@ module ApplicationHelper
     @pages and @pages.length > 1
   end
 
+  def profile_for(user)
+    user
+  end
+
 end
