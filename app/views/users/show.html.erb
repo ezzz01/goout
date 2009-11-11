@@ -1,35 +1,34 @@
 <p>
-  <b>Username:</b>
+  <b><%= t(:username) %>:</b>
   <%=h @user.username %>
 </p>
 
 <p>
-  <b>Password:</b>
+  <b><%= t(:password) %>:</b>
   <%=h @user.password %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b><%= t(:email) %>:</b>
   <%=h @user.email %>
 </p>
 
-
 <p>
-  <b>Blog:</b>
-  <%= link_to 'Blog', user_posts_path(@user) %>
+  <b><%= t(:blog) %>:</b>
+  <%= link_to @user.blog_url, user_posts_path(@user) %>
 </p>
 
 <p>
-  <b>Studies:</b>
-    <div id="studies_for_user">
-      <%= render :partial => "studies/study", :collection => @user.studies %>
-    </div>
-    <div id="add_study_link">
-      <%= link_to_remote t(:new_study),
+  <b><%= t(:studies) %>:</b>
+    <span id="add_study_link">
+      <%= link_to_remote t(:new_entry),
         {:url => new_user_study_path(@user), 
         :method => :get},
         :href => new_user_study_path(@user)
       %>
+    </span>
+    <div id="studies_for_user">
+      <%= render :partial => "studies/study", :collection => @user.studies %>
     </div>
     <div id="new_study_form"> </div>
 </p>

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  #include ApplicationHelper
+  #helper :profile
+  #before_filter :protect, :only => ["index", "edit"]
+
   # GET /users
   # GET /users.xml
   def index
@@ -13,7 +17,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
+    @title = t(:user_profile)
     @user = User.find(params[:id])
+
+    @user.spec ||= Spec.new
+    @spec = @user.spec
+    @posts = @user.posts
+    @studies = @user.studies
 
     respond_to do |format|
       format.html # show.html.erb
@@ -82,4 +92,5 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

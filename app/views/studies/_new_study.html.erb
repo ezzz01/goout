@@ -1,6 +1,5 @@
 <% remote_form_for (@study, :url => user_studies_path) do |f| %>
   <fieldset>
-    <legend><%= %></legend>
     <%= error_messages_for 'study' %>
     <%= select("study", "university_id", University.find(:all).collect{ |c| [ c.title, c.id] }) %>
     <br />
@@ -9,5 +8,10 @@
     <%= date_select("study", "to", options = {:start_year => Time.now.year - 15} ) %>
     <br />
     <%= f.submit 'Create' %>
+
+    <%= button_to_function t(:cancel) do |page|
+        page.visual_effect :blind_up, "new_study_form"
+        page.show "add_study_link"
+      end %>
  </fieldset>
 <% end %>

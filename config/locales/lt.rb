@@ -3,22 +3,34 @@
 {
 :lt => {
   :mydate => "Data",
+  :start_page => "Pradinis puslapis",
+  :users => "Vartotojai",
+  :community => "Bendruomenė",
+  :help => "Pagalba",
+  :about => "Apie projektą",
+  :countries => "Šalys",
   :title => "Pavadinimas",
+  :blog => "Tinklaraštis",
+  :studies => "Studijos",
   :body => "Body?",
   :tags => "Žymės",
+  :new_entry => "Sukurti naują",
 
   #page titles
   :user_profile => "Vartotojo profilis",
   :edit_basic_info => "Redaguoti vartotojo profilį",
   #register, login, user profile
   :register => "Registracija",
+  :do_register => "Užsiregistruoti",
   :login => "Prisijungti",
+  :logout => "Atsijungti",
   :register_button => "Registruotis",
   :login_button => "Prisijungti",
   :enter_your_details => "Įveskite savo duomenis",
   :username => "Vartotojo vardas", 
   :email => "El. paštas",
   :blog_url => "Tinklaraščio adresas",
+  :blog_title => "Tinklaraščio pavadinimas",
   :password => "Slaptažodis",
 
   :remember_me => "Prisiminti duomenis?",

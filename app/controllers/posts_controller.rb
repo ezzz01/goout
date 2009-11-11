@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       @posts = User.find(params[:user_id]).posts.find_tagged_with(params[:tag_id])
     else
       @posts = User.find(params[:user_id]).posts
-      if @blog_url.length > 0
+      if @blog_url
         @xmlposts = get_xml_feed(@blog_url)
         @posts_and_xml = Array.new
         begin

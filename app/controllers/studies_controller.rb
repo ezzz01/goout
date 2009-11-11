@@ -1,5 +1,8 @@
 class StudiesController < ApplicationController
-    
+  include ApplicationHelper
+  helper :profile
+#  before_filter :protect, :only => ["new", "create", "delete", "update"]
+
   def index 
     @studies = Study.find(:all)
   end

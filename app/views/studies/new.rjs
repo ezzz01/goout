@@ -1,3 +1,4 @@
 page.hide "add_study_link" 
 page.replace_html "new_study_form", :partial => "new_study" 
+page.visual_effect :blind_down, "new_study_form"
 
