@@ -1,6 +1,8 @@
 <% remote_form_for (@study, :url => user_studies_path) do |f| %>
   <fieldset>
     <%= error_messages_for 'study' %>
+    <%= select("study", "study_type_id", StudyType.find(:all).collect{ |c| [ c.study_type, c.id] }) %>
+    <br />
     <%= select("study", "university_id", University.find(:all).collect{ |c| [ c.title, c.id] }) %>
     <br />
     <%= date_select("study", "from", options = {:start_year => Time.now.year - 15} )%>
