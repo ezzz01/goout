@@ -1,5 +1,6 @@
 <div id="study_<%= study.id %>" class="study">
-  <span><%= study.from %></span>
-  <span><%= study.to %></span>
-  <span><%= study.university.title %></span>
+  <div><%= study.study_type.title %></div>
+  <span><%= study.from %></span> - <span><%= study.to %></span>
+  <div><%= study.university.title %></div>
+  <br />
 </div>

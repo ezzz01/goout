@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(:version => 20091218223734) do
   end
 
   create_table "study_types", :force => true do |t|
-    t.string   "study_type"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
