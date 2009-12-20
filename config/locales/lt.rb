@@ -41,6 +41,7 @@
   :delete => "Ištrinti",
   :update => "Atnaujinti",
   :cancel => "Atšaukti",
+  :create => "Sukurti",
 
   #flashes:
   :invalid_username_password => "Neteisingas vartotojo vardas ir/arba slaptažodis",
@@ -56,6 +57,9 @@
   #comments
   :anonymous => "Anonimas",
 
+  #user
+  :select_country => "Pasirinkite šalį",
+  :select_university => "Pasirinkite universitetą",
   #custom_errors
   :username_error => "turi susidėti tik iš raidžių, skaičių, brūkšių (-) ir pabraukimo brūkšnių (-)",
   :no_spaces => "neturi turėti tarpų",

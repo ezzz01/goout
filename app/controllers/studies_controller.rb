@@ -15,6 +15,7 @@ class StudiesController < ApplicationController
   end
 
   def create
+	puts "test"
     @study = Study.new(params[:study])
     @user = User.find(session[:user_id]) 
     @study.user_id = @user.id
@@ -23,6 +24,18 @@ class StudiesController < ApplicationController
         format.js 
       end
     end
+  end
+
+  def update_universities
+	country = Country.find(params[:country_id])
+	if country
+		universities = country.universities
+	end
+
+	render :update do |page|
+		page.replace_html 'universities', :partial => 'universities', :object => universities
+	end
+
   end
 
   end

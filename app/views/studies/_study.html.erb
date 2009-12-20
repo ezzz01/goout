@@ -1,6 +1,8 @@
 <div id="study_<%= study.id %>" class="study">
   <div><%= study.study_type.title %></div>
   <span><%= study.from %></span> - <span><%= study.to %></span>
+  <% unless study.university.nil? %>
   <div><%= study.university.title %></div>
+  <% end %>
   <br />
 </div>
