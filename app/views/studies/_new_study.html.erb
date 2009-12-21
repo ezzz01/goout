@@ -7,7 +7,8 @@
 		{:prompt   => t(:select_country)},
 		{:onchange => "#{remote_function(:url  => {:action => "update_universities"},
    		 :with => "'country_id='+value")}"}  ) %>
-	<div id="universities"> </div>
+	<div id="universities"> 
+		</div>
     <%= date_select("study", "from", options = {:start_year => Time.now.year - 15} )%>
     <br />
     <%= date_select("study", "to", options = {:start_year => Time.now.year - 15} ) %>

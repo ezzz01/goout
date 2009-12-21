@@ -41,7 +41,7 @@ class UniversitiesController < ApplicationController
   # POST /universities.xml
   def create
     @university = University.new(params[:university])
-
+	@university.added_by = session[:user_id]
     respond_to do |format|
       if @university.save
         flash[:notice] = 'University was successfully created.'

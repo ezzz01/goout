@@ -15,7 +15,6 @@ class StudiesController < ApplicationController
   end
 
   def create
-	puts "test"
     @study = Study.new(params[:study])
     @user = User.find(session[:user_id]) 
     @study.user_id = @user.id

@@ -1,2 +1,10 @@
 <%= collection_select("study", :university_id, universities, :id, :title,
   {:prompt   => t(:select_university)}) %>
+	<span id="add_new_university">
+		  <%= link_to_remote t(:new_entry),
+			{:url => new_university_path, 
+			:method => :get},
+			:href => new_university_path
+		  %>
+	</span>
+
