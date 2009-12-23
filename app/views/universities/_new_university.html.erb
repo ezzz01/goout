@@ -1,0 +1,13 @@
+<% remote_form_for (@university) do |f| %>
+  <fieldset>
+    <%= error_messages_for 'university' %>
+    <%= render :partial => "title_and_city", :locals => {:f => f} %>
+
+    <%= f.submit t(:create) %>
+    <%= button_to_function t(:cancel) do |page|
+        page.visual_effect :blind_up, "add_university_form"
+        page.show "add_university_link"
+        page.show "universities"
+      end %>
+ </fieldset>
+<% end %>

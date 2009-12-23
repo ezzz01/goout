@@ -1,0 +1,5 @@
+page.hide "add_university_link" 
+page.hide "universities"
+page.replace_html "add_university_form", :partial => "new_university"
+page.visual_effect :blind_down, "add_university_form"
+

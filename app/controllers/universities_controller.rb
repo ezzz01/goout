@@ -27,7 +27,8 @@ class UniversitiesController < ApplicationController
     @university = University.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.js
+      format.html 
       format.xml  { render :xml => @university }
     end
   end
@@ -42,13 +43,18 @@ class UniversitiesController < ApplicationController
   def create
     @university = University.new(params[:university])
 	@university.added_by = session[:user_id]
+    puts "aaa"
+    exit
     respond_to do |format|
       if @university.save
         flash[:notice] = 'University was successfully created.'
         format.html { redirect_to(@university) }
+        format.js 
         format.xml  { render :xml => @university, :status => :created, :location => @university }
       else
+        flash[:notice] = 'Error.'
         format.html { render :action => "new" }
+        format.js 
         format.xml  { render :xml => @university.errors, :status => :unprocessable_entity }
       end
     end
