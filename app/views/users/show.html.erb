@@ -27,10 +27,11 @@
         :href => new_user_study_path(@user)
       %>
     </span>
+    <div id="add_study_form"> </div>
+	<div id="add_university_form"></div>
     <div id="studies_for_user">
       <%= render :partial => "studies/study", :collection => @user.studies %>
     </div>
-    <div id="new_study_form"> </div>
 </p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

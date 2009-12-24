@@ -25,7 +25,7 @@ class UniversitiesController < ApplicationController
   # GET /universities/new.xml
   def new
     @university = University.new
-
+    @temp = 2#variable for saving country id in new.rjs
     respond_to do |format|
       format.js
       format.html 
@@ -43,8 +43,6 @@ class UniversitiesController < ApplicationController
   def create
     @university = University.new(params[:university])
 	@university.added_by = session[:user_id]
-    puts "aaa"
-    exit
     respond_to do |format|
       if @university.save
         flash[:notice] = 'University was successfully created.'
