@@ -2,4 +2,5 @@ page.replace_html "studies_for_user", :partial => "studies/study",
                         :collection => @user.studies
 page.show "add_study_link"
 page.hide "add_study_form"
+flash.discard
 

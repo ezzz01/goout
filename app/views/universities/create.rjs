@@ -2,3 +2,4 @@ page.hide "add_university_form"
 page.show "add_study_link" 
 page.visual_effect :blind_up, "add_university_form"
 page.visual_effect :blind_down, "add_study_form"
+flash.discard
