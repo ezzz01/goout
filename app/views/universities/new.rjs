@@ -1,7 +1,7 @@
-page.hide "add_university_link" 
-page.hide "universities"
-page.replace_html "add_university_form", :partial => "new_university"
-page << "$('university_country_id').value = $('study_country_id').value"
-page.hide "add_study_form"
-page.visual_effect :blind_down, "add_university_form"
+#page.hide "add_university_link" 
+#page.hide "universities"
+#page.replace_html "add_university_form", :partial => "new_university"
+#page << "$('university_country_id').value = $('study_country_id').value"
+#page.hide "add_study_form"
+#page.visual_effect :blind_down, "add_university_form"
 

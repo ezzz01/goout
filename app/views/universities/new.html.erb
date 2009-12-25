@@ -2,12 +2,7 @@
 
 <% form_for(@university) do |f| %>
   <%= f.error_messages %>
-  <%= render :partial => "title_and_city", :locals => {:f => f} %>
- 
-  <p>
-    <%= f.label :country_id %><br />
-    <%= select("university", "country_id", Country.find(:all).collect{ |c| [ c.title, c.id] }) %>
-  </p>
+  <%= render :partial => "basic_fields", :locals => {:f => f} %>
   <p>
     <%= f.submit 'Create' %>
   </p>
