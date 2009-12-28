@@ -26,7 +26,8 @@ class UniversitiesController < ApplicationController
   def new
     @university = University.new
     respond_to do |format|
-      format.html { render :layout => 'modal' }
+      format.html 
+      format.js { render :partial => 'remote_form', :layout => 'modal' }
       format.xml  { render :xml => @university }
     end
   end
@@ -45,11 +46,11 @@ class UniversitiesController < ApplicationController
       if @university.save
         flash[:notice] = 'University was successfully created.'
         format.html { redirect_to(@university) }
-        country = Country.find(params[:university][:country_id])
-        universities = country.universities
+        country = Country.find(params[:university][:country_id], :include => :universities, :order => 'universities.title')
+
         format.js {
             render :update do |page|
-                page.replace_html 'universities', :partial => 'studies/universities', :locals => {:id => params[:university][:country_id] },  :object => universities
+                page.replace_html 'universities', :partial => 'studies/universities', :locals => {:id => params[:university][:country_id] },  :object => country.universities
                 page << "lightbox.prototype.deactivate();"
                 page << "initialize();" 
                 flash.discard
@@ -57,11 +58,11 @@ class UniversitiesController < ApplicationController
         }
         format.xml  { render :xml => @university, :status => :created, :location => @university }
       else
+        format.html { render :action => "new" }
         format.js { 
             render :update do |page|
                 page << "alert(' #{t(:error_saving_university)}');"
                 page << "lightbox.prototype.deactivate();"
-                page << "initialize();" 
                 flash.discard
             end
         }

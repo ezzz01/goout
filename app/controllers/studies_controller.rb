@@ -26,13 +26,10 @@ class StudiesController < ApplicationController
   end
 
   def update_universities
-	country = Country.find(params[:country_id])
-	if country
-		universities = country.universities
-	end
+	country = Country.find(params[:country_id], :include => :universities, :order => 'universities.title')
 
 	render :update do |page|
-		page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => universities
+		page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => country.universities
         page << "initialize();" 
 	end
 
