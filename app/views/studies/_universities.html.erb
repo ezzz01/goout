@@ -1,10 +1,5 @@
 <%= collection_select("study", :university_id, universities, :id, :title,
   {:prompt   => t(:select_university)}) %>
 	<span id="add_university_link">
-		  <%= link_to_redbox ("new", "add_university_form")
-	#		{:url => new_university_path, 
-	#		:method => :get},
-	#		:href => new_university_path
-		  %>
-	</span>
-
+        <%= link_to t(:new_entry), new_university_path, :class => 'lbOn' %>
+    </span>

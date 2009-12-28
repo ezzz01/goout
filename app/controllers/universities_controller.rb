@@ -25,10 +25,8 @@ class UniversitiesController < ApplicationController
   # GET /universities/new.xml
   def new
     @university = University.new
-    @temp = 2#variable for saving country id in new.rjs
     respond_to do |format|
-      format.js
-      format.html 
+      format.html { render :layout => 'modal' }
       format.xml  { render :xml => @university }
     end
   end
@@ -47,7 +45,15 @@ class UniversitiesController < ApplicationController
       if @university.save
         flash[:notice] = 'University was successfully created.'
         format.html { redirect_to(@university) }
-        format.js 
+        country = Country.find(6)
+        universities = country.universities
+        format.js {
+            render :update do |page|
+                page.replace_html 'universities', :partial => 'studies/universities', :object => universities
+                page << "lightbox.prototype.deactivate();"
+                flash.discard
+            end
+        }
         format.xml  { render :xml => @university, :status => :created, :location => @university }
       else
         flash[:notice] = 'Error.'

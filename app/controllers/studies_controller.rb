@@ -33,6 +33,7 @@ class StudiesController < ApplicationController
 
 	render :update do |page|
 		page.replace_html 'universities', :partial => 'universities', :object => universities
+        page << "initialize();" 
 	end
 
   end
