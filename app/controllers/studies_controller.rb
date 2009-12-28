@@ -32,7 +32,7 @@ class StudiesController < ApplicationController
 	end
 
 	render :update do |page|
-		page.replace_html 'universities', :partial => 'universities', :object => universities
+		page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => universities
         page << "initialize();" 
 	end
 

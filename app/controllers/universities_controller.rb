@@ -45,20 +45,26 @@ class UniversitiesController < ApplicationController
       if @university.save
         flash[:notice] = 'University was successfully created.'
         format.html { redirect_to(@university) }
-        country = Country.find(6)
+        country = Country.find(params[:university][:country_id])
         universities = country.universities
         format.js {
             render :update do |page|
-                page.replace_html 'universities', :partial => 'studies/universities', :object => universities
+                page.replace_html 'universities', :partial => 'studies/universities', :locals => {:id => params[:university][:country_id] },  :object => universities
                 page << "lightbox.prototype.deactivate();"
+                page << "initialize();" 
                 flash.discard
             end
         }
         format.xml  { render :xml => @university, :status => :created, :location => @university }
       else
-        flash[:notice] = 'Error.'
-        format.html { render :action => "new" }
-        format.js 
+        format.js { 
+            render :update do |page|
+                page << "alert(' #{t(:error_saving_university)}');"
+                page << "lightbox.prototype.deactivate();"
+                page << "initialize();" 
+                flash.discard
+            end
+        }
         format.xml  { render :xml => @university.errors, :status => :unprocessable_entity }
       end
     end

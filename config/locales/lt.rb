@@ -42,6 +42,7 @@
   :update => "Atnaujinti",
   :cancel => "Atšaukti",
   :create => "Sukurti",
+  :close => "Uždaryti",
 
   #flashes:
   :invalid_username_password => "Neteisingas vartotojo vardas ir/arba slaptažodis",
@@ -57,6 +58,8 @@
   #comments
   :anonymous => "Anonimas",
 
+  #errors
+  :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
   #user
   :select_country => "Pasirinkite šalį",
   :select_university => "Pasirinkite universitetą",
