@@ -111,3 +111,8 @@ span.postDate{
 div.study{
   margin: 4px;
 }
+
+.notice{
+  font-size: 11px;
+  color: #ff0000;
+}

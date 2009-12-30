@@ -52,6 +52,8 @@
   :logged_out => "Atsijungėte sėkmingai",
   :created => "sukurtas",
 
+  #notices:
+  :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galite sukurti Universitetų sąraše",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",

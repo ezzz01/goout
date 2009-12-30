@@ -26,7 +26,7 @@ class StudiesController < ApplicationController
   end
 
   def update_universities
-	country = Country.find(params[:country_id], :include => :universities, :order => 'universities.title')
+	country = Country.find(params[:country_id], :include => :universities, :order => 'universities.title', :conditions => [ "universities.pending = 0 OR universities.added_by = ?", session[:user_id] ])
 
 	render :update do |page|
 		page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => country.universities
