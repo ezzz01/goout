@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :subject_areas
+
   map.resources :universities
 
   map.resources :countries
