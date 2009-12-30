@@ -65,6 +65,8 @@
   #user
   :select_country => "Pasirinkite šalį",
   :select_university => "Pasirinkite universitetą",
+  :select_study_type => "Pasirinkite studijų tipą",
+  :select_subject_area => "Pasirinkite studijų sritį",
   #custom_errors
   :username_error => "turi susidėti tik iš raidžių, skaičių, brūkšių (-) ir pabraukimo brūkšnių (-)",
   :no_spaces => "neturi turėti tarpų",

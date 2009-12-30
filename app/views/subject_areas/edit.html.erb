@@ -1,0 +1,17 @@
+<h1>Editing subject_area</h1>
+
+<% form_for(@subject_area) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @subject_area %> |
+<%= link_to 'Back', subject_areas_path %>

@@ -1,0 +1,19 @@
+<h1>Listing subject_areas</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @subject_areas.each do |subject_area| %>
+  <tr>
+    <td><%=h subject_area.title %></td>
+    <td><%= link_to 'Show', subject_area %></td>
+    <td><%= link_to 'Edit', edit_subject_area_path(subject_area) %></td>
+    <td><%= link_to 'Destroy', subject_area, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New subject_area', new_subject_area_path %>
