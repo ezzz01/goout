@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class UsersTest < ActiveSupport::TestCase
   fixtures :users
   def setup
     @valid_user = users(:valid_user)

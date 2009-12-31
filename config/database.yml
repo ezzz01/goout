@@ -30,7 +30,7 @@ test:
   encoding: utf8
   database: su_test
   username: root
-  password:
+  password: ezhux
   host: localhost
 
 production:
