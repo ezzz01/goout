@@ -1,20 +1,30 @@
 require 'test_helper'
+require 'comments_controller' 
 
 class CommentsControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:comments)
+  fixtures :comments, :posts, :users
+
+  def setup
+    @user = users(:valid_user) 
+    @comment = comments(:one) 
+    @post = posts(:one) 
+    @valid_comment = { :user_id => @user, :post_id => @post, 
+                       :body => "Comment Body"} 
+  end
+
+  test "should redirect to post" do
+    get :index, :user_id => @user, :post_id => @post
+    assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
   test "should get new" do
-    get :new
-    assert_response :success
+    get :new, :user_id => @user, :post_id => @post
+    assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, :comment => { }
+      post :create, :post_id => @post, :comment => @valid_comment
     end
 
     assert_redirected_to comment_path(assigns(:comment))
@@ -27,7 +37,7 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, :id => comments(:one).to_param
-    assert_response :success
+    assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
   test "should update comment" do

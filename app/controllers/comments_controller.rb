@@ -14,6 +14,10 @@ class CommentsController < ApplicationController
     redirect_to user_post_path(@post.user_id, @post) 
   end
 
+  def edit 
+    redirect_to user_post_path(@post.user_id, @post) 
+  end
+
   # GET /comments/new
   # GET /comments/new.xml
   def new
