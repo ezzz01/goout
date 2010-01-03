@@ -7,7 +7,7 @@ class CommentsControllerTest < ActionController::TestCase
   def setup
     @user = users(:valid_user) 
     @comment = comments(:one) 
-    @post = posts(:one) 
+    @post = @comment.post 
     @valid_comment = { :user_id => @user, :post_id => @post, 
                        :body => "Comment Body"} 
   end
@@ -18,7 +18,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new, :user_id => @user, :post_id => @post
+    get :new, :user_id => @post.user_id, :post_id => @post
     assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
@@ -30,19 +30,19 @@ class CommentsControllerTest < ActionController::TestCase
     assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
-  test "should show comment" do
-    get :show, :id => comments(:one).to_param
-    assert_response :success
+  test "should show comments on the post" do
+    get :show, :id => @comment, :post_id => @post
+    assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
   test "should redirect from edit" do
-    get :edit, :id => comments(:one).to_param, :post_id => comments(:one).post.to_param 
+    get :new, :user_id => @post.user_id, :post_id => @post
     assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
   test "should update comment" do
-    put :update, :id => comments(:one).to_param, :comment => { }
-    assert_redirected_to comment_path(assigns(:comment))
+    put :update, :id => @comment, :post_id => @post 
+    assert_redirected_to user_post_path(@post.user, @post)
   end
 
   test "should destroy comment" do

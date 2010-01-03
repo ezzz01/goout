@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build
     respond_to do |format|
       format.html { redirect_to user_post_path(@post.user_id, @post) }
-      format.xml  { redirect_to user_post_path(@post.user_id, @post)}# render :xml => @comment }
+      #format.xml  { redirect_to user_post_path(@post.user_id, @post)}# render :xml => @comment }
       format.js 
     end
   end
@@ -51,18 +51,21 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.xml
   def update
-    @comment = @post.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
+    @post = @comment.post 
+    redirect_to user_post_path(@post.user_id, @post) 
 
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        flash[:notice] = 'Comment was successfully updated.'
-        format.html { redirect_to([@post, @comment]) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      end
-    end
+#    respond_to do |format|
+#      if @comment.update_attributes(params[:comment])
+#        flash[:notice] = 'Comment was successfully updated.'
+#        format.html { redirect_to([@post, @comment]) }
+#        format.xml  { head :ok }
+#      else
+#        format.html { render :action => "edit" }
+#        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+#      end
+#    end
+
   end
 
   # DELETE /comments/1
@@ -74,7 +77,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(post_comments_url(@post)) }
-      format.xml  { head :ok }
+      #format.xml  { head :ok }
       format.js #destroy.rjs 
     end
   end

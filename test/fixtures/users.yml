@@ -2,18 +2,24 @@
 
 valid_user:
   id: 1
-  username: myusername 
+  username: myusername1 
   password: mylongpassword 
   email: myuser@mysite.com 
 
 one:
-  id: 3
-  username: myusername 
+  id: 2
+  username: myusername2 
   password: mylongpassword 
   email: myuser@mysite.com 
 
 invalid_user:
-  id: 2
+  id: 3
   username: m/yotherusername 
   password: my
   email: myothe@sun,con
+
+two:
+  id: 4
+  username: myusername4
+  password: mylongpassword 
+  email: myuser@mysite.com 
