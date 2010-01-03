@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   validates_length_of     :username, :within => USERNAME_RANGE
   validates_length_of     :password, :within => PASSWORD_RANGE
   validates_length_of     :email,   :maximum => EMAIL_MAX_LENGTH 
-  #validates_length_of     :blog_url, :maximum => BLOG_MAX_LENGTH 
+  validates_length_of     :blog_url, :maximum => BLOG_MAX_LENGTH, :allow_nil => true 
   validates_format_of :email,
                       :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                       :message => I18n.t(:must_be_valid) 

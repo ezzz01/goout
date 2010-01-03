@@ -20,7 +20,7 @@ class UsersTest < ActiveSupport::TestCase
   end
   
   def test_count
-    assert_equal 2, User.count
+    assert_equal 4, User.count
   end
 
 end
