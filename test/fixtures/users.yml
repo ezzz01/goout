@@ -6,6 +6,12 @@ valid_user:
   password: mylongpassword 
   email: myuser@mysite.com 
 
+one:
+  id: 3
+  username: myusername 
+  password: mylongpassword 
+  email: myuser@mysite.com 
+
 invalid_user:
   id: 2
   username: m/yotherusername 

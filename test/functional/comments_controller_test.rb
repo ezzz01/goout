@@ -24,10 +24,10 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, :post_id => @post, :comment => @valid_comment
+      post :create, :post_id => @post, :user_id => @post.user_id, :comment => @valid_comment
     end
 
-    assert_redirected_to comment_path(assigns(:comment))
+    assert_redirected_to user_post_path(@post.user_id, @post)
   end
 
   test "should show comment" do
@@ -35,8 +35,8 @@ class CommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, :id => comments(:one).to_param
+  test "should redirect from edit" do
+    get :edit, :id => comments(:one).to_param, :post_id => comments(:one).post.to_param 
     assert_redirected_to user_post_path(@post.user_id, @post)
   end
 

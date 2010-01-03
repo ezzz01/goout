@@ -37,12 +37,12 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.duplicate? or @comment.save
-        format.html { redirect_to(@post) }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.html { redirect_to user_post_path(@post.user_id, @post) }
+        #format.xml  { render :xml => @comment, :status => :created, :location => @comment }
         format.js 
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        #format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
         format.js { render :nothing => true}
       end
     end
