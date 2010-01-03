@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: 
-  city: 
+  id: 1
+  title: Latvijas Politechnikos universitetas
+  city: Ryga 
   country_id: 1
 
 two:
-  title: 
-  city: 
-  country_id: 1
+  id: 2
+  title: Universität Augsburg
+  city: Ausgburg 
+  country_id: 2

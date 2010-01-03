@@ -1,6 +1,15 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class SiteControllerTest < ActionController::TestCase
+
+  def setup
+    @controller = UsersController.new
+    @request = ActionController::TestRequest.new
+    @response = ActionController::TestResponse.new
+    @valid_user = users(:valid_user)
+    @invalid_user = users(:invalid_user)
+  end
+  
   # Replace this with your real tests.
   def test_index
     get :index
@@ -71,7 +80,7 @@ class SiteControllerTest < ActionController::TestCase
   end
 
   def test_login_success
-    assert_equal @valid_user.password, "myu"
+    assert_equal @valid_user.password, "mylongpassword"
 
 #    try_to_login @users["valid_user"]
     #assert logged_in?
