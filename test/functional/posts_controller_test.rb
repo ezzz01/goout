@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  fixtures :posts
+
   test "should get index" do
     get :index
     assert_response :success
@@ -13,11 +15,12 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should create post" do
+      @post = posts(:one)
     assert_difference('Post.count') do
-      post :create, :post => { }
+      post :create, :post => @post, :user_id => @post.user_id
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to user_posts_url(@post.user_id)
   end
 
   test "should show post" do
