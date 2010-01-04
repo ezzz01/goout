@@ -1,10 +1,19 @@
 require 'test_helper'
 
 class StudyProgramsControllerTest < ActionController::TestCase
+  fixtures :study_programs, :subject_areas
+
+  def setup
+    @controller = UsersController.new
+    @request = ActionController::TestRequest.new
+    @response = ActionController::TestResponse.new
+    @subject_area = subject_areas(:one) 
+  end
+
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:study_programs)
+    assert assigns(:study_programs)
   end
 
   test "should get new" do

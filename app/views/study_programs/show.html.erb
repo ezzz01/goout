@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @study_program.title %>
+</p>
+
+<p>
+  <b>Subject area:</b>
+  <%=h @study_program.subject_area_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_study_program_path(@study_program) %> |
+<%= link_to 'Back', study_programs_path %>

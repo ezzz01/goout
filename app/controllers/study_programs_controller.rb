@@ -1,8 +1,10 @@
 class StudyProgramsController < ApplicationController
+  before_filter :load_subject_area 
+
   # GET /study_programs
   # GET /study_programs.xml
   def index
-    @study_programs = StudyProgram.all
+    @study_programs = StudyProgram.find_all_by_subject_area_id(@subject_area) 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +84,13 @@ class StudyProgramsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+  def load_subject_area
+    @subject_area = SubjectArea.find(params[:subject_area_id])
+  end
+
+
+
 end

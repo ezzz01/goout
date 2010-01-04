@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :study_programs
-
-  map.resources :subject_areas
+  map.resources :subject_areas do |area|
+      area.resources :study_programs
+  end
 
   map.resources :universities
 
