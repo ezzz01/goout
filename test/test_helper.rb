@@ -61,7 +61,6 @@ class ActiveSupport::TestCase
   end
 
   def authorize(user)
-    puts user.id
     @request.session[:user_id] = user.id
   end
 

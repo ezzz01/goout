@@ -31,7 +31,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   def test_edit_page
-    #authorize @valid_user
+    authorize @valid_user
     assert_response :success
     assert_template "edit"
     assert_form_tag "/user/edit"
