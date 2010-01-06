@@ -1,11 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class SiteControllerTest < ActionController::TestCase
+include ApplicationHelper
 
   def setup
-    @controller = UsersController.new
-    @request = ActionController::TestRequest.new
-    @response = ActionController::TestResponse.new
     @valid_user = users(:valid_user)
     @invalid_user = users(:invalid_user)
   end
@@ -33,11 +31,11 @@ class SiteControllerTest < ActionController::TestCase
     get :register
     assert_response :success
     assert_template "register"
-    assert_form_tag "/user/register"
+    assert_form_tag "/site/register"
     assert_username_field
     assert_email_field
     assert_password_field
-    assert_submit_button "Register"
+    assert_submit_button "Registruotis"
   end
 
   def test_should_register_user
@@ -66,7 +64,7 @@ class SiteControllerTest < ActionController::TestCase
     get :login
     assert_response :success
     assert_template "login"
-    assert_tag "form", :attributes => { :action =>'/user/login', :method => 'post' }
+    assert_tag "form", :attributes => { :action =>'/site/login', :method => 'post' }
     assert_tag "input", :attributes => {
                         :name => "user[username]",
                         :type => "text"}
@@ -75,7 +73,7 @@ class SiteControllerTest < ActionController::TestCase
                         :type => "password"}
     assert_tag "input", :attributes => {
                         :type => "submit",
-                        :value => "Login" }
+                        :value => "Prisijungti" }
     assert_tag "input", :attributes => { :name => "user[remember_me]", :type => "checkbox" }
   end
 
@@ -93,11 +91,48 @@ class SiteControllerTest < ActionController::TestCase
     try_to_login @valid_user
     get :logout
     assert_response :redirect
-    assert_redirected_to "index", :controller => "site"
-    assert_equal "Logged out", flash[:notice]
-    #assert_nil session[:user_id]
+    assert_redirected_to :controller => "Site"
+    assert_equal "Atsijungėte sėkmingai", flash[:notice]
+    assert_nil session[:user_id]
   end
 
+  
+  private
+  
+  # Try to log a user in using the login action.
+  # Pass :remember_me => "0" or :remember_me => "1" in options
+  # to invoke the remember me machinery.
+  def try_to_login(user, options = {})
+    user_hash = { :username => user.username,
+                  :password    => user.password }
+    user_hash.merge!(options)
+    post :login, :user => user_hash 
+  end
+  
+   
+  # Assert that the screen name field has the correct HTML.
+  def assert_username_field(username = nil, options = {})
+    assert_input_field("user[username]", username, "text",
+                       User::USERNAME_SIZE, User::USERNAME_MAX_LENGTH,
+                       options)
+  end
+  
+  # Assert that the email field has the correct HTML.
+  def assert_email_field(email = nil, options = {})
+    assert_input_field("user[email]", email, "text",
+                       User::EMAIL_SIZE, User::EMAIL_MAX_LENGTH,
+                       options)
+  end
+  
+ # Assert that the password field has the correct HTML.
+  def assert_password_field(password_field_name = "password", options = {})
+    # We never want a password to appear pre-filled into a form.
+    blank = nil
+    assert_input_field("user[#{password_field_name}]", blank, "password",
+                       User::PASSWORD_SIZE, User::PASSWORD_MAX_LENGTH,
+                       options)
+  end
+    
 
 
 
