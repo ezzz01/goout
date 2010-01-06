@@ -1,8 +1,6 @@
 <div id="study_<%= study.id %>" class="study">
-  <div><%= study.study_type.title %></div>
+  <div><%= study.study_type.title unless study.study_type.blank? %></div>
   <span><%= study.from %></span> - <span><%= study.to %></span>
-  <% unless study.university.nil? %>
-  <div><%= study.university.title %></div>
-  <% end %>
+  <div><%= study.university.title unless study.university.blank? %></div>
   <br />
 </div>

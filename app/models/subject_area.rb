@@ -1,3 +1,3 @@
 class SubjectArea < ActiveRecord::Base
-  has_many :subject_areas
+  has_many :study_programs
 end

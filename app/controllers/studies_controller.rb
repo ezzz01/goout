@@ -32,7 +32,16 @@ class StudiesController < ApplicationController
 		page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => country.universities
         page << "initialize();" 
 	end
+  end
 
+
+  def update_study_programs
+	subject_area = SubjectArea.find(params[:subject_area_id], :include => :study_programs, :order => 'study_programs.title', :conditions => [ "study_programs.pending = 0 OR study_programs.added_by = ?", session[:user_id] ])
+
+	render :update do |page|
+		page.replace_html 'study_programs', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => subject_area.study_programs
+        page << "initialize();" 
+	end
   end
 
   end
