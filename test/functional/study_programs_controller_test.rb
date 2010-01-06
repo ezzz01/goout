@@ -4,14 +4,17 @@ class StudyProgramsControllerTest < ActionController::TestCase
   fixtures :study_programs, :subject_areas
 
   def setup
-    @controller = UsersController.new
-    @request = ActionController::TestRequest.new
-    @response = ActionController::TestResponse.new
     @subject_area = subject_areas(:one) 
   end
 
-  test "should get index" do
+  test "should get index (all)" do
     get :index
+    assert_response :success
+    assert_not_nil assigns(:study_programs)
+  end
+
+  test "should get index " do
+    get :index, :subject_area_id => @subject_area
     assert_response :success
     assert assigns(:study_programs)
   end
@@ -23,7 +26,7 @@ class StudyProgramsControllerTest < ActionController::TestCase
 
   test "should create study_program" do
     assert_difference('StudyProgram.count') do
-      post :create, :study_program => { }
+      post :create, :study_program => { :title => "new program", :subject_area_id => @subject_area }
     end
 
     assert_redirected_to study_program_path(assigns(:study_program))

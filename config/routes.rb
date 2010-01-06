@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :universities
-
+  map.resources :study_programs
   map.resources :countries
 
   map.resources :users  do |user|

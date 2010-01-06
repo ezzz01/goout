@@ -9,10 +9,10 @@
   </p>
   <p>
     <%= f.label :subject_area_id %><br />
-    <%= f.text_field :subject_area_id %>
+    <%= collection_select("study_program", "subject_area_id", SubjectArea.all(:order => :title), :id, :title, {:prompt => t(:select_subject_area) }  )%> 
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit t(:create) %>
   </p>
 <% end %>
 

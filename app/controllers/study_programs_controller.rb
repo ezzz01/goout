@@ -4,7 +4,11 @@ class StudyProgramsController < ApplicationController
   # GET /study_programs
   # GET /study_programs.xml
   def index
-    @study_programs = StudyProgram.find_all_by_subject_area_id(@subject_area) 
+    if !@subject_area.blank?
+        @study_programs = StudyProgram.find_all_by_subject_area_id(@subject_area) 
+    else
+        @study_programs = StudyProgram.all    
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -88,7 +92,12 @@ class StudyProgramsController < ApplicationController
   private
 
   def load_subject_area
-    @subject_area = SubjectArea.find(params[:subject_area_id])
+    if params[:subject_area_id]
+        @subject_area = SubjectArea.find(params[:subject_area_id])
+    else
+        @subject_area = nil    
+    end
+
   end
 
 
