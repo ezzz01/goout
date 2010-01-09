@@ -46,7 +46,7 @@ class UniversitiesController < ApplicationController
       if @university.save
         flash[:notice] = 'University was successfully created.'
         format.html { redirect_to(@university) }
-        country = Country.find(params[:university][:country_id], :include => :universities, :order => 'universities.title')
+        country = Country.find(params[:university][:country_id], :include => :universities, :order => 'universities.title', :conditions => [ "universities.pending = 0 OR universities.added_by = ?", session[:user_id] ])
 
         format.js {
             render :update do |page|

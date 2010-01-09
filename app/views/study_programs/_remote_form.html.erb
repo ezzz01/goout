@@ -1,0 +1,17 @@
+<h1>New study_program</h1>
+<% remote_form_for(@study_program) do |f| %>
+<span class="notice"><%= t(:study_program_is_pending) %></span>
+  <%= f.error_messages %>
+ <p>
+    <%= f.label :subject_area_id %><br />
+    <%= f.collection_select(:subject_area_id, SubjectArea.all(:order => :title), :id, :title, :selected => params[:subject_area_id].to_i )%> 
+  </p>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+   <p>
+    <%= f.submit t(:create) %>
+  </p>
+<% end %>

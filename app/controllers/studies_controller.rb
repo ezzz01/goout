@@ -26,20 +26,26 @@ class StudiesController < ApplicationController
   end
 
   def update_universities
-	country = Country.find(params[:country_id], :include => :universities, :order => 'universities.title', :conditions => [ "universities.pending = 0 OR universities.added_by = ?", session[:user_id] ])
-
+    country = Country.find_by_id(params[:country_id], :include => :universities, :order => 'universities.title', :conditions => [ "universities.pending = 0 OR universities.added_by = ?", session[:user_id] ])
 	render :update do |page|
-		page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => country.universities
+        if country.blank?
+            page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => nil
+        else 
+            page.replace_html 'universities', :partial => 'universities', :locals => {:id => params[:country_id] }, :object => country.universities
+        end
         page << "initialize();" 
 	end
   end
 
 
   def update_study_programs
-	subject_area = SubjectArea.find(params[:subject_area_id], :include => :study_programs, :order => 'study_programs.title', :conditions => [ "study_programs.pending = 0 OR study_programs.added_by = ?", session[:user_id] ])
-
+	subject_area = SubjectArea.find_by_id(params[:subject_area_id], :include => :study_programs, :order => 'study_programs.title', :conditions => [ "study_programs.pending = 0 OR study_programs.added_by = ?", session[:user_id] ])
 	render :update do |page|
-		page.replace_html 'study_programs', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => subject_area.study_programs
+        if subject_area.blank?
+            page.replace_html 'study_programs', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => nil
+        else
+            page.replace_html 'study_programs', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => subject_area.study_programs
+        end
         page << "initialize();" 
 	end
   end

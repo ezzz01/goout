@@ -34,6 +34,7 @@ class StudyProgramsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js { render :partial => 'remote_form', :layout => 'modal' }
       format.xml  { render :xml => @study_program }
     end
   end
@@ -47,12 +48,21 @@ class StudyProgramsController < ApplicationController
   # POST /study_programs.xml
   def create
     @study_program = StudyProgram.new(params[:study_program])
-
+	@study_program.added_by = session[:user_id]
     respond_to do |format|
       if @study_program.save
         flash[:notice] = 'StudyProgram was successfully created.'
         format.html { redirect_to(@study_program) }
         format.xml  { render :xml => @study_program, :status => :created, :location => @study_program }
+        format.js {
+            subject_area = SubjectArea.find(params[:study_program][:subject_area_id], :include => :study_programs, :order => 'study_programs.title', :conditions => [ "study_programs.pending = 0 OR study_programs.added_by = ?", session[:user_id] ])
+            render :update do |page|
+                page.replace_html 'study_programs', :partial => 'studies/study_programs', :locals => {:id => params[:study_program][:subject_area_id] },  :object => subject_area.study_programs
+                page << "lightbox.prototype.deactivate();"
+                page << "initialize();" 
+                flash.discard
+            end
+        }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @study_program.errors, :status => :unprocessable_entity }

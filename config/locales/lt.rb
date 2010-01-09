@@ -15,6 +15,8 @@
   :body => "Body?",
   :tags => "Žymės",
   :new_entry => "Sukurti naują",
+  :new_university => "Sukurti naują universitetą",
+  :new_study_program => "Sukurti naują studijų programą",
 
   #page titles
   :user_profile => "Vartotojo profilis",
@@ -53,7 +55,8 @@
   :created => "sukurtas",
 
   #notices:
-  :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galite sukurti Universitetų sąraše",
+  :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galėsite sukurti Universitetų sąraše",
+  :study_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį studijos programos aprašymą galėsite sukurti studijų programų sąraše",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",

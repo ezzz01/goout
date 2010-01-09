@@ -12,7 +12,9 @@
      </div>
 	<div id="universities"> </div>
     <div id="subject_area">
-        <%= collection_select("", "subject_area_id", SubjectArea.find(:all, :order => :title), :id, :title, {:prompt => t(:select_subject_area) },	{:onchange => "#{remote_function(:url  => {:action => "update_study_programs"},
+        <%= collection_select("", "subject_area_id", SubjectArea.find(:all, :order => :title), :id, :title, 
+        {:prompt => t(:select_subject_area) },
+        {:onchange => "#{remote_function(:url  => {:action => "update_study_programs"},
    		 :with => "'subject_area_id='+value")}"} ) %>
     </div>
     <div id="study_programs">
