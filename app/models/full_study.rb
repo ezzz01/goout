@@ -1,0 +1,2 @@
+class FullStudy < Activity 
+end

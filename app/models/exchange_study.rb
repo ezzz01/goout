@@ -1,0 +1,2 @@
+class ExchangeStudy < Activity 
+end

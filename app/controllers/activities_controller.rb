@@ -1,10 +1,10 @@
-class StudiesController < ApplicationController
+class ActivitiesController < ApplicationController
   include ApplicationHelper
 #  before_filter :protect, :only => ["new", "create", "delete", "update"]
 
   def new 
     @universities = University.find(:all)
-    @study = Study.new
+    @activity = Activity.new
     respond_to do |format|
       format.js 
     end
@@ -15,11 +15,11 @@ class StudiesController < ApplicationController
   end
 
   def create
-    @study = Study.new(params[:study])
+    @activity = Activity.new(params[:study])
     @user = User.find(session[:user_id]) 
-    @study.user_id = @user.id
+    @activity.user_id = @user.id
     respond_to do |format|
-      if @study.save
+      if @activity.save
         format.js 
       end
     end

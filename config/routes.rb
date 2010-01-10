@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :countries
 
   map.resources :users  do |user|
-    user.resources :studies
+    user.resources :activities
     user.resources :tags do |tag|
       tag.resources :posts
     end
@@ -17,11 +17,6 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
 
-  map.namespace :admin do |admin|
-  	admin.resources :blog_posts
-  end
-
-  
   
   # The priority is based upon order of creation: first created -> highest priority.
 

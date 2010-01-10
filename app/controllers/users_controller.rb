@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user.spec ||= Spec.new
     @spec = @user.spec
     @posts = @user.posts
-    @studies = @user.studies
+    @activities = @user.activities
 
     respond_to do |format|
       format.html # show.html.erb

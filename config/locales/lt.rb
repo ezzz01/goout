@@ -18,6 +18,10 @@
   :new_university => "Sukurti naują universitetą",
   :new_study_program => "Sukurti naują studijų programą",
 
+  #activity types
+  :full_study => "Pilnos studijos",
+  :exchange_study => "Mainų programa",
+  :internship => "Stažuotė / Praktika",
   #page titles
   :user_profile => "Vartotojo profilis",
   :edit_basic_info => "Redaguoti vartotojo profilį",
@@ -65,6 +69,7 @@
 
   #errors
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
+  :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",
   #user
   :select_country => "Pasirinkite šalį",
   :select_university => "Pasirinkite universitetą",

@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100106220828) do
+ActiveRecord::Schema.define(:version => 20100110212027) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.integer  "study_program_id"
+    t.integer  "exchange_program_id"
+    t.integer  "activity_area_id"
+    t.date     "from"
+    t.date     "to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
@@ -21,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20100106220828) do
 
   create_table "countries", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "type"
+    t.string   "title"
+    t.string   "city"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,17 +75,6 @@ ActiveRecord::Schema.define(:version => 20100106220828) do
     t.datetime "updated_at"
   end
 
-  create_table "studies", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "university_id"
-    t.date     "from"
-    t.date     "to"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "study_type_id"
-    t.integer  "study_program_id"
-  end
-
   create_table "study_programs", :force => true do |t|
     t.string   "title"
     t.integer  "subject_area_id"
@@ -71,12 +82,6 @@ ActiveRecord::Schema.define(:version => 20100106220828) do
     t.datetime "updated_at"
     t.boolean  "pending",         :default => true
     t.integer  "added_by"
-  end
-
-  create_table "study_types", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "subject_areas", :force => true do |t|
@@ -97,16 +102,6 @@ ActiveRecord::Schema.define(:version => 20100106220828) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "universities", :force => true do |t|
-    t.string   "title"
-    t.string   "city"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "pending",    :default => true
-    t.integer  "added_by"
   end
 
   create_table "users", :force => true do |t|

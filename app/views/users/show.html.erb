@@ -20,16 +20,16 @@
 
 <p>
   <b><%= t(:studies) %>:</b>
-    <span id="add_study_link">
+    <span id="add_activity_link">
       <%= link_to_remote t(:new_entry),
-        {:url => new_user_study_path(@user), 
+        {:url => new_user_activity_path(@user), 
         :method => :get},
-        :href => new_user_study_path(@user)
+        :href => new_user_activity_path(@user)
       %>
     </span>
-    <div id="add_study_form"> </div>
-    <div id="studies_for_user">
-      <%= render :partial => "studies/study", :collection => @user.studies %>
+    <div id="add_activity_form"> </div>
+    <div id="activities_for_user">
+      <%= render :partial => "activities/activity", :collection => @user.activities %>
     </div>
 </p>
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -5,10 +5,10 @@
     <%= f.submit t(:create) %>
     <%= button_to_function t(:cancel) do |page|
         page.visual_effect :blind_up, "add_university_form"
-        page.visual_effect :blind_down, "add_study_form"
+        page.visual_effect :blind_down, "add_activity_form"
         page.show "add_university_link"
         page.show "universities"
-        page.show "add_study_link"
+        page.show "add_activity_link"
       end %>
  </fieldset>
 <% end %>
