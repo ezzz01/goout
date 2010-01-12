@@ -1,0 +1,22 @@
+<p>
+  <b>Title:</b>
+  <%=h @organization.title %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @organization.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @organization.country.title %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @organization.type %>
+</p>
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>
