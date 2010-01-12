@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110212027) do
+ActiveRecord::Schema.define(:version => 20100112211005) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(:version => 20100110212027) do
   end
 
   create_table "countries", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exchange_programs", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,8 +86,6 @@ ActiveRecord::Schema.define(:version => 20100110212027) do
     t.integer  "subject_area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "pending",         :default => true
-    t.integer  "added_by"
   end
 
   create_table "subject_areas", :force => true do |t|
