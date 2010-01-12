@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
 
 
   def index
-    @oragnizations = Organization.all
+    @organizations = Organization.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +20,7 @@ class OrganizationsController < ApplicationController
   end
 
   def new
-    @Organization = Oragnization.new
+    @organization = Organization.new
     respond_to do |format|
       format.html 
       format.js { render :partial => 'remote_form', :layout => 'modal' }
@@ -29,21 +29,20 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Ogranization.find(params[:id])
+    @organization = Organization.find(params[:id])
   end
 
   def create
-    @organization = Organization.new(params[:oragnization])
+    @organization = Organization.new(params[:organization])
 	@organization.added_by = session[:user_id]
     respond_to do |format|
       if @organization.save
         flash[:notice] = 'Organization was successfully created.'
         format.html { redirect_to(@organization) }
-        country = Country.find(params[:organization][:country_id], :include => :organizations, :order => 'organizations.title', :conditions => [ "organization.pending = 0 OR organization.added_by = ?", session[:user_id] ])
-
+        country = Country.find(params[:organization][:country_id], :include => :organizations, :order => 'organizations.title', :conditions => [ "organizations.pending = 0 OR organizations.added_by = ?", session[:user_id] ])
         format.js {
             render :update do |page|
-                page.replace_html 'oragnization', :partial => 'activities/organizations', :locals => {:id => params[:organization][:country_id] },  :object => country.organizations
+                page.replace_html 'organization', :partial => 'activities/organizations', :locals => {:id => params[:organization][:country_id] },  :object => country.organizations
                 page << "lightbox.prototype.deactivate();"
                 page << "initialize();" 
                 flash.discard
@@ -80,7 +79,7 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @oragnization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
     @organization.destroy
 
     respond_to do |format|

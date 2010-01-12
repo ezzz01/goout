@@ -60,6 +60,7 @@
 
   #notices:
   :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galėsite sukurti Universitetų sąraše",
+  :organization_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį organizacijos aprašymą galėsite sukurti Organizacijų sąraše",
   :study_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį studijos programos aprašymą galėsite sukurti studijų programų sąraše",
   #blog
   :new_comment => "Naujas komentaras",

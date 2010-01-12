@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :exchange_programs
-  map.resources :universities
+  map.resources :organizations
   map.resources :study_programs
   map.resources :countries
 

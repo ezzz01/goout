@@ -1,0 +1,16 @@
+<h1>Editing exchange_program</h1>
+
+<% form_for(@exchange_program) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @exchange_program %> |
+<%= link_to 'Back', exchange_programs_path %>
