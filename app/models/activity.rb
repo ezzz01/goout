@@ -1,7 +1,6 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
   belongs_to :organization
-#  belongs_to :subject_area
 
   def country_id
   end

@@ -1,4 +1,4 @@
-<%= collection_select("activity", :organizations_id, organizations, :id, :title,
+<%= collection_select("activity", :organization_id, organizations, :id, :title,
   {:prompt   => t(:select_university)}) if !organizations.blank? %>
 	<span id="add_organizations_link">
         <%= link_to t(:new_university), new_organization_path(:country_id => id) ,:class => 'lbOn' %>

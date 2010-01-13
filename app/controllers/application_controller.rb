@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery  :secret => '23cb6b1336875tf9611218c6ca7276bd'
+  protect_from_forgery
 
   def check_authorization
     authorization_token = cookies[:authorization_token]

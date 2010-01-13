@@ -1,0 +1,15 @@
+<h1>New exchange program</h1>
+<% remote_form_for(@exchange_program) do |f| %>
+<span class="notice"><%= t(:exchange_program_is_pending) %></span>
+  <%= f.error_messages %>
+ 
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit t(:create) %>
+  </p>
+<% end %>
+
+

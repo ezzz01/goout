@@ -28,7 +28,8 @@ class ExchangeProgramsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @exchange_program }
+      format.js { render :partial => 'remote_form', :layout => 'modal' }
+    # format.xml  { render :xml => @exchange_program }
     end
   end
 
@@ -41,15 +42,31 @@ class ExchangeProgramsController < ApplicationController
   # POST /exchange_programs.xml
   def create
     @exchange_program = ExchangeProgram.new(params[:exchange_program])
-
+	@exchange_program.added_by = session[:user_id]
     respond_to do |format|
       if @exchange_program.save
         flash[:notice] = 'ExchangeProgram was successfully created.'
         format.html { redirect_to(@exchange_program) }
-        format.xml  { render :xml => @exchange_program, :status => :created, :location => @exchange_program }
+        exchange_programs = ExchangeProgram.find(:all, :order => :title)
+        format.js {
+            render :update do |page|
+                page.replace_html 'exchange_program', :partial => 'activities/exchange_programs', :locals => {},  :object => exchange_programs 
+                page << "lightbox.prototype.deactivate();"
+                page << "initialize();" 
+                flash.discard
+            end
+        }
+   #     format.xml  { render :xml => @exchange_program, :status => :created, :location => @exchange_program }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @exchange_program.errors, :status => :unprocessable_entity }
+        format.js { 
+            render :update do |page|
+                page << "alert(' #{t(:error_saving_exchange_program)}');"
+                page << "lightbox.prototype.deactivate();"
+                flash.discard
+            end
+        }
+   #     format.xml  { render :xml => @exchange_program.errors, :status => :unprocessable_entity }
       end
     end
   end

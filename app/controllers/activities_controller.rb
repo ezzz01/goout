@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
 #  before_filter :protect, :only => ["new", "create", "delete", "update"]
 
   def new 
-    @universities = University.find(:all)
+    @organizations = Organization.find(:all)
     @activity = Activity.new
     respond_to do |format|
       format.js 
@@ -15,7 +15,13 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(params[:study])
+    if(params[:my_type] == "full_study")
+        @activity = FullStudy.new(params[:activity])
+    elsif(params[:my_type] == "exchange_study")
+        @activity = ExchangeStudy.new(params[:activity])
+    elsif(params[:my_type] == "internship")
+        @activity = Internship.new(params[:activity])
+    end
     @user = User.find(session[:user_id]) 
     @activity.user_id = @user.id
     respond_to do |format|
@@ -31,7 +37,7 @@ class ActivitiesController < ApplicationController
         if country.blank?
             page.replace_html 'organization', :partial => 'organizations', :locals => {:id => params[:country_id] }, :object => nil
         else 
-            page.replace_html 'organizations', :partial => 'organizations', :locals => {:id => params[:country_id] }, :object => country.organizations
+            page.replace_html 'organization', :partial => 'organizations', :locals => {:id => params[:country_id] }, :object => country.organizations
         end
         page << "initialize();" 
 	end
@@ -51,8 +57,11 @@ class ActivitiesController < ApplicationController
   end
 
     def update_fields
-        page.replace_html 'exchange_program', 'mytest'
-
+        exchange_programs = ExchangeProgram.find(:all, :order => :title)
+	    render :update do |page|
+            page.replace_html 'exchange_program', :partial => 'exchange_programs', :locals => {}, :object => exchange_programs 
+            page << "initialize();" 
+        end
     end
 
   end

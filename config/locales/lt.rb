@@ -17,6 +17,7 @@
   :new_entry => "Sukurti naują",
   :new_university => "Sukurti naują universitetą",
   :new_study_program => "Sukurti naują studijų programą",
+  :new_exchange_program => "Sukurti naują mainų programą",
 
   #activity types
   :full_study => "Pilnos studijos",
@@ -62,6 +63,7 @@
   :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galėsite sukurti Universitetų sąraše",
   :organization_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį organizacijos aprašymą galėsite sukurti Organizacijų sąraše",
   :study_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį studijos programos aprašymą galėsite sukurti studijų programų sąraše",
+  :exchange_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį mainų programos aprašymą galėsite sukurti mainų programų sąraše",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",
@@ -77,6 +79,7 @@
   :select_study_type => "Pasirinkite studijų tipą",
   :select_subject_area => "Pasirinkite studijų sritį",
   :select_study_program => "Pasirinkite studijų programą",
+  :select_exchange_program => "Pasirinkite mainų programą",
   #custom_errors
   :username_error => "turi susidėti tik iš raidžių, skaičių, brūkšių (-) ir pabraukimo brūkšnių (-)",
   :no_spaces => "neturi turėti tarpų",
