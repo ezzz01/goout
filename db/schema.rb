@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100113212650) do
+ActiveRecord::Schema.define(:version => 20100115221026) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20100113212650) do
     t.integer  "activity_area_id"
     t.date     "from"
     t.date     "to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "activity_areas", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "pending",     :default => true
+    t.integer  "added_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

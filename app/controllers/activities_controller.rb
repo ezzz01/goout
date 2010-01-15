@@ -57,9 +57,14 @@ class ActivitiesController < ApplicationController
   end
 
     def update_fields
-        exchange_programs = ExchangeProgram.find(:all, :order => :title)
 	    render :update do |page|
-            page.replace_html 'exchange_program', :partial => 'exchange_programs', :locals => {}, :object => exchange_programs 
+            if (params[:activity_type] == "exchange_study")
+                exchange_programs = ExchangeProgram.find(:all, :order => :title)
+                page.replace_html 'exchange_program', :partial => 'exchange_programs', :locals => {}, :object => exchange_programs 
+            elsif (params[:activity_type] == "internship")
+                activity_areas = ActivityArea.find(:all, :order => :title)
+                page.replace_html 'activity_area', :partial => 'activity_areas', :locals => {}, :object => activity_areas 
+            end
             page << "initialize();" 
         end
     end

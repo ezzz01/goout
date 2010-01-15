@@ -18,6 +18,7 @@
   :new_university => "Sukurti naują universitetą",
   :new_study_program => "Sukurti naują studijų programą",
   :new_exchange_program => "Sukurti naują mainų programą",
+  :new_activity_area => "Sukurti naują veiklos sritį",
 
   #activity types
   :full_study => "Pilnos studijos",
@@ -64,6 +65,7 @@
   :organization_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį organizacijos aprašymą galėsite sukurti Organizacijų sąraše",
   :study_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį studijos programos aprašymą galėsite sukurti studijų programų sąraše",
   :exchange_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį mainų programos aprašymą galėsite sukurti mainų programų sąraše",
+  :activity_area_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį veiklos srities aprašymą galėsite sukurti veiklos sričių sąraše",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",
@@ -73,6 +75,8 @@
   #errors
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
   :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",
+  :error_saving_exchange_program => "Klaida išsaugant. Gal tokia mainų programa jau yra?",
+  :error_saving_activity_area => "Klaida išsaugant. Gal tokia veiklos sritis jau yra?",
   #user
   :select_country => "Pasirinkite šalį",
   :select_university => "Pasirinkite universitetą",
@@ -80,6 +84,7 @@
   :select_subject_area => "Pasirinkite studijų sritį",
   :select_study_program => "Pasirinkite studijų programą",
   :select_exchange_program => "Pasirinkite mainų programą",
+  :select_activity_area => "Pasirinkite veiklos sritį",
   #custom_errors
   :username_error => "turi susidėti tik iš raidžių, skaičių, brūkšių (-) ir pabraukimo brūkšnių (-)",
   :no_spaces => "neturi turėti tarpų",
