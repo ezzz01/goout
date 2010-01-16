@@ -85,6 +85,10 @@
   :select_study_program => "Pasirinkite studijų programą",
   :select_exchange_program => "Pasirinkite mainų programą",
   :select_activity_area => "Pasirinkite veiklos sritį",
+  #organization_types
+  :university => "Universitetas",
+  :company => "Įmonė",
+  :ngo => "Nevyriausybinė organizacija",
   #custom_errors
   :username_error => "turi susidėti tik iš raidžių, skaičių, brūkšių (-) ir pabraukimo brūkšnių (-)",
   :no_spaces => "neturi turėti tarpų",

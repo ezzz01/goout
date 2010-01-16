@@ -1,0 +1,15 @@
+<h1>New activity area</h1>
+<% remote_form_for(@activity_area) do |f| %>
+<span class="notice"><%= t(:activity_area_is_pending) %></span>
+  <%= f.error_messages %>
+ 
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit t(:create) %>
+  </p>
+<% end %>
+
+

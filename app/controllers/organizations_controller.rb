@@ -33,7 +33,13 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new(params[:organization])
+      if(params[:organization_type] == "university")
+        @organization = University.new(params[:organization])
+      elsif(params[:organization_type] == "company")
+        @organization = Company.new(params[:organization])
+      elsif(params[:organization_type] == "ngo")
+        @organization = Ngo.new(params[:organization])
+      end
 	@organization.added_by = session[:user_id]
     respond_to do |format|
       if @organization.save

@@ -1,0 +1,22 @@
+<h1>Listing activity_areas</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+<% @activity_areas.each do |activity_area| %>
+  <tr>
+    <td><%=h activity_area.title %></td>
+    <td><%=h activity_area.description %></td>
+    <td><%= link_to 'Show', activity_area %></td>
+    <td><%= link_to 'Edit', edit_activity_area_path(activity_area) %></td>
+    <td><%= link_to 'Destroy', activity_area, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New activity_area', new_activity_area_path %>
