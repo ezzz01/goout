@@ -6,22 +6,40 @@
         {:onchange => "#{remote_function(:url  => {:action => "update_fields"},
    		 :with => "'activity_type='+value")}"}   %>
     </div>
-    <div id="exchange_program"></div>
     <div id="country">
         <%= collection_select("", :country_id, Country.find(:all, :order => :title), :id, :title, 
-		{:prompt   => t(:select_country)},
-		{:onchange => "#{remote_function(:url  => {:action => "update_organizations"},
-   		 :with => "'country_id='+value")}"}  ) %>
+        {:prompt   => t(:select_country)},
+        {:onchange => "#{remote_function(:url  => {:action => "update_organizations"},
+         :with => "'country_id='+value")}"}  ) %>
      </div>
-	<div id="organization"></div>
-    <div id="subject_area">
-        <%= collection_select("", "subject_area_id", SubjectArea.find(:all, :order => :title), :id, :title, 
-        {:prompt => t(:select_subject_area) },
-        {:onchange => "#{remote_function(:url  => {:action => "update_study_programs"},
-   		 :with => "'subject_area_id='+value")}"} ) %>
+
+    <div id="variable_part">
+        <div id="full_study">
+            <div id="organization"><%= select_tag "", options_for_select([t(:select_country_first), ""]), :disabled => true %></div>
+            <div id="subject_area">
+                <%= collection_select("", "subject_area_id", SubjectArea.find(:all, :order => :title), :id, :title, 
+                {:prompt => t(:select_subject_area) },
+                {:onchange => "#{remote_function(:url  => {:action => "update_study_programs"},
+                 :with => "'subject_area_id='+value")}"} ) %>
+            <div id="study_program"> <%= select_tag "", options_for_select([t(:select_subject_area_first), ""]), :disabled => true %></div>
+            </div>
+        </div>
+        <div id="exchange_study" style="display: none">
+            <div id="exchange_program"></div>
+            <div id="organization"></div>
+            <div id="study_program"> </div>
+            <div id="subject_area">
+                <%= collection_select("", "subject_area_id", SubjectArea.find(:all, :order => :title), :id, :title, 
+                {:prompt => t(:select_subject_area) },
+                {:onchange => "#{remote_function(:url  => {:action => "update_study_programs"},
+                 :with => "'subject_area_id='+value")}"} ) %>
+            </div>
+        </div>
+        <div id="internship" style="display: none">
+            <div id="organization"></div>
+            <div id="activity_area"> </div>
+        </div>
     </div>
-    <div id="activity_area"> </div>
-    <div id="study_program"> </div>
     <div id="from">
         <%= date_select("activity", "from", options = {:start_year => Time.now.year - 15} )%>
     </div>

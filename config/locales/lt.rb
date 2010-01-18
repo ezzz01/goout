@@ -85,6 +85,10 @@
   :select_study_program => "Pasirinkite studijų programą",
   :select_exchange_program => "Pasirinkite mainų programą",
   :select_activity_area => "Pasirinkite veiklos sritį",
+
+  :select_country_first => "Pirmiausia pasirinkite šalį",
+  :select_subject_area_first => "Pirmiausia pasirinkite studijų sritį",
+
   #organization_types
   :university => "Universitetas",
   :company => "Įmonė",
