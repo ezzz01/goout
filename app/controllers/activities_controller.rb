@@ -32,22 +32,14 @@ class ActivitiesController < ApplicationController
   end
 
   def update_organizations
-    country = Country.find_by_id(params[:country_id], :include => :organizations, :order => 'organizations.type, organizations.title', :conditions => [ "organizations.pending = 0 OR organizations.added_by = ?", session[:user_id] ])
-    organizations = {}
-    country.organizations.each do |org|
-        mytest = {org.title => org.id}
-        organizations[org.type] = mytest
-    end
-
-  #  organizations = [ ['North America', [['United States','US'],'Canada']], ['Europe', ['Denmark','Germany','France']] ]
-
+    orgs = load_organizations(params[:country_id])
 	render :update do |page|
-        if country.blank?
-            page.replace_html 'organization', :partial => 'organizations', :locals => {:id => params[:country_id], :organizations => organizations}
+        if orgs.blank?
+            page.replace_html 'organization', :partial => 'organizations', :locals => {:id => params[:country_id], :organizations => nil}
         else 
-            page.replace_html 'organization', :partial => 'organizations', :locals => {:id => params[:country_id], :organizations => organizations}
+            page.replace_html 'organization', :partial => 'organizations', :locals => {:id => params[:country_id], :organizations => orgs}
+            page[:activity_organization_id].set_style :width => "400px"
         end
-        page[:activity_organization_id].set_style :width => "400px"
         page << "initialize();" 
 	end
   end
@@ -60,6 +52,7 @@ class ActivitiesController < ApplicationController
             page.replace_html 'study_program', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => nil
         else
             page.replace_html 'study_program', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => subject_area.study_programs
+            page[:activity_study_program_id].set_style :width => "400px"
         end
         page << "initialize();" 
 	end

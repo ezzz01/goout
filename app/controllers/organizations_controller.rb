@@ -45,10 +45,11 @@ class OrganizationsController < ApplicationController
       if @organization.save
         flash[:notice] = 'Organization was successfully created.'
         format.html { redirect_to(@organization) }
-        country = Country.find(params[:organization][:country_id], :include => :organizations, :order => 'organizations.title', :conditions => [ "organizations.pending = 0 OR organizations.added_by = ?", session[:user_id] ])
         format.js {
+            orgs = load_organizations(params[:organization][:country_id]) 
             render :update do |page|
-                page.replace_html 'organization', :partial => 'activities/organizations', :locals => {:id => params[:organization][:country_id] },  :object => country.organizations
+                page.replace_html 'organization', :partial => 'activities/organizations', :locals => {:id => params[:organization][:country_id] }, :object=> orgs
+                page[:activity_organization_id].set_style :width => "400px"
                 page << "lightbox.prototype.deactivate();"
                 page << "initialize();" 
                 flash.discard

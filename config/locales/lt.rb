@@ -15,15 +15,18 @@
   :body => "Body?",
   :tags => "Žymės",
   :new_entry => "Sukurti naują",
-  :new_university => "Sukurti naują universitetą",
+  :new_university => "Sukurti naują universitetą ar organizaciją",
   :new_study_program => "Sukurti naują studijų programą",
   :new_exchange_program => "Sukurti naują mainų programą",
   :new_activity_area => "Sukurti naują veiklos sritį",
 
   #activity types
   :full_study => "Pilnos studijos",
+  :fullstudy => "Pilnos studijos",
   :exchange_study => "Mainų programa",
+  :exchangestudy => "Mainų programa",
   :internship => "Stažuotė / Praktika",
+
   #page titles
   :user_profile => "Vartotojo profilis",
   :edit_basic_info => "Redaguoti vartotojo profilį",
@@ -77,6 +80,7 @@
   :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",
   :error_saving_exchange_program => "Klaida išsaugant. Gal tokia mainų programa jau yra?",
   :error_saving_activity_area => "Klaida išsaugant. Gal tokia veiklos sritis jau yra?",
+  :error_saving_study_program => "Klaida išsaugant. Gal tokia studijų programa jau yra?",
   #user
   :select_country => "Pasirinkite šalį",
   :select_university => "Pasirinkite universitetą",

@@ -51,6 +51,7 @@ class ExchangeProgramsController < ApplicationController
         format.js {
             render :update do |page|
                 page.replace_html 'exchange_program', :partial => 'activities/exchange_programs', :locals => {},  :object => exchange_programs 
+                page[:activity_exchange_program_id].set_style :width => "400px"
                 page << "lightbox.prototype.deactivate();"
                 page << "initialize();" 
                 flash.discard

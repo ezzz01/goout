@@ -1,6 +1,8 @@
 <div id="activity_<%= activity.id %>" class="activity">
-  <div><%= activity.type unless activity.type.blank? %></div>
+  <div><%= t( activity.type.downcase ) unless activity.type.blank? %> <%= "- " + activity.exchange_program.title unless activity.exchange_program.blank? if activity.type == 'ExchangeStudy' %></div>
   <span><%= activity.from %></span> - <span><%= activity.to %></span>
   <div><%= activity.organization.title unless activity.organization.blank? %></div>
+  <div><%= activity.activity_area.title unless activity.activity_area.blank? if activity.type == 'Internship' %></div>
+  <div><%= activity.study_program.title unless activity.study_program.blank? if (activity.type == 'FullStudy' || activity.type == 'ExchangeStudy' )%></div>
   <br />
 </div>

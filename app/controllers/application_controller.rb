@@ -32,4 +32,37 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_organizations(country_id)
+    universities = University.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'organizations.type, organizations.title'  )
+    companies = Company.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'organizations.type, organizations.title'  )
+    ngos = Ngo.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'organizations.type, organizations.title'  )
+   
+    unis = Hash.new
+    if universities.length > 0 
+        temp = universities.each { |uni| 
+            unis[uni.title] = uni.id }
+    end
+
+    comps = Hash.new
+    if companies.length > 0
+        temp = companies.each { |comp| 
+            comps[comp.title] = comp.id }
+    end
+
+    ngoss = Hash.new
+    if ngos.length > 0 
+        temp = ngos.each { |ngo| 
+            ngoss[ngo.title] = ngo.id }
+    end
+
+    orgs = Hash.new
+    orgs[t(:university)] = unis unless unis.empty?
+    orgs[t(:company)] = comps unless comps.empty? 
+    orgs[t(:ngo)] = ngoss unless ngoss.empty?
+
+    orgs
+  end
+
+
+
 end

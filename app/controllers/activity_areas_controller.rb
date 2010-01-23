@@ -51,6 +51,7 @@ class ActivityAreasController < ApplicationController
         format.js {
             render :update do |page|
                 page.replace_html 'activity_area', :partial => 'activities/activity_areas', :locals => {},  :object => activity_areas 
+                page[:activity_activity_area_id].set_style :width => "400px"
                 page << "lightbox.prototype.deactivate();"
                 page << "initialize();" 
                 flash.discard

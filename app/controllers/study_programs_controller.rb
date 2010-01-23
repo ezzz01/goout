@@ -58,6 +58,7 @@ class StudyProgramsController < ApplicationController
             subject_area = SubjectArea.find(params[:study_program][:subject_area_id], :include => :study_programs, :order => 'study_programs.title', :conditions => [ "study_programs.pending = 0 OR study_programs.added_by = ?", session[:user_id] ])
             render :update do |page|
                 page.replace_html 'study_program', :partial => 'activities/study_programs', :locals => {:id => params[:study_program][:subject_area_id] },  :object => subject_area.study_programs
+                page[:activity_study_program_id].set_style :width => "400px"
                 page << "lightbox.prototype.deactivate();"
                 page << "initialize();" 
                 flash.discard
@@ -65,7 +66,14 @@ class StudyProgramsController < ApplicationController
         }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @study_program.errors, :status => :unprocessable_entity }
+        format.js { 
+            render :update do |page|
+                page << "alert(' #{t(:error_saving_study_program)}');"
+                page << "lightbox.prototype.deactivate();"
+                flash.discard
+            end
+        }
+#    format.xml  { render :xml => @study_program.errors, :status => :unprocessable_entity }
       end
     end
   end
