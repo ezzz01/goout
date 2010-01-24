@@ -93,6 +93,8 @@
   :select_country_first => "Pirmiausia pasirinkite šalį",
   :select_subject_area_first => "Pirmiausia pasirinkite studijų sritį",
 
+  :current => "Iki dabar",
+
   #organization_types
   :university => "Universitetas",
   :company => "Įmonė",

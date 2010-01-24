@@ -30,7 +30,7 @@
         <%= date_select("activity", "from", options = {:start_year => Time.now.year - 15} )%>
     </div>
     <div id="to">
-        <%= date_select("activity", "to", options = {:start_year => Time.now.year - 15} ) %>
+        <%= date_select("activity", "to", options = {:start_year => Time.now.year - 15} ) %> <span id="is_current"> <%= check_box("activity", "current", {:onchange => "$(activity_to_1i).toggle(); $(activity_to_2i).toggle(); $(activity_to_3i).toggle()"}) %></span>
     </div>
     <%= f.submit t(:create) %>
 
