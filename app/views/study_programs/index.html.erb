@@ -12,7 +12,7 @@
     <td><%=h study_program.subject_area.title if !study_program.subject_area.blank? %></td>
     <td><%= link_to 'Show',  @subject_area.blank? ? study_program_path(:id => study_program) : subject_area_study_program_path(study_program.subject_area, study_program) %></td>
     <td><%= link_to 'Edit',  @subject_area.blank? ? edit_study_program_path(:id => study_program) : edit_subject_area_study_program_path(study_program.subject_area, study_program) %></td>
-    <td><%= link_to 'Destroy', @subject_area.blank? ? study_program_path(:id => study_program) : subject_area_study_program_path(study_program.subject_area, study_program), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', @subject_area.blank? ? study_program_path(:id => study_program) : subject_area_study_program_path(study_program.subject_area, study_program), :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>
 </table>

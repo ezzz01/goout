@@ -9,7 +9,7 @@ end %>
   <%= link_to_remote t(:delete), 
     :url => user_post_comment_path(comment.post.user, comment.post, comment),
     :method => :delete,
-    :confirm => "Are you sure?"
+    :confirm => t(:are_you_sure) 
   %>
 </span>
 <p><%= sanitize comment.body %></p>    

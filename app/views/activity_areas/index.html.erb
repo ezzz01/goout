@@ -12,7 +12,7 @@
     <td><%=h activity_area.description %></td>
     <td><%= link_to 'Show', activity_area %></td>
     <td><%= link_to 'Edit', edit_activity_area_path(activity_area) %></td>
-    <td><%= link_to 'Destroy', activity_area, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', activity_area, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>
 </table>

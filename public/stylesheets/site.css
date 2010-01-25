@@ -108,8 +108,9 @@ span.postDate{
   font-size: 11px;
 }
 
-div.study{
+.activity {
   margin: 4px;
+  padding: 2px;
 }
 
 .notice{

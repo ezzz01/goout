@@ -10,7 +10,7 @@
     <td><%=h exchange_program.title %></td>
     <td><%= link_to 'Show', exchange_program %></td>
     <td><%= link_to 'Edit', edit_exchange_program_path(exchange_program) %></td>
-    <td><%= link_to 'Destroy', exchange_program, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', exchange_program, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>
 </table>

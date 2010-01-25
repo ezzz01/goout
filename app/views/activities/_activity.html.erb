@@ -1,4 +1,10 @@
 <div id="activity_<%= activity.id %>" class="activity">
+    <span class="delete_link" id="delete_activity_link_<%= activity.id %>" style="float: right;">
+        <%= link_to_remote t(:delete), 
+        :url => user_activity_path(session[:user_id], activity.id),
+        :method => :delete,
+        :confirm => t(:are_you_sure) %>
+</span>
   <div><%= t( activity.type.downcase ) unless activity.type.blank? %> <%= "- " + activity.exchange_program.title unless activity.exchange_program.blank? if activity.type == 'ExchangeStudy' %></div>
   <span><%= activity.from %></span> - <span><%= activity.current ? t(:current) : activity.to %></span>
   <div><%= activity.organization.title unless activity.organization.blank? %></div>

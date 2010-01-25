@@ -33,7 +33,7 @@
     <td>
        <% if !post.link %>
         <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
-        <%= link_to 'Destroy', user_post_path(post.user, post), :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'Destroy', user_post_path(post.user, post), :confirm => t(:are_you_sure), :method => :delete %>
       <% end %>
     </td>
   </tr>

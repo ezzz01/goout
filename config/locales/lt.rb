@@ -62,6 +62,7 @@
   :logged_in => "prisijungė",
   :logged_out => "Atsijungėte sėkmingai",
   :created => "sukurtas",
+  :are_you_sure => "Ar tikrai ištrinti?",
 
   #notices:
   :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galėsite sukurti Universitetų sąraše",

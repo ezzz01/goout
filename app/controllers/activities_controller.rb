@@ -31,6 +31,18 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+
+    respond_to do |format|
+      format.html 
+      #format.xml  { head :ok }
+      format.js 
+    end
+  end
+
+
   def update_organizations
     orgs = load_organizations(params[:country_id])
 	render :update do |page|
