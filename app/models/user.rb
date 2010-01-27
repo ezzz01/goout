@@ -1,6 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   has_one :spec
+  has_one :avatar, :dependent => :destroy
   has_many :posts, :order => "created_at DESC"
   has_many :comments, :order => "created_at DESC"
   has_many :activities

@@ -1,8 +1,8 @@
 <h1>Editing user</h1>
 
-<%= error_messages_for :user %>
+<%= error_messages_for :user, :avatar %>
 
-<% form_for(@user) do |f| %>
+<% form_for(@user, :html => {:multipart => :true}) do |f| %>
   <p>
     <b>Username</b><br />
     <%= f.text_field :username %>
@@ -17,7 +17,10 @@
     <b>Email</b><br />
     <%= f.text_field :email %>
   </p>
-
+  <p>
+    <b>Avatar</b><br />
+    <%= file_field_tag :avatar_file %>
+  </p>
   <p>
     <%= f.submit "Update" %>
   </p>

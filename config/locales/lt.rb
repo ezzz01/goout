@@ -43,6 +43,7 @@
   :blog_url => "Tinklaraščio adresas",
   :blog_title => "Tinklaraščio pavadinimas",
   :password => "Slaptažodis",
+  :avatar => "Avataras",
 
   :remember_me => "Prisiminti duomenis?",
   :update_email => "Atnaujinti el. pašto adresą",
@@ -115,6 +116,7 @@
           :password => "Slaptažodis",
           :email => "El. pašto adresas",
           :blog_url => "Tinklaraščio adresas",
+          :avatar => "Avataras",
           }
         }  
   },

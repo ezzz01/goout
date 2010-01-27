@@ -19,6 +19,11 @@
 </p>
 
 <p>
+  <b><%= t(:avatar) %></b>
+  <%= image_tag(@user.avatar.public_filename) if @user.avatar %>
+</p>
+
+<p>
   <b><%= t(:studies) %>:</b>
     <span id="add_activity_link">
       <%= link_to_remote t(:new_entry),
