@@ -26,10 +26,12 @@ class UserService
 
     def update_attributes(user_attributes, avatar_file)
         @user.attributes = user_attributes
-        unless avatar_file.blank?
+        if avatar_file.blank?
+            @user.save!
+        else 
             @avatar = Avatar.new(:uploaded_data => avatar_file)
+            save
         end
-        save
     end
 
     def valid?

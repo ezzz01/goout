@@ -1,21 +1,15 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Password</th>
-  </tr>
-
 <% for user in @users %>
-  <tr>
-    <td><%=h user.username %></td>
-    <td><%=h user.password %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => t(:are_you_sure), :method => :delete %></td>
-  </tr>
+  <div>
+    <span style="width: 100px"><%= image_tag user.avatar.public_filename(:small) unless user.avatar.blank? %></span>
+    <span style="width: 100px"><%=h user.username %></span>
+    <span><%=h user.password %></span>
+    <span><%= link_to 'Show', user %></span>
+    <span><%= link_to 'Edit', edit_user_path(user) %></span>
+    <span><%= link_to 'Destroy', user, :confirm => t(:are_you_sure), :method => :delete %></span>
+  </div>
 <% end %>
-</table>
 <br />
 <div>
 <%= will_paginate @users %>
