@@ -125,3 +125,19 @@ span.postDate{
 form div {
     padding: 10px;
 }
+
+img {
+    border: #999999;
+}
+
+.comments {
+    background-color: #efefef;
+    padding: 4px;
+}
+
+.comment {
+    background-color: #eaeaea;
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+    margin: 4px;
+}

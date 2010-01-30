@@ -1,10 +1,11 @@
-<div id="comment_<%= comment.id %>">
+<div class="comment" id="comment_<%= comment.id %>">
+ <%= avatar_for(comment.user) %>
  <%= if comment.user_id.nil? 
    t(:anonymous)
  else
  link_to comment.user.username, profile_for(comment.user) 
 end %>
-<%= h comment.created_at.as_lt_words %></p>
+<span class="postDate"><%= h comment.created_at.as_lt_words %></span>
 <span class="edit_link" style="float: right">
   <%= link_to_remote t(:delete), 
     :url => user_post_comment_path(comment.post.user, comment.post, comment),

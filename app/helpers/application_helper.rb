@@ -85,4 +85,17 @@ module ApplicationHelper
     user
   end
 
+  def avatar_for(user, thumb = true)
+    if user.avatar
+        if thumb == true
+            avatar_image = user.avatar.public_filename(:small)
+            link_to image_tag(avatar_image), user_path(user) 
+        else 
+            avatar_image = user.avatar.public_filename
+            link_to image_tag(avatar_image), user.avatar.public_filename
+        end
+    end
+
+  end
+
 end

@@ -4,28 +4,28 @@
 <%- end -%>
 <table>
   <tr>
-    <td width="80%">
+    <td>
       <table>
 <% @posts_and_xml.each do |post| %>
   <tr>
     <td colspan="2">
-      <% if post.link %>
-        <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
-        <b><%= link_to post.title, post.link %></b> 
-        <% else %>
-          <b><%=h post.title %></b>
-        <% end %>
+          <% if post.link %>
+            <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
+            <b><%= link_to post.title, post.link %></b> 
+            <% else %>
+              <b><%= link_to h(post.title), user_post_path(post.user, post) %></b>
+            <% end %>
           <br />
-      <span class="postDate"><%= l post.date, :format => :long %></span>
+          <span class="postDate"><%= l post.date, :format => :long %></span>
     </td>
   </tr>
-  <% if !post.link %>
-    <% unless post.tag_list.size == 0 %>
-  <tr>
-    <td colspan="2">
-      <%= render :partial => "tag_list", :locals => {:post => post} %> 
-    </td>
-  </tr>
+      <% if !post.link %>
+        <% unless post.tag_list.size == 0 %>
+      <tr>
+        <td colspan="2">
+          <%= render :partial => "tag_list", :locals => {:post => post} %> 
+        </td>
+      </tr>
     <% end %>
   <% end %>
  <tr>

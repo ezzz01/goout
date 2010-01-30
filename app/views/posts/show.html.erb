@@ -1,11 +1,13 @@
 <p>
-  <h3><%=h @post.title %></h3>
+  <h1><%=h @post.title %></h1>
 </p>
 <p>
+  <%= avatar_for(@post.user) %> 
+  <span class="postDate"><%= l @post.date, :format => :long %></span>
   <%= render :partial => "tag_list", :locals => {:post => @post} %> 
 </p>
 <p>
-  <%=h @post.body %>
+   <%=h @post.body %>
 </p>
 
 <p>
@@ -13,7 +15,7 @@
   <span id="comments_number_for_post_<%= @post.id %>"><%=h @post.comments.size %></span>
 </p>
 
-<div id="comments_for_post_<%= @post.id %>">
+<div class="comments" id="comments_for_post_<%= @post.id %>">
 
    <%= render :partial => "comments/comment", :collection => @post.comments %>
 
