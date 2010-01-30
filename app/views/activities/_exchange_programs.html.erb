@@ -1,3 +1,4 @@
+<%= label_tag ("activity_exchange_program_id", t(:exchange_program_name)) %>
 <%= collection_select("activity", :exchange_program_id, exchange_programs, :id, :title,
   {:prompt   => t(:select_exchange_program)}) if !exchange_programs.blank? %>
 	<span id="add_exchangeprogram_link">

@@ -1,15 +1,17 @@
 <h1>Listing users</h1>
 
+<ul class="userlist">
 <% for user in @users %>
-  <div>
-    <span style="width: 100px"><%= image_tag user.avatar.public_filename(:small) unless user.avatar.blank? %></span>
-    <span style="width: 100px"><%=h user.username %></span>
-    <span><%=h user.password %></span>
-    <span><%= link_to 'Show', user %></span>
-    <span><%= link_to 'Edit', edit_user_path(user) %></span>
-    <span><%= link_to 'Destroy', user, :confirm => t(:are_you_sure), :method => :delete %></span>
-  </div>
+    <li>
+        <span style="width: 100px"><%= image_tag user.avatar.public_filename(:small) unless user.avatar.blank? %></span>
+        <span style="width: 100px"><%=h user.username %></span>
+        <span><%=h user.password %></span>
+        <span><%= link_to 'Show', user %></span>
+        <span><%= link_to 'Edit', edit_user_path(user) %></span>
+        <span><%= link_to 'Destroy', user, :confirm => t(:are_you_sure), :method => :delete %></span>
+    </li>
 <% end %>
+</ul>
 <br />
 <div>
 <%= will_paginate @users %>

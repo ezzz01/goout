@@ -70,7 +70,7 @@ class ActivitiesController < ApplicationController
 	end
   end
 
-    def update_fields
+  def update_fields
 	    render :update do |page|
             if (params[:activity_type] == "full_study")
                 page.hide "exchange_program"
@@ -81,7 +81,7 @@ class ActivitiesController < ApplicationController
                 exchange_programs = ExchangeProgram.find(:all, :order => :title)
                 page.replace_html 'exchange_program', :partial => 'exchange_programs', :locals => {}, :object => exchange_programs 
                 page[:activity_exchange_program_id].set_style :width => "400px"
-                page.show "exchange_program"
+                page[:exchange_program].set_style :display => "block";
                 page.hide "activity_area"
                 page.show "subject_area"
                 page.show "study_program"
@@ -96,6 +96,6 @@ class ActivitiesController < ApplicationController
             end
             page << "initialize();" 
         end
-    end
+  end
 
   end

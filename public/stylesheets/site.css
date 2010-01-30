@@ -37,7 +37,7 @@ legend{
 label{
   width: 10em;
   float: left;
-  text-align: right;
+  text-align: left;
   margin-right: 0.2em;
   display: block;
 }
@@ -120,4 +120,8 @@ span.postDate{
 
 .modal{
     margin: 4px;
+}
+
+form div {
+    padding: 10px;
 }

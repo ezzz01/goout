@@ -1,3 +1,4 @@
+<%= label_tag ("activity_organization_id", t(:organization_name)) %>
 <%= select_tag("activity[organization_id]", grouped_options_for_select(organizations) ,
   {:prompt   => t(:select_university)}) if !organizations.blank? %>
 	<span id="add_organizations_link">

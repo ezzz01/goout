@@ -27,6 +27,16 @@
   :exchangestudy => "Mainų programa",
   :internship => "Stažuotė / Praktika",
 
+  :activity_type => "Veikla",
+  :exchange_program_name => "Mainų programos pavadinimas", 
+  :organization_name => "Organizacija",
+  :country => "Šalis",
+  :subject_area => "Studijų sritis",
+  :study_program => "Studijų programa",
+  :from => "Nuo",
+  :to => "Iki",
+  :activity_area => "Veiklos sritis",
+
   #page titles
   :user_profile => "Vartotojo profilis",
   :edit_basic_info => "Redaguoti vartotojo profilį",
