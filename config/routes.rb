@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
       area.resources :study_programs
   end
 
+  map.resources :friendships
   map.resources :exchange_programs
   map.resources :organizations
   map.resources :study_programs

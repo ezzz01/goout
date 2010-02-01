@@ -86,6 +86,11 @@
   :comments => "Komentarų",
   #comments
   :anonymous => "Anonimas",
+  #friends
+  :add_as_friend => "Įtraukti į draugų sąrašą",
+  :remove_friend => "Pašalinti iš draugų sąrašo",
+  :friends => "Draugai",
+  :friend_of => "Šių vartotojų draugas",
 
   #errors
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",

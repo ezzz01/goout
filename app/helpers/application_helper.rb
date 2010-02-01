@@ -95,7 +95,11 @@ module ApplicationHelper
             link_to image_tag(avatar_image), user.avatar.public_filename
         end
     end
-
   end
+
+  def current_user
+    User.find(session[:user_id])
+  end
+
 
 end

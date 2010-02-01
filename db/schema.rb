@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100124092747) do
+ActiveRecord::Schema.define(:version => 20100130214341) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20100124092747) do
     t.datetime "updated_at"
   end
 
+  create_table "avatars", :force => true do |t|
+    t.integer "user_id"
+    t.integer "parent_id"
+    t.integer "size"
+    t.integer "width"
+    t.integer "height"
+    t.string  "content_type"
+    t.string  "filename"
+    t.string  "thumbnail"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.text     "body"
@@ -54,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20100124092747) do
     t.datetime "updated_at"
     t.boolean  "pending",    :default => true
     t.integer  "added_by"
+  end
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "organizations", :force => true do |t|

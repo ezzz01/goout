@@ -1,6 +1,6 @@
 <p>
   <b><%= t(:username) %>:</b>
-  <%=h @user.username %>
+  <%=h @user.username %>  <%= link_to "(" + t(:add_as_friend) + ")", friendships_path(:friend_id => @user), :method => :post unless  @user == current_user || current_user.friendships.find_by_friend_id(@user) %> 
 </p>
 
 <p>
@@ -37,5 +37,29 @@
       <%= render :partial => "activities/activity", :collection => @user.activities %>
     </div>
 </p>
+
+<p>
+  <b><%= t(:friends) + " (" + @user.friendships.size.to_s + ")" %>:</b>
+  <ul>
+    <% for friendship in @user.friendships %>
+        <li>
+            <%= link_to friendship.friend.username, user_path(friendship.friend) %>
+            (<%= link_to t(:remove_friend), friendship, :method => :delete %>)
+        </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <b><%= t(:friend_of) + " (" + @user.inverse_friends.size.to_s + ")" %>:</b>
+  <ul>
+    <% for user in @user.inverse_friends %>
+        <li>
+            <%= link_to user.username, user_path(user) %>
+        </li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
