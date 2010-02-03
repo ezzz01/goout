@@ -1,0 +1,18 @@
+<p>
+  <b>Contents:</b>
+  <%=h @revision.content %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @revision.author_id %>
+</p>
+
+<p>
+  <b>Concept:</b>
+  <%=h @revision.concept_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_revision_path(@revision) %> |
+<%= link_to 'Back', revisions_path %>

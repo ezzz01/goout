@@ -7,6 +7,7 @@
   :users => "Vartotojai",
   :wiki => "Wiki",
   :community => "Bendruomenė",
+  :blogs => "Dienoraščiai",
   :help => "Pagalba",
   :about => "Apie projektą",
   :countries => "Šalys",

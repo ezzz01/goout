@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @concept.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @concept.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_concept_path(@concept) %> |
+<%= link_to 'Back', concepts_path %>
