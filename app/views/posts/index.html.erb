@@ -2,10 +2,9 @@
 
 <%- cache "my_blog", (Time.now + 60.minutes) do -%>
 <%- end -%>
+
+<div id="posts">
 <table>
-  <tr>
-    <td>
-      <table>
 <% @posts_and_xml.each do |post| %>
   <tr>
     <td colspan="2">
@@ -46,18 +45,15 @@
   </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
-  </tr> 
+
 <% end %>
-  
 
-      </table>
-    </td>
-
-<td width="20%" valign="top">
-  <%= render :partial => "tag_cloud" %>
-</td>
-  </tr>
 </table>
+</div>
+
+<div id="tag_cloud">
+  <%= render :partial => "tag_cloud" %>
+</div>
 
 <br />
 <%=

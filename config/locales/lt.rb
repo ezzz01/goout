@@ -5,6 +5,7 @@
   :mydate => "Data",
   :start_page => "Pradinis puslapis",
   :users => "Vartotojai",
+  :wiki => "Wiki",
   :community => "Bendruomenė",
   :help => "Pagalba",
   :about => "Apie projektą",
@@ -133,8 +134,14 @@
           :blog_url => "Tinklaraščio adresas",
           :avatar => "Avataras",
           }
-        }  
-  },
+        } ,
+        :concept => {
+        :attributes => {
+            :title => "Pavadinimas",
+        }
+     }
+
+     },
 
   :activerecord => {
     :attributes => {
@@ -143,7 +150,13 @@
           :password => "Slaptažodis",
           :email => "El. paštas",
           :blog_url => "Tinklaraščio adresas",
+        },
+        :concept => {
+        :attributes => {
+            :title => "Pavadinimas",
         }
+     }
+
     },
     :errors => {
       :template => {

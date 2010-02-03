@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100130214341) do
+ActiveRecord::Schema.define(:version => 20100203141154) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20100130214341) do
     t.integer  "user_id"
   end
 
+  create_table "concepts", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -92,6 +99,14 @@ ActiveRecord::Schema.define(:version => 20100130214341) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "cached_tag_list"
+  end
+
+  create_table "revisions", :force => true do |t|
+    t.text     "content"
+    t.integer  "author_id"
+    t.integer  "concept_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|

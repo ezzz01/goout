@@ -1,3 +1,4 @@
+#class for dealing with avatar upload
 class UserService
 
     attr_reader :user, :avatar

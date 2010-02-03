@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :concepts
+
+  map.resources :revisions
+
   map.resources :activity_areas
 
 
