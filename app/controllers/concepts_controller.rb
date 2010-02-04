@@ -25,6 +25,7 @@ class ConceptsController < ApplicationController
   # GET /concepts/new.xml
   def new
     @concept = Concept.new
+    @concept.revisions.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class ConceptsController < ApplicationController
   # POST /concepts.xml
   def create
     @concept = Concept.new(params[:concept])
+    @concept.revisions.first.author = current_user
 
     respond_to do |format|
       if @concept.save

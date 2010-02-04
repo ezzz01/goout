@@ -1,0 +1,6 @@
+<% new_or_existing = revision.new_record? ? 'new' : 'existing' %>
+<% prefix = "concept[#{new_or_existing}_revision_attributes]" %>
+
+<% fields_for prefix, revision do |revision_form| %>
+Revision: <%= revision_form.text_area :content %>
+<% end %>
