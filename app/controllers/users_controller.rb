@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @title = t(:user_profile)
-    @user = User.find(params[:id])
+    if (params[:user])
+      @user = User.find_by_username(params[:user])
+    else
+      @user = User.find(params[:id])
+    end
 
     @user.spec ||= Spec.new
     @spec = @user.spec

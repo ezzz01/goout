@@ -18,7 +18,7 @@
   <%= nav_link t(:help), "site", "help" %> 
   <span style="float:right">
   <% if logged_in? -%>
-      <%= nav_link User.find(session[:user_id]).username, "users", session[:user_id] %>
+      <%= link_to_unless_current current_user.username, profile_path(current_user.username) %>
       <%= nav_link t(:logout), "site", "logout" %>
   <% else -%>
       <%= nav_link t(:login), "site", "login" %>
