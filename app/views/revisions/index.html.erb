@@ -7,8 +7,8 @@
     <td><%=h revision.author.username %></td>
     <td><%=h revision.concept.title %></td>
     <td><%=h revision.content %></td>
-    <td><%= link_to 'Show', revision %></td>
-    <td><%= link_to 'Edit', edit_revision_path(revision) %></td>
+    <td><%= link_to 'Show', concept_revision_path(revision.concept) %></td>
+    <td><%= link_to 'Edit', edit_concept_revision_path(revision.concept, revision) %></td>
     <td><%= link_to 'Destroy', revision, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -16,4 +16,4 @@
 
 <br />
 
-<%= link_to 'New revision', new_revision_path %>
+<%= link_to 'New revision', new_concept_revision_path %>

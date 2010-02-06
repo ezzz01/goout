@@ -18,20 +18,20 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @title = t(:user_profile)
-    if (params[:user])
-      @user = User.find_by_username(params[:user])
-    else
-      @user = User.find(params[:id])
-    end
+    @user = User.find_by_username(params[:user])
+    if @user
+      @user.spec ||= Spec.new
+      @spec = @user.spec
+      @posts = @user.posts
+      @activities = @user.activities
 
-    @user.spec ||= Spec.new
-    @spec = @user.spec
-    @posts = @user.posts
-    @activities = @user.activities
-
-    respond_to do |format|
-      format.html # show.html.erb
-    #  format.xml  { render :xml => @user }
+      respond_to do |format|
+        format.html # show.html.erb
+      #  format.xml  { render :xml => @user }
+      end
+    else 
+      flash[:notice] = t(:no_such_user)
+        redirect_to users_path
     end
   end
 

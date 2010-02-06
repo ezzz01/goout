@@ -1,15 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :concepts
-
-  map.resources :revisions
-
-  map.resources :activity_areas
-
+  map.resources :concepts do |concept|
+    concept.resources :revisions
+  end
 
   map.resources :subject_areas do |area|
       area.resources :study_programs
   end
 
+  map.resources :activity_areas
   map.resources :friendships
   map.resources :exchange_programs
   map.resources :organizations
@@ -54,8 +52,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
    map.root :controller => "site"
-   map.connect ':user', :controller => 'users', :action => 'show'
-   map.profile ':user', :controller => 'users', :action => 'show'
+   map.user 'user/:user', :controller => 'users', :action => 'show'
+  # map.profile ':user', :controller => 'users', :action => 'show'
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

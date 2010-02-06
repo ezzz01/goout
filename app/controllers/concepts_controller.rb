@@ -26,7 +26,6 @@ class ConceptsController < ApplicationController
   def new
     @concept = Concept.new
     @concept.revisions.build
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @concept }
@@ -36,6 +35,7 @@ class ConceptsController < ApplicationController
   # GET /concepts/1/edit
   def edit
     @concept = Concept.find(params[:id])
+    @current_revision = (@concept.revisions.empty?)? "" : @concept.revisions.last.content
   end
 
   # POST /concepts
@@ -60,9 +60,10 @@ class ConceptsController < ApplicationController
   # PUT /concepts/1.xml
   def update
     @concept = Concept.find(params[:id])
-
+    @updates = params[:concept]
+    @updates[:new_revision][:author_id] = current_user.id
     respond_to do |format|
-      if @concept.update_attributes(params[:concept])
+      if @concept.update_attributes(@updates)
         flash[:notice] = 'Concept was successfully updated.'
         format.html { redirect_to(@concept) }
         format.xml  { head :ok }

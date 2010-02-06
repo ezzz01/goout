@@ -47,6 +47,7 @@
   :do_register => "Užsiregistruoti",
   :login => "Prisijungti",
   :logout => "Atsijungti",
+  :no_such_user => "Tokio vartotojo nėra!",
   :register_button => "Registruotis",
   :login_button => "Prisijungti",
   :enter_your_details => "Įveskite savo duomenis",
@@ -94,6 +95,8 @@
   :friends => "Draugai",
   :friend_of => "Šių vartotojų draugas",
 
+  #wiki
+  :last_edit => "Paskutinis redagavimas", 
   #errors
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
   :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",

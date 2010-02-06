@@ -4,8 +4,13 @@
 </p>
 
 <p>
-  <b>Url:</b>
-  <%=h @concept.url %>
+  <b><%= t(:last_edit) %>:</b>
+  <%=h @concept.revisions.last.created_at.as_lt_words unless @concept.revisions.empty? %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @concept.revisions.last.content unless @concept.revisions.empty? %>
 </p>
 
 

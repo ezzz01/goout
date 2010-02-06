@@ -1,6 +1,9 @@
 <p>
   <b><%= t(:username) %>:</b>
-  <%=h @user.username %>  <%= link_to "(" + t(:add_as_friend) + ")", friendships_path(:friend_id => @user), :method => :post unless  @user == current_user || current_user.friendships.find_by_friend_id(@user) %> 
+  <%=h @user.username %> 
+  <% if logged_in? %>
+  <%= link_to "(" + t(:add_as_friend) + ")", friendships_path(:friend_id => @user), :method => :post unless  @user == current_user || current_user.friendships.find_by_friend_id(@user) %> 
+  <% end %>
 </p>
 
 <p>

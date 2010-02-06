@@ -8,7 +8,7 @@
     <%= f.text_field :title %>
   </p>
 
-<%= render :partial => "revision", :object => Revision.new %> 
+<%= render "revision", :current_revision => @current_revision,  :object => Revision.new %> 
 
   <p>
     <%= f.label :url %><br />
