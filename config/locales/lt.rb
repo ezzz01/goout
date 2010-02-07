@@ -97,6 +97,8 @@
 
   #wiki
   :last_edit => "Paskutinis redagavimas", 
+  :edit_history => "Redagavimo istorija",
+  :no_such_word => "Tokio žodžio nėra",
   #errors
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
   :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",

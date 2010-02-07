@@ -2,11 +2,15 @@ class RevisionsController < ApplicationController
   # GET /revisions
   # GET /revisions.xml
   def index
-    @revisions = Revision.all(:order => :created_at)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @revisions }
+    @revisions = Revision.find_all_by_concept_id(params[:concept_id], :order => :created_at)
+    if @revisions.empty?
+      flash[:notice] = t(:no_such_word)
+      redirect_to concepts_path
+    else 
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @revisions }
+      end
     end
   end
 
@@ -18,56 +22,6 @@ class RevisionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @revision }
-    end
-  end
-
-  # GET /revisions/new
-  # GET /revisions/new.xml
-  def new
-    @revision = Revision.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @revision }
-    end
-  end
-
-  # GET /revisions/1/edit
-  def edit
-    @revision = Revision.find(params[:id])
-  end
-
-  # POST /revisions
-  # POST /revisions.xml
-  def create
-    @revision = Revision.new(params[:revision])
-
-    respond_to do |format|
-      if @revision.save
-        flash[:notice] = 'Revision was successfully created.'
-        format.html { redirect_to(@revision) }
-        format.xml  { render :xml => @revision, :status => :created, :location => @revision }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @revision.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /revisions/1
-  # PUT /revisions/1.xml
-  def update
-    @revision = Revision.find(params[:id])
-
-    respond_to do |format|
-      if @revision.update_attributes(params[:revision])
-        flash[:notice] = 'Revision was successfully updated.'
-        format.html { redirect_to(@revision) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @revision.errors, :status => :unprocessable_entity }
-      end
     end
   end
 

@@ -85,6 +85,10 @@ module ApplicationHelper
     user
   end
 
+  def profile_link(user)
+    link_to user.username, user_path(user.username)
+  end
+
   def avatar_for(user, thumb = true)
     if user.avatar
         if thumb == true
