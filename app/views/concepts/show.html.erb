@@ -15,6 +15,7 @@
 <p>
   <b>Text:</b>
   <%=h @concept.revisions.last.content unless @concept.revisions.empty? %>
+  <%= @renderer.display_content %>
 </p>
 
 

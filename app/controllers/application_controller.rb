@@ -3,7 +3,8 @@
 
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  before_filter :check_authorization
+  before_filter :check_authorization, :setup_url_generator
+  after_filter :teardown_url_generator
   session :session_key => 'iloveyou_here_have_a_cookie'
   helper :all # include all helpers, all the time
 
@@ -62,6 +63,17 @@ class ApplicationController < ActionController::Base
 
     orgs
   end
+
+  protected
+
+  def setup_url_generator
+    PageRenderer.setup_url_generator(UrlGenerator.new(self))
+  end
+
+  def teardown_url_generator
+    PageRenderer.teardown_url_generator
+  end
+
 
 
 end

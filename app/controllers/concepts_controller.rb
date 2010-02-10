@@ -13,8 +13,9 @@ class ConceptsController < ApplicationController
   # GET /concepts/1
   # GET /concepts/1.xml
   def show
+  puts "-----------------"
     @concept = Concept.find(params[:id])
-
+    @renderer = PageRenderer.new(@concept.revisions.last)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @concept }
