@@ -1,24 +1,31 @@
 class ConceptsController < ApplicationController
-  # GET /concepts
-  # GET /concepts.xml
-  def index
-    @concepts = Concept.all
+  before_filter :load_page
+ 
+  def load_page
+    @page_name = params['id'] ? params['id'].purify : nil
+   # sekanti eilute reikalinga log'ams
+   # @page = @wiki.read_page(@web_name, @page_name) if @page_name
+  end
 
+  def index
+    @wikis = Concept.all
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @concepts }
+#     format.xml  { render :xml => @concepts }
     end
   end
 
-  # GET /concepts/1
-  # GET /concepts/1.xml
   def show
-  puts "-----------------"
-    @concept = Concept.find(params[:id])
-    @renderer = PageRenderer.new(@concept.revisions.last)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @concept }
+    @concept = Concept.find_by_title(@page_name)
+    if @concept.nil?
+      flash[:notice] = t(:no_such_word)
+      redirect_to(wiki_url) 
+    else 
+      @renderer = PageRenderer.new(@concept.revisions.last)
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @concept }
+      end
     end
   end
 

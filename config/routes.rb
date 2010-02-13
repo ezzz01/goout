@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :wiki, :controller => 'concepts'
   map.resources :concepts do |concept|
     concept.resources :revisions
   end
@@ -6,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :subject_areas do |area|
       area.resources :study_programs
   end
-
+  
   map.resources :activity_areas
   map.resources :friendships
   map.resources :exchange_programs

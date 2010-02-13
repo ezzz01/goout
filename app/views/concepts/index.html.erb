@@ -3,20 +3,17 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Url</th>
   </tr>
 
-<% @concepts.each do |concept| %>
+<% @wikis.each do |wiki| %>
   <tr>
-    <td><%=h concept.title %></td>
-    <td><%=h concept.url %></td>
-    <td><%= link_to 'Show', concept %></td>
-    <td><%= link_to 'Edit', edit_concept_path(concept) %></td>
-    <td><%= link_to 'Destroy', concept, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to wiki.title , wiki.title %></td>
+    <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
+    <td><%= link_to 'Destroy', wiki, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New concept', new_concept_path %>
+<%= link_to t(:new_page), new_wiki_path %>

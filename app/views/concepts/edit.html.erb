@@ -11,11 +11,7 @@
 <%= render "revision", :current_revision => @current_revision,  :object => Revision.new %> 
 
   <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit t(:update) %>
   </p>
 <% end %>
 

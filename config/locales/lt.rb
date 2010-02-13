@@ -96,6 +96,7 @@
   :friend_of => "Šių vartotojų draugas",
 
   #wiki
+  :new_page => "Naujas puslapis",
   :last_edit => "Paskutinis redagavimas", 
   :edit_history => "Redagavimo istorija",
   :no_such_word => "Tokio žodžio nėra",

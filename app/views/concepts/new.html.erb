@@ -1,4 +1,4 @@
-<h1>New concept</h1>
+<h1><%= t(:new_page) %></h1>
 
 <% form_for(@concept) do |f| %>
   <%= f.error_messages %>
@@ -11,11 +11,7 @@
 <%= render "revision", :current_revision => @current_revision,  :object => Revision.new %> 
 
   <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit t(:create) %>
   </p>
 <% end %>
 
