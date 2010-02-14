@@ -5,62 +5,20 @@ class AbstractUrlGenerator
     @controller = controller
   end
 
-  def make_link2(asked_name, text = nil, options = {})
-    mode = (options[:mode] || :show).to_sym
-    link_type = (options[:link_type] || :show).to_sym
-
-    if (link_type == :show)
-      page_exists = true 
-      known_page = page_exists #|| web.has_redirect_for?(asked_name)
-#      if known_page && !page_exists
-#        name = web.page_that_redirects_for(asked_name).name
-#      else
-#        name = asked_name
-#      end
-#    else
-      name = asked_name
-#      known_page = web.has_file?(name)
-#      description = web.description(name)
-#      description = description.unescapeHTML.escapeHTML if description
-    end
-    if (text == asked_name)
-      text = description || text
-    else
-      text = text || description
-    end
-    text = (text || WikiWords.separate(asked_name)).unescapeHTML.escapeHTML
-    
-    case link_type
-    when :show
-      page_link(mode, name, text, web.address, known_page)
-    when :file
-      file_link(mode, name, text, web.address, known_page, description)
-    when :pic
-      pic_link(mode, name, text, web.address, known_page)
-    when :audio
-      media_link(mode, name, text, web.address, known_page, 'audio')
-    when :video
-      media_link(mode, name, text, web.address, known_page, 'video')
-    when :delete
-      delete_link(mode, name, web.address, known_page)
-    else
-      raise "Unknown link type: #{link_type}"
-    end
-
-
+  def concept_exists?(name)
+    concept = Concept.find(:first, :conditions => { :title => name })
   end
 
   # Create a link for the given page (or file) name and link text based
   # on the render mode in options and whether the page (file) exists
   # in the web.
-  def make_link(current_web, asked_name, web, text = nil, options = {})
-    @web = current_web
+  def make_link(asked_name, text = nil, options = {})
     mode = (options[:mode] || :show).to_sym
     link_type = (options[:link_type] || :show).to_sym
 
     if (link_type == :show)
-      page_exists = true # web.has_page?(asked_name)
-      known_page = page_exists || web.has_redirect_for?(asked_name)
+      page_exists = concept_exists?(asked_name)
+      known_page = page_exists # || web.has_redirect_for?(asked_name)
       if known_page && !page_exists
         name = web.page_that_redirects_for(asked_name).name
       else
@@ -81,7 +39,7 @@ class AbstractUrlGenerator
     
     case link_type
     when :show
-      page_link2(mode, name, text, known_page)
+      page_link(mode, name, text, known_page)
     when :file
       file_link(mode, name, text, web.address, known_page, description)
     when :pic
@@ -133,7 +91,7 @@ class UrlGenerator < AbstractUrlGenerator
     end
   end
 
-  def page_link2(mode, name, text, known_page)
+  def page_link(mode, name, text, known_page)
     case mode
     when :export
       if known_page 
@@ -152,31 +110,6 @@ class UrlGenerator < AbstractUrlGenerator
         wikilink_for(mode, name, text)
       else 
         href = @controller.url_for :controller => 'wiki', :action => 'new', 
-            :id => name, :only_path => true
-        %{<span class="newWikiWord">#{text}<a href="#{href}">?</a></span>}
-      end
-    end
-  end
-
-  def page_link(mode, name, text, web_address, known_page)
-    case mode
-    when :export
-      if known_page 
-        %{<a class="existingWikiWord" href="#{CGI.escape(name)}.#{html_ext}">#{text}</a>}
-      else 
-        %{<span class="newWikiWord">#{text}</span>} 
-      end
-    when :publish
-      if known_page
-        wikilink_for(mode, name, text, web_address)
-      else 
-        %{<span class="newWikiWord">#{text}</span>} 
-      end
-    else 
-      if known_page
-        wikilink_for(mode, name, text, web_address)
-      else 
-        href = @controller.url_for :controller => 'wiki', :web => web_address, :action => 'new', 
             :id => name, :only_path => true
         %{<span class="newWikiWord">#{text}<a href="#{href}">?</a></span>}
       end
@@ -246,10 +179,8 @@ class UrlGenerator < AbstractUrlGenerator
   private
 
     def wikilink_for(mode, name, text)
-#      web = Web.find_by_address(web_address)
-      action = 'show' #web.published? && (web != @web || [:publish, :s5].include?(mode) ) ? 'published' : 'show'
-      href = @controller.url_for :controller => 'wiki', :id => name, :only_path => true
-#      title = web == @web ? '' : %{ title="#{web_address}"}
+      action = 'show' 
+      href = @controller.url_for :overwrite_params => {:id => name} 
       title = ''
       %{<a class="existingWikiWord" href="#{href}"#{title}>#{text}</a>}
     end

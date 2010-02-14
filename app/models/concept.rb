@@ -7,5 +7,4 @@ class Concept < ActiveRecord::Base
    revisions.build(revision_attributes)
  end
 
-
 end

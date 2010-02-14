@@ -123,6 +123,7 @@ module ApplicationHelper
   #
   #   html_options({ "Basic" => "$20", "Plus" => "$40" }, "$40")
   #     <option value="$20">Basic</option>\n<option value="$40" selected>Plus</option>
+
   def html_options(container, selected = nil)
     container = container.to_a if Hash === container
   

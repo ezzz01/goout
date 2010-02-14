@@ -8,10 +8,9 @@ class ConceptsController < ApplicationController
   end
 
   def index
-    @wikis = Concept.all
+    @concepts = Concept.all
     respond_to do |format|
       format.html # index.html.erb
-#     format.xml  { render :xml => @concepts }
     end
   end
 
@@ -19,7 +18,7 @@ class ConceptsController < ApplicationController
     @concept = Concept.find_by_title(@page_name)
     if @concept.nil?
       flash[:notice] = t(:no_such_word)
-      redirect_to(wiki_url) 
+      redirect_to(concept_url) 
     else 
       @renderer = PageRenderer.new(@concept.revisions.last)
       respond_to do |format|
@@ -51,15 +50,12 @@ class ConceptsController < ApplicationController
   def create
     @concept = Concept.new(params[:concept])
     @concept.revisions.first.author = current_user
-
     respond_to do |format|
       if @concept.save
         flash[:notice] = 'Concept was successfully created.'
-        format.html { redirect_to(@concept) }
-        format.xml  { render :xml => @concept, :status => :created, :location => @concept }
+        format.html { redirect_to(concept_path(@concept.title)) }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @concept.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -73,11 +69,9 @@ class ConceptsController < ApplicationController
     respond_to do |format|
       if @concept.update_attributes(@updates)
         flash[:notice] = 'Concept was successfully updated.'
-        format.html { redirect_to(@concept) }
-        format.xml  { head :ok }
+        format.html { redirect_to(concept_path(@concept.title)) }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @concept.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -87,10 +81,13 @@ class ConceptsController < ApplicationController
   def destroy
     @concept = Concept.find(params[:id])
     @concept.destroy
-
     respond_to do |format|
       format.html { redirect_to(concepts_url) }
-      format.xml  { head :ok }
     end
   end
+
+  def concept_exists?(name)
+
+  end
+
 end

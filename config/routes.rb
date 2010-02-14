@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :wiki, :controller => 'concepts'
+  map.resources :concepts, :as => "wiki"
   map.resources :concepts do |concept|
     concept.resources :revisions
   end
