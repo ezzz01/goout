@@ -78,7 +78,7 @@ module ApplicationHelper
   end
 
   def paginated?
-    @pages and @pages.length > 1
+    @concepts and @concepts.length > 1
   end
 
   def profile_for(user)
@@ -143,47 +143,47 @@ module ApplicationHelper
   end
 
   # Creates a hyperlink to a Wiki page, without checking if the concept exists or not
-  def link_to_existing_page(concept, text = nil, html_options = {})
+  def link_to_existing_concept(concept, text = nil, html_options = {})
     link_to(
-        text || page.plain_name, 
-        {:action => 'show', :id => concept.name, :only_path => true},
+        text || concept.plain_name, 
+        {:action => 'show', :id => concept.title, :only_path => true},
         html_options)
   end
   
   # Creates a hyperlink to a Wiki page, or to a "new page" form if the concept doesn't exist yet
-  def link_to_page(page_name, text = nil, options = {})
-    UrlGenerator.new(@controller).make_link(page_name, text, 
+  def link_to_concept(concept_title, text = nil, options = {})
+    UrlGenerator.new(@controller).make_link(concept_title, text, 
         options.merge(:base_url => "#{base_url}"))
   end
 
-  def author_link(page, options = {})
-    UrlGenerator.new(@controller).make_link(page.author.name, nil, options)
+  def author_link(concept, options = {})
+#   UrlGenerator.new(@controller).make_link(concept.author.name, nil, options)
   end
 
   # Create a hyperlink to a particular revision of a Wiki page
-  def link_to_revision(page, revision_number, text = nil, mode = nil, html_options = {})
-    revision_number == page.revisions.size ?
+  def link_to_revision(concept, revision_number, text = nil, mode = nil, html_options = {})
+    revision_number == concept.revisions.size ?
       link_to(
-        text || page.plain_name,
-            {:action => 'show', :id => page.name,
+        text || concept.plain_name,
+            {:action => 'show', :id => concept.title,
                :mode => mode}, html_options) :
       link_to(
-        text || page.plain_name + "(rev # #{revision_number})",
-            {:action => 'revision', :id => page.name,
+        text || concept.plain_name + "(rev # #{revision_number})",
+            {:action => 'revision', :id => concept.title,
               :rev => revision_number, :mode => mode}, html_options)
   end
 
   # Create a hyperlink to the history of a particular Wiki page
-  def link_to_history(page, text = nil, html_options = {})
+  def link_to_history(concept, text = nil, html_options = {})
     link_to(
-        text || page.plain_name + "(history)",
-            {:action => 'history', :id => page.name},
+        text || concept.plain_name + "(history)",
+            {:action => 'history', :id => concept.title},
             html_options)
   end
 
   def base_url
     #home_page_url = url_for :controller => 'admin', :action => 'create_system', :only_path => true
-    home_page_url.sub(%r-/create_system/?$-, '')
+#   home_page_url.sub(%r-/create_system/?$-, '')
   end
 
   # Creates a menu of categories
@@ -215,8 +215,8 @@ module ApplicationHelper
     end
   end
 
-  def rendered_content(page)
-    PageRenderer.new(page.revisions.last).display_content
+  def rendered_content(concept)
+    PageRenderer.new(concept.revisions.last).display_content
   end
 
   def truncate(text, *args)

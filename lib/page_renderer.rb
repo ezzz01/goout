@@ -63,18 +63,6 @@ class PageRenderer
     end
   end
 
-  attr :s5_theme
-  def s5_theme=(s)
-    @s5_theme = s
-  end
-
-  # Renders an S5 slideshow
-  def display_s5
-    @display_s5 ||= render(:mode => :s5,
-                           :engine_opts => {:author => @author, :title => @plain_name},
-                           :renderer => self)
-  end
-
   # Returns an array of all the WikiIncludes present in the content of this revision.
   def wiki_includes
     unless @wiki_includes_cache 
@@ -134,29 +122,24 @@ class PageRenderer
     wiki_words - existing_pages
   end  
 
-  private
-  
   def render(options = {})
-    rendering_result = WikiContent.new(@revision, @@url_generator, options).render!
-    update_references(rendering_result) if options[:update_references]
-    rendering_result
+    WikiContent.new(@revision, @@url_generator, options).render!
   end
   
   def update_references(rendering_result)
-    WikiReference.delete_all ['page_id = ?', @revision.page_id]
+    WikiReference.delete_all ['concept_id = ?', @revision.concept_id]
 
-    references = @revision.page.wiki_references
+    references = @revision.concept.wiki_references
 
     wiki_words = find_wiki_words(rendering_result)
     # TODO it may be desirable to save links to files and pictures as WikiReference objects
     # present version doesn't do it
-    
     wiki_words.each do |referenced_name|
       # Links to self are always considered linked
-      if referenced_name == @revision.page.name
+      if referenced_name == @revision.concept.title
         link_type = WikiReference::LINKED_PAGE
       else
-        link_type = WikiReference.link_type(@revision.page.web, referenced_name)
+        link_type = WikiReference.link_type(referenced_name)
       end
       references.build :referenced_name => referenced_name, :link_type => link_type
     end
@@ -167,7 +150,7 @@ class PageRenderer
     end
     
     include_chunks = rendering_result.find_chunks(Include)
-    includes = include_chunks.map { |c| ( c.escaped? ? nil : c.page_name ) }.compact.uniq
+    includes = include_chunks.map { |c| ( c.escaped? ? nil : c.concept_name ) }.compact.uniq
     includes.each do |included_page_name|
       references.build :referenced_name => included_page_name, 
           :link_type => WikiReference::INCLUDED_PAGE
@@ -182,12 +165,15 @@ class PageRenderer
     
     # ugly hack: store these in a thread-local variable, so that the cache-sweeper has access to it.
     Thread.current[:page_redirects] ?
-      Thread.current[:page_redirects].update({ @revision.page => redirects}) :
-      Thread.current[:page_redirects] = { @revision.page => redirects}
+      Thread.current[:page_redirects].update({ @revision.concept => redirects}) :
+      Thread.current[:page_redirects] = { @revision.concept => redirects}
     
     categories = rendering_result.find_chunks(Category).map { |cat| cat.list }.flatten
     categories.each do |category|
       references.build :referenced_name => category, :link_type => WikiReference::CATEGORY
     end
+
+    references
+
   end
 end

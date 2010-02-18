@@ -52,6 +52,11 @@ class ConceptsController < ApplicationController
     @concept.revisions.first.author = current_user
     respond_to do |format|
       if @concept.save
+        renderer = PageRenderer.new
+        renderer.revision = @concept.revisions.first
+        rendering_result = renderer.render(update_references = true)
+        @concept.wiki_references = renderer.update_references(rendering_result)
+        @concept.save!
         flash[:notice] = 'Concept was successfully created.'
         format.html { redirect_to(concept_path(@concept.title)) }
       else
@@ -89,5 +94,28 @@ class ConceptsController < ApplicationController
   def concept_exists?(name)
 
   end
+
+  def list
+    parse_category
+    @page_names_that_are_wanted = @concepts_in_category.wanted_concepts
+    @pages_that_are_orphaned = @concepts_in_category.orphaned_concepts
+  end
+
+  private
+
+ def parse_category
+   @categories = WikiReference.list_categories.sort
+   @category = params['category']
+   if @category
+     @set_name = "category '#{@category}'"
+     concepts = WikiReference.concepts_in_category(@category).sort.map { |concept_title| Concept.find_by_title(concept_title) }
+     @concepts_in_category = ConceptSet.new(concepts)
+   else
+     # no category specified, return all pages of the web
+     @pages_in_category = ""# @web.select_all.by_name
+     @set_name = 'the web'
+   end
+  end
+
 
 end

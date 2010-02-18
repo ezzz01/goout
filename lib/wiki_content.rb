@@ -136,7 +136,7 @@ class WikiContent < String
     @url_generator = url_generator
   #  @web = @revision.page.web
 
-    @options = DEFAULT_OPTS.dup.merge(options)
+    @options = DEFAULT_OPTS.dup
   #  @options[:engine] = { :textile => Textile, :markdown => Markdown, :markdownMML => MarkdownMML, :markdownPNG => MarkdownPNG, :mixed => Mixed }
   #  @options[:engine_opts] = [:filter_html, :filter_styles]# if @web.safe_mode?
   #  @options[:active_chunks] = "" #(ACTIVE_CHUNKS - [WikiChunk::Word] ) if @web.brackets_only?
@@ -209,8 +209,8 @@ class WikiContent < String
     self.replace xhtml_sanitize(self)
   end
 
-  def page_name
-    @revision.page.name
+  def concept_name
+    @revision.concept.name
   end
 
 end
