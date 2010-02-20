@@ -8,13 +8,13 @@ class ConceptsController < ApplicationController
   end
 
   def index
-    @concepts = Concept.all
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    list
+    @title = t(:start_page)
+    render :template => 'concepts/first_page'
   end
 
   def show
+    @title = @page_name
     @concept = Concept.find_by_title(@page_name)
     if @concept.nil?
       flash[:notice] = t(:no_such_word)
@@ -32,6 +32,7 @@ class ConceptsController < ApplicationController
   # GET /concepts/new.xml
   def new
     @concept = Concept.new
+    @concept.title = params[:title] if params[:title]
     @concept.revisions.build
     respond_to do |format|
       format.html # new.html.erb
@@ -49,15 +50,15 @@ class ConceptsController < ApplicationController
   # POST /concepts.xml
   def create
     @concept = Concept.new(params[:concept])
-    @concept.revisions.first.author = current_user
+    @concept.revisions.last.author = current_user
+    @concept.revisions.last.concept = @concept
+    renderer = PageRenderer.new
+    renderer.revision = @concept.revisions.last
+    rendering_result = renderer.render(update_references = true)
+    @concept.wiki_references = renderer.update_references(rendering_result)
     respond_to do |format|
       if @concept.save
-        renderer = PageRenderer.new
-        renderer.revision = @concept.revisions.first
-        rendering_result = renderer.render(update_references = true)
-        @concept.wiki_references = renderer.update_references(rendering_result)
-        @concept.save!
-        flash[:notice] = 'Concept was successfully created.'
+        flash[:notice] = t(:page_was_successfully_created) 
         format.html { redirect_to(concept_path(@concept.title)) }
       else
         format.html { render :action => "new" }
@@ -71,9 +72,15 @@ class ConceptsController < ApplicationController
     @concept = Concept.find(params[:id])
     @updates = params[:concept]
     @updates[:new_revision][:author_id] = current_user.id
+    renderer = PageRenderer.new
+    revision = Revision.new(@updates[:new_revision])
+    revision.concept = @concept
+    renderer.revision = revision
+    rendering_result = renderer.render(update_references = true)
+    @concept.wiki_references = renderer.update_references(rendering_result)
     respond_to do |format|
       if @concept.update_attributes(@updates)
-        flash[:notice] = 'Concept was successfully updated.'
+        flash[:notice] = t(:page_was_successfully_updated)
         format.html { redirect_to(concept_path(@concept.title)) }
       else
         format.html { render :action => "edit" }
@@ -111,9 +118,9 @@ class ConceptsController < ApplicationController
      concepts = WikiReference.concepts_in_category(@category).sort.map { |concept_title| Concept.find_by_title(concept_title) }
      @concepts_in_category = ConceptSet.new(concepts)
    else
-     # no category specified, return all pages of the web
-     @pages_in_category = ""# @web.select_all.by_name
-     @set_name = 'the web'
+     # no category specified, return start page 
+     @set_name = t(:start_page) 
+     @concepts_in_category = ConceptSet.new 
    end
   end
 

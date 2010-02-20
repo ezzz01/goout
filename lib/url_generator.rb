@@ -110,7 +110,7 @@ class UrlGenerator < AbstractUrlGenerator
         wikilink_for(mode, name, text)
       else 
         href = @controller.url_for :controller => 'wiki', :action => 'new', 
-            :id => name, :only_path => true
+            :title => name, :only_path => true
         %{<span class="newWikiWord">#{text}<a href="#{href}">?</a></span>}
       end
     end

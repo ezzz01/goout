@@ -65,6 +65,7 @@
   :send => "Siųsti",
   :delete => "Ištrinti",
   :update => "Atnaujinti",
+  :edit => "Redaguoti",
   :cancel => "Atšaukti",
   :create => "Sukurti",
   :close => "Uždaryti",
@@ -91,15 +92,24 @@
   :anonymous => "Anonimas",
   #friends
   :add_as_friend => "Įtraukti į draugų sąrašą",
+  :added_friend => "Vartotojas įtrauktas į draugų sąrašą",
   :remove_friend => "Pašalinti iš draugų sąrašo",
+  :removed_friend => "Vartotojas pašalintas iš draugų sąrašo",
   :friends => "Draugai",
   :friend_of => "Šių vartotojų draugas",
+  :unable_to_add_friend => "Klaida pridedant draugą",
 
   #wiki
+  :start_page => "Pirmas wiki puslapis",
+  :author => "Autorius",
   :new_page => "Naujas puslapis",
+  :page_was_successfully_created => "Naujas puslapis sukurtas sėkmingai",
+  :page_was_successfully_updated => "Puslapis atnaujintas sėkmingai",
   :last_edit => "Paskutinis redagavimas", 
   :edit_history => "Redagavimo istorija",
   :no_such_word => "Tokio žodžio nėra",
+  :for_page => "puslapiui",
+  :new_revision => "Nauja revizija",
   #errors
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
   :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",

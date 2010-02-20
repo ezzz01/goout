@@ -1,22 +1,16 @@
-<p>
-  <b>Title:</b>
-  <%=h @concept.title %>
-</p>
+<h1><%=h @concept.title %></h1>
 
-<p>
-  <%= link_to t(:edit_history), concept_revisions_path(@concept) %>
-</p>
-
-<p>
-  <b><%= t(:last_edit) %>:</b>
+<div class="edit_history">
+  <%= link_to t(:edit_history), concept_revisions_path(@concept) %> |
+  <%= link_to t(:edit), edit_concept_path(@concept) %> |
+  <%= t(:last_edit) %>:
+  <%= profile_link(User.find(@concept.revisions.last.author_id)) unless @concept.revisions.empty? %>,
   <%=h @concept.revisions.last.created_at.as_lt_words unless @concept.revisions.empty? %>
-</p>
+</div>
 
-<p>
-  <b>Text:</b>
+<div class="wiki_content">
   <%= @renderer.display_content unless @concept.revisions.empty? %>
-</p>
+</div>
 
 
-<%= link_to 'Edit', edit_concept_path(@concept) %> |
 <%= link_to 'Back', concepts_path %>

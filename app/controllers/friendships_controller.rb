@@ -2,10 +2,10 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])   
       if @friendship.save   
-        flash[:notice] = "Added friend."   
-        redirect_to user_path(params[:friend_id]) 
+        flash[:notice] = t(:added_friend) 
+        redirect_to user_path(User.find(params[:friend_id]).username) 
       else   
-        flash[:notice] = "Unable to add friend."   
+        flash[:notice] = t(:unable_to_add_friend)   
         redirect_to user_path(params[:friend_id]) 
       end   
   end
@@ -13,8 +13,8 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = current_user.friendships.find(params[:id])   
     @friendship.destroy   
-    flash[:notice] = "Removed friendship."   
-    redirect_to user_path(current_user)   
+    flash[:notice] = t(:removed_friend)   
+    redirect_to user_path(current_user.username)   
   end
 
 end

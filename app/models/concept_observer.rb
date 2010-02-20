@@ -7,7 +7,7 @@ class ConceptObserver < ActiveRecord::Observer
   end
 
   def before_destroy(concept)
-    WikiReference.delete_all ['page_id = ?', concept.id]
+    WikiReference.delete_all ['concept_id = ?', concept.id]
     WikiReference.update_all("link_type = '#{WikiReference::WANTED_PAGE}'", 
         ['referenced_name = ?', concept.title])
   end

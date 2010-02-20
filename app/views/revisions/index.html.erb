@@ -1,6 +1,4 @@
-<h1>Listing revisions</h1>
-
-<h3><%=h @revisions.first.concept.title %></h3>
+<h1><%= t(:edit_history) %> <%= t(:for_page)+": " + @revisions.first.concept.title %> </h1>
 
 <table>
 
@@ -15,4 +13,4 @@
 
 <br />
 
-<%= link_to 'New revision', :controller => 'Concepts', :id => @revisions.first.concept, :action => 'edit' %>
+<%= link_to t(:new_revision), :controller => 'Concepts', :id => @revisions.first.concept, :action => 'edit' %>

@@ -17,8 +17,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
+    if params[:user] =~ /\A\d+\Z/
+      @user = User.find(params[:user])
+      redirect_to user_path(@user.username) and return
+    else 
+      @user = User.find_by_username(params[:user])
+    end
     @title = t(:user_profile)
-    @user = User.find_by_username(params[:user])
     if @user
       @user.spec ||= Spec.new
       @spec = @user.spec

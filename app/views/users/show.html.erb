@@ -46,7 +46,7 @@
   <ul>
     <% for friendship in @user.friendships %>
         <li>
-            <%= link_to friendship.friend.username, user_path(friendship.friend) %>
+            <%= link_to friendship.friend.username, user_path(friendship.friend.username) %>
             (<%= link_to t(:remove_friend), friendship, :method => :delete %>)
         </li>
     <% end %>
@@ -58,7 +58,7 @@
   <ul>
     <% for user in @user.inverse_friends %>
         <li>
-            <%= link_to user.username, user_path(user) %>
+            <%= link_to user.username, user_path(user.username) %>
         </li>
     <% end %>
   </ul>

@@ -1,21 +1,12 @@
-<p>
-  <b>Concept:</b>
-  <%=h @revision.concept.title %>
-</p>
+<h1><%=h @revision.concept.title %></h1>
 
-<p>
-  <b>Contents:</b>
-  <%=h @revision.content %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%=profile_link(@revision.author) %>
-</p>
-
-<p>
-  <b>Date:</b>
+<div class="edit_history">
+  <%=profile_link(@revision.author) %> |
   <%=l @revision.created_at, :format => :long %>
-</p>
+</div>
+
+<div class="wiki_content">
+  <%=h @revision.content %>
+</div>
 
 <%= link_to 'Back', concept_revisions_path(@revision.concept) %>
