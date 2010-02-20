@@ -101,6 +101,8 @@
 
   #wiki
   :start_page => "Pirmas wiki puslapis",
+  :want_to_contribute => "Nori prisidėti? Šitų puslapių trūksta!",
+  :contribute_hint => "Spausk ant klaustuko po pavadinimu ir rašyk!",
   :author => "Autorius",
   :new_page => "Naujas puslapis",
   :page_was_successfully_created => "Naujas puslapis sukurtas sėkmingai",

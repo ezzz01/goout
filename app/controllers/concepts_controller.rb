@@ -10,7 +10,11 @@ class ConceptsController < ApplicationController
   def index
     list
     @title = t(:start_page)
-    render :template => 'concepts/first_page'
+    if params[:category]
+      render :template => 'concepts/list'
+    else
+      render :template => 'concepts/first_page'
+    end
   end
 
   def show

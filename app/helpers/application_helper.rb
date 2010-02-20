@@ -201,6 +201,12 @@ module ApplicationHelper
     end
   end
 
+  def wiki_first_page_menu
+      @categories.map { |c| 
+        link_to_unless_current(c, :action => self.action_name, :category => c)
+      }.join(', ') + "\n" 
+  end
+
   # Performs HTML escaping on text, but keeps linefeeds intact (by replacing them with <br/>)
   def escape_preserving_linefeeds(text)
     h(text).gsub(/\n/, '<br/>').as_utf8
