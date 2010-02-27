@@ -1,5 +1,6 @@
 <h1><%= t(:wiki) %></h1>
 <div id="categories">
+  <h4><%= t(:categories) %></h4>
   <%= wiki_first_page_menu %> 
 </div>
 
@@ -33,7 +34,7 @@
   <ul>
     <%- @pages_that_are_orphaned.each do |orphan_concept| -%>
       <li>
-        <%= link_to_existing_concept orphan_concept, truncate(orphan_concept.plain_name, :length => 35) %>
+        <%= link_to_existing_concept orphan_concept, truncate(orphan_concept.plain_name, :length => 50) %>
       </li>
     <%- end -%>
   </ul>

@@ -100,11 +100,12 @@
   :unable_to_add_friend => "Klaida pridedant draugą",
 
   #wiki
-  :start_page => "Pirmas wiki puslapis",
+  :wiki_start_page => "Pirmas wiki puslapis",
+  :categories => "Kategorijos",
   :want_to_contribute => "Nori prisidėti? Šitų puslapių trūksta!",
   :contribute_hint => "Spausk ant klaustuko po pavadinimu ir rašyk!",
   :author => "Autorius",
-  :new_page => "Naujas puslapis",
+  :new_page => "Naujas wiki puslapis",
   :page_was_successfully_created => "Naujas puslapis sukurtas sėkmingai",
   :page_was_successfully_updated => "Puslapis atnaujintas sėkmingai",
   :last_edit => "Paskutinis redagavimas", 

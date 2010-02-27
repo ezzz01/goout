@@ -9,7 +9,7 @@ class ConceptsController < ApplicationController
 
   def index
     list
-    @title = t(:start_page)
+    @title = t(:wiki_start_page)
     if params[:category]
       render :template => 'concepts/list'
     else
@@ -81,9 +81,9 @@ class ConceptsController < ApplicationController
     revision.concept = @concept
     renderer.revision = revision
     rendering_result = renderer.render(update_references = true)
-    @concept.wiki_references = renderer.update_references(rendering_result)
+    wiki_references = renderer.update_references(rendering_result)
     respond_to do |format|
-      if @concept.update_attributes(@updates)
+      if @concept.update_attributes(@updates) && @concept.update_attribute("wiki_references", wiki_references) 
         flash[:notice] = t(:page_was_successfully_updated)
         format.html { redirect_to(concept_path(@concept.title)) }
       else
@@ -123,7 +123,7 @@ class ConceptsController < ApplicationController
      @concepts_in_category = ConceptSet.new(concepts)
    else
      # no category specified, return start page 
-     @set_name = t(:start_page) 
+     @set_name = t(:wiki_start_page) 
      @concepts_in_category = ConceptSet.new 
    end
   end

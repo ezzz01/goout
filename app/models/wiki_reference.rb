@@ -17,11 +17,11 @@ class WikiReference < ActiveRecord::Base
   end
 
   def self.link_type(concept_name)
-   # if web.has_page?(page_name) || self.page_that_redirects_for(web, page_name)
+    if Concept.find_by_title(concept_name)
       LINKED_PAGE
-#   else
-#     WANTED_PAGE
-#   end
+    else
+      WANTED_PAGE
+    end
   end
 
   def self.concepts_that_reference(concept_name)
