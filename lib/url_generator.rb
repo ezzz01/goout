@@ -179,8 +179,16 @@ class UrlGenerator < AbstractUrlGenerator
   private
 
     def wikilink_for(mode, name, text)
-      action = 'show' 
-      href = @controller.url_for :overwrite_params => {:id => name} 
+
+
+# web = Web.find_by_address(web_address)
+#     action = web.published? && (web != @web || [:publish, :s5].include?(mode) ) ? 'published' : 'show'
+#     href = @controller.url_for :controller => 'wiki', :web => web_address, :action => action, 
+#           :id => name, :only_path => true
+#     title = web == @web ? '' : %{ title="#{web_address}"}
+#     %{<a class="existingWikiWord" href="#{href}"#{title}>#{text}</a>}
+
+      href = @controller.url_for :controller => 'wiki', :action => 'show', :id => name
       title = ''
       %{<a class="existingWikiWord" href="#{href}"#{title}>#{text}</a>}
     end

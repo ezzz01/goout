@@ -9,10 +9,11 @@ class ConceptsController < ApplicationController
 
   def index
     list
-    @title = t(:wiki_start_page)
     if params[:category]
+      @title = t(:all_pages_in_category) + " \"" + params[:category] + "\""
       render :template => 'concepts/list'
     else
+      @title = t(:wiki_start_page)
       render :template => 'concepts/first_page'
     end
   end

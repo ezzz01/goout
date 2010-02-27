@@ -55,6 +55,7 @@ ActionController::Routing::Routes.draw do |map|
    map.root :controller => "site"
    map.user 'user/:user', :controller => 'users', :action => 'show'
    map.list 'list/:category', :controller => 'concepts', :action => 'list'
+   map.page 'wiki/show/:id', :controller => 'concepts', :action => 'show'
   # map.profile ':user', :controller => 'users', :action => 'show'
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

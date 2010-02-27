@@ -1,19 +1,18 @@
-<%- @title = "All Pages" -%>
+<%- @title -%>
 
 <%= categories_menu unless @categories.empty? %>
 
 <div id="allPages">
 <%- unless @pages_that_are_orphaned.empty? && @page_names_that_are_wanted.empty? -%>
   <h2>
-    All Pages
-    <br/><span class="pageType">All pages in <%= @set_name %> listed alphabetically</span>
+    <%= @title %>
   </h2>
 <%- end -%>
 
 <ul>
   <%- @concepts_in_category.each do |concept| -%>
     <li>
-      <%= link_to_existing_concept concept, truncate(concept.plain_name, :length => 35) %>
+      <%= link_to_existing_concept concept, truncate(concept.plain_name, :length => 50) %>
     </li>
   <%- end -%>
 </ul>
@@ -22,17 +21,13 @@
 <div id="wantedPages">
 <%- unless @page_names_that_are_wanted.empty? -%>
   <h2>
-    Wanted Pages
-    <br/>
-    <span class="pageType">
-      Nonexistent pages that other pages in <%= @set_name %> reference
-    </span>
+    <%= t(:wanted_pages_in_this_category) %>
   </h2>
 
-  <ul style="margin-bottom: 10px">
+  <ul> 
   <%- @page_names_that_are_wanted.each do |wanted_concept_title| -%>
     <li>
-      <%= link_to_concept(wanted_concept_title, truncate(WikiWords.separate(wanted_concept_title), :length => 35)) %>
+      <%= link_to_concept(wanted_concept_title, truncate(WikiWords.separate(wanted_concept_title), :length => 50)) %>
       wanted by
       <% 
         ConceptSet.new.concepts_that_reference(wanted_concept_title).collect { |referring_concept|            
@@ -50,10 +45,10 @@
     <br/><span class="pageType">Pages in <%= @set_name %> that no other page reference</span>
   </h2>
 
-  <ul style="margin-bottom: 35px">
+  <ul>
     <%- @pages_that_are_orphaned.each do |orphan_concept| -%>
       <li>
-        <%= link_to_existing_concept orphan_concept, truncate(orphan_concept.plain_name, :length => 35) %>
+        <%= link_to_existing_concept orphan_concept, truncate(orphan_concept.plain_name, :length => 50) %>
       </li>
     <%- end -%>
   </ul>

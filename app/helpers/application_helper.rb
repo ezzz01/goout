@@ -152,8 +152,7 @@ module ApplicationHelper
   
   # Creates a hyperlink to a Wiki page, or to a "new page" form if the concept doesn't exist yet
   def link_to_concept(concept_title, text = nil, options = {})
-    UrlGenerator.new(@controller).make_link(concept_title, text, 
-        options.merge(:base_url => "#{base_url}"))
+    UrlGenerator.new(@controller).make_link(concept_title, text)
   end
 
   def author_link(concept, options = {})

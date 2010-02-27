@@ -102,6 +102,8 @@
   #wiki
   :wiki_start_page => "Pirmas wiki puslapis",
   :categories => "Kategorijos",
+  :all_pages_in_category => "Visi puslapiai kategorijoje",
+  :wanted_pages_in_this_category => "Trūkstami puslapiai šioje kategorijoje",
   :want_to_contribute => "Nori prisidėti? Šitų puslapių trūksta!",
   :contribute_hint => "Spausk ant klaustuko po pavadinimu ir rašyk!",
   :author => "Autorius",
