@@ -188,7 +188,7 @@ class UrlGenerator < AbstractUrlGenerator
 #     title = web == @web ? '' : %{ title="#{web_address}"}
 #     %{<a class="existingWikiWord" href="#{href}"#{title}>#{text}</a>}
 
-      href = @controller.url_for :controller => 'wiki', :action => 'show', :id => name
+      href = @controller.url_for :controller => 'wiki', :action => name
       title = ''
       %{<a class="existingWikiWord" href="#{href}"#{title}>#{text}</a>}
     end
