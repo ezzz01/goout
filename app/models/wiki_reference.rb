@@ -16,28 +16,28 @@ class WikiReference < ActiveRecord::Base
     read_attribute(:referenced_name).as_utf8
   end
 
-  def self.link_type(concept_name)
-    if Concept.find_by_title(concept_name)
+  def self.link_type(concept_title)
+    if Concept.find_by_title(concept_title)
       LINKED_PAGE
     else
       WANTED_PAGE
     end
   end
 
-  def self.concepts_that_reference(concept_name)
+  def self.concepts_that_reference(concept_title)
     query = 'SELECT title FROM concepts JOIN wiki_references ' +
       'ON concepts.id = wiki_references.concept_id ' +
       'WHERE wiki_references.referenced_name = ? ' +
       "AND wiki_references.link_type in ('#{LINKED_PAGE}', '#{WANTED_PAGE}', '#{INCLUDED_PAGE}') " 
-    names = connection.select_all(sanitize_sql([query, concept_name])).map { |row| row['name'] }
+    titles = connection.select_all(sanitize_sql([query, concept_title])).map { |row| row['title'] }
   end
 
-  def self.concepts_that_link_to(concept_name)
+  def self.concepts_that_link_to(concept_title)
     query = 'SELECT title FROM concepts JOIN wiki_references ' +
       'ON concepts.id = wiki_references.concept_id ' +
       'WHERE wiki_references.referenced_name = ? ' +
       "AND wiki_references.link_type in ('#{LINKED_PAGE}','#{WANTED_PAGE}') "
-    names = connection.select_all(sanitize_sql([query, concept_name])).map { |row| row['name'] }
+    titles = connection.select_all(sanitize_sql([query, concept_title])).map { |row| row['title'] }
   end
   
   def self.concepts_that_link_to_file(file_name)

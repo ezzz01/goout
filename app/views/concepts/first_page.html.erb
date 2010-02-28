@@ -14,9 +14,9 @@
   <ul>
   <%- @page_names_that_are_wanted.each do |wanted_concept_title| -%>
     <li>
-      <%= link_to_concept(wanted_concept_title, truncate(WikiWords.separate(wanted_concept_title), :length => 35)) %>
-      wanted by
-      <% 
+      <%= link_to_concept(wanted_concept_title, truncate(WikiWords.separate(wanted_concept_title), :length => 50)) %>
+      <%= t(:link_from) %> 
+      <%=
         ConceptSet.new.concepts_that_reference(wanted_concept_title).collect { |referring_concept|            
           link_to_existing_concept referring_concept
           }.join(", ") 
@@ -28,7 +28,7 @@
 
 <%- unless @pages_that_are_orphaned.empty? -%>
   <h2>
-    <span class="pageType">Pages in <%= @set_name %> that no other page reference</span>
+    <%= t(:pages_without_references) %>
   </h2>
 
   <ul>
