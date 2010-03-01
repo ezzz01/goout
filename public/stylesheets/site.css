@@ -38,6 +38,13 @@ legend{
   padding-bottom: .5em;
 }
 
+pre{
+  background-color:#DDDDDD;
+  font-size:90%;
+  overflow:auto;
+  padding:1em;
+}
+
 label{
   width: 10em;
   float: left;

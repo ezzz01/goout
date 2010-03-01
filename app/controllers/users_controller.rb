@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     else 
       @user = User.find_by_username(params[:user])
     end
-    @title = t(:user_profile)
+    @title = t(:user_profile, :username => @user.username)
     if @user
       @user.spec ||= Spec.new
       @spec = @user.spec

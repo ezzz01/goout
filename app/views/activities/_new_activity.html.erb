@@ -14,6 +14,9 @@
         {:prompt   => t(:select_country)},
         {:style => "width: 400px;", :onchange => "#{remote_function(:url  => {:action => "update_organizations"},
          :with => "'country_id='+value")}"}  ) %>
+      <span id="add_country_link">
+          <%= link_to t(:create_new_country), new_country_path ,:class => 'lbOn' %>
+      </span>
      </div>
     <div id="organization">
         <%= f.label ("", t(:organization_name)) %>

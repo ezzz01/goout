@@ -165,7 +165,7 @@ class WikiContent < String
 
   def build_chunks
     # create and mask Includes and "active_chunks" chunks
-    #NoWiki.apply_to(self) if @options[:active_chunks].include?(NoWiki)
+    NoWiki.apply_to(self) # if @options[:active_chunks].include?(NoWiki)
     Include.apply_to(self)
     @options[:active_chunks].each{|chunk_type| chunk_type.apply_to(self) unless chunk_type == NoWiki}
 

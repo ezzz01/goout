@@ -17,6 +17,7 @@
   :body => "Body?",
   :tags => "Žymės",
   :new_entry => "Sukurti naują",
+  :create_new_country => "Sukurti naują šalį",
   :new_university => "Sukurti naują universitetą ar organizaciją",
   :new_study_program => "Sukurti naują studijų programą",
   :new_exchange_program => "Sukurti naują mainų programą",
@@ -39,8 +40,11 @@
   :to => "Iki",
   :activity_area => "Veiklos sritis",
 
+
+  #countries
+  :new_country => "Nauja šalis",
   #page titles
-  :user_profile => "Vartotojo profilis",
+  :user_profile => "Vartotojo {{username}} profilis",
   :edit_basic_info => "Redaguoti vartotojo profilį",
   #register, login, user profile
   :register => "Registracija",
@@ -85,6 +89,7 @@
   :study_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį studijos programos aprašymą galėsite sukurti studijų programų sąraše",
   :exchange_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį mainų programos aprašymą galėsite sukurti mainų programų sąraše",
   :activity_area_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį veiklos srities aprašymą galėsite sukurti veiklos sričių sąraše",
+  :country_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį šalies aprašymą galėsite sukurti veiklos sričių sąraše",
   #blog
   :new_comment => "Naujas komentaras",
   :comments => "Komentarų",
@@ -106,11 +111,12 @@
   :wanted_pages_in_this_category => "Trūkstami puslapiai šioje kategorijoje",
   :pages_without_references => "Puslapiai, į kuriuos nėra nuorodų iš kitų puslapių",
   :link_from => "nuoroda iš",
-  :pages_without_references_in_category => "Puslapiai kategorijoje \"{{category}}\", į kuriuos nėra nuorodų",
+  :pages_without_references_in_category => "Puslapiai kategorijoje \"{{category}}\", į kuriuos nėra nuorodų iš kitų puslapių",
   :want_to_contribute => "Nori prisidėti? Šitų puslapių trūksta!",
   :contribute_hint => "Spausk ant klaustuko po pavadinimu ir rašyk!",
   :author => "Autorius",
   :new_page => "Naujas wiki puslapis",
+  :create_new_page => "Sukurti naują wiki puslapį",
   :page_was_successfully_created => "Naujas puslapis sukurtas sėkmingai",
   :page_was_successfully_updated => "Puslapis atnaujintas sėkmingai",
   :last_edit => "Paskutinis redagavimas", 

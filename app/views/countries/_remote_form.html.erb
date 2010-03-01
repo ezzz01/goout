@@ -1,0 +1,13 @@
+<h1><%= (:new_country) %></h1>
+<% remote_form_for(@country) do |f| %>
+<span class="notice"><%= t(:country_is_pending) %></span>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t(:title) %><br />
+    <%= f.text_field :title %>
+  </p>
+   <p>
+    <%= f.submit t(:create) %>
+  </p>
+<% end %>

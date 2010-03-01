@@ -27,6 +27,8 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.save
         format.js 
+      else
+        flash[:notice] = "Error on save"
       end
     end
   end
