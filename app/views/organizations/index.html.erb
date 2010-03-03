@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>City</th>
     <th>Country</th>
     <th>Type</th>
   </tr>
@@ -11,7 +10,6 @@
 <% @organizations.each do |organization| %>
   <tr>
     <td><%=h organization.title %></td>
-    <td><%=h organization.city %></td>
     <td><%=h organization.country.title %></td>
     <td><%=h organization.type %></td>
     <td><%= link_to 'Show', organization %></td>

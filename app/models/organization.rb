@@ -1,4 +1,4 @@
-class Organization < ActiveRecord::Base
+class Organization < Concept 
   belongs_to :country
   has_many :activities
   has_many :users, :through => :activities

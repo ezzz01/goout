@@ -75,6 +75,7 @@ class ConceptsController < ApplicationController
   # PUT /concepts/1
   # PUT /concepts/1.xml
   def update
+    puts "---------------------------"
     @concept = Concept.find(params[:id])
     @updates = params[:concept]
     @updates[:new_revision][:author_id] = current_user.id

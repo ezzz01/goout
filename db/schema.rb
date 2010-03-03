@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100301201545) do
+ActiveRecord::Schema.define(:version => 20100303181241) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(:version => 20100301201545) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "current",             :default => false
-  end
-
-  create_table "activity_areas", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.boolean  "pending",     :default => true
-    t.integer  "added_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "avatars", :force => true do |t|
@@ -58,22 +49,11 @@ ActiveRecord::Schema.define(:version => 20100301201545) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "countries", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "pending",    :default => true
+    t.string   "type"
+    t.boolean  "pending",         :default => true
     t.integer  "added_by"
-  end
-
-  create_table "exchange_programs", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "pending",    :default => true
-    t.integer  "added_by"
+    t.integer  "subject_area_id"
+    t.integer  "country_id"
   end
 
   create_table "friendships", :force => true do |t|
@@ -81,17 +61,6 @@ ActiveRecord::Schema.define(:version => 20100301201545) do
     t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "organizations", :force => true do |t|
-    t.string   "type"
-    t.string   "title"
-    t.string   "city"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "pending",    :default => true
-    t.integer  "added_by"
   end
 
   create_table "posts", :force => true do |t|
@@ -128,15 +97,6 @@ ActiveRecord::Schema.define(:version => 20100301201545) do
     t.date     "birthdate"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "study_programs", :force => true do |t|
-    t.string   "title"
-    t.integer  "subject_area_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "pending",         :default => true
-    t.integer  "added_by"
   end
 
   create_table "subject_areas", :force => true do |t|

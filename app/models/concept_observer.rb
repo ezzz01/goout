@@ -2,6 +2,7 @@
 class ConceptObserver < ActiveRecord::Observer
   
   def after_create(concept)
+    puts "======================"
     WikiReference.update_all("link_type = '#{WikiReference::LINKED_PAGE}'", 
         ['referenced_name = ?', concept.title])
   end

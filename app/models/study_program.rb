@@ -1,4 +1,4 @@
-class StudyProgram < ActiveRecord::Base
+class StudyProgram < Concept 
     belongs_to :subject_area
     has_many :full_studies
     has_many :exchange_studies

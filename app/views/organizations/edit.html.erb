@@ -8,10 +8,6 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  <p>
     <%= f.label :country_id %><br />
     <%= select("organization", "country_id", Country.find(:all).collect{ |c| [ c.title, c.id] }) %>
   </p>

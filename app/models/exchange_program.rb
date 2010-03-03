@@ -1,3 +1,3 @@
-class ExchangeProgram < ActiveRecord::Base
+class ExchangeProgram < Concept 
   has_many :activities
 end

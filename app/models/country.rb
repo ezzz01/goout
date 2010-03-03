@@ -1,5 +1,4 @@
-class Country < ActiveRecord::Base
+class Country < Concept 
   has_many :organizations
 
-  validates_uniqueness_of :title
 end

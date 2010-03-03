@@ -1,4 +1,4 @@
-class OrganizationsController < ApplicationController
+class OrganizationsController < ConceptsController 
 
 
   def index
@@ -71,18 +71,19 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    @organization = Organization.find(params[:id])
+    super()
+#   @organization = Organization.find(params[:id])
 
-    respond_to do |format|
-      if @organization.update_attributes(params[:organization])
-        flash[:notice] = 'Organization was successfully updated.'
-        format.html { redirect_to(@organization) }
+#   respond_to do |format|
+#     if @organization.update_attributes(params[:organization])
+#       flash[:notice] = 'Organization was successfully updated.'
+#       format.html { redirect_to(@organization) }
 #       format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
+#     else
+#       format.html { render :action => "edit" }
 #       format.xml  { render :xml => @university.errors, :status => :unprocessable_entity }
-      end
-    end
+#     end
+#   end
   end
 
   def destroy

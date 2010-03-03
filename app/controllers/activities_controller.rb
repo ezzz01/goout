@@ -60,7 +60,7 @@ class ActivitiesController < ApplicationController
 
 
   def update_study_programs
-	subject_area = SubjectArea.find_by_id(params[:subject_area_id], :include => :study_programs, :order => 'study_programs.title', :conditions => [ "study_programs.pending = 0 OR study_programs.added_by = ?", session[:user_id] ])
+	subject_area = SubjectArea.find_by_id(params[:subject_area_id], :include => :study_programs, :order => 'concepts.title', :conditions => [ "concepts.pending = 0 OR concepts.added_by = ?", session[:user_id] ])
 	render :update do |page|
         if subject_area.blank?
             page.replace_html 'study_program', :partial => 'study_programs', :locals => {:id => params[:subject_area_id] }, :object => nil
