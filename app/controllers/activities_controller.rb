@@ -82,7 +82,7 @@ class ActivitiesController < ApplicationController
             elsif (params[:activity_type] == "exchange_study")
                 exchange_programs = ExchangeProgram.find(:all, :order => :title)
                 page.replace_html 'exchange_program', :partial => 'exchange_programs', :locals => {}, :object => exchange_programs 
-                page[:activity_exchange_program_id].set_style :width => "400px"
+                page[:activity_exchange_program_id].set_style :width => "400px" if !exchange_programs.blank?
                 page[:exchange_program].set_style :display => "block";
                 page.hide "activity_area"
                 page.show "subject_area"
@@ -90,7 +90,7 @@ class ActivitiesController < ApplicationController
             elsif (params[:activity_type] == "internship")
                 activity_areas = ActivityArea.find(:all, :order => :title)
                 page.replace_html 'activity_area', :partial => 'activity_areas', :locals => {}, :object => activity_areas 
-                page[:activity_activity_area_id].set_style :width => "400px"
+                page[:activity_activity_area_id].set_style :width => "400px" if !activity_areas.blank?
                 page.hide "exchange_program"
                 page.show "activity_area"
                 page.hide "subject_area"

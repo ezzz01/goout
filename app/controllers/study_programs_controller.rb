@@ -1,4 +1,4 @@
-class StudyProgramsController < ApplicationController
+class StudyProgramsController < ConceptsController 
   before_filter :load_subject_area 
 
   # GET /study_programs
@@ -48,7 +48,9 @@ class StudyProgramsController < ApplicationController
   # POST /study_programs.xml
   def create
     @study_program = StudyProgram.new(params[:study_program])
-	@study_program.added_by = session[:user_id]
+	@study_program.added_by = current_user.id
+    new_revision = Revision.new(:content=> "category: Studijų programos", :author_id => current_user.id, :concept => @study_program)
+    @study_program.revisions << new_revision
     respond_to do |format|
       if @study_program.save
         flash[:notice] = 'StudyProgram was successfully created.'
@@ -82,17 +84,7 @@ class StudyProgramsController < ApplicationController
   # PUT /study_programs/1.xml
   def update
     @study_program = StudyProgram.find(params[:id])
-
-    respond_to do |format|
-      if @study_program.update_attributes(params[:study_program])
-        flash[:notice] = 'StudyProgram was successfully updated.'
-        format.html { redirect_to(@study_program) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @study_program.errors, :status => :unprocessable_entity }
-      end
-    end
+    super()
   end
 
   # DELETE /study_programs/1

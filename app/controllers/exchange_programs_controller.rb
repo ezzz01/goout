@@ -1,6 +1,5 @@
-class ExchangeProgramsController < ApplicationController
-  # GET /exchange_programs
-  # GET /exchange_programs.xml
+class ExchangeProgramsController < ConceptsController 
+
   def index
     @exchange_programs = ExchangeProgram.all
 
@@ -33,16 +32,15 @@ class ExchangeProgramsController < ApplicationController
     end
   end
 
-  # GET /exchange_programs/1/edit
   def edit
     @exchange_program = ExchangeProgram.find(params[:id])
   end
 
-  # POST /exchange_programs
-  # POST /exchange_programs.xml
   def create
     @exchange_program = ExchangeProgram.new(params[:exchange_program])
-	@exchange_program.added_by = session[:user_id]
+	@exchange_program.added_by = current_user.id
+    new_revision = Revision.new(:content=> "category: Mainų programos", :author_id => current_user.id, :concept => @exchange_program)
+    @exchange_program.revisions << new_revision
     respond_to do |format|
       if @exchange_program.save
         flash[:notice] = 'ExchangeProgram was successfully created.'
@@ -57,7 +55,6 @@ class ExchangeProgramsController < ApplicationController
                 flash.discard
             end
         }
-   #     format.xml  { render :xml => @exchange_program, :status => :created, :location => @exchange_program }
       else
         format.html { render :action => "new" }
         format.js { 
@@ -67,26 +64,13 @@ class ExchangeProgramsController < ApplicationController
                 flash.discard
             end
         }
-   #     format.xml  { render :xml => @exchange_program.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /exchange_programs/1
-  # PUT /exchange_programs/1.xml
   def update
     @exchange_program = ExchangeProgram.find(params[:id])
-
-    respond_to do |format|
-      if @exchange_program.update_attributes(params[:exchange_program])
-        flash[:notice] = 'ExchangeProgram was successfully updated.'
-        format.html { redirect_to(@exchange_program) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @exchange_program.errors, :status => :unprocessable_entity }
-      end
-    end
+    super()
   end
 
   # DELETE /exchange_programs/1

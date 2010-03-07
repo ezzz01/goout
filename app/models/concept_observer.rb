@@ -1,8 +1,14 @@
 # This class maintains the state of wiki references for newly created or newly deleted concepts
 class ConceptObserver < ActiveRecord::Observer
-  
+
+  def before_create(concept)
+    renderer = PageRenderer.new
+    renderer.revision = concept.revisions.last
+    rendering_result = renderer.render(update_references = true)
+    concept.wiki_references = renderer.update_references(rendering_result)
+  end
+
   def after_create(concept)
-    puts "======================"
     WikiReference.update_all("link_type = '#{WikiReference::LINKED_PAGE}'", 
         ['referenced_name = ?', concept.title])
   end

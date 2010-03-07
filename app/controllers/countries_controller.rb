@@ -1,5 +1,5 @@
-class CountriesController < ApplicationController
-  # GET /countries
+class CountriesController < ConceptsController 
+
   def index
     @countries = Country.all(:order => :title)
     respond_to do |format|
@@ -7,7 +7,6 @@ class CountriesController < ApplicationController
     end
   end
 
-  # GET /countries/1
   def show
     @country = Country.find(params[:id])
     respond_to do |format|
@@ -15,7 +14,6 @@ class CountriesController < ApplicationController
     end
   end
 
-  # GET /countries/new
   def new
     @country = Country.new
 
@@ -25,15 +23,15 @@ class CountriesController < ApplicationController
     end
   end
 
-  # GET /countries/1/edit
   def edit
     @country = Country.find(params[:id])
   end
 
-  # POST /countries
   def create
     @country = Country.new(params[:country])
-	@country.added_by = session[:user_id]
+	@country.added_by = current_user.id
+    new_revision = Revision.new(:content=> "category: Šalys", :author_id => current_user.id, :concept => @country)
+    @country.revisions << new_revision
     respond_to do |format|
       if @country.save
         flash[:notice] = 'Country was successfully created.'
@@ -53,20 +51,11 @@ class CountriesController < ApplicationController
     end
   end
 
-  # PUT /countries/1
   def update
     @country = Country.find(params[:id])
-    respond_to do |format|
-      if @country.update_attributes(params[:country])
-        flash[:notice] = 'Country was successfully updated.'
-        format.html { redirect_to(@country) }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
+    super()
   end
 
-  # DELETE /countries/1
   def destroy
     @country = Country.find(params[:id])
     @country.destroy

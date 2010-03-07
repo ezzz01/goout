@@ -1,8 +1,7 @@
 class Organization < Concept 
   belongs_to :country
-  has_many :activities
   has_many :users, :through => :activities
-
+  has_many :activities
   validates_uniqueness_of :title
   validates_presence_of :country
 

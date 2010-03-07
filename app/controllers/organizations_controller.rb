@@ -35,12 +35,16 @@ class OrganizationsController < ConceptsController
   def create
       if(params[:organization_type] == "university")
         @organization = University.new(params[:organization])
+        new_revision = Revision.new(:content=> "category: Universitetai", :author_id => current_user.id, :concept => @organization)
       elsif(params[:organization_type] == "company")
         @organization = Company.new(params[:organization])
+        new_revision = Revision.new(:content=> "category: Įmonės", :author_id => current_user.id, :concept => @organization)
       elsif(params[:organization_type] == "ngo")
         @organization = Ngo.new(params[:organization])
+        new_revision = Revision.new(:content=> "category: Nevyriausybinės organizacijos", :author_id => current_user.id, :concept => @organization)
       end
-	@organization.added_by = session[:user_id]
+	@organization.added_by = current_user.id 
+    @organization.revisions << new_revision
     respond_to do |format|
       if @organization.save
         flash[:notice] = 'Organization was successfully created.'
@@ -55,7 +59,6 @@ class OrganizationsController < ConceptsController
                 flash.discard
             end
         }
-#       format.xml  { render :xml => @organization, :status => :created, :location => @organization}
       else
         format.html { render :action => "new" }
         format.js { 
@@ -65,25 +68,12 @@ class OrganizationsController < ConceptsController
                 flash.discard
             end
         }
-#       format.xml  { render :xml => @organization.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def update
     super()
-#   @organization = Organization.find(params[:id])
-
-#   respond_to do |format|
-#     if @organization.update_attributes(params[:organization])
-#       flash[:notice] = 'Organization was successfully updated.'
-#       format.html { redirect_to(@organization) }
-#       format.xml  { head :ok }
-#     else
-#       format.html { render :action => "edit" }
-#       format.xml  { render :xml => @university.errors, :status => :unprocessable_entity }
-#     end
-#   end
   end
 
   def destroy
@@ -92,7 +82,6 @@ class OrganizationsController < ConceptsController
 
     respond_to do |format|
       format.html { redirect_to(organizations_url) }
-#     format.xml  { head :ok }
     end
   end
 end

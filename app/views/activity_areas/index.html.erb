@@ -3,13 +3,11 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Description</th>
   </tr>
 
 <% @activity_areas.each do |activity_area| %>
   <tr>
     <td><%=h activity_area.title %></td>
-    <td><%=h activity_area.description %></td>
     <td><%= link_to 'Show', activity_area %></td>
     <td><%= link_to 'Edit', edit_activity_area_path(activity_area) %></td>
     <td><%= link_to 'Destroy', activity_area, :confirm => t(:are_you_sure), :method => :delete %></td>

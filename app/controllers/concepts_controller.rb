@@ -38,8 +38,8 @@ class ConceptsController < ApplicationController
   # GET /concepts/new.xml
   def new
     @concept = Concept.new
+    #if we came here over the wiki_link, the title can already be set 
     @concept.title = params[:title] if params[:title]
-    @concept.revisions.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @concept }
@@ -58,10 +58,6 @@ class ConceptsController < ApplicationController
     @concept = Concept.new(params[:concept])
     @concept.revisions.last.author = current_user
     @concept.revisions.last.concept = @concept
-    renderer = PageRenderer.new
-    renderer.revision = @concept.revisions.last
-    rendering_result = renderer.render(update_references = true)
-    @concept.wiki_references = renderer.update_references(rendering_result)
     respond_to do |format|
       if @concept.save
         flash[:notice] = t(:page_was_successfully_created) 
@@ -75,7 +71,7 @@ class ConceptsController < ApplicationController
   # PUT /concepts/1
   # PUT /concepts/1.xml
   def update
-    puts "---------------------------"
+    #FIXME reikia refactorinti ir viska sukisti i modeli (fat models lean controllers)
     @concept = Concept.find(params[:id])
     @updates = params[:concept]
     @updates[:new_revision][:author_id] = current_user.id

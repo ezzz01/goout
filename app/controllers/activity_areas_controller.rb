@@ -1,4 +1,4 @@
-class ActivityAreasController < ApplicationController
+class ActivityAreasController < ConceptsController 
   # GET /activity_areas
   # GET /activity_areas.xml
   def index
@@ -25,7 +25,6 @@ class ActivityAreasController < ApplicationController
   # GET /activity_areas/new.xml
   def new
     @activity_area = ActivityArea.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.js { render :partial => 'remote_form', :layout => 'modal' }
@@ -42,13 +41,15 @@ class ActivityAreasController < ApplicationController
   # POST /activity_areas.xml
   def create
     @activity_area = ActivityArea.new(params[:activity_area])
-	@activity_area.added_by = session[:user_id]
+    @activity_area.added_by = current_user.id
+    new_revision = Revision.new(:content=> "category: Veiklos sritys", :author_id => current_user.id, :concept => @activity_area)
+    @activity_area.revisions << new_revision
     respond_to do |format|
       if @activity_area.save
         flash[:notice] = 'ActivityArea was successfully created.'
         format.html { redirect_to(@activity_area) }
-        activity_areas = ActivityArea.find(:all, :order => :title)
         format.js {
+          activity_areas = ActivityArea.find(:all, :order => :title)
             render :update do |page|
                 page.replace_html 'activity_area', :partial => 'activities/activity_areas', :locals => {},  :object => activity_areas 
                 page[:activity_activity_area_id].set_style :width => "400px"
@@ -57,7 +58,6 @@ class ActivityAreasController < ApplicationController
                 flash.discard
             end
         }
-     #   format.xml  { render :xml => @activity_area, :status => :created, :location => @activity_area }
       else
         format.html { render :action => "new" }
         format.js { 
@@ -67,8 +67,6 @@ class ActivityAreasController < ApplicationController
                 flash.discard
             end
         }
-
-     #   format.xml  { render :xml => @activity_area.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -77,17 +75,7 @@ class ActivityAreasController < ApplicationController
   # PUT /activity_areas/1.xml
   def update
     @activity_area = ActivityArea.find(params[:id])
-
-    respond_to do |format|
-      if @activity_area.update_attributes(params[:activity_area])
-        flash[:notice] = 'ActivityArea was successfully updated.'
-        format.html { redirect_to(@activity_area) }
-     #   format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-     #   format.xml  { render :xml => @activity_area.errors, :status => :unprocessable_entity }
-      end
-    end
+    super()
   end
 
   # DELETE /activity_areas/1

@@ -89,6 +89,10 @@ module ApplicationHelper
     link_to user.username, user_path(user.username)
   end
 
+  def current_user
+    User.find(session[:user_id])
+  end
+
   def avatar_for(user, thumb = true)
     if user.avatar
         if thumb == true
@@ -99,10 +103,6 @@ module ApplicationHelper
             link_to image_tag(avatar_image), user.avatar.public_filename
         end
     end
-  end
-
-  def current_user
-    User.find(session[:user_id])
   end
 
 ####################################
