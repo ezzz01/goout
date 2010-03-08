@@ -2,7 +2,7 @@
   <p>
     <%= f.text_area :body %>
   </p>
-
+  <%= f.hidden_field(:in_reply_to_id, :value => @parent_comment) %>
   <p>
   <%= f.submit button_name %> 
   <%= button_to_function t(:cancel) do |page|

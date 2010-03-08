@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
   # GET /comments/new.xml
   def new
     @comment = @post.comments.build
+    @parent_comment = params[:comment_id]
     respond_to do |format|
       format.html { redirect_to user_post_path(@post.user_id, @post) }
       #format.xml  { redirect_to user_post_path(@post.user_id, @post)}# render :xml => @comment }

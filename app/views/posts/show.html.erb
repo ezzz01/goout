@@ -17,12 +17,12 @@
 
 <div class="comments" id="comments_for_post_<%= @post.id %>">
 
-   <%= render :partial => "comments/comment", :collection => @post.comments %>
+   <%= render :partial => "comments/comment", :collection => @post.comments.find(:all, :conditions => {:in_reply_to_id => nil}) %>
 
 </div>
 
 <div id="add_comment_link_for_post_<%= @post.id %>">
-  <%= link_to_remote t(:new_comment),
+  <%= link_to_remote t(:new_post_comment),
     {:url => new_user_post_comment_path(@post.user_id, @post), 
     :method => :get},
     :href => new_user_post_comment_path(@post.user_id, @post)

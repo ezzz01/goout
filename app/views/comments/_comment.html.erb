@@ -14,4 +14,15 @@ end %>
   %>
 </span>
 <p><%= sanitize comment.body %></p>    
+<div id="add_comment_link_for_comment_<%= comment.id %>">
+  <%= link_to_remote t(:new_comment_reply),
+    { :url => new_user_post_comment_comment_path(comment.post.user, comment.post, comment), 
+    :method => :get},
+    :href => new_user_post_comment_comment_path(comment.post.user, comment.post, comment)
+  %>
+</div>
+<div id="new_reply_form_for_comment_<%= comment.id %>"></div>
+<div id="replies" style="margin-left: 15px;">
+   <%= render :partial => "comments/comment", :collection => comment.replies(:order => :created_at) %>
+</div>
 </div>

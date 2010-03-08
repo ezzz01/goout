@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :post
+  belongs_to :in_reply_to, :class_name => "Comment"
+  has_many :replies, :class_name => "Comment", :foreign_key => "in_reply_to_id"
   belongs_to :user
 
   validates_presence_of :body, :post

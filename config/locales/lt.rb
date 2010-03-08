@@ -91,7 +91,8 @@
   :activity_area_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį veiklos srities aprašymą galėsite sukurti veiklos sričių sąraše",
   :country_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį šalies aprašymą galėsite sukurti veiklos sričių sąraše",
   #blog
-  :new_comment => "Naujas komentaras",
+  :new_post_comment => "Komentuoti įrašą",
+  :new_comment_reply => "Atsakyti į komentarą",
   :comments => "Komentarų",
   #comments
   :anonymous => "Anonimas",

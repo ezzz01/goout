@@ -21,7 +21,9 @@ ActionController::Routing::Routes.draw do |map|
       tag.resources :posts
     end
     user.resources :posts do |post|
-      post.resources :comments
+      post.resources :comments do |comment|
+        comment.resources :comments, :as => "replies"
+      end
     end
   end
 
