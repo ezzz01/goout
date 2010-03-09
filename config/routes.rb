@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :roles
+
   map.resources :concepts, :as => "wiki"
   map.resources :concepts do |concept|
     concept.resources :revisions

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100308080618) do
+ActiveRecord::Schema.define(:version => 20100309114259) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -81,6 +81,12 @@ ActiveRecord::Schema.define(:version => 20100308080618) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -118,6 +124,13 @@ ActiveRecord::Schema.define(:version => 20100308080618) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "user_roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
