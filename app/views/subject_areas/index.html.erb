@@ -8,7 +8,9 @@
   <tr>
     <td><%=h subject_area.title %></td>
     <td><%= link_to 'Show', subject_area %></td>
+   <% if can? :update, @subject_area %>
     <td><%= link_to 'Edit', edit_subject_area_path(subject_area) %></td>
+   <% end %>
     <td><%= link_to 'Destroy', subject_area, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>

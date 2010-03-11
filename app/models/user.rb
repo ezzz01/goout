@@ -1,5 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  acts_as_authentic
+
   has_one :spec
   has_one :avatar, :dependent => :destroy
   has_many :posts, :order => "created_at DESC"
@@ -15,6 +17,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :remember_me
   attr_accessor :current_password
+  attr_accessor :admin
 
   USERNAME_MIN_LENGTH = 4
   USERNAME_MAX_LENGTH = 20

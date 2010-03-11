@@ -1,6 +1,5 @@
 class SubjectAreasController < ApplicationController
-  # GET /subject_areas
-  # GET /subject_areas.xml
+
   def index
     @subject_areas = SubjectArea.all(:order => :title)
 

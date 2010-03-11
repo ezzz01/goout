@@ -3,22 +3,24 @@
 
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  before_filter :check_authorization, :setup_url_generator
+  before_filter :setup_url_generator
   after_filter :teardown_url_generator
   session :session_key => 'iloveyou_here_have_a_cookie'
   helper :all # include all helpers, all the time
+
+  helper_method :current_user   
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery
 
-  def check_authorization
-    authorization_token = cookies[:authorization_token]
-    if authorization_token and not logged_in?
-      user = User.find_by_authorization_token(authorization_token)
-      user.login!(session) if user
-    end
-  end
+# def check_authorization
+#   authorization_token = cookies[:authorization_token]
+#   if authorization_token and not logged_in?
+#     user = User.find_by_authorization_token(authorization_token)
+#     user.login!(session) if user
+#   end
+# end
 
   def param_posted?(sym)
     request.post? and params[sym]
@@ -74,6 +76,15 @@ class ApplicationController < ActionController::Base
     PageRenderer.teardown_url_generator
   end
 
+  private   
 
+  def current_user_session   
+    return @current_user_session if defined?(@current_user_session)   
+    @current_user_session = UserSession.find   
+  end   
+  
+  def current_user   
+    @current_user = current_user_session && current_user_session.record   
+  end   
 
 end

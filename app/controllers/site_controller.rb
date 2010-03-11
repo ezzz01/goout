@@ -20,7 +20,7 @@ class SiteController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         @user.login!(session) 
-        flash[:notice] = t(:user) + " #{@user.username} " + t(:created)
+        flash[:notice] = t(:registration_successful) 
         redirect_to_forwarding_url
       else 
         @user.clear_password!

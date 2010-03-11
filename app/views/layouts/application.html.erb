@@ -10,6 +10,7 @@
 <%= javascript_include_tag 'lightbox' %>
 </head>
 <body>
+<div style="max-width: 1200px">
   <%= nav_link t(:start_page), "site" %>
   <%= nav_link t(:users), "users" %>
   <%= nav_link t(:blogs), "blogs", "index"  %>
@@ -17,11 +18,11 @@
   <%= nav_link t(:about), "site", "about"  %>
   <%= nav_link t(:help), "site", "help" %> 
   <span style="float:right">
-  <% if logged_in? -%>
+  <% if current_user -%>
       <%= link_to_unless_current current_user.username, user_path(current_user.username) %>
-      <%= nav_link t(:logout), "site", "logout" %>
+      <%= nav_link t(:logout), logout_path %>
   <% else -%>
-      <%= nav_link t(:login), "site", "login" %>
+      <%= nav_link t(:login), login_path %>
       <%= nav_link t(:do_register), "site", "register" %> 
   <% end -%>
 </span>
@@ -53,6 +54,7 @@
   </fieldset>
   
 <% end %>
+</div>
 </body>
 </html>
 

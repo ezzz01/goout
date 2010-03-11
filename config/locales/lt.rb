@@ -75,11 +75,13 @@
   :close => "Uždaryti",
 
   #flashes:
+  :registration_successful => "Užsiregistravote sėkmingai",
+  :login_successful => "Prisijungėte sėkmingai",
+  :logout_successful => "Atsijungėte sėkmingai",
   :invalid_username_password => "Neteisingas vartotojo vardas ir/arba slaptažodis",
   :attribute_updated => "atnaujinta(s)",
   :user => "Vartotojas",
   :logged_in => "prisijungė",
-  :logged_out => "Atsijungėte sėkmingai",
   :created => "sukurtas",
   :are_you_sure => "Ar tikrai ištrinti?",
 
