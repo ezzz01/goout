@@ -1,4 +1,5 @@
 class SubjectAreasController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @subject_areas = SubjectArea.all(:order => :title)

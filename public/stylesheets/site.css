@@ -65,6 +65,13 @@ label{
   font: bold;
 }
 
+#error{
+  border: 1px solid red;
+  padding: 1em;
+  margin: 1em;
+  margin-bottom: 2em;
+  font: bold;
+}
 .wiki_content {
   border: 1px solid #999999;
   padding: 1em;

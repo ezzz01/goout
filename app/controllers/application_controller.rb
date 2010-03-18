@@ -35,6 +35,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+      flash[:error] = t(:no_permission)
+      redirect_to root_url
+    end
+
   def load_organizations(country_id)
     universities = University.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )
     companies = Company.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )
@@ -79,6 +84,7 @@ class ApplicationController < ActionController::Base
   private   
 
   def current_user_session   
+    puts @current_user_session.inspect
     return @current_user_session if defined?(@current_user_session)   
     @current_user_session = UserSession.find   
   end   

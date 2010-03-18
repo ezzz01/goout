@@ -75,6 +75,7 @@
   :close => "Uždaryti",
 
   #flashes:
+  :no_permission => "Jums nesuteiktos teisės atlikti šį veiksmą",
   :registration_successful => "Užsiregistravote sėkmingai",
   :login_successful => "Prisijungėte sėkmingai",
   :logout_successful => "Atsijungėte sėkmingai",
