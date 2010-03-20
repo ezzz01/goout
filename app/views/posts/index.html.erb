@@ -1,8 +1,5 @@
 <h1>Listing posts</h1>
 
-<%- cache "my_blog", (Time.now + 60.minutes) do -%>
-<%- end -%>
-
 <div id="posts">
 <table>
 <% @posts_and_xml.each do |post| %>
@@ -59,4 +56,4 @@
 <%=
 #  render :partial => "post", :collection => @posts 
 %>
-<%= link_to 'New post', new_user_post_path %>
+<%= link_to 'New post', new_user_post_path(User.find_by_username(params[:user])) %>

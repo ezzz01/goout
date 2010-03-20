@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  before_filter :protect, :only => ["new", "create", "edit", "update", "destroy"]
-  before_filter :protect_blog, :only => ["new", "create", "edit", "update", "destroy"]
 
   # GET /posts
   # GET /posts.xml
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find_by_username(params[:user])
     @blog_url = @user.blog_url 
 
     if (params[:tag_id])
       @posts = User.find(params[:user_id]).posts.find_tagged_with(params[:tag_id])
     else
-      @posts = User.find(params[:user_id]).posts
+      @posts = User.find_by_username(params[:user]).posts
       if @blog_url
         @xmlposts = get_xml_feed(@blog_url)
         @posts_and_xml = Array.new
@@ -27,7 +25,7 @@ class PostsController < ApplicationController
       end
     end
     
-    @tags = User.find(params[:user_id]).posts.tag_counts
+    @tags = User.find_by_username(params[:user]).posts.tag_counts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -110,16 +108,5 @@ class PostsController < ApplicationController
     end
   end
 
-
-  private
-
-  def protect_blog
-    user = User.find(session[:user_id])
-    #unless params[:user_id] == user
-    #  flash[:notice] = "That isn't your blog!"
-    #  redirect_to user_posts_url
-    #  return false
-    #end
-  end
 
 end

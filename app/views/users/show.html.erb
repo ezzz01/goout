@@ -7,18 +7,13 @@
 </p>
 
 <p>
-  <b><%= t(:password) %>:</b>
-  <%=h @user.password %>
-</p>
-
-<p>
   <b><%= t(:email) %>:</b>
   <%=h @user.email %>
 </p>
 
 <p>
   <b><%= t(:blog) %>:</b>
-  <%= link_to @user.blog_url, user_posts_path(@user) %>
+  <%= link_to @user.blog_url, blog_path(@user.username) %>
 </p>
 
 <p>

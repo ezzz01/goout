@@ -26,15 +26,6 @@ class ApplicationController < ActionController::Base
     request.post? and params[sym]
   end
 
-  def protect
-    unless logged_in? 
-      session[:protected_page] = request.request_uri
-      flash[:notice] = "Please login"
-      redirect_to :controller => "user", :action => "login"
-      return false
-    end
-  end
-
   rescue_from CanCan::AccessDenied do |exception|
       flash[:error] = t(:no_permission)
       redirect_to root_url

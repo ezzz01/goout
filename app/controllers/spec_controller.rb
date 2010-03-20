@@ -1,5 +1,5 @@
 class SpecController < ApplicationController
-  before_filter :protect
+
   def index
     redirect_to :controller => "user", :action => "index"
   end

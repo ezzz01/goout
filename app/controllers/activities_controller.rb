@@ -1,6 +1,5 @@
 class ActivitiesController < ApplicationController
   include ApplicationHelper
-#  before_filter :protect, :only => ["new", "create", "delete", "update"]
 
   def new 
     @organizations = Organization.find(:all)
@@ -39,7 +38,6 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       format.html 
-      #format.xml  { head :ok }
       format.js 
     end
   end

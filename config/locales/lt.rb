@@ -215,6 +215,7 @@
         :invalid => "yra neteisinga(s)", 
         :less_than => "turi būti mažiau už {{count}}",
         :less_than_or_equal_to => "turi būti mažiau arba lygu {{count}}",
+        :record_invalid => "Negaliojantis įrašas", 
         :not_a_number => "turi būti skaičius",
         :odd => "turi būti lyginis",
         :taken => "jau yra sistemoje",

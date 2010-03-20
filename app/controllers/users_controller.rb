@@ -1,28 +1,17 @@
 class UsersController < ApplicationController
   #include ApplicationHelper
   #helper :profile
-  #before_filter :protect, :only => ["index", "edit"]
 
-  # GET /users
-  # GET /users.xml
   def index
     @users = User.paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
-      format.html # index.html.erb
-   #   format.xml  { render :xml => @users }
+      format.html 
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
   def show
-    if params[:user] =~ /\A\d+\Z/
-      @user = User.find(params[:user])
-      redirect_to user_path(@user.username) and return
-    else 
-      @user = User.find_by_username(params[:user])
-    end
+    find_user(params)
     @title = t(:user_profile, :username => @user.username)
     if @user
       @user.spec ||= Spec.new
@@ -31,8 +20,7 @@ class UsersController < ApplicationController
       @activities = @user.activities
 
       respond_to do |format|
-        format.html # show.html.erb
-      #  format.xml  { render :xml => @user }
+        format.html 
       end
     else 
       flash[:notice] = t(:no_such_user)
@@ -40,25 +28,19 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
   def new
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
-    #  format.xml  { render :xml => @user }
+      format.html
     end
   end
 
-  # GET /users/1/edit
   def edit
     @title = "Edit profile"
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
 
@@ -66,43 +48,57 @@ class UsersController < ApplicationController
       if @user.save
         flash[:notice] = 'User was successfully created.'
         format.html { redirect_to(@user) }
-     #   format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
-     #   format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
     @avatar = Avatar.new(:uploaded_data => params[:avatar_file])
     @service = UserService.new(@user, @avatar)
 
     respond_to do |format|
-      if @service.update_attributes(params[:user], params[:avatar_file])
-        flash[:notice] = 'User was successfully updated.'
-        format.html { redirect_to(@user) }
-     #   format.xml  { head :ok }
+      #if we have an uploaded avatar
+      if params[:avatar_file]
+        if @service.update_attributes(params[:user], params[:avatar_file])
+          flash[:notice] = 'User was successfully updated.'
+          format.html { redirect_to(@user) }
+        else
+          @avatar = @service.avatar
+          format.html { render :action => "edit" }
+        end
+      #no avatar file
       else
-        @avatar = @service.avatar
-        format.html { render :action => "edit" }
-      #  format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        if @user.update_attributes(params[:user])
+          flash[:notice] = 'User was successfully updated.'
+          format.html { redirect_to(user_path(@user)) }
+        else
+          format.html { render :action => "edit" }
+        end
       end
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
     respond_to do |format|
       format.html { redirect_to(users_url) }
-    #  format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  def find_user(params)
+   if params[:user] =~ /\A\d+\Z/
+      @user = User.find(params[:user])
+      redirect_to user_path(@user.username) and return
+    elsif params[:id]
+      @user = User.find(params[:id])
+    else 
+      @user = User.find_by_username(params[:user])
     end
   end
 
