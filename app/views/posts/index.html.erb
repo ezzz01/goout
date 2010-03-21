@@ -1,51 +1,49 @@
-<h1>Listing posts</h1>
+<h1><%= @blog_title ||= t(:blog_posts, :username => @user.username) %></h1>
+
 
 <div id="posts">
-<table>
-<% @posts_and_xml.each do |post| %>
-  <tr>
-    <td colspan="2">
-          <% if post.link %>
+<%= link_to t(:new_post), new_user_post_path(@user) %>
+<br />
+<br />
+<% @posts.each do |post| %>
+  <div id="blog_post_<%= post.id %>">
+  <div class="blog_post_header">
+        <div style="margin: 5px; float:right">
+            <%= link_to t(:edit), edit_user_post_path(post.user_id, post), :title => t(:will_be_edited_on_system) %>
+            <%= link_to_remote t(:delete), :url => {:controller => "posts", :action => "mark_as_deleted", :post_id => post.id}, :title => t(:will_be_deleted_on_system), :confirm => t(:are_you_sure) + t(:will_be_deleted_on_system), :method => :put %>
+        </div>
+    <span class="avatar"><%= avatar_for(@user) %></span>
+    <span class="postDate"><%= l post.published, :format => :long %></span>
+    <br />
+    <span>
+          <% if post.from_url %>
             <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
-            <b><%= link_to post.title, post.link %></b> 
+            <b><%= link_to post.title.sanitize, post.url %></b> 
             <% else %>
-              <b><%= link_to h(post.title), user_post_path(post.user, post) %></b>
+              <b><%= link_to post.title, user_post_path(post.user_id, post) %></b>
             <% end %>
-          <br />
-          <span class="postDate"><%= l post.date, :format => :long %></span>
-    </td>
-  </tr>
-      <% if !post.link %>
-        <% unless post.tag_list.size == 0 %>
-      <tr>
-        <td colspan="2">
-          <%= render :partial => "tag_list", :locals => {:post => post} %> 
-        </td>
-      </tr>
+    </span>
+    <% unless post.tag_list.size == 0 %>
+      <div> <%= render :partial => "tag_list", :locals => {:post => post} %> </div>
     <% end %>
-  <% end %>
- <tr>
-    <td><%= sanitize post.description %></td>
-    <td>
-       <% if !post.link %>
-        <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
-        <%= link_to 'Destroy', user_post_path(post.user, post), :confirm => t(:are_you_sure), :method => :delete %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <% if !post.link %>
-        <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user, post) %> <%=  %>
-    <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">&nbsp;</td>
+  </div>
 
+ <div class="blog_post_body">
+    <%= post.content.sanitize %>
+    <% if !post.from_url %>
+      <div>
+        <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user_id, post) %> <%=  %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
 <% end %>
 
-</table>
+<br />
+<%= link_to t(:new_post), new_user_post_path(@user) %>
+<br />
+
 </div>
 
 <div id="tag_cloud">
@@ -53,7 +51,5 @@
 </div>
 
 <br />
-<%=
-#  render :partial => "post", :collection => @posts 
-%>
-<%= link_to 'New post', new_user_post_path(User.find_by_username(params[:user])) %>
+
+

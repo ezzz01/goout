@@ -176,6 +176,19 @@ img {
     margin: 4px;
 }
 
+.blog_post_header {
+    background-color: #eaeaea;
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+    margin: 4px;
+}
+
+.blog_post_body {
+    padding: 4px;
+    margin: 4px;
+    padding-bottom: 40px;
+}
+
 #posts {
     float: left; 
     width: 80%;

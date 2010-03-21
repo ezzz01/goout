@@ -1,49 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   require 'string'
-  require 'rss/1.0'
-  require 'rss/2.0'
-  require 'open-uri'
-  require 'socket'
-  require "rexml/document"
-  include REXML
-
-  def get_xml_feed(url)
-    content = ""
-    begin
-      open(url, 0) do |s| content = s.read end
-      doc = Document.new content
-
-      #naive checking whether it's an atom or rss feed
-      if (doc.root.name == "feed")
-        feed_type = "atom"
-      else
-        feed_type = "rss"
-      end
-
-      @myposts = Array.new
-
-      if feed_type == "rss"
-        feed = RSS::Parser.parse(content, false) 
-        @link = feed.channel.link
-        #@title = feed.channel.title
-        @items = feed.channel.items[0..10] # just use the first five items        
-      elsif feed_type == "atom"
-        doc.elements.each("feed/entry") do |s|
-          @mypost = Post.new
-          @mypost.title = s.elements["title"].text
-          @mypost.link = s.elements["link"].attributes["href"]
-          @mypost.body= s.elements["content"].text
-          datetime = s.elements["published"].text
-          @mypost.created_at = DateTime.parse(datetime).strftime('%Y%m%d %H:%M:%S')
-          @myposts << @mypost
-        end
-        return @myposts
-      end
-          rescue 
-
-          end
-  end
 
   def tag_cloud(tags, classes)
     return if tags.empty?
@@ -79,6 +36,17 @@ module ApplicationHelper
 
   def paginated?
     @concepts and @concepts.length > 1
+  end
+
+  def find_user(params)
+   if params[:user] =~ /\A\d+\Z/
+      @user = User.find(params[:user])
+      redirect_to user_path(@user.username) and return
+    elsif params[:id]
+      @user = User.find(params[:id])
+    else 
+      @user = User.find_by_username(params[:user])
+    end
   end
 
   def profile_for(user)

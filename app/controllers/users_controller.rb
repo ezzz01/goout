@@ -91,15 +91,4 @@ class UsersController < ApplicationController
 
   private
 
-  def find_user(params)
-   if params[:user] =~ /\A\d+\Z/
-      @user = User.find(params[:user])
-      redirect_to user_path(@user.username) and return
-    elsif params[:id]
-      @user = User.find(params[:id])
-    else 
-      @user = User.find_by_username(params[:user])
-    end
-  end
-
 end

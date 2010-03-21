@@ -1,35 +1,27 @@
 class PostsController < ApplicationController
-  include ApplicationHelper
+  require 'feedzirra'
 
-  # GET /posts
-  # GET /posts.xml
   def index
-    @user = User.find_by_username(params[:user])
+    @user = find_user(params) 
+    @title = t(:blog_posts, :username => @user.username )
     @blog_url = @user.blog_url 
 
-    if (params[:tag_id])
-      @posts = User.find(params[:user_id]).posts.find_tagged_with(params[:tag_id])
-    else
-      @posts = User.find_by_username(params[:user]).posts
-      if @blog_url
-        @xmlposts = get_xml_feed(@blog_url)
-        @posts_and_xml = Array.new
-        begin
-          @posts_and_xml  = (@posts + @xmlposts).sort {|a, b| b.date <=> a.date}
-        rescue
-          flash[:notice] = t(:could_not_connect) 
-          @posts_and_xml = @posts
+    begin
+        Post.update_from_feed(@blog_url, @user.id)
+    rescue
+        flash[:notice] = t(:could_not_connect) 
+    ensure
+        if (params[:tag_id])
+          @posts = @user.posts.find_tagged_with(params[:tag_id], :order => "created_at DESC", :conditions => "deleted = 0" )
+        else
+          @posts = Post.find_all_by_user_id(@user.id, :order => "created_at DESC", :conditions => "deleted = 0") 
         end
-      else
-        @posts_and_xml = @posts
-      end
     end
-    
-    @tags = User.find_by_username(params[:user]).posts.tag_counts
+
+    @tags = @user.posts.tag_counts
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts_and_xml }
+      format.html 
     end
   end
 
@@ -108,5 +100,12 @@ class PostsController < ApplicationController
     end
   end
 
-
+  def mark_as_deleted
+    @post = Post.find(params[:post_id])
+    if @post.update_attribute(:deleted, 1)
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
 end

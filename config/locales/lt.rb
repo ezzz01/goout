@@ -93,7 +93,14 @@
   :exchange_program_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį mainų programos aprašymą galėsite sukurti mainų programų sąraše",
   :activity_area_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį veiklos srities aprašymą galėsite sukurti veiklos sričių sąraše",
   :country_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį šalies aprašymą galėsite sukurti veiklos sričių sąraše",
+
+  #tooltips:
+  :will_be_deleted_on_system => "Dėmesio, įrašas bus ištrintas iš go-out.lt, bet ne iš pirminio šaltinio!",
+  :will_be_edited_on_system => "Dėmesio, redaguoti galite tik go-out.lt saugomą įrašo kopiją, ne originalą!",
+
   #blog
+  :blog_posts => "Vartotojo {{username}} tinkaraščio įrašai", 
+  :new_post => "Naujas įrašas", 
   :new_post_comment => "Komentuoti įrašą",
   :new_comment_reply => "Atsakyti į komentarą",
   :comments => "Komentarų",
