@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
   include ApplicationHelper
-  require 'feedzirra'
 
   acts_as_taggable
   belongs_to :user
@@ -21,24 +20,5 @@ class Post < ActiveRecord::Base
     not post.nil?
   end
 
-  def self.update_from_feed(feed_url, user_id)   
-    feed = Feedzirra::Feed.fetch_and_parse(feed_url)   
-    feed.entries.each do |entry|   
-      unless exists? :guid => entry.id   
-#       if title is null (like all of my blog entries)
-        entry.title = entry.id unless entry.title
-        entry.content = entry.content ||= entry.summary
-        create!(   
-          :title      => entry.title,   
-          :body       => entry.content,   
-          :url        => entry.url,   
-          :created_at => entry.published,   
-          :user_id    => user_id,
-          :from_url   => feed.url,
-          :guid       => entry.id,
-          :cached_tag_list => entry.categories.join(", ") 
-        )   
-      end   
-    end   
-  end   
+
 end

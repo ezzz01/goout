@@ -6,16 +6,10 @@ class PostsController < ApplicationController
     @title = t(:blog_posts, :username => @user.username )
     @blog_url = @user.blog_url 
 
-    begin
-        Post.update_from_feed(@blog_url, @user.id)
-    rescue
-        flash[:notice] = t(:could_not_connect) 
-    ensure
-        if (params[:tag_id])
-          @posts = @user.posts.find_tagged_with(params[:tag_id], :order => "created_at DESC", :conditions => "deleted = 0" )
-        else
-          @posts = Post.find_all_by_user_id(@user.id, :order => "created_at DESC", :conditions => "deleted = 0") 
-        end
+    if (params[:tag_id])
+        @posts = @user.posts.find_tagged_with(params[:tag_id], :order => "created_at DESC", :conditions => "deleted = 0" )
+    else
+        @posts = Post.find_all_by_user_id(@user.id, :order => "created_at DESC", :conditions => "deleted = 0") 
     end
 
     @tags = @user.posts.tag_counts
