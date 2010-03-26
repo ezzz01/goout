@@ -31,6 +31,19 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
 
+   #starts background process for feed_updating
+   #should be called from GUI
+  def start_feed_updating
+    system  "/home/ezhux/su/su/script/runner FeedUpdater.update_feeds &"
+    #global variable indicating if the background process is running
+    $running = true
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+    end
+  end
+
+
+
   def load_organizations(country_id)
     universities = University.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )
     companies = Company.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )

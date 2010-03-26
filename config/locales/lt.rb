@@ -73,7 +73,7 @@
   :cancel => "Atšaukti",
   :create => "Sukurti",
   :close => "Uždaryti",
-
+  :start_updating_feeds => "Pradėti RSS atnaujinimą",
   #flashes:
   :no_permission => "Jums nesuteiktos teisės atlikti šį veiksmą",
   :registration_successful => "Užsiregistravote sėkmingai",

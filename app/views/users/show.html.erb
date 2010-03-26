@@ -1,3 +1,9 @@
+<div id="admin_functions">
+  <p>
+    <%=$running %><br />
+    <%=button_to t(:start_updating_feeds), :action => :start_feed_updating %>
+  </p>
+</div>
 <p>
   <b><%= t(:username) %>:</b>
   <%=h @user.username %> 
