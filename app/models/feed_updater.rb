@@ -8,12 +8,17 @@ class FeedUpdater < Post
 
  def self.update_feed_addresses
   feeds_array = Array.new
-  feed_urls = User.find(:all, :select => "blog_url").map { |user| user.blog_url }
-  feed_urls.compact!
+  feed_urls = User.find(:all, :select => "blog_url", :conditions => "blog_url != ''").map { |user| user.blog_url }
   feed_urls.each do |feed_url| 
+     begin 
       feed = Feedzirra::Feed.fetch_and_parse(feed_url)   
+      puts feed.class.inspect 
       feeds_array << feed
-      add_entries(feed.entries, feed.url)
+      add_entries(feed.entries, feed.url) 
+     rescue Exception => e 
+        puts "something's wrong" 
+        puts e.message
+     end
   end
   feeds_array
  end
@@ -23,6 +28,7 @@ class FeedUpdater < Post
   loop do
     puts "trying to update"
       feeds_array.each do |feed| 
+        begin
         feed = Feedzirra::Feed.update(feed)
           if feed.updated?   
             puts "updated"
@@ -33,8 +39,11 @@ class FeedUpdater < Post
             feeds_array.push(feed2)
             loop_and_update(feeds_array)
           end
+        rescue Exception => e
+          puts e.message
+        end
       end   
-    sleep 60 
+    sleep 10 
   end
  end   
 

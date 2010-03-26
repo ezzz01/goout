@@ -18,7 +18,7 @@
     <span>
           <% if post.from_url %>
             <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
-            <b><%= link_to post.title.sanitize, post.url %></b> 
+            <b><%= link_to post.title.sanitize, post.from_url %></b> 
             <% else %>
               <b><%= link_to post.title, user_post_path(post.user_id, post) %></b>
             <% end %>
