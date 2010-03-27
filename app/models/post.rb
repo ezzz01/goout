@@ -8,11 +8,12 @@ class Post < ActiveRecord::Base
   alias_attribute :content, :body
   attr_accessor :link
   attr_accessor :url
+  attr_accessor :updating_feed
 
- validates_presence_of :body
- validates_length_of :title, :maximum => 100
- validates_length_of :body, :maximum => DB_TEXT_MAX_LENGTH
- validates_uniqueness_of :body, :scope => :title
+  validates_presence_of :body unless :updating_feed
+  validates_length_of :title, :maximum => 100 
+  validates_length_of :body, :maximum => DB_TEXT_MAX_LENGTH
+  validates_uniqueness_of :body, :scope => :title unless :updating_feed
 
   def duplicate?
     post = Post.find_by_user_id_and_title_and_body(user_id, title, body)

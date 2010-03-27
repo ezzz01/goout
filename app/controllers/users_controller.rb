@@ -88,7 +88,7 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
     end
   end
-
+ 
   private
 
 end
