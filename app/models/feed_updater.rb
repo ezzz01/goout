@@ -1,6 +1,12 @@
 class FeedUpdater < Post 
   require 'feedzirra'
 
+ def self.check_if_bgprocess_running
+    $running = false
+    test = `ps ef | grep -v grep | grep FeedUpdater` 
+    $running = true if test.length > 0
+  end
+
  def self.update_feeds   
    @logfile = File.open(File.dirname(__FILE__) + "/../../log/feed_updater.log", 'a')    
    @logfile.sync = true
@@ -12,14 +18,14 @@ class FeedUpdater < Post
 
  def self.update_feed_addresses
   feeds_array = Array.new
-  feed_urls = User.find(:all, :select => "blog_url", :conditions => "blog_url != ''").map { |user| user.blog_url }
-  feed_urls.each do |feed_url| 
+  users = User.find(:all, :conditions => "blog_url != ''")
+  users.each do |user| 
      begin 
-       feed = Feedzirra::Feed.fetch_and_parse(feed_url)   
+       feed = Feedzirra::Feed.fetch_and_parse(user.blog_url)   
+       add_entries(feed.entries, user) 
        feeds_array << feed
-       add_entries(feed.entries, feed.url) 
      rescue Exception => e 
-        @feed_updater_log.error("Exception: " + e.message + " " + feed_url)
+        @feed_updater_log.error("Exception: " + e.message + " " + user.blog_url)
         @feed_updater_log.error( e.backtrace )
      end
   end
@@ -37,7 +43,8 @@ class FeedUpdater < Post
           if feed.updated?   
             feed2 = Feedzirra::Feed.fetch_and_parse(feed.feed_url)   
             @feed_updater_log.info("Updated from: " + feed.feed_url)
-            add_entries(feed.new_entries, feed.url)
+            user = User.find_by_blog_url(feed.feed_url)
+            add_entries(feed.new_entries, user)
             feeds_array.delete(feed)
             feeds_array.push(feed2)
             loop_and_update(feeds_array)
@@ -54,24 +61,24 @@ class FeedUpdater < Post
       update_feeds 
     end
     #once in a while we should check for new feeds. Unfortunately this means we have to go through all feeds and update them
-    update_feeds if loop_count > 20 
-    sleep 30 
+    update_feeds if loop_count > 10 
+    sleep 300 
   end
  end   
 
-def self.add_entries(entries, from_url)
+def self.add_entries(entries, user)
       entries.each do |entry|   
     unless exists? :guid => entry.id   
 #       if title is null (like all of my blog entries)
         entry.title = entry.id unless entry.title
         entry.content = entry.content ||= entry.summary
         Post.create!(   
-          :title      => entry.title,   
+          :title      => entry.title.slice(0, 96) + "...",   
           :body       => entry.content + " ",   
           :url        => entry.url,   
           :created_at => entry.published,   
-          :user_id    => 1013,
-          :from_url   => from_url,
+          :user_id    => user.id,
+          :from_url   => user.blog_url,
           :guid       => entry.id,
           :cached_tag_list => entry.categories.join(", "), 
           :updating_feed => true

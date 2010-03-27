@@ -1,7 +1,7 @@
 <div id="admin_functions">
   <p>
-    <%=$running %><br />
-    <%=button_to t(:start_updating_feeds), :action => :start_feed_updating %>
+    <%=button_to t(:start_updating_feeds), {:action => :start_feed_updating}, :disabled => FeedUpdater.check_if_bgprocess_running %>
+    <%=button_to t(:stop_updating_feeds), {:action => :stop_feed_updating}, :disabled => !FeedUpdater.check_if_bgprocess_running %>
   </p>
 </div>
 <p>

@@ -34,15 +34,24 @@ class ApplicationController < ActionController::Base
    #starts background process for feed_updating
    #should be called from GUI
   def start_feed_updating
-    system  "/home/ezhux/su/su/script/runner FeedUpdater.update_feeds &"
-    #global variable indicating if the background process is running
-    $running = true
+    system "/home/ezhux/su/su/script/runner FeedUpdater.update_feeds &"
     respond_to do |format|
       format.html { redirect_to user_path(current_user) }
     end
   end
 
+  def stop_feed_updating
+    a = Array.new
+    #backtics ` execute command in the shell and return output as string
+    test = `ps ef | grep -v grep | grep FeedUpdater`
+    a = test.strip.split(' ')
+    process_num = a[0]
+    `kill -9 #{process_num}`
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+    end
 
+  end
 
   def load_organizations(country_id)
     universities = University.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )

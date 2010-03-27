@@ -74,6 +74,7 @@
   :create => "Sukurti",
   :close => "Uždaryti",
   :start_updating_feeds => "Pradėti RSS atnaujinimą",
+  :stop_updating_feeds => "Sustabdyti RSS atnaujinimą",
   #flashes:
   :no_permission => "Jums nesuteiktos teisės atlikti šį veiksmą",
   :registration_successful => "Užsiregistravote sėkmingai",
