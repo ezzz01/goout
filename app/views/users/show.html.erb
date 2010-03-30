@@ -27,7 +27,7 @@
   <%= image_tag(@user.avatar.public_filename) if @user.avatar %>
 </p>
 
-<p>
+<div class="profile_block">
   <b><%= t(:studies) %>:</b>
     <span id="add_activity_link">
       <%= link_to_remote t(:new_entry),
@@ -40,30 +40,30 @@
     <div id="activities_for_user">
       <%= render :partial => "activities/activity", :collection => @user.activities %>
     </div>
-</p>
+</div>
 
-<p>
+<div class="profile_block">
   <b><%= t(:friends) + " (" + @user.friendships.size.to_s + ")" %>:</b>
   <ul>
     <% for friendship in @user.friendships %>
         <li>
-            <%= link_to friendship.friend.username, user_path(friendship.friend.username) %>
+            <%= profile_for(friendship.friend.username) %>
             (<%= link_to t(:remove_friend), friendship, :method => :delete %>)
         </li>
     <% end %>
   </ul>
-</p>
+</div>
 
-<p>
+<div class="profile_block">
   <b><%= t(:friend_of) + " (" + @user.inverse_friends.size.to_s + ")" %>:</b>
   <ul>
     <% for user in @user.inverse_friends %>
         <li>
-            <%= link_to user.username, user_path(user.username) %>
+            <%= profile_for(friendship.friend.username) %>
         </li>
     <% end %>
   </ul>
-</p>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

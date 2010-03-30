@@ -13,14 +13,14 @@
             <%= link_to_remote t(:delete), :url => {:controller => "posts", :action => "mark_as_deleted", :post_id => post.id}, :title => t(:will_be_deleted_on_system), :confirm => t(:are_you_sure) + t(:will_be_deleted_on_system), :method => :put %>
         </div>
     <span class="avatar"><%= avatar_for(@user) %></span>
-    <span class="postDate"><%= l post.published, :format => :long %></span>
+    <span class="post_date"><%= l post.published, :format => :long %></span>
     <br />
     <span>
           <% if post.from_url %>
             <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
-            <b><%= link_to post.title.sanitize, post.from_url %></b> 
+            <span class="post_title"><%= link_to post.title.sanitize, post.from_url %></span> 
             <% else %>
-              <b><%= link_to post.title, user_post_path(post.user_id, post) %></b>
+              <span class="post_title"><%= link_to post.title, user_post_path(post.user_id, post) %></span>
             <% end %>
     </span>
     <% unless post.tag_list.size == 0 %>

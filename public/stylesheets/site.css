@@ -138,8 +138,12 @@ label{
 
 .newWikiWord { background: #f8d8d8;}
 
-span.postDate{
+span.post_date{
   font-size: 11px;
+}
+
+span.post_title{
+  font-weight: bold;
 }
 
 .activity {
@@ -199,4 +203,6 @@ img {
     width: 20%;
     }
 
-
+.gooutuser {
+  font-weight: bold;
+}

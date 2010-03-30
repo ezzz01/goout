@@ -3,7 +3,7 @@
 </p>
 <p>
   <%= avatar_for(@post.user) %> 
-  <span class="postDate"><%= l @post.created_at, :format => :long %></span>
+  <span class="post_date"><%= l @post.created_at, :format => :long %></span>
   <%= render :partial => "tag_list", :locals => {:post => @post} %> 
 </p>
 <p>

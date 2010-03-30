@@ -50,15 +50,16 @@ module ApplicationHelper
   end
 
   def profile_for(user)
-    user
-  end
-
-  def profile_link(user)
-    link_to user.username, user_path(user.username)
-  end
-
-  def current_user
-    User.find(session[:user_id])
+    if user.respond_to?('username')
+      content_tag(:span, :class => "gooutuser") do 
+        link_to(user.username, user_profile_path(user.username))
+      end
+    else
+      user = User.find_by_username(user)
+      content_tag(:span, :class => "gooutuser") do 
+        link_to user.username, user_profile_path(user.username)
+      end
+    end
   end
 
   def avatar_for(user, thumb = true)
@@ -71,6 +72,13 @@ module ApplicationHelper
             link_to image_tag(avatar_image), user.avatar.public_filename
         end
     end
+  end
+
+  def hidden_div_if(condition, attributes = {}, &block)
+    if condition
+        attributes["style"] = "display: none"
+    end
+    content_tag("div", attributes, &block)
   end
 
 ####################################
