@@ -1,14 +1,9 @@
-<p>
-  <h1><%=h @post.title %></h1>
-</p>
-<p>
-  <%= avatar_for(@post.user) %> 
-  <span class="post_date"><%= l @post.created_at, :format => :long %></span>
-  <%= render :partial => "tag_list", :locals => {:post => @post} %> 
-</p>
-<p>
-   <%=h @post.body %>
-</p>
+<div id="posts">
+
+
+  <div class="blog_post_body">
+    <%= @post.content.sanitize %>
+  </div>
 
 <p>
   <b><%= t(:comments) %>:</b>
@@ -31,5 +26,6 @@
 
 <div id="new_comment_form_for_post_<%= @post.id %>"></div>
 
-<%= link_to 'Edit', edit_user_post_path(@post.user_id, @post) %> |
-<%= link_to 'Back', user_posts_path(@post.user_id) %>
+<%= link_to t(:back), blog_path(@post.user.username) %>
+
+</div>

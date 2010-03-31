@@ -1,0 +1,26 @@
+<div class="paginator">
+<%= will_paginate @posts %>
+</div>
+
+<div id="posts">
+<% for post in @posts %>
+  <div class="blog_post_header" id="<%=post.id %>">
+    <%= profile_for(post.user.username) %>
+    <span class="post_date"><%= l post.created_at, :format => :long %></span>
+    <br />
+    <span class="post_title"><%=post.title %></span>
+  </div>
+  <div class="blog_post_body">
+    <span class="post_body"><%=post.body %></span>
+  </div>
+<% end %>
+
+  <div class="paginator">
+  <%= will_paginate @posts %>
+  </div>
+
+</div>
+
+<div id="tag_cloud">
+  <%= render :partial => "posts/tag_cloud" %>
+</div>

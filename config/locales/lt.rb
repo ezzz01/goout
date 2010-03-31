@@ -14,6 +14,7 @@
   :title => "Pavadinimas",
   :blog => "Tinklaraštis",
   :studies => "Studijos",
+  :zeitgeist => "Zeitgeist",
   :body => "Body?",
   :tags => "Žymės",
   :new_entry => "Sukurti naują",
@@ -22,6 +23,8 @@
   :new_study_program => "Sukurti naują studijų programą",
   :new_exchange_program => "Sukurti naują mainų programą",
   :new_activity_area => "Sukurti naują veiklos sritį",
+
+  :back => "Atgal",
 
   #activity types
   :full_study => "Pilnos studijos",

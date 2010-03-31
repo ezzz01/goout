@@ -1,17 +1,18 @@
 <h1><%= @blog_title ||= t(:blog_posts, :username => @user.username) %></h1>
 
-
 <div id="posts">
-<%= link_to t(:new_post), new_user_post_path(@user) %>
-<br />
-<br />
+
+<%= render :partial => "new_post_link" %>
+
 <% @posts.each do |post| %>
   <div id="blog_post_<%= post.id %>">
   <div class="blog_post_header">
+        <% if can? :update, post %>
         <div style="margin: 5px; float:right">
             <%= link_to t(:edit), edit_user_post_path(post.user_id, post), :title => t(:will_be_edited_on_system) %>
             <%= link_to_remote t(:delete), :url => {:controller => "posts", :action => "mark_as_deleted", :post_id => post.id}, :title => t(:will_be_deleted_on_system), :confirm => t(:are_you_sure) + t(:will_be_deleted_on_system), :method => :put %>
         </div>
+        <% end %>
     <span class="avatar"><%= avatar_for(@user) %></span>
     <span class="post_date"><%= l post.published, :format => :long %></span>
     <br />
@@ -30,19 +31,15 @@
 
  <div class="blog_post_body">
     <%= post.content.sanitize %>
-    <% if !post.from_url %>
       <div>
         <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user_id, post) %> <%=  %>
       </div>
-    <% end %>
   </div>
 
 </div>
 <% end %>
 
-<br />
-<%= link_to t(:new_post), new_user_post_path(@user) %>
-<br />
+<%= render :partial => "new_post_link" %>
 
 </div>
 

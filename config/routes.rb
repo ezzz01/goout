@@ -1,8 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.zeitgeist "zeitgeist", :controller => "zeitgeist", :action => "index"
-  map.login "login", :controller => "user_sessions", :action => "new"
-  map.logout "logout", :controller => "user_sessions", :action => "destroy"
-
   map.resources :user_sessions
 
   map.resources :roles
@@ -36,8 +32,6 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   
-  # The priority is based upon order of creation: first created -> highest priority.
-
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
@@ -63,8 +57,14 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
    map.root :controller => "site"
+
+   map.zeitgeist "zeitgeist/:tag", :controller => "zeitgeist", :action => "index"
+   map.login "login", :controller => "user_sessions", :action => "new"
+   map.logout "logout", :controller => "user_sessions", :action => "destroy"
+
    map.user_profile 'user/:user', :controller => 'users', :action => 'show'
    map.blog 'user/:user/blog', :controller => 'posts', :action => 'index'
+   map.post 'user/:user/blog/:post_id', :controller => 'posts', :action => 'show', :id => ''
    map.list 'list/:category', :controller => 'concepts', :action => 'list'
    map.page 'wiki/show/:id', :controller => 'concepts', :action => 'show'
   # map.profile ':user', :controller => 'users', :action => 'show'

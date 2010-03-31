@@ -80,7 +80,7 @@ def self.add_entries(entries, user)
           :user_id    => user.id,
           :from_url   => user.blog_url,
           :guid       => entry.id,
-          :cached_tag_list => entry.categories.join(", "), 
+          :cached_tag_list => entry.categories.join(" "), 
           :updating_feed => true
         )   
       end   
