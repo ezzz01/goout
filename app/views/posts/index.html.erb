@@ -5,38 +5,16 @@
 <%= render :partial => "new_post_link" %>
 
 <% @posts.each do |post| %>
-  <div id="blog_post_<%= post.id %>">
-  <div class="blog_post_header">
-        <% if can? :update, post %>
-        <div style="margin: 5px; float:right">
-            <%= link_to t(:edit), edit_user_post_path(post.user_id, post), :title => t(:will_be_edited_on_system) %>
-            <%= link_to_remote t(:delete), :url => {:controller => "posts", :action => "mark_as_deleted", :post_id => post.id}, :title => t(:will_be_deleted_on_system), :confirm => t(:are_you_sure) + t(:will_be_deleted_on_system), :method => :put %>
-        </div>
-        <% end %>
-    <span class="avatar"><%= avatar_for(@user) %></span>
-    <span class="post_date"><%= l post.published, :format => :long %></span>
-    <br />
-    <span>
-          <% if post.from_url %>
-            <%=image_tag('feed-icon-14x14.png', :alt=>"test") %>
-            <span class="post_title"><%= link_to post.title.sanitize, post.from_url %></span> 
-            <% else %>
-              <span class="post_title"><%= link_to post.title, user_post_path(post.user_id, post) %></span>
-            <% end %>
-    </span>
-    <% unless post.tag_list.size == 0 %>
-      <div> <%= render :partial => "tag_list", :locals => {:post => post} %> </div>
-    <% end %>
-  </div>
 
- <div class="blog_post_body">
+  <%= render :partial => "post_header", :locals => { :post => post } %>
+
+  <div id="blog_post_<%= post.id %>" class="blog_post_body">
     <%= post.content.sanitize %>
-      <div>
-        <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user_id, post) %> <%=  %>
-      </div>
+    <div>
+      <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user_id, post) %> <%=  %>
+    </div>
   </div>
 
-</div>
 <% end %>
 
 <%= render :partial => "new_post_link" %>
@@ -46,7 +24,3 @@
 <div id="tag_cloud">
   <%= render :partial => "tag_cloud" %>
 </div>
-
-<br />
-
-

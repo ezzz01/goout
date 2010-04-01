@@ -2,6 +2,7 @@ class Ability
     include CanCan::Ability
 
     def initialize(user)
+      user ||= User.new # guest user
       admin = Role.find_by_title('admin')
       if user.roles.include?(admin)
         can :manage, :all
