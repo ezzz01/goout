@@ -7,6 +7,8 @@ class Ability
       if user.roles.include?(admin)
         can :manage, :all
       else
+        can :read, :all
+
         can :update, Post do |post|
         puts post
             post.user == user

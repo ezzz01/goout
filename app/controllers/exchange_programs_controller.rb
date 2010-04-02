@@ -1,4 +1,5 @@
 class ExchangeProgramsController < ConceptsController 
+  load_and_authorize_resource
 
   def index
     @exchange_programs = ExchangeProgram.all

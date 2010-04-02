@@ -73,12 +73,11 @@ def self.add_entries(entries, user)
         entry.title = entry.id unless entry.title
         entry.content = entry.content ||= entry.summary
         Post.create!(   
-          :title      => entry.title.slice(0, 96) + "...",   
+          :title      => entry.title.slice(0, 96) + (entry.title.length > 96 ? "..." : ""),   
           :body       => entry.content + " ",   
-          :url        => entry.url,   
           :created_at => entry.published,   
           :user_id    => user.id,
-          :from_url   => user.blog_url,
+          :from_url   => entry.url,
           :guid       => entry.id,
           :cached_tag_list => entry.categories.join(" "), 
           :updating_feed => true

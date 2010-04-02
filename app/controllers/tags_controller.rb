@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  load_and_authorize_resource
   # GET /tags
   # GET /tags.xml
   def index

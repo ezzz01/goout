@@ -71,6 +71,7 @@
 
   :send => "Siųsti",
   :delete => "Ištrinti",
+  :destroy => "Ištrinti",
   :update => "Atnaujinti",
   :edit => "Redaguoti",
   :cancel => "Atšaukti",

@@ -1,4 +1,5 @@
 class StudyProgramsController < ConceptsController 
+  load_and_authorize_resource
   before_filter :load_subject_area 
 
   # GET /study_programs

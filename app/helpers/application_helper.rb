@@ -66,7 +66,7 @@ module ApplicationHelper
     if user.avatar
         if thumb == true
             avatar_image = user.avatar.public_filename(:small)
-            link_to image_tag(avatar_image), user_path(user) 
+            link_to image_tag(avatar_image), user_profile_path(user.username) 
         else 
             avatar_image = user.avatar.public_filename
             link_to image_tag(avatar_image), user.avatar.public_filename

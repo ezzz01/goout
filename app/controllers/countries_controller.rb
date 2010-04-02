@@ -1,5 +1,5 @@
 class CountriesController < ConceptsController 
-
+  load_and_authorize_resource
   def index
     @countries = Country.all(:order => :title)
     respond_to do |format|

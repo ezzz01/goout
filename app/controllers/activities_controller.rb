@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  load_and_authorize_resource
   include ApplicationHelper
 
   def new 

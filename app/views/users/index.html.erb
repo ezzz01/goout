@@ -1,4 +1,8 @@
-<h1>Listing users</h1>
+<h1><%= t(:users) %></h1>
+
+<div class="paginator">
+<%= will_paginate @users %>
+</div>
 
 <table>
 
@@ -6,9 +10,9 @@
     <tr>
         <td><%= avatar_for(user) %></td> 
         <td><%= link_to user.username, user_profile_path(user.username) %></td>
-        <td><%=h user.password %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, :confirm => t(:are_you_sure), :method => :delete %></td>
+        <% if can? :destroy, user %> 
+        <td><%= link_to t(:destroy), user, :confirm => t(:are_you_sure), :method => :delete %></td>
+        <% end %>
     </tr>
 <% end %>
 
@@ -18,6 +22,3 @@
 <div class="paginator">
 <%= will_paginate @users %>
 </div>
-
-<br />
-<%= link_to 'New user', new_user_path %>

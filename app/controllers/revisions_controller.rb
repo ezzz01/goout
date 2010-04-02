@@ -1,4 +1,5 @@
 class RevisionsController < ApplicationController
+  load_and_authorize_resource
   # GET /revisions
   # GET /revisions.xml
   def index
