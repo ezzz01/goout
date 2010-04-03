@@ -8,6 +8,7 @@ class Ability
         can :manage, :all
       else
         can :read, :all
+        can :create, Comment
 
         can :update, Post do |post|
         puts post

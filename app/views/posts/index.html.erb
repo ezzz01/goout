@@ -2,22 +2,15 @@
 
 <div id="posts">
 
-<%= render :partial => "new_post_link" %>
+  <%= render :partial => "new_post_link" %>
 
-<% @posts.each do |post| %>
+  <% @posts.each do |post| %>
+    <%= render :partial => "post_header", :locals => { :post => post } %>
+    <%= render :partial => "post_body", :locals => { :post => post } %>
+    <%= render :partial => "posts/post_footer", :locals => { :post => post } %>
+  <% end %>
 
-  <%= render :partial => "post_header", :locals => { :post => post } %>
-
-  <div id="blog_post_<%= post.id %>" class="blog_post_body">
-    <%= post.content.sanitize %>
-    <div>
-      <%= link_to t(:comments) + ": " + post.comments.size.to_s, user_post_path(post.user_id, post) %> <%=  %>
-    </div>
-  </div>
-
-<% end %>
-
-<%= render :partial => "new_post_link" %>
+  <%= render :partial => "new_post_link" %>
 
 </div>
 

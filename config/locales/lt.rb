@@ -49,6 +49,7 @@
   #page titles
   :user_profile => "Vartotojo {{username}} profilis",
   :edit_basic_info => "Redaguoti vartotojo profilį",
+  :goout_zeitgeist => "Go-out.lt zeitgeist",
   #register, login, user profile
   :register => "Registracija",
   :do_register => "Užsiregistruoti",

@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :user_sessions
   map.resources :roles
 
   map.resources :concepts, :as => "wiki"
@@ -63,7 +64,7 @@ ActionController::Routing::Routes.draw do |map|
 
    map.user_profile 'user/:user', :controller => 'users', :action => 'show'
    map.blog 'user/:user/blog', :controller => 'posts', :action => 'index'
-   map.post 'user/:user/blog/:post_id', :controller => 'posts', :action => 'show', :id => ''
+   map.post 'user/:user/blog/:id', :controller => 'posts', :action => 'show', :id => ''
    map.list 'list/:category', :controller => 'concepts', :action => 'list'
    map.page 'wiki/show/:id', :controller => 'concepts', :action => 'show'
   # map.profile ':user', :controller => 'users', :action => 'show'

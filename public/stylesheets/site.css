@@ -46,15 +46,16 @@ pre{
 }
 
 label{
-  width: 10em;
-  float: left;
-  text-align: left;
-  margin-right: 0.2em;
   display: block;
+  padding-bottom: 10px;
 }
 
 .submit{
   margin-left: 12.5em;
+}
+
+.bolder{
+  font-weight: bold;
 }
 
 #notice {
@@ -170,7 +171,7 @@ img {
 
 .comments {
     background-color: #efefef;
-    padding: 4px;
+    margin: 10px;
 }
 
 .comment {
@@ -190,7 +191,18 @@ img {
 .blog_post_body {
     padding: 4px;
     margin: 4px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+.blog_post_footer {
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+    margin: 12px;
+    margin-bottom: 20px;
+}
+
+.comment_form {
+    margin-left: 12px;
 }
 
 #posts {
@@ -205,5 +217,10 @@ img {
 
 .gooutuser {
   font-weight: bold;
+}
+
+span.span_separator {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 

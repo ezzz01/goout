@@ -1,17 +1,16 @@
 <div class="paginator">
-<%= will_paginate @posts %>
+  <%= will_paginate @posts %>
 </div>
 
 <div id="posts">
 <% for post in @posts %>
   <%= render :partial => "posts/post_header", :locals => { :post => post } %>
-  <div class="blog_post_body">
-    <span class="post_body"><%=post.body %></span>
-  </div>
+  <%= render :partial => "posts/post_body", :locals => { :post => post } %>
+  <%= render :partial => "posts/post_footer", :locals => { :post => post } %>
 <% end %>
 
   <div class="paginator">
-  <%= will_paginate @posts %>
+    <%= will_paginate @posts %>
   </div>
 
 </div>

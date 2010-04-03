@@ -63,6 +63,9 @@ module ApplicationHelper
   end
 
   def avatar_for(user, thumb = true)
+    if user.nil?
+      return
+    end
     if user.avatar
         if thumb == true
             avatar_image = user.avatar.public_filename(:small)

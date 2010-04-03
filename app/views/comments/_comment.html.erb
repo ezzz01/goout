@@ -6,13 +6,14 @@
  link_to comment.user.username, profile_for(comment.user) 
 end %>
 <span class="post_date"><%= h comment.created_at.as_lt_words %></span>
-<span class="edit_link" style="float: right">
-  <%= link_to_remote t(:delete), 
-    :url => user_post_comment_path(comment.post.user, comment.post, comment),
-    :method => :delete,
-    :confirm => t(:are_you_sure) 
-  %>
-</span>
+<% if can? :destroy, comment %>
+  <span class="edit_link" style="float: right">
+    <%= link_to_remote t(:delete), 
+      :url => user_post_comment_path(comment.post.user, comment.post, comment),
+      :method => :delete,
+      :confirm => t(:are_you_sure) %>
+  </span>
+<% end %>
 <p><%= sanitize comment.body %></p>    
 <div id="add_comment_link_for_comment_<%= comment.id %>">
   <%= link_to_remote t(:new_comment_reply),
