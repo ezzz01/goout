@@ -55,7 +55,6 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
    map.root :controller => "site"
 
    map.zeitgeist "zeitgeist/:tag", :controller => "zeitgeist", :action => "index"
@@ -67,7 +66,8 @@ ActionController::Routing::Routes.draw do |map|
    map.post 'user/:user/blog/:id', :controller => 'posts', :action => 'show', :id => ''
    map.list 'list/:category', :controller => 'concepts', :action => 'list'
    map.page 'wiki/show/:id', :controller => 'concepts', :action => 'show'
-  # map.profile ':user', :controller => 'users', :action => 'show'
+   map.admin 'admin', :controller => 'admin', :action => 'index'
+
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

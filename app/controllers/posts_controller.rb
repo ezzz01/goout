@@ -8,8 +8,10 @@ class PostsController < ApplicationController
 
     if (params[:tag_id])
         @posts = @user.posts.find_tagged_with(params[:tag_id], :order => "created_at DESC", :conditions => "deleted = 0" )
+        @posts = @posts.paginate(:per_page => 20)
     else
         @posts = Post.find_all_by_user_id(@user.id, :order => "created_at DESC", :conditions => "deleted = 0") 
+        @posts = @posts.paginate(:per_page => 20)
     end
 
     @tags = @user.posts.tag_counts
@@ -33,7 +35,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @title = "Add new post"
+    @title = t(:add_new_post)
     respond_to do |format|
       format.html
     end
@@ -41,7 +43,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @title = "Edit #{@post.title}"
+    @title = t(:edit_post, :title => @post.title)
   end
 
   def create
@@ -49,8 +51,8 @@ class PostsController < ApplicationController
     @post.user_id = params[:user_id]
     respond_to do |format|
       if @post.duplicate? or @post.save 
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to user_posts_url(:id => @post.user_id) }
+        flash[:notice] = t(:post_created_successfully) 
+        format.html { redirect_to blog_url(@post.user.username) }
       else
         format.html { render :action => "new" }
       end
@@ -61,8 +63,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to user_post_url(@post.user_id, @post) }
+        flash[:notice] = t(:post_updated_successfully) 
+        format.html { redirect_to post_url(@post.user.username, @post) }
       else
         format.html { render :action => "edit" }
       end

@@ -97,7 +97,6 @@ class ApplicationController < ActionController::Base
   private   
 
   def current_user_session   
-    puts @current_user_session.inspect
     return @current_user_session if defined?(@current_user_session)   
     @current_user_session = UserSession.find   
   end   

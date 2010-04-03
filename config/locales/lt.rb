@@ -12,11 +12,13 @@
   :about => "Apie projektą",
   :countries => "Šalys",
   :title => "Pavadinimas",
+  :tag_list => "Žymės",
+  :tags => "Žymės",
   :blog => "Tinklaraštis",
   :studies => "Studijos",
   :zeitgeist => "Zeitgeist",
+  :entry => "Įrašas",
   :body => "Body?",
-  :tags => "Žymės",
   :new_entry => "Sukurti naują",
   :create_new_country => "Sukurti naują šalį",
   :new_university => "Sukurti naują universitetą ar organizaciją",
@@ -25,6 +27,7 @@
   :new_activity_area => "Sukurti naują veiklos sritį",
 
   :back => "Atgal",
+  :show => "Rodyti",
 
   #activity types
   :full_study => "Pilnos studijos",
@@ -81,6 +84,8 @@
   :start_updating_feeds => "Pradėti RSS atnaujinimą",
   :stop_updating_feeds => "Sustabdyti RSS atnaujinimą",
   #flashes:
+  :post_created_successfully => "Įrašas sėkmingai sukurtas",
+  :post_updated_successfully => "Įrašas sėkmingai atnaujintas",
   :no_permission => "Jums nesuteiktos teisės atlikti šį veiksmą",
   :registration_successful => "Užsiregistravote sėkmingai",
   :login_successful => "Prisijungėte sėkmingai",
@@ -106,6 +111,8 @@
 
   #blog
   :blog_posts => "Vartotojo {{username}} tinkaraščio įrašai", 
+  :add_new_post => "Sukurti naują įrašą",
+  :edit_post => "Redaguoti įrašą '{{title}}'",
   :new_post => "Naujas įrašas", 
   :new_post_comment => "Komentuoti įrašą",
   :new_comment_reply => "Atsakyti į komentarą",

@@ -1,14 +1,16 @@
 <% form_for(@post, :url => url_path) do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= text_field_for f, "title", 60 %>
+    <%= f.label :title, t(:title) %>
+    <%= f.text_field :title %>
   </p>
   <p>
-    <%= text_field_for f, "tag_list", 60 %>
+    <%= f.label :tag_list, t(:tag_list) %>
+    <%= f.text_field :tag_list %>
   </p>
   <p>
-  <label for="body">Body:</label>
-  <%= f.text_area :body, :rows => 20, :cols =>60 %>
+  <%= f.label :body, t(:entry) %>
+  <%= f.text_area :body, :rows => 30, :cols =>80 %>
   </p>
   <p>
     <%= f.submit button_name %>

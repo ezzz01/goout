@@ -7,7 +7,7 @@ class ZeitgeistController < ApplicationController
 
     if (params[:tag])
       @posts = Post.find_tagged_with(params[:tag], :order => "created_at DESC", :conditions => "deleted = 0" )
-      @posts = @posts.paginate(:page => params[:page], :per_page => 15)
+      @posts = @posts.paginate(:page => params[:page], :per_page => 20)
     else
       @posts = Post.paginate(:order => 'created_at DESC', :limit => 100, :page => params[:page], :per_page => 20, :conditions => "deleted = 0") 
     end
