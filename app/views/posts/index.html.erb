@@ -6,17 +6,17 @@
 
 <div id="posts">
 
-  <%= render :partial => "new_post_link" %>
+  <%= render :partial => "posts/new_post_link" %>
 
   <% @posts.each do |post| %>
     <div id="blog_post_<%= post.id %>">
-      <%= render :partial => "post_header", :locals => { :post => post } %>
-      <%= render :partial => "post_body", :locals => { :post => post } %>
+      <%= render :partial => "posts/post_header", :locals => { :post => post } %>
+      <%= render :partial => "posts/post_body", :locals => { :post => post } %>
       <%= render :partial => "posts/post_footer", :locals => { :post => post } %>
     </div>
   <% end %>
 
-  <%= render :partial => "new_post_link" %>
+  <%= render :partial => "posts/new_post_link" %>
 
   <div class="paginator">
     <%= will_paginate @posts %>
@@ -25,5 +25,5 @@
 </div>
 
 <div id="tag_cloud">
-  <%= render :partial => "tag_cloud" %>
+  <%= render :partial => "posts/tag_cloud" %>
 </div>

@@ -1,25 +1,39 @@
-<p>
+<div class="spacer"></div>
+
+<% unless @user.avatar.nil? %>
+  <div class="profile_block">
+    <%= image_tag(@user.avatar.public_filename) if @user.avatar %>
+  </div>
+<% end %>
+
+<div class="profile_block">
   <b><%= t(:username) %>:</b>
   <%=h @user.username %> 
-  <% if logged_in? %>
+  <% if current_user %>
   <%= link_to "(" + t(:add_as_friend) + ")", friendships_path(:friend_id => @user), :method => :post unless  @user == current_user || current_user.friendships.find_by_friend_id(@user) %> 
   <% end %>
-</p>
+</div>
 
-<p>
-  <b><%= t(:email) %>:</b>
-  <%=h @user.email %>
-</p>
+<% if @user == current_user %>
+  <div class="profile_block">
+    <b><%= t(:email) %>:</b>
+    <%=h @user.email %>
+    <br />
+    <span class="smaller"><%= t(:email_hint) %></span>
+  </div>
+<% end %>
 
-<p>
-  <b><%= t(:blog) %>:</b>
+<% unless @user.blog_url.nil? %>
+<div class="profile_block">
+  <b><%= t(:external_blog) %>:</b>
   <%= link_to @user.blog_url, blog_path(@user.username) %>
-</p>
+</div>
+<% end %>
 
-<p>
-  <b><%= t(:avatar) %></b>
-  <%= image_tag(@user.avatar.public_filename) if @user.avatar %>
-</p>
+<div class="profile_block">
+  <b><%= t(:goout_blog) %>:</b>
+  <%= link_to blog_path(@user.username), blog_path(@user.username) %>
+</div>
 
 <div class="profile_block">
   <b><%= t(:studies) %>:</b>
@@ -38,6 +52,7 @@
 
 <div class="profile_block">
   <b><%= t(:friends) + " (" + @user.friendships.size.to_s + ")" %>:</b>
+  <% unless @user.friendships.size == 0 %>
   <ul>
     <% for friendship in @user.friendships %>
         <li>
@@ -46,10 +61,12 @@
         </li>
     <% end %>
   </ul>
+  <% end %>
 </div>
 
 <div class="profile_block">
   <b><%= t(:friend_of) + " (" + @user.inverse_friends.size.to_s + ")" %>:</b>
+  <% unless @user.inverse_friends.size == 0 %>
   <ul>
     <% for user in @user.inverse_friends %>
         <li>
@@ -57,9 +74,11 @@
         </li>
     <% end %>
   </ul>
+  <% end %>
 </div>
 
+<%= link_to t(:back), users_path %>
+<span class="span_separator">|</span>
 <% if can? :update, @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to t(:edit), edit_user_path(@user) %>
 <% end %>
-<%= link_to 'Back', users_path %>

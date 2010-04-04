@@ -10,11 +10,15 @@
   :blogs => "Dienoraščiai",
   :help => "Pagalba",
   :about => "Apie projektą",
+  :project_blog => "Projekto blogas",
   :countries => "Šalys",
   :title => "Pavadinimas",
   :tag_list => "Žymės",
   :tags => "Žymės",
   :blog => "Tinklaraštis",
+  :rss_source => "RSS šaltinio adresas svetainėje",
+  :goout_blog => "Go-out tinklaraštis",
+  :external_blog => "Išorinis tinklaraštis",
   :studies => "Studijos",
   :zeitgeist => "Zeitgeist",
   :entry => "Įrašas",
@@ -51,6 +55,7 @@
   :new_country => "Nauja šalis",
   #page titles
   :user_profile => "Vartotojo {{username}} profilis",
+  :edit_user => "Redaguoti profilį",
   :edit_basic_info => "Redaguoti vartotojo profilį",
   :goout_zeitgeist => "Go-out.lt zeitgeist",
   #register, login, user profile
@@ -64,9 +69,11 @@
   :enter_your_details => "Įveskite savo duomenis",
   :username => "Vartotojo vardas", 
   :email => "El. paštas",
+  :email_hint => "El. pašto adresas kitiems vartotojams nėra rodomas",
   :blog_url => "Tinklaraščio adresas",
   :blog_title => "Tinklaraščio pavadinimas",
   :password => "Slaptažodis",
+  :password_confirm => "Slaptažodis (dar kartą)",
   :avatar => "Avataras",
 
   :remember_me => "Prisiminti duomenis?",
@@ -96,6 +103,7 @@
   :logged_in => "prisijungė",
   :created => "sukurtas",
   :are_you_sure => "Ar tikrai ištrinti?",
+  :user_was_successfully_updated => "Vartotojo duomenys atnaujinti sėkmingai",
 
   #notices:
   :university_is_pending => "Kol svetainės administratorius nepatvirtins naujai sukurto įrašo, jį matysite tik Jūs.<br />Platesnį universiteto aprašymą galėsite sukurti Universitetų sąraše",

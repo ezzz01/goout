@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @title = "Edit profile"
+    @title = t(:edit_user) 
     @user = User.find(params[:id])
   end
 
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       #if we have an uploaded avatar
       if params[:avatar_file]
         if @service.update_attributes(params[:user], params[:avatar_file])
-          flash[:notice] = 'User was successfully updated.'
+          flash[:notice] = t(:user_was_successfully_updated) 
           format.html { redirect_to(@user) }
         else
           @avatar = @service.avatar
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
       #no avatar file
       else
         if @user.update_attributes(params[:user])
-          flash[:notice] = 'User was successfully updated.'
+          flash[:notice] =  t(:user_was_successfully_updated) 
           format.html { redirect_to(user_path(@user)) }
         else
           format.html { render :action => "edit" }

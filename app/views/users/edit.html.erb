@@ -1,32 +1,33 @@
-<h1>Editing user</h1>
+<h1><%= t(:edit_user) %></h1>
 
 <%= error_messages_for :user, :avatar %>
 
 <% form_for(@user, :html => {:multipart => :true}) do |f| %>
   <p>
-    <b>Username</b><br />
+    <b><%= t(:username) %></b><br />
     <%= f.text_field :username %>
   </p>
 
   <p>
-    <b>Email</b><br />
+    <b><%= t(:email) %></b><br />
     <%= f.text_field :email %>
   </p>
 
   <p>
-    <b>Blog</b><br />
+    <b><%= t(:rss_source) %></b><br />
     <%= f.text_field :blog_url %>
   </p>
 
   <p>
-    <b>Avatar</b><br />
+    <b><%= t(:avatar) %></b><br />
     <%= file_field_tag :avatar_file %>
   </p>
   <p>
     <%= f.hidden_field :updating_user %>
-    <%= f.submit "Update" %>
+    <%= f.submit t(:update) %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to t(:back), users_path %>
+<span class="span_separator">|</span>
+<%= link_to t(:show), @user %> 

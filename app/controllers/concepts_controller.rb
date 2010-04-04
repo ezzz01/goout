@@ -1,5 +1,4 @@
 class ConceptsController < ApplicationController
-  load_and_authorize_resource
   before_filter :load_page
  
   def load_page

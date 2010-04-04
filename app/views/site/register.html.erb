@@ -10,7 +10,8 @@
 
     <div class="form_row">
     <label for="email"><%=t :email %></label>
-    <%= f.text_field :email, :size => User::EMAIL_SIZE, :maxlength => User::EMAIL_MAX_LENGTH %>
+    <%= f.text_field :email, :size => User::EMAIL_SIZE, :maxlength => User::EMAIL_MAX_LENGTH %><br />
+    <span class="smaller"><%= t(:email_hint) %></span>
     </div>
 
     <div class="form_row">

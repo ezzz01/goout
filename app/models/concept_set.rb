@@ -5,7 +5,7 @@ class ConceptSet < Array
   def initialize(concepts = nil, condition = nil)
     # if concepts is not specified, make a list of all concepts in the web
     if concepts.nil?
-      super(Concept.all)
+      super(Concept.all(:conditions => "goout_intern = 0"))
     # otherwise use specified concepts and condition to produce a set of concepts
     elsif condition.nil?
       super(concepts)

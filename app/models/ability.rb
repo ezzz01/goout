@@ -8,7 +8,7 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-        can :create, [Comment, User, Post, Activity]
+        can :create, [Comment, User, Post, Activity, Concept]
 
         can :update, User do |edit_user|
           edit_user == user

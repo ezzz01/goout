@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100321110946) do
+ActiveRecord::Schema.define(:version => 20100404163625) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20100321110946) do
     t.integer  "added_by"
     t.integer  "subject_area_id"
     t.integer  "country_id"
+    t.boolean  "goout_intern",    :default => false
   end
 
   create_table "friendships", :force => true do |t|

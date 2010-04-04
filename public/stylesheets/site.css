@@ -58,6 +58,10 @@ label{
   font-weight: bold;
 }
 
+.smaller{
+  font-size: small;
+}
+
 #notice {
   border: 1px solid;
   padding: 1em;
@@ -224,3 +228,10 @@ span.span_separator {
   margin-right: 10px;
 }
 
+div.spacer {
+  height: 20px;
+}
+
+.profile_block {
+  padding-bottom: 14px;
+}
