@@ -1,0 +1,310 @@
+# Logfile created on Thu Apr 08 22:02:14 +0200 2010DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/ezhux/git3/app/controllers/application_controller.rb:8)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (4.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (20.3ms)[0m   [0mSELECT * FROM `users` WHERE (blog_url != '') [0m
+  [4;36;1mFeedUpdater Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mFeedUpdater Load (22.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=27') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.7ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=25') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.2ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=21') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.3ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=16') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.3ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=13') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.4ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=8') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=6') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (0.9ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://gooutlt.wordpress.com/?p=3') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (0.9ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=186') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.3ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=183') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (0.9ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=177') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (0.9ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=171') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.2ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=163') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=161') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (0.9ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=157') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (0.9ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=153') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (0.9ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=149') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://ramunela.wordpress.com/?p=145') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4523') LIMIT 1[0m
+  [4;36;1mPost Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Create (0.9ms)[0m   [0;1mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Kita, Brodvėjus, konkursas, muzika, Netiekto', '2010-04-08 13:00:53', 'Reklama: šiandien vakare &#8211; &#8220;Brodway Star&#8221;', '<p>&#8230; Aš suprantu, ketvirtadienis &#8211; ne pati tinkamiausia diena linksmintis.</p>\n<p>Juk penktadienį dar reikia dirbti. Net jei esi valdininkas ir dirbi tik iki 15.45&#8230;</p>\n<p>Bet su gera nuotaika ateiti į darbą nėra blogai.</p>\n<p>O tos geros nuotaikos <a href=\"http://www.brodvejus.lt/vidinis.aspx?show=programme&amp;ID=1\">šiandien čia turėtų būti nemažai</a></p>\n<p>Kaip sakoma: Jūsų teisė rinktis&#8230;</p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4523&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/NCm6Uttl_M8\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4523', '2010-04-08 22:03:02', NULL, 0, 3, 'http://racas.lt/reklama-siandien-vakare-brodway-star/')[0m
+  [4;35;1mTagging Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+  [4;36;1mTag Load (21.9ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 59) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;35;1mTag Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mTagging Load (1.1ms)[0m   [0;1mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 59 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (208,197,965))) [0m
+  [4;35;1mTag Load (0.9ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`id` IN (965,197,208)) [0m
+  [4;36;1mTagging Destroy (0.7ms)[0m   [0;1mDELETE FROM `taggings` WHERE `id` = 7536[0m
+  [4;35;1mTagging Destroy (0.6ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 7537[0m
+  [4;36;1mTagging Destroy (0.8ms)[0m   [0;1mDELETE FROM `taggings` WHERE `id` = 8976[0m
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Kita') LIMIT 1[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 134, 59, 'Post')[0m
+  [4;35;1mTag Load (3.2ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Brodvėjus') LIMIT 1[0m
+  [4;36;1mTag Load (3.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Brodvėjus') LIMIT 1[0m
+  [4;35;1mTag Create (0.6ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('Brodvėjus')[0m
+  [4;36;1mTagging Create (0.7ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1114, 59, 'Post')[0m
+  [4;35;1mTag Load (4.5ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'konkursas') LIMIT 1[0m
+  [4;36;1mTag Load (3.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'konkursas') LIMIT 1[0m
+  [4;35;1mTag Create (0.7ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('konkursas')[0m
+  [4;36;1mTagging Create (0.7ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1115, 59, 'Post')[0m
+  [4;35;1mTag Load (1.9ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'muzika') LIMIT 1[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 66, 59, 'Post')[0m
+  [4;35;1mTag Load (3.4ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Netiekto') LIMIT 1[0m
+  [4;36;1mTag Load (3.1ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Netiekto') LIMIT 1[0m
+  [4;35;1mTag Create (0.5ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('Netiekto')[0m
+  [4;36;1mTagging Create (1.2ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1116, 59, 'Post')[0m
+  [4;35;1mSQL (70.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mFeedUpdater Load (1.7ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4520') LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Citatos, Politika, Užribis, Visuomenė, asmenvardžiai, lietuvių kalba, M.Mackevičius, rašyba, Seimas', '2010-04-08 10:28:18', 'Citata #358 Parlamentaras N.Mackevičius teikia pasiūlymą Seimui', '<p>Parlamentaras M.Mackevičius komentuoja Seimo sprendimą dėl asmenvardžių rašybos:</p>\n<blockquote><p>Man atrodo, kad šito projekto preambulėje pritrūko parašyti „Lietuva – lietuviams“ arba „Juden raus“ ar ką nors dar tokio</p></blockquote>\n<p><a href=\"http://www.delfi.lt/news/daily/lithuania/mmackevicius-gsongailos-istatymo-preambuleje-pritruko-lietuva--lietuviams.d?id=30852067\">Delfi</a></p>\n<p>&#8230; O man atrodo, kad žvelgiant į pastarojo meto Seimo darbą, tuos žodžius galima pradėti rašyti vos ne kiekvieno šio Seimo priimamo įstatymo projekte&#8230;</p>\n<p>Ir dar, pavyzdžiui, pridėti: &#8220;Homosekualizmas &#8211; nuodėme&#8221;, &#8220;Vaikai &#8211; gyvenimo atmatos&#8221;, &#8220;Moterų vieta - šeimoje&#8221;</p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4520&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/8jBh_fPhMK8\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4520', '2010-04-08 22:03:02', NULL, 0, 3, 'http://racas.lt/citata-358-parlamentaras-n-mackevicius-teikia-pasiulyma-seimui/')[0m
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 60) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;36;1mTagging Load (1.0ms)[0m   [0;1mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 60 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (206,196))) [0m
+  [4;35;1mTag Load (1.7ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`id` IN (206,196)) [0m
+  [4;36;1mTagging Destroy (0.8ms)[0m   [0;1mDELETE FROM `taggings` WHERE `id` = 7540[0m
+  [4;35;1mTagging Destroy (0.6ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 7541[0m
+  [4;36;1mTag Load (1.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Citatos') LIMIT 1[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 170, 60, 'Post')[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Politika') LIMIT 1[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 165, 60, 'Post')[0m
+  [4;36;1mTag Load (1.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Užribis') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 142, 60, 'Post')[0m
+  [4;36;1mTag Load (0.9ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Visuomenė') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 136, 60, 'Post')[0m
+  [4;36;1mTag Load (3.5ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'asmenvardžiai') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'asmenvardžiai') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('asmenvardžiai')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1117, 60, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'lietuvių kalba') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'lietuvių kalba') LIMIT 1[0m
+  [4;36;1mTag Create (0.6ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('lietuvių kalba')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1118, 60, 'Post')[0m
+  [4;36;1mTag Load (3.8ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'M.Mackevičius') LIMIT 1[0m
+  [4;35;1mTag Load (4.5ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'M.Mackevičius') LIMIT 1[0m
+  [4;36;1mTag Create (0.7ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('M.Mackevičius')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1119, 60, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'rašyba') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'rašyba') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('rašyba')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1120, 60, 'Post')[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Seimas') LIMIT 1[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 176, 60, 'Post')[0m
+  [4;36;1mSQL (60.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mFeedUpdater Load (1.6ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4515') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (1.0ms)[0m   [0mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Lietuvos paštas, Kita, Politika, Užribis, A.Urbonas, E.Masiulis, priėmimas į darbą', '2010-04-08 10:07:09', 'E.Masiulio paaiškinimai dėl A.Urbono neįtikina', '<p>Šiandien, berods, per Lietuvos radiją girdėjau kaip susisiekimo ministras E.Masiulis aiškinosi dėl buvusio &#8220;Lietuvos pašto&#8221; vadovo A.Urbono &#8211; to, kurį neseniai suėmė dėl įtarimų turto prievartavimu ir sukčiavimu.</p>\n<p>Tiksliai nepacituosiu, bet ministro mintis buvo maždaug tokia &#8211; jokių įtarimų dėl A.Urbono jam nekilo, nes visų įmonių, kuriose buvęs &#8220;Lietuvos pašto&#8221; vadovas dirbo, veikla buvo sėkminga, o &#8220;Hanza lizingas&#8221;, kurio valdyboje buvo A.Urbonas visą laiką tik augo.</p>\n<p>Ministro paaiškinimuose taip pat nuskambėjo,  kad be konkurso skirdamas A.Urboną &#8216;Lietuvos pašto&#8221; vadovu, jis neturėjo jokių neigiamų duomenų apie jį.</p>\n<p> Klausiausi ir stebėjausi. Na, pavyzdžiui, aš priimdamas ką nors į darbą, visada stengiuosi pasidomėti žmogaus praeitimi &#8211; kaip jam sekėsi ankstesnėje darbovietėje, ką apie jį mano vadovai, kolegos.</p>\n<p>Ne kartą ir man yra skambinę kitų įmonių vadovai pasiklausti apie žmones, dirbusius BNS ar kitur, jei man yra tekę su jais susidurti.</p>\n<p>Mano supratimu, tai įprasta praktika, ypač, jei rengiesi skirti žmogų į vadovaujančias pareigas.</p>\n<p>Nesuprantu, kodėl E.Masiulis šia praktika nesivadovauja &#8211; juk būtų pakakę vieno skambučio į &#8220;Swedbank&#8221; ir tikriausiai būtų praėjęs noras skirti A.Urboną &#8220;Lietuvos pašto&#8221; vadovu. Nes &#8220;Swedbank&#8221; vadovai turbūt nebūtų nuslėpę, kodėl taip sėkmingai karjeros laiptais kopęs A.Urbonas 2009 metais nė iš šio, nė iš to staiga nusprendė nebedirbti šioje įmonėje ir pasirinko elektros tiekimą bendrovėje VST.</p>\n<p>Gal tiesiog nenorėjo žinoti?</p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4515&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/UEQBohHNOKg\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4515', '2010-04-08 22:03:02', NULL, 0, 3, 'http://racas.lt/e-masiulio-paaiskinimai-del-a-urbono-neitikina/')[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 61) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;35;1mTagging Load (1.0ms)[0m   [0mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 61 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (206))) [0m
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`id` = 206) [0m
+  [4;35;1mTagging Destroy (0.7ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 6472[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Lietuvos paštas') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Lietuvos paštas') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('Lietuvos paštas')[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1121, 61, 'Post')[0m
+  [4;36;1mTag Load (0.9ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Kita') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 134, 61, 'Post')[0m
+  [4;36;1mTag Load (1.4ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Politika') LIMIT 1[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 165, 61, 'Post')[0m
+  [4;36;1mTag Load (1.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Užribis') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 142, 61, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'A.Urbonas') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'A.Urbonas') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('A.Urbonas')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:02', 1122, 61, 'Post')[0m
+  [4;36;1mTag Load (3.4ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'E.Masiulis') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'E.Masiulis') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('E.Masiulis')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1123, 61, 'Post')[0m
+  [4;36;1mTag Load (4.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'priėmimas į darbą') LIMIT 1[0m
+  [4;35;1mTag Load (3.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'priėmimas į darbą') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('priėmimas į darbą')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1124, 61, 'Post')[0m
+  [4;36;1mSQL (51.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mFeedUpdater Load (1.8ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4513') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (1.1ms)[0m   [0mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Kita, Mokesčiai, Visuomenė, autorinės sutartys, darbo stažas, EGAS, įmokos, pensija, prognozė, Sodra, tarifas', '2010-04-07 20:48:09', 'Gelbėkite &#8211; mano pensija mažėja!!!', '<p>Seku pramintomis pėdomis&#8230;</p>\n<p><a href=\"http://www.commonsense.lt/?p=1925\">Common sense įrašą apie &#8220;Sodrą&#8221;</a> perskaičiau dar prieš Velykas ir nuo tada visiems sutiktiems būtinai papasakoju apie EGAS <a href=\"http://www.sodra.lt/index.php?cid=11090\">(Elektroninę gyventojų aptarnavimo sistemą).</a></p>\n<p>Šiandien demonstravau šią sistemą Rasai. Rezultatas: jos prognozuojama pensija sulaukus pensinio amžiaus dar mažesnė nei mano&#8230;</p>\n<p>O man ir maniškė, kai pirmą kartą žiūrėjau &#8211; 1034,49 lito &#8211; pasirodė labai maža, nors, kaip paaiškėjo, turiu visai netrumpą 21,267 metų valstybinio socialinio draudimo pensijų stažą.</p>\n<p>Bet koks laukė siurprizas šiandien!!!</p>\n<p>Nepaisant to, kad darbo stažas dabar jau 21,3500 metų, mano prognozuojama pensija sumažėjo!!!</p>\n<p>Visu litų ir vienu centu iki 1033,48.</p>\n<p>Atidžiau panagrinėjęs, supratau, kad tą sumažėjimą lėmė tokiu pat dydžiu sumažėjusi papildoma pensijos dalis. Tačiau nelabai supratau kodėl. Atlyginimas mano lyg ir nesumažėjo, įmokų &#8220;Sodrai&#8221; suma šiek tiek padidėjo (turėjau papildomo darbo), o prognozuojama pensija &#8211; mažesnė.</p>\n<p>O jei taip bus ir toliau?</p>\n<p>Į pensiją galėsiu išeiti tik 2028 metų vasario 26 dieną (čia tuo atveju, jei pensinis amžius nebus didinamas, o labai tikėtina, kad bus priešingai), tai yra, apytiksliai po 215 mėnesių.</p>\n<p>Tad jei tendencija išliks ta pati ir jei prognozuojama pensija ir toliau kas mėnesį mažės vienu litu, galutinis jos dydis bus toks, kad šaltą žiemą vos pakaks už elektrą ir dujas susimokėti.</p>\n<p>Gal, sakau, mesti darbą? Gal jei nebedirbsiu ir &#8220;Sodrai&#8221; nebemokėsiu, pensija nustos mažėjusi?</p>\n<p>Bet kuriuo atveju, labai rekomenduoju išbandyti EGAS visiems. Ten rasite ir kiek įmokų sumokėjote (mano indėlis viršija 200,000), kiek išmokų esate gavęs (mano sąskaitoje &#8211; mažiau nei 400 litų) ir dar visokių įdomybių.</p>\n<p>Primygtinai rekomenduoju panaršyti po EGAS savo kolegoms, dirbantiems už autorinį atlyginimą &#8211; puiki vaizdinė agitacija, jei bent šiek tiek susimąstai apie ateitį. Aš, pavyzdžiui, galiu pasakyti, kad 2008-2010 metais sumokėtų įmokų suma yra didesnė nei per visą iki tol buvusį laikotarpį (priminsiu: bendras stažas &#8211; daugiau nei 21 metai).</p>\n<p>EGAS taip pat yra puiki vaizdinė agitacija dar kartą pagalvoti apie visą &#8220;Sodros&#8221; sistemą ir jos ydas. Ypač &#8211; žiūrint į nuo 2009 metų pradžios atsiradusį bendrą valstybinio socialinio draudimo įmokų tarifą nuo pajamų pagal darbo sutartį &#8211; 39,98 procento (2008 jis buvo 33.98 proc.).</p>\n<p>Kaip bežiūrėsi, jis atrodo drakoniškai&#8230; Ypač &#8211; turint galvoje paslaugų kokybę ir prognozuojamas pensijas&#8230;</p>\n<p>Bet vis tiek &#8211; labai geras daiktas tas EGAS.</p>\n<p>Būtinai pabandykite.</p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4513&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/Gdiz8qgKOG4\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4513', '2010-04-08 22:03:03', NULL, 0, 3, 'http://racas.lt/gelbekite-mano-pensija-mazeja/')[0m
+  [4;36;1mTag Load (1.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 62) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;35;1mTagging Load (0.9ms)[0m   [0mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 62 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (209))) [0m
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`id` = 209) [0m
+  [4;35;1mTagging Destroy (0.8ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 7542[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Kita') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 134, 62, 'Post')[0m
+  [4;36;1mTag Load (1.4ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Mokesčiai') LIMIT 1[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 179, 62, 'Post')[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Visuomenė') LIMIT 1[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 136, 62, 'Post')[0m
+  [4;36;1mTag Load (3.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'autorinės sutartys') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'autorinės sutartys') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('autorinės sutartys')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1125, 62, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'darbo stažas') LIMIT 1[0m
+  [4;35;1mTag Load (3.2ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'darbo stažas') LIMIT 1[0m
+  [4;36;1mTag Create (0.6ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('darbo stažas')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1126, 62, 'Post')[0m
+  [4;36;1mTag Load (10.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'EGAS') LIMIT 1[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 347, 62, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'įmokos') LIMIT 1[0m
+  [4;35;1mTag Load (3.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'įmokos') LIMIT 1[0m
+  [4;36;1mTag Create (1.0ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('įmokos')[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1127, 62, 'Post')[0m
+  [4;36;1mTag Load (1.6ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'pensija') LIMIT 1[0m
+  [4;35;1mTagging Create (0.8ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 348, 62, 'Post')[0m
+  [4;36;1mTag Load (6.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'prognozė') LIMIT 1[0m
+  [4;35;1mTag Load (3.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'prognozė') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('prognozė')[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1128, 62, 'Post')[0m
+  [4;36;1mTag Load (1.4ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Sodra') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 352, 62, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'tarifas') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'tarifas') LIMIT 1[0m
+  [4;36;1mTag Create (4.4ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('tarifas')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1129, 62, 'Post')[0m
+  [4;36;1mSQL (62.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mFeedUpdater Load (1.8ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4510') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (0.9ms)[0m   [0mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Kita, Užribis, Žiniasklaida, E.Šerelienė, etika, grasinimas, svarstymas, Telemanija, Žurnalistų ir leidėjų etikos komisija', '2010-04-07 10:37:39', '&#8220;Telemanijos&#8221; odisėja tęsiasi: mane svarstys', '<p>Vakar gavau laišką:</p>\n<blockquote><p> Žurnalistų ir leidėjų etikos komisija gavo UAB „Telemanija“ prašymą<br />\nįvertinti interneto svetainėje <a href=\"http://www.racas.lt\">www.racas.lt</a> š. m. sausio 28-vasario 01<br />\ndienomis paskelbtą informaciją apie UAB „Telemanija“. Teigiama, kad<br />\nįmonei buvo viešai grasinta sugadinti jos reputaciją, padaryti viską, kad<br />\nniekada negautų jokios paramos. Pasak direktorės, kai kurie grasinimai<br />\ntapo konkrečiais veiksmais &#8211; įmonė negavo SRTRF paramos.</p></blockquote>\n<blockquote><p>Informuojame, kad klausimas bus svarstomas š. m. balandžio 12 d., 14.45 val.<br />\nPosėdžiai vyksta Radijo ir televizijos komisijos salėje (Vytenio g. 6, 2<br />\na.,Vilnius). Daugiau informacijos – interneto svetainė <a href=\"http://www.lzlek.lt\">www.lzlek.lt</a>, tel.<br />\n8 698 71588.</p></blockquote>\n<blockquote><p>\n Pagarbiai</p></blockquote>\n<blockquote><p> Pirmininkės padėjėja                                    Egidija Leveikaitė</p></blockquote>\n<p>&#8230; Būtinai dalyvausiu. Bus labai įdomu ir smagu dar kartą išgirsti ponios Editos argumentus ir paaiškinimus dėl <a href=\"http://racas.lt/telemanija-komercinis-pasiulymas/\">&#8220;Telemanijos&#8221; komecinio pasiūlymo</a></p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4510&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/xBNa0LGVyJQ\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4510', '2010-04-08 22:03:03', NULL, 0, 3, 'http://racas.lt/telemanijos-odiseja-tesiasi-mane-svarstys/')[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 63) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;35;1mTagging Load (1.4ms)[0m   [0mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 63 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (206,198))) [0m
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`id` IN (206,198)) [0m
+  [4;35;1mTagging Destroy (0.8ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 7543[0m
+  [4;36;1mTagging Destroy (0.8ms)[0m   [0;1mDELETE FROM `taggings` WHERE `id` = 7544[0m
+  [4;35;1mTag Load (1.1ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Kita') LIMIT 1[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 134, 63, 'Post')[0m
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Užribis') LIMIT 1[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 142, 63, 'Post')[0m
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Žiniasklaida') LIMIT 1[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 143, 63, 'Post')[0m
+  [4;35;1mTag Load (3.5ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'E.Šerelienė') LIMIT 1[0m
+  [4;36;1mTag Load (3.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'E.Šerelienė') LIMIT 1[0m
+  [4;35;1mTag Create (0.5ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('E.Šerelienė')[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1130, 63, 'Post')[0m
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'etika') LIMIT 1[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 145, 63, 'Post')[0m
+  [4;35;1mTag Load (3.4ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'grasinimas') LIMIT 1[0m
+  [4;36;1mTag Load (3.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'grasinimas') LIMIT 1[0m
+  [4;35;1mTag Create (0.4ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('grasinimas')[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1131, 63, 'Post')[0m
+  [4;35;1mTag Load (3.1ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'svarstymas') LIMIT 1[0m
+  [4;36;1mTag Load (3.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'svarstymas') LIMIT 1[0m
+  [4;35;1mTag Create (0.5ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('svarstymas')[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1132, 63, 'Post')[0m
+  [4;35;1mTag Load (3.5ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Telemanija') LIMIT 1[0m
+  [4;36;1mTag Load (4.3ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Telemanija') LIMIT 1[0m
+  [4;35;1mTag Create (0.6ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('Telemanija')[0m
+  [4;36;1mTagging Create (0.5ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1133, 63, 'Post')[0m
+  [4;35;1mTag Load (3.4ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'Žurnalistų ir leidėjų etikos komisija') LIMIT 1[0m
+  [4;36;1mTag Load (3.1ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Žurnalistų ir leidėjų etikos komisija') LIMIT 1[0m
+  [4;35;1mTag Create (0.6ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('Žurnalistų ir leidėjų etikos komisija')[0m
+  [4;36;1mTagging Create (0.6ms)[0m   [0;1mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1134, 63, 'Post')[0m
+  [4;35;1mSQL (48.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mFeedUpdater Load (1.8ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4508') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Create (1.6ms)[0m   [0;1mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Politika, Užsienio politika, A.Kubilius, B.Obama, D.Grybauskaitė, D.Medvedevas, JAV, kvietimas, Latvija, Lenkija, Praha, Rusija, susitikimas, Vengrija', '2010-04-06 16:53:16', 'Užsienio politikos &#8220;akibrokštas&#8221;. Kas autorius?', '<p>Lietuvoje vis dar nerimsta aistros dėl prezidentės D.Grybauskaitės &#8220;akibrokšto&#8221; galingiausiai pasaulio valstybei ir jos sprendimo nevykti į Prahą pavakarieniauti su JAV prezidentu B.Obama.</p>\n<p>&#8220;Sveiku protu nesuvokiama&#8221;, &#8220;keista&#8221;, &#8220;nepaaiškinama&#8221;, &#8220;neapgalvota&#8221; &#8211; tokiais vertinimais šiandien mirga Lietuvos viešoji erdvė.  O tame mirgėjime vis labiau ryškėja pagrindinė mintis &#8211; prezidentė D.Grybauskaitė yra niekam tikusi politikė, o jos veiksmai ne tik kad visiškai neprognozuojami, bet ir kenkia Lietuvai.</p>\n<p> Ar taip yra iš tikrųjų? </p>\n<p>Galbūt kas nors žino daugiau, tačiau aš tokiai išvadai nepritarčiau. Bent jau kol kas nors nepateiks tokias išvadas liudijančių įrodymų.</p>\n<p>Juo labiau tokios išvados nepadaryčiau remdamasis kvietimo į Prahos vakarienę įstorija.</p>\n<p>Pirmiausia &#8211; dėl tos vakarienės svečių sąrašo. Labai atidžiai jį nagrinėjau ir, prisipažinsiu, niekaip negalėjau suprasti, kokiu principu jis buvo sudarytas. Tai yra, kodėl B.Obama nusprendė į Prahą pakviesti trijų Baltijos valstybių ir Rumunijos prezidentus ir kitų aštuonių valstybių premjerus.</p>\n<p>Nes, pavyzdžiui, pagal konstitucines galias V.Zatlerio įgaliojimai nė iš tolo neprilygsta D.Grybauskaitės galioms, o T.Ylveso galios gerokai mažesnės nei Vengrijos ar Lenkijos prezidentų.  Tačiau pastarųjų dviejų B.Obama vakarienės nepakvietė &#8211; Lenkiją ir Vengriją Prahoje reprezentuos premjerai. </p>\n<p>Tad tikriausiai būtų galima daryti išvadą, kad kvietimus lėmė ne užimamos pareigos, o kažkokie kiti motyvai.</p>\n<p>Gal B.Obama asmeniškai sprendė, kurį iš aukščiausių valstybės pareigūnų pamaloninti ir Lietuvos atveju nusprendė, kad po susitikimo su D.Medvedevu žvelgti į akis D.Grybauskaitei bus maloniau nei A.Kubiliui? Na, vien jau todėl, kad Lietuvos prezidentė moteris, o vakarieniauti vien su vyrais gali būti nuobodu.</p>\n<p>Ta pačia logika būtų galima paaiškinti ir tai, kad į Prahą atvyksta Kroatijos premjerė, o ne šios šalies prezidentas.</p>\n<p>Tačiau kaip tada, pavyzdžiui, paaiškinti, kodėl į vakarienę iš Lenkijos pakviestas D.Tuskas, o ne L.Kačynskis, o iš Slovakijos R.Fico, o ne I.Gašparovičius?</p>\n<p>Rinkosi pagal ūgį?</p>\n<p>Pagal amžių?</p>\n<p>Pagal politines pažiūras?</p>\n<p>O gal JAV diplomatai paprasčiausiai susipainiojo ir kvietimus išsiuntinėjo kaip pakliuvo: į vienas valstybes premjerams, į kitas &#8211; prezidentams?</p>\n<p>Tikriausiai taip nebuvo.</p>\n<p>Ir net neabejoju, kad Prahos vakarienės dalyvių sąrašas nebuvo formuojamas vien išsiunčiant kvietimus prezidentams ir premjerams. Kaip taisyklė, dalyvavimas tokiuose renginiuose (kaip ir dvišaliai susitikimai vykstantys kokiuose nors tarptautiniuose renginiuose) derinami pirmiausia diplomatiniais kanalais. Taip, kaip tikriausiai buvo derinamas  D.Grybauskaitės susitikimas su V.Putinu Helsinkyje ar A.Kubiliaus susitikimas su D.Medvedevu Maskvoje.</p>\n<p>Drįsčiau spėti, kad B.Obama (o gal ir D.Medvedevas?) norėjo Prahoje matyti visų 11 valstybių prezidentus. Nes formaliai visų pakviestųjų Rytų ir Vidurio Europos valstybių vadovai yra prezidentai. </p>\n<p>JAV prezidentui, kurio sprendimas atsisakyti priešraketinio skydo elementų Lenkijoje ir Čekijoje sukėlė tam tikrą nepasitenkinimą Rytų Europoje ir diskusijas apie JAV ir Rusijos suartėjimą Rytų Europos valstybių sąskaita, vakarienė Prahoje su Rytų ir Vidurio Europos valstybių vadovais būtų gana svarbi kaip simbolis. Ši vakarienė lyg ir turėtų pažymėti sėkmingą susitikimą su D.Mededevu ir pasirašytą susitarimą dėl ginkluotės mažinimo. Vienuolikos prezidentų iš Rytų Europos dalyvavimas ir šventimas kartu lyg ir turėtų paliudyti, kad jokios įtampos tarp JAV ir Vidurio bei Rytų Europos nėra ir kad visos 11 valstybių vieningai pritaria B.Obamos suartėjimo su Rusija politikai.</p>\n<p>Bet gal iš tikrųjų pritaria ne visi? Ir gal, pavyzdžiui, Lenkija, Slovėnija ar Bulgarija, gavusios kvietimą vakarienės nusprendė, jog susitikimas su B.Obama, rengiamas kaip B.Obamos ir D.Medvedevo susitikimo priedėlis (anglų kalba yra labai geras terminas &#8220;on the sidelines&#8221;) nėra pats tinkamiausias formatas aptarinėti naujus vėjus JAV  ir Rytų bei Vidurio Europos valstybių santykiuose?</p>\n<p>Ypač &#8211; kai net užsienio žiniasklaidoje kai kas tokią B.Obamos iniciatyvą vertina kaip bandymą vėl dalyti Europą ir kai Rusija dar net nepasirašiusi sutarties iš karto praneša, kad ji jos nesilaikys jei JAV neatsisakys minties dėl priešraketinio skydo Rytų Europoje.  </p>\n<p>Nuspręsti, ar būtina ploti katučių B.Obamai ir D.Medvedevui Prahoje gal ne ne taip jau sunku, kai pagalvoji, kad vakarienės vienintelė paskirtis gali būti B.Obamos noras pademonstruoti D.Medvedevui, kaip lengvai jis gali gauti pritarimą tų, kuriuos Rusija vis dar laiko savo įtakos zona.</p>\n<p>Ir gal nusprendus, diplomatiškai galima sutikti pavakarieniauti, tačiau ne aukščiausiu lygiu, o deleguojant  premjerus. Pavyzdžiui, argumentuojant įtempta valstybės vadovo darbotvarke, suplanuotais susitikimais, numatytu sveikatos patikrinimu ar svarbiu balsavimu parlamente.</p>\n<p>Argumentuoti tikrai neturėjo būti sunku, nes panašu, jog mintis surengti vakarienę kilo ne taip jau seniai &#8211; pirmuosius pranešimus apie planuojamą B.Obamos ir D.Medvedevo susitikimą Prahoje radau <a href=\"http://www.businessweek.com/news/2010-03-24/obama-medvedev-intend-to-sign-treaty-in-prague-officials-say.html\">kovo 24 dieną</a>. Šiuose pranešimuose nebuvo nė užuominos apie vakarienę  su 11 prezidentų ar premjerų, tad galima būtų daryti išvadą, kad konsultacijos dėl vakarienės prasidėjo maždaug tuo pačiu metu. </p>\n<p>Jos truko iki balandžio 2 dienos, kai Baltieji Rūmai oficialiai patvirtino žiniasklaidos pranešimus apie vakarienę.</p>\n<p>Taigi, konsultacijoms ir sprendimams laiko buvo ne tiek jau ir daug &#8211; vos kiek daugiau nei savaitė.</p>\n<p>O informacija apie būsimą susitikimą Prahoje pirmiausia pasirodė &#8211; nustebsite &#8211; Lietuvoje? <a href=\"http://www.politico.com/blogs/laurarozen/0310/Obama_nuclear_policy_review_expected_out_next_week.html?showall\">Užuomina </a>apie tokio susitikimo galimybę, tiesa, buvo pasirodžiusi diena anksčiau.</p>\n<p>Ir aš spėčiau, kad taip atsitiko tikrai ne todėl, kad žurnalistai čia dirba daug geriau nei kitose 10 Rytų ir Vidurio Europos valstybių ar JAV.</p>\n<p>Man atrodo, kad Lietuvoje pranešimas apie būsimą vakarienę Prahoje pasirodė anksčiau nei kitose valstybėse todėl, kad kažkas Vilniuje labai norėjo, kad ši informacija pasirodytų&#8230; būtent tokiu formatu, kokiu ir pasirodė.</p>\n<p>Tai labai paranku, nes informaciją labai sunku paneigti &#8211; juk negali viešai dėstyti, kodėl pasirinkai vienokį ar kitokį sprendimą, ar tai susiję su požiūriu į JAV ir Rusijos politiką, ar su keistu renginio formatą, ar dar kuo nors.</p>\n<p>Juk būtų nediplomatiška&#8230;</p>\n<p>Tie, kas nutekino informaciją, puikiai tai žinojo. Ir, reikia pripažinti, savo tikslą pasiekė.</p>\n<p>P.S. Pabandykite trumpam atsiriboti, nuo to, ką žinote ir įsivaizduokite, kad  ką tik perskaitėte pranešimą, jog balandžio 8 dieną Prahoje įvyks JAV prezidento susitikimas su 8 valstybių (tarp jų &#8211; ir Lietuvos) premjerais ir trijų valstybių prezidentais.</p>\n<p>Ar kiltų mintis, jog kažkam pritrūko sveiko proto? </p>\n<p>Man toks klausimas šiandien kyla. </p>\n<p>Atsakymo ieškočiau Užsienio reikalų ministerijoje&#8230;</p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4508&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/R8eOI7j0Tvg\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4508', '2010-04-08 22:03:03', NULL, 0, 3, 'http://racas.lt/uzsienio-politikos-akibrokstas-kas-autorius/')[0m
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 64) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;36;1mTagging Load (1.0ms)[0m   [0;1mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 64 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (206,198))) [0m
+  [4;35;1mTag Load (0.7ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`id` IN (206,198)) [0m
+  [4;36;1mTagging Destroy (0.6ms)[0m   [0;1mDELETE FROM `taggings` WHERE `id` = 6476[0m
+  [4;35;1mTagging Destroy (0.6ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 6477[0m
+  [4;36;1mTag Load (1.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Politika') LIMIT 1[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 165, 64, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Užsienio politika') LIMIT 1[0m
+  [4;35;1mTag Load (3.1ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Užsienio politika') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('Užsienio politika')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1135, 64, 'Post')[0m
+  [4;36;1mTag Load (3.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'A.Kubilius') LIMIT 1[0m
+  [4;35;1mTag Load (4.8ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'A.Kubilius') LIMIT 1[0m
+  [4;36;1mTag Create (0.4ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('A.Kubilius')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1136, 64, 'Post')[0m
+  [4;36;1mTag Load (3.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'B.Obama') LIMIT 1[0m
+  [4;35;1mTag Load (3.6ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'B.Obama') LIMIT 1[0m
+  [4;36;1mTag Create (0.6ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('B.Obama')[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1137, 64, 'Post')[0m
+  [4;36;1mTag Load (5.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'D.Grybauskaitė') LIMIT 1[0m
+  [4;35;1mTag Load (5.1ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'D.Grybauskaitė') LIMIT 1[0m
+  [4;36;1mTag Create (1.1ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('D.Grybauskaitė')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1138, 64, 'Post')[0m
+  [4;36;1mTag Load (3.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'D.Medvedevas') LIMIT 1[0m
+  [4;35;1mTag Load (3.1ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'D.Medvedevas') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('D.Medvedevas')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:03', 1139, 64, 'Post')[0m
+  [4;36;1mTag Load (3.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'JAV') LIMIT 1[0m
+  [4;35;1mTag Load (3.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'JAV') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('JAV')[0m
+  [4;35;1mTagging Create (1.4ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1140, 64, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'kvietimas') LIMIT 1[0m
+  [4;35;1mTag Load (3.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'kvietimas') LIMIT 1[0m
+  [4;36;1mTag Create (0.6ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('kvietimas')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1141, 64, 'Post')[0m
+  [4;36;1mTag Load (2.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Latvija') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 711, 64, 'Post')[0m
+  [4;36;1mTag Load (4.7ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Lenkija') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Lenkija') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('Lenkija')[0m
+  [4;35;1mTagging Create (0.5ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1142, 64, 'Post')[0m
+  [4;36;1mTag Load (1.8ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Praha') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 474, 64, 'Post')[0m
+  [4;36;1mTag Load (2.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Rusija') LIMIT 1[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 766, 64, 'Post')[0m
+  [4;36;1mTag Load (3.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'susitikimas') LIMIT 1[0m
+  [4;35;1mTag Load (3.1ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'susitikimas') LIMIT 1[0m
+  [4;36;1mTag Create (0.7ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('susitikimas')[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1143, 64, 'Post')[0m
+  [4;36;1mTag Load (3.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Vengrija') LIMIT 1[0m
+  [4;35;1mTag Load (2.9ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'Vengrija') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('Vengrija')[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1144, 64, 'Post')[0m
+  [4;36;1mSQL (28.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mFeedUpdater Load (1.9ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4506') LIMIT 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (1.2ms)[0m   [0mINSERT INTO `posts` (`cached_tag_list`, `created_at`, `title`, `body`, `guid`, `updated_at`, `url`, `deleted`, `user_id`, `from_url`) VALUES('Citatos, Politika, Užribis, Žiniasklaida, A.Salamakinas, šou', '2010-04-05 16:38:04', 'Citata #357 Politikas A.Salamakinas apie žiniasklaidos uždavinius', '<blockquote><p>Žiniasklaida pirmiausia turi teikti informaciją: ar tai būtų „Kakadu“, ar „Be tabu“, ar „Alfa.lt“. Galbūt jauniems politikams kyla pagunda pasireklamuoti, bet pirmiausia žiniasklaida turi skirti rimtą reikalą politiką nuo šou. Dabar šios sritys tarsi susiliejusios į vieną visumą, ir aš neturiu atsakymo, kodėl taip atsitiko.</p>\n<p><a href=\"http://www.alfa.lt/straipsnis/10339265/?Salamakinas..juokinga..bet.nebelabai=2010-04-02_18-46\">alfa.lt</a></p></blockquote>\n<p>&#8230; aš tai atsakymą turiu: kai salamakinai eina atsiimti auksinių svogūnų ir kai &#8220;Kakadu&#8221; ir &#8220;Be tabu&#8221; tampa žiniasklaida, politikos nebelieka&#8230;</p>\n<img src=\"http://racas.lt/wordpress/?ak_action=api_record_view&id=4506&type=feed\" alt=\"\" /><img src=\"http://feeds.feedburner.com/~r/racas/~4/r-jujk3QynE\" height=\"1\" width=\"1\"/> ', 'http://racas.lt/?p=4506', '2010-04-08 22:03:04', NULL, 0, 3, 'http://racas.lt/citata-357-politikas-a-salamakinas-apie-ziniasklaidos-uzdavinius/')[0m
+  [4;36;1mTag Load (1.6ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_id = 65) AND (`taggings`.taggable_type = 'Post')) [0m
+  [4;35;1mTagging Load (1.1ms)[0m   [0mSELECT * FROM `taggings` WHERE (`taggings`.taggable_id = 65 AND `taggings`.taggable_type = 'Post' AND (tag_id IN (207))) [0m
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`id` = 207) [0m
+  [4;35;1mTagging Destroy (0.7ms)[0m   [0mDELETE FROM `taggings` WHERE `id` = 7545[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Citatos') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 170, 65, 'Post')[0m
+  [4;36;1mTag Load (1.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Politika') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 165, 65, 'Post')[0m
+  [4;36;1mTag Load (0.9ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Užribis') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 142, 65, 'Post')[0m
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'Žiniasklaida') LIMIT 1[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 143, 65, 'Post')[0m
+  [4;36;1mTag Load (3.7ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'A.Salamakinas') LIMIT 1[0m
+  [4;35;1mTag Load (3.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'A.Salamakinas') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('A.Salamakinas')[0m
+  [4;35;1mTagging Create (0.7ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1145, 65, 'Post')[0m
+  [4;36;1mTag Load (3.9ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'šou') LIMIT 1[0m
+  [4;35;1mTag Load (3.4ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'šou') LIMIT 1[0m
+  [4;36;1mTag Create (0.5ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('šou')[0m
+  [4;35;1mTagging Create (0.6ms)[0m   [0mINSERT INTO `taggings` (`created_at`, `tag_id`, `taggable_id`, `taggable_type`) VALUES('2010-04-08 22:03:04', 1146, 65, 'Post')[0m
+  [4;36;1mSQL (44.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mFeedUpdater Load (1.4ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4502') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.3ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4500') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://racas.lt/?p=4497') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://komjaunimas.lt/?p=767') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://komjaunimas.lt/?p=765') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (0.9ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://komjaunimas.lt/?p=763') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.0ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://komjaunimas.lt/?p=754') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://komjaunimas.lt/?p=752') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.0ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/158703.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/158283.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.0ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/158190.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/157759.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.0ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/157574.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.3ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/157227.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.0ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/157066.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/156852.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.0ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/156566.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.0ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/156270.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/155915.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.1ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/155806.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.3ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/155621.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.1ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/155160.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/154938.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.1ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/154661.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/154571.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.2ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/154214.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.2ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/153866.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.1ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/153855.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/153422.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.2ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/153094.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/152913.html') LIMIT 1[0m
+  [4;36;1mFeedUpdater Load (1.1ms)[0m   [0;1mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/152702.html') LIMIT 1[0m
+  [4;35;1mFeedUpdater Load (1.1ms)[0m   [0mSELECT `posts`.id FROM `posts` WHERE (`posts`.`guid` = 'http://vklase.livejournal.com/152473.html') LIMIT 1[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/ezhux/git3/app/controllers/application_controller.rb:8)
