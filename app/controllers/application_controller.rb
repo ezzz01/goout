@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
    #starts background process for feed_updating
    #should be called from GUI
   def start_feed_updating
-    system "/home/ezhux/su/su/script/runner FeedUpdater.update_feeds &"
+    system File.dirname(__FILE__) + "/../../script/runner -e " + Rails.env + " FeedUpdater.update_feeds &"
     respond_to do |format|
       format.html { redirect_to user_path(current_user) }
     end
