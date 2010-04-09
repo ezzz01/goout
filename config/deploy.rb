@@ -9,6 +9,7 @@ set :scm_verbose, true
 set :branch, 'master'
 set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
+set :keep_releases, 4
 
 set :user, "ezhux"
 
@@ -20,15 +21,25 @@ role :app, domain                          # This may be the same as your `Web` 
 role :db,  domain, :primary => true # This is where Rails migrations will run
 role :db,  domain 
 
-# If you are using Passenger mod_rails uncomment this:
-# if you're still using the script/reapear helper you will need
-# these http://github.com/rails/irs_process_scripts
+before "deploy:migrate", "db:symlink" 
+
+task :production do
+  set :rails_env, 'production' 
+end
 
  namespace :deploy do
-   task :start do ; end
+   task :start do 
+     run "#{try_sudo} touch #{File.join(current_path,'log','feed_updater.log')}"
+   end
    task :stop do ; end
    task :restart, :roles => :app, :except => { :no_release => true } do
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-     run "#{try_sudo} touch #{File.join(current_path,'log','feed_updater.log')}"
    end
  end
+
+namespace :db do
+  desc "Make symlink for database yaml" 
+  task :symlink do
+    run "ln -nfs ~/.ssh/database.yml #{release_path}/config/database.yml"
+  end
+end
