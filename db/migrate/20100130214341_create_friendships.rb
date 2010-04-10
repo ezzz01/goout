@@ -1,6 +1,6 @@
 class CreateFriendships < ActiveRecord::Migration
   def self.up
-    create_table :friendships do |t|
+    create_table :friendships , :options => 'default charset=utf8' do |t|
       t.integer :user_id
       t.integer :friend_id
 
