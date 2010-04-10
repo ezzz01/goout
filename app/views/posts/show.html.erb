@@ -21,5 +21,5 @@
     <% end %>
   </div>
 
-  <%= link_to t(:back), blog_path(@post.user.username) %>
+  <%= link_to t(:back), blog_path(@post.user.username) unless @post.user.nil? %>
 </div>

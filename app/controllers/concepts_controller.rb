@@ -22,6 +22,11 @@ class ConceptsController < ApplicationController
   def show
     @title = @page_name
     @concept = Concept.find_by_title(@page_name)
+    begin
+      @author = User.find(@concept.revisions.last.author_id) 
+    rescue
+      @author =nil 
+    end
     if @concept.nil?
       flash[:notice] = t(:no_such_word)
       redirect_to(concept_url) 

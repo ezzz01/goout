@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @user = find_user(params) 
-    @title = t(:blog_posts, :username => @user.username )
+    @title = t(:blog_posts, :username => @user.try(:username) )
     @blog_url = @user.blog_url 
 
     if (params[:tag_id])
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @tags = @post.tag_list
-    @title = @post.user.username + " - " + @post.title
+    @title = @post.user.nil? ? t(:anonymous) : @post.user.username + " - " + @post.title
     if params[:mode] == "comment"
       @comment = Comment.new(:user => current_user) 
     end

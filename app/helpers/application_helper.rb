@@ -51,27 +51,34 @@ module ApplicationHelper
   end
 
   def profile_for(user)
+    if user.nil?
+      content_tag(:span, :class => "gooutuser") do 
+        return t(:anonymous)
+      end
+    end
     if user.respond_to?('username')
       content_tag(:span, :class => "gooutuser") do 
-        link_to(user.username, user_profile_path(user.username))
+        link_to(user.username, user_profile_path(user.try(:username)))
       end
     else
       user = User.find_by_username(user)
       content_tag(:span, :class => "gooutuser") do 
-        link_to user.username, user_profile_path(user.username)
+        link_to user.try(:username), user_profile_path(user.try(:username))
       end
     end
   end
 
   def avatar_for(user, thumb = true)
-    if user.avatar
-        if thumb == true
-            avatar_image = user.avatar.public_filename(:small)
-            link_to image_tag(avatar_image), user_profile_path(user.username) 
-        else 
-            avatar_image = user.avatar.public_filename
-            link_to image_tag(avatar_image), user.avatar.public_filename
-        end
+    unless user.nil?
+      if user.avatar
+          if thumb == true
+              avatar_image = user.avatar.public_filename(:small)
+              link_to image_tag(avatar_image), user_profile_path(user.try(:username)) 
+          else 
+              avatar_image = user.avatar.public_filename
+              link_to image_tag(avatar_image), user.avatar.public_filename
+          end
+      end
     end
   end
 

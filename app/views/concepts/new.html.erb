@@ -4,7 +4,7 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :title %><br />
+    <%= f.label :title, t(:title) %><br />
     <%= f.text_field :title %>
   </p>
 
@@ -15,4 +15,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', concepts_path %>
+<%= link_to t(:back), concepts_path %>

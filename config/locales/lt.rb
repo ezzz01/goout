@@ -139,6 +139,7 @@
   #wiki
   :wiki_start_page => "Pirmas wiki puslapis",
   :categories => "Kategorijos",
+  :edit_concept => "Redaguoti puslapį",
   :all_pages_in_category => "Visi puslapiai kategorijoje",
   :wanted_pages_in_this_category => "Trūkstami puslapiai šioje kategorijoje",
   :pages_without_references => "Puslapiai, į kuriuos nėra nuorodų iš kitų puslapių",
@@ -147,6 +148,7 @@
   :want_to_contribute => "Nori prisidėti? Šitų puslapių trūksta!",
   :contribute_hint => "Spausk ant klaustuko po pavadinimu ir rašyk!",
   :author => "Autorius",
+  :content => "Turinys",
   :new_page => "Naujas wiki puslapis",
   :create_new_page => "Sukurti naują wiki puslapį",
   :page_was_successfully_created => "Naujas puslapis sukurtas sėkmingai",

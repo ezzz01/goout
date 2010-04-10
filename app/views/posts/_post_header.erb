@@ -8,14 +8,14 @@
   <div>
     <span class="avatar"><%= avatar_for(post.user) %></span>
     <br />
-    <%= profile_for(post.user) %> 
+    <%= profile_for(post.try(:user)) %> 
   </div>
   <div>
   <span class="post_date"><%= l post.published, :format => :long %></span>
     <% if post.from_url %>
       <%=link_to image_tag('feed-icon-14x14.png', :alt=>"(t:original_source)"), post.from_url, :target => '_blank' %>
     <% end %>
-    <span class="post_title"><%= link_to post.title, post_path(post.user.username, post.id) %></span>
+    <span class="post_title"><%= post_link(post) %></span>
     <% unless post.tag_list.size == 0 %>
       <div> <%= render :partial => "posts/tag_list", :locals => {:post => post} %> </div>
     <% end %>

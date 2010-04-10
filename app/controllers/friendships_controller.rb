@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])   
       if @friendship.save   
         flash[:notice] = t(:added_friend) 
-        redirect_to user_profile_path(User.find(params[:friend_id]).username) 
+        redirect_to user_profile_path(User.find(params[:friend_id]).try(:username)) 
       else   
         flash[:notice] = t(:unable_to_add_friend)   
         redirect_to user_profile_path(params[:friend_id]) 

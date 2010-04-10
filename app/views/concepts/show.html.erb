@@ -4,7 +4,7 @@
   <%= link_to t(:edit_history), concept_revisions_path(@concept) %> |
   <%= link_to t(:edit), edit_concept_path(@concept) %> |
   <%= t(:last_edit) %>:
-  <%= profile_for(User.find(@concept.revisions.last.author_id)) unless @concept.revisions.empty? %>,
+  <%= profile_for(@author) %>,
   <%=h @concept.revisions.last.created_at.as_lt_words unless @concept.revisions.empty? %>
 </div>
 
