@@ -21,10 +21,15 @@ role :app, domain                          # This may be the same as your `Web` 
 role :db,  domain, :primary => true # This is where Rails migrations will run
 role :db,  domain 
 
+before "deploy:restart", "environment:production"
+before "deploy:start", "environment:production"
+before "deploy:restart", "db:symlink" 
 before "deploy:migrate", "db:symlink" 
 
-task :production do
-  set :rails_env, 'production' 
+namespace :environment do
+  task :production do
+    set :rails_env, 'production' 
+  end
 end
 
  namespace :deploy do
