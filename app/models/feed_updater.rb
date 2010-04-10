@@ -37,6 +37,7 @@ class FeedUpdater < Post
    error_count = 0
    loop do
     puts "trying to update" + loop_count.to_s
+    @feed_updater_log.info("trying to update" + loop_count.to_s)
       feeds_array.each do |feed| 
         begin
         feed = Feedzirra::Feed.update(feed)
