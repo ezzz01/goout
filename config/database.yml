@@ -35,6 +35,7 @@ test:
 
 production:
   adapter: mysql
+  reconnect: true
   encoding: utf8
   database: su_production
   username: root
