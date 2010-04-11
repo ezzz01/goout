@@ -20,7 +20,7 @@
 
   <p>
     <b><%= f.label :birthdate, t(:birthdate) %></b>
-    <%= f.date_select :birthdate, 
+    <%= date_select "user", :birthdate, 
                       :start_year => User::START_YEAR,
                       :end_year => Time.now.year,
                       :include_blank => true,
