@@ -9,7 +9,7 @@ set :scm_verbose, true
 set :branch, 'master'
 set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
-set :keep_releases, 4
+set :keep_releases, 3
 
 set :user, "ezhux"
 
@@ -25,8 +25,8 @@ before "deploy:restart", "environment:production"
 before "deploy:start", "environment:production"
 before "deploy:restart", "db:symlink" 
 before "deploy:migrate", "db:symlink" 
-before "deploy:update_code", "images:move_out"
-before "deploy:restart", "images:move_in"
+after "deploy:symlink", "customs:symlink"
+after "deploy", "deploy:cleanup"
 
 namespace :environment do
   task :production do
@@ -34,13 +34,11 @@ namespace :environment do
   end
 end
 
-namespace :images do
-  task :move_out
-     run "mv #{release_path}/public/avatars/ ~"
-  end
-
-  task :move_in
-     run "mv ~/avatars ~/goout/current/public/"
+namespace(:customs) do
+ task :symlink, :roles => :app do
+    run <<-CMD
+      ln -nfs #{shared_path}/avatars #{release_path}/public/avatars
+    CMD
   end
 end
 
