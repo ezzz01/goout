@@ -7,7 +7,7 @@
 
 <% @countries.each do |country| %>
   <tr>
-    <td><%=h country.title %> (<%= country.universities.size %>)</td>
+    <td><%=h country.title %> (<%= country.organizations.size %>)</td>
     <td><%= link_to 'Show', country %></td>
     <td><%= link_to 'Edit', edit_country_path(country) %></td>
     <td><%= link_to 'Destroy', country, :confirm => t(:are_you_sure), :method => :delete %></td>

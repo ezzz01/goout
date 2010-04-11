@@ -3,7 +3,7 @@
     <th><%= @country.title %></th>
   </tr>
 
-<% @country.universities.each do |university| %>
+<% @country.organizations.each do |university| %>
   <tr>
     <td><%=h university.title %></td>
     <td><%= link_to 'Show', university %></td>
