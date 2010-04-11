@@ -22,6 +22,10 @@ class Ability
             post.user == user
         end
 
+        can :destroy, Activity do |activity|
+            activity.user == user
+        end
+
         can :destroy, Comment do |comment|
             comment.user == user || comment.post.user == user
         end

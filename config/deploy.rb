@@ -25,6 +25,8 @@ before "deploy:restart", "environment:production"
 before "deploy:start", "environment:production"
 before "deploy:restart", "db:symlink" 
 before "deploy:migrate", "db:symlink" 
+before "deploy:update_code", "images:move_out"
+before "deploy:restart", "images:move_in"
 
 namespace :environment do
   task :production do
@@ -32,7 +34,17 @@ namespace :environment do
   end
 end
 
- namespace :deploy do
+namespace :images do
+  task :move_out
+     run "mv #{release_path}/public/avatars/ ~"
+  end
+
+  task :move_in
+     run "mv ~/avatars ~/goout/current/public/"
+  end
+end
+
+namespace :deploy do
    task :start do 
      run "#{try_sudo} touch #{File.join(current_path,'log','feed_updater.log')}"
    end
@@ -40,7 +52,7 @@ end
    task :restart, :roles => :app, :except => { :no_release => true } do
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
- end
+end
 
 namespace :db do
   desc "Make symlink for database yaml" 

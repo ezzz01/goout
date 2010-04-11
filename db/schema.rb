@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100404163625) do
+ActiveRecord::Schema.define(:version => 20100411120145) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -157,6 +157,11 @@ ActiveRecord::Schema.define(:version => 20100404163625) do
     t.string   "password_salt"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
+    t.string   "gender"
+    t.date     "birthdate"
+    t.string   "name"
+    t.string   "surname"
+    t.integer  "current_country"
   end
 
   create_table "wiki_references", :force => true do |t|

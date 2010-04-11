@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
   BLOG_URL_SIZE = 30
   USERNAME_RANGE = USERNAME_MIN_LENGTH..USERNAME_MAX_LENGTH
   PASSWORD_RANGE = PASSWORD_MIN_LENGTH..PASSWORD_MAX_LENGTH
+  VALID_GENDERS = ["Jis", "Ji"]
+  START_YEAR = 1950
+  VALID_DATES = DateTime.new(START_YEAR)..DateTime.now
 
   validates_uniqueness_of :username, :email
   validates_confirmation_of :password, :unless => :updating_user
@@ -46,6 +49,14 @@ class User < ActiveRecord::Base
                       :with => /^[A-Z0-9_-]*$/i,
                       :message => I18n.t(:username_error)
 
+  validates_inclusion_of :gender, 
+                         :in => VALID_GENDERS,
+                         :allow_nil => true,
+                         :message => "vyras ar moteris?"
+  validates_inclusion_of :birthdate, 
+                         :in => VALID_DATES,
+                         :allow_nil => true,
+                         :message => "neteisinga data"
 
   def validate
     if username.include?(" ")
@@ -57,6 +68,18 @@ class User < ActiveRecord::Base
   #  end
   end
  
+  def name_surname
+    if !self.name.nil? && !self.surname.nil?
+      self.name + " " + self.surname
+    elsif self.name.nil?
+      self.surname
+    elsif self.surname.nil?
+      self.name
+    else
+      " "
+    end
+  end
+
   def login!(session)
     session[:user_id] = self.id
   end

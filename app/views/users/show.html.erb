@@ -14,6 +14,21 @@
   <% end %>
 </div>
 
+<% hidden_div_if(@user.try(:name_surname).nil?, :class => "profile_block") do %>
+  <b><%= t(:name_surname) %>:</b>
+  <%=h @user.name_surname %>
+<% end %>
+
+<% hidden_div_if(@user.birthdate.nil?, :class => "profile_block") do %>
+  <b><%= t(:birthdate) %>:</b>
+  <%=h @user.birthdate %> 
+<% end %>
+
+<% hidden_div_if(@user.gender.nil?, :class => "profile_block") do %>
+  <b><%= t(:gender) %>:</b>
+  <%=h @user.gender %> 
+<% end %>
+
 <% if @user == current_user %>
   <div class="profile_block">
     <b><%= t(:email) %>:</b>
@@ -23,11 +38,9 @@
   </div>
 <% end %>
 
-<% unless @user.blog_url.nil? %>
-<div class="profile_block">
+<% hidden_div_if(@user.blog_url.nil?, :class => "profile_block") do %>
   <b><%= t(:external_blog) %>:</b>
   <%= link_to @user.blog_url, blog_path(@user.username) %>
-</div>
 <% end %>
 
 <div class="profile_block">
@@ -35,20 +48,22 @@
   <%= link_to blog_path(@user.username), blog_path(@user.username) %>
 </div>
 
-<div class="profile_block">
+<% hidden_div_if(@user.activities.empty?, :class => "profile_block") do %>
   <b><%= t(:studies) %>:</b>
-    <span id="add_activity_link">
-      <%= link_to_remote t(:new_entry),
-        {:url => new_user_activity_path(@user), 
-        :method => :get},
-        :href => new_user_activity_path(@user)
-      %>
-    </span>
+    <% if can? :update, @user %>
+      <span id="add_activity_link">
+        <%= link_to_remote t(:new_entry),
+          {:url => new_user_activity_path(@user), 
+          :method => :get},
+          :href => new_user_activity_path(@user)
+        %>
+      </span>
+    <% end %>
     <div id="add_activity_form"> </div>
     <div id="activities_for_user">
       <%= render :partial => "activities/activity", :collection => @user.activities %>
     </div>
-</div>
+<% end %>
 
 <div class="profile_block">
   <b><%= t(:friends) + " (" + @user.friendships.size.to_s + ")" %>:</b>

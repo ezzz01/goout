@@ -1,5 +1,5 @@
 <div id="activity_<%= activity.id %>" class="activity">
-    <% if logged_in? %>
+    <% if can? :delete, activity %>
     <span class="delete_link" id="delete_activity_link_<%= activity.id %>" style="float: right;">
         <%= link_to_remote t(:delete), 
         :url => user_activity_path(current_user, activity.id),
