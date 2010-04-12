@@ -8,26 +8,30 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-        can :create, [Comment, User, Post, Activity, Concept]
 
-        can :update, User do |edit_user|
+        can :create, [Comment, User, Question]
+
+        #workaroud for custom action via AJAX call. Permission is checked in action
+        can :mark_as_deleted, :all
+
+        if user.try(:username)
+          can :create, [Activity, Post, Concept, Revision]
+        end
+
+        can [:update, :destroy], User do |edit_user|
           edit_user == user
         end
 
-        can :update, Post do |post|
-            post.user == user
+        can [:update, :destroy], Post do |post|
+            post.try(:user) == user
         end
 
-        can :destroy, Post do |post|
-            post.user == user
-        end
-
-        can :destroy, Activity do |activity|
+        can [:update, :destroy], Activity do |activity|
             activity.user == user
         end
 
         can :destroy, Comment do |comment|
-            comment.user == user || comment.post.user == user
+            comment.try(:user) == user || comment.try(:post).try(:user) == user
         end
       end
 

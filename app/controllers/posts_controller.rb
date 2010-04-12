@@ -36,6 +36,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.user = current_user 
     @title = t(:add_new_post)
     respond_to do |format|
       format.html
@@ -49,7 +50,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    @post.user_id = params[:user_id]
+    @post.user = current_user
     respond_to do |format|
       if @post.duplicate? or @post.save 
         flash[:notice] = t(:post_created_successfully) 
@@ -83,9 +84,11 @@ class PostsController < ApplicationController
 
   def mark_as_deleted
     @post = Post.find(params[:post_id])
-    if @post.update_attribute(:deleted, 1)
-      respond_to do |format|
-        format.js
+    if can? (:update, @post)
+      if @post.update_attribute(:deleted, 1)
+        respond_to do |format|
+          format.js
+        end
       end
     end
   end
