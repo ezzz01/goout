@@ -7,6 +7,34 @@ class FeedUpdater < Post
     $running = true if test.length > 0
   end
 
+
+ def self.update_feeds_cron
+   @logfile = File.open(File.dirname(__FILE__) + "/../../log/feed_updater.log", 'a')    
+   @logfile.sync = true
+   @feed_updater_log = FeedUpdaterLogger.new(@logfile) 
+   @feed_updater_log.info("Starting updating feeds")
+   feeds_array = update_feed_addresses
+
+    feeds_array.each do |feed| 
+      begin
+      feed = Feedzirra::Feed.update(feed)
+        if feed.updated?   
+          feed2 = Feedzirra::Feed.fetch_and_parse(feed.feed_url)   
+          @feed_updater_log.info("Updated from: " + feed.feed_url)
+          user = User.find_by_blog_url(feed.feed_url)
+          add_entries(feed.new_entries, user)
+          feeds_array.delete(feed)
+          feeds_array.push(feed2)
+          loop_and_update(feeds_array)
+        end
+      rescue Exception => e
+        error_count = error_count + 1
+        @feed_updater_log.error("Exception in subsequent update : " + e.message + " " + feed.to_s)
+      end
+    end   
+ end
+
+
  def self.update_feeds   
    @logfile = File.open(File.dirname(__FILE__) + "/../../log/feed_updater.log", 'a')    
    @logfile.sync = true
