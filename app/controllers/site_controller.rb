@@ -3,6 +3,7 @@ class SiteController < ApplicationController
   def index
       @title = t(:start_page) 
       @content = Concept.find_by_title("goout_start").revisions.last
+      @question = Question.new
   end
 
   def about

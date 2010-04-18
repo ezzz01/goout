@@ -1,10 +1,6 @@
 <div class="comment" id="comment_<%= comment.id %>">
  <%= avatar_for(comment.try(:user)) %>
- <%= if comment.user_id.nil? 
-   t(:anonymous)
- else
- link_to comment.user.username, profile_for(comment.user) 
-end %>
+ <%= profile_for(comment.user) %>
 <span class="post_date"><%= h comment.created_at.as_lt_words %></span>
 <% if can? :destroy, comment %>
   <span class="edit_link" style="float: right">

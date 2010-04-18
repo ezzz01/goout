@@ -3,7 +3,7 @@
 {
 :lt => {
   :mydate => "Data",
-  :start_page => "Pradinis puslapis",
+  :start_page => "Pirmas puslapis",
   :users => "Vartotojai",
   :wiki => "Wiki",
   :community => "Bendruomenė",
@@ -24,14 +24,21 @@
   :entry => "Įrašas",
   :body => "Body?",
   :new_entry => "Sukurti naują",
+  :ask_question => "Užduok klausimą",
   :create_new_country => "Sukurti naują šalį",
   :new_university => "Sukurti naują universitetą ar organizaciją",
   :new_study_program => "Sukurti naują studijų programą",
   :new_exchange_program => "Sukurti naują mainų programą",
   :new_activity_area => "Sukurti naują veiklos sritį",
 
+  :+ => "+",
+  :- => "-",
   :back => "Atgal",
   :show => "Rodyti",
+  :answer => "Atsakyti",
+  :all_answers => "Visi atsakymai",
+  :new_answer => "Naujas atsakymas",
+  :first_3_answers => "Paskutiniai atsakymai:",
 
   #activity types
   :full_study => "Pilnos studijos",
@@ -99,6 +106,7 @@
   #flashes:
   :post_created_successfully => "Įrašas sėkmingai sukurtas",
   :post_updated_successfully => "Įrašas sėkmingai atnaujintas",
+  :question_created_successfully => "Klausimas įrašytas",
   :no_permission => "Jums nesuteiktos teisės atlikti šį veiksmą",
   :registration_successful => "Užsiregistravote sėkmingai",
   :login_successful => "Prisijungėte sėkmingai",

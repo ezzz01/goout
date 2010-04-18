@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100411120145) do
+ActiveRecord::Schema.define(:version => 20100417204400) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20100411120145) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "current",             :default => false
+  end
+
+  create_table "answers", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "vote_for"
+    t.integer  "vote_against"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "avatars", :force => true do |t|
@@ -76,6 +86,16 @@ ActiveRecord::Schema.define(:version => 20100411120145) do
     t.string   "url"
     t.string   "from_url"
     t.boolean  "deleted",         :default => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.string   "cached_tag_list"
+    t.integer  "vote_for"
+    t.integer  "vote_agains"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "revisions", :force => true do |t|
@@ -157,9 +177,6 @@ ActiveRecord::Schema.define(:version => 20100411120145) do
     t.string   "password_salt"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
-    t.string   "gender"
-    t.date     "birthdate"
-    t.string   "name"
     t.string   "surname"
     t.integer  "current_country"
   end

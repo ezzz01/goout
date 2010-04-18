@@ -1,0 +1,7 @@
+page.visual_effect :blind_up, "new_answer_form_for_question_#{@question.id}"
+page.replace_html "answers_for_question_#{@question.id}",
+                :partial => "answers/answer",
+                :collection => @question.answers.find(:all, :order => "vote_for DESC, created_at DESC", :limit => 3)
+page.show "add_answer_link_for_question_#{@question.id}"
+page.visual_effect :highlight, "answer_#{@answer.id}", :duration => 2
+flash.discard

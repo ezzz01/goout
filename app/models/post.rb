@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   attr_accessor :updating_feed
 
   validates_presence_of :body unless :updating_feed
-  validates_length_of :title, :maximum => 100 
+  validates_length_of :title, :maximum => 100, :allow_nil => true 
   validates_length_of :body, :maximum => DB_TEXT_MAX_LENGTH
   validates_uniqueness_of :body, :scope => :title unless :updating_feed
 

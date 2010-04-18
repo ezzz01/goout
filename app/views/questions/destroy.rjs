@@ -1,0 +1,2 @@
+page.visual_effect :highlight, "question_#{@question.id}", :duration => 2
+page.visual_effect :toggle_blind, "question_#{@question.id}", :duration => 2

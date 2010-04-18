@@ -1,0 +1,5 @@
+<% remote_form_for(@question) do |f| %>
+    <%= f.text_area :body, :rows => 3, :cols => 35 %>
+    <br />
+    <%= f.submit t(:send) %>
+<% end %>

@@ -19,6 +19,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :study_programs
   map.resources :countries
 
+  map.resources :questions do |question|
+    question.resources :answers
+  end
+
   map.resources :users  do |user|
     user.resources :activities
     user.resources :tags do |tag|

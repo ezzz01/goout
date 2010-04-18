@@ -2,7 +2,7 @@
   <%= will_paginate @posts %>
 </div>
 
-<div id="posts">
+<div id="main">
 <% for post in @posts %>
   <%= render :partial => "posts/post_header", :locals => { :post => post } %>
   <%= render :partial => "posts/post_body", :locals => { :post => post } %>
@@ -15,6 +15,6 @@
 
 </div>
 
-<div id="tag_cloud">
+<div id="sidebar">
   <%= render :partial => "posts/tag_cloud" %>
 </div>

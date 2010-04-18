@@ -1,2 +1,13 @@
-<h1><%= t(:start_page) %></h1>
-<%= @content.content %>
+<div id="main">
+  <h1><%= t(:start_page) %></h1>
+  <%= @content.content %>
+</div>
+
+
+<div id="sidebar">
+  <h3><%= t(:ask_question) %></h3>
+    <%= render :partial => "questions/form" %>
+  <div id="questions">
+    <%= render :partial => "questions/question", :collection => Question.find(:all, :order => "created_at DESC", :limit => 5) %>
+  </div>
+</div>

@@ -9,10 +9,12 @@ class Ability
       else
         can :read, :all
 
-        can :create, [Comment, User, Question]
+        can :create, [Comment, User, Question, Answer]
 
         #workaroud for custom action via AJAX call. Permission is checked in action
         can :mark_as_deleted, :all
+        can :vote_for, :all
+        can :vote_against, :all
 
         if user.try(:username)
           can :create, [Activity, Post, Concept, Revision]
@@ -30,9 +32,18 @@ class Ability
             activity.user == user
         end
 
+        can :destroy, Question do |question|
+            question.try(:user) == user
+        end
+
+        can :destroy, Answer do |answer|
+            answer.try(:user) == user
+        end
+
         can :destroy, Comment do |comment|
             comment.try(:user) == user || comment.try(:post).try(:user) == user
         end
+
       end
 
 

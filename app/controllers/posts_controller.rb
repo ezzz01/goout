@@ -84,7 +84,7 @@ class PostsController < ApplicationController
 
   def mark_as_deleted
     @post = Post.find(params[:post_id])
-    if can? (:update, @post)
+    if can? :update, @post
       if @post.update_attribute(:deleted, 1)
         respond_to do |format|
           format.js

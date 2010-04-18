@@ -1,0 +1,31 @@
+<div class="question" id="question_<%= question.id %>">
+<div class="question_header">
+  <%= profile_for(question.user) %>
+  <span class="post_date"><%= h question.created_at.as_lt_words %></span>
+  <% if can? :destroy, question %> 
+      <span style="float:right">
+        <%= link_to_remote "x", 
+          :url => question_path(question),
+          :method => :delete,
+          :confirm => t(:are_you_sure) %>
+      </span>
+  <% end %>
+</div>
+  <div><%= sanitize truncate(question.body, :length => 150, :ommision => "...") %></div>
+  <% unless question.answers.empty? %>
+    <h4><%= t(:first_3_answers) %></h4>
+  <% end %>
+  <div id="answers_for_question_<%= question.id %>">
+    <%= render :partial => "answers/answer", :collection => question.answers.find(:all, :order => "(vote_for - vote_against) DESC, created_at DESC", :limit => 3) %>
+  </div>
+
+  <div id="new_answer_form_for_question_<%= question.id %>"></div>
+
+  <span id="add_answer_link_for_question_<%= question.id %>">
+    <%= link_to_remote t(:answer), { :url => new_question_answer_path(question), :method => :get} %>
+  </span>
+  <% unless question.answers.empty? %>
+    <span class="span_separator">|</span>
+    <%= (link_to t(:all_answers), question_answers_path(question)) %>
+  <% end %>
+</div>

@@ -11,7 +11,7 @@ class AddFieldsToUser < ActiveRecord::Migration
     remove_column :users, :gender 
     remove_column :users, :birthdate
     remove_column :users, :name
-    remove_column :users, :suname
+    remove_column :users, :surname
     remove_column :users, :current_country
   end
 end
