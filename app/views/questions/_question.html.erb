@@ -26,6 +26,6 @@
   </span>
   <% unless question.answers.empty? %>
     <span class="span_separator">|</span>
-    <%= (link_to t(:all_answers), question_answers_path(question)) %>
+    <%= (link_to t(:all_answers), question_path(question)) %>
   <% end %>
 </div>

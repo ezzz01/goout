@@ -1,11 +1,18 @@
-<div class="answer_short" id="answer_<%= answer.id %>">
- 
+<div class="<%= type == :long ? 'answer' : 'answer_short' %>" id="answer_<%= answer.id %>">
   <div>
     <%= link_to_remote image_tag("arrow_up.png"), :url => {:controller => "answers", :action => "vote_for", :answer_id => answer.id} %>
     <span id="votes_for_<%= answer.id %>"><%= answer.try(:vote_for) %></span>
   </div>
+  <% if type == :long  %>
+  <%= profile_for(answer.user) %>
+  <span class="post_date"><%= h answer.created_at.as_lt_words %></span>
+  <% end %>
   <div>
-  <%= sanitize truncate(answer.body, :length => 80, :ommision => "...") %>
+  <% if type == :long %>
+    <%= sanitize answer.body  %>
+  <% else %>
+    <%= sanitize truncate(answer.body, :length => 80, :ommision => "...") %>
+  <% end %>
   </div>
   <div>
     <%= link_to_remote image_tag("arrow_down.png"), :url => {:controller => "answers", :action => "vote_against", :answer_id => answer.id} %>

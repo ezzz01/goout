@@ -1,0 +1,18 @@
+<div id="posts">
+  <%= sanitize @question.body %>
+  <div class="answers" id="answers_for_question_<%=@question.id %>">
+    <%= render :partial => "answers/answer", :collection => @question.answers.find(:all, :order => "(vote_for - vote_against) DESC" ), :locals => {:type => :long} %>
+  </div>
+
+  <div id="add_answer_link_for_question_<%= @question.id %>">
+    <%= link_to_remote t(:new_answer),
+      {:url => new_question_answer_path(@question.id), 
+      :method => :get},
+      :href => new_question_answer_path(@question.id)
+    %>
+  </div>
+
+  <div class="comment_form" id="new_answer_form_for_question_<%= @question.id %>">
+  </div>
+
+</div>

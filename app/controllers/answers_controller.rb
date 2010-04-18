@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   before_filter :load_question, :only => ["index", "new", "create"]
 
  def index
-
+    redirect_to question_path(@question)
  end
 
  def new

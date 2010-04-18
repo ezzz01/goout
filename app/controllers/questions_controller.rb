@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-
+    @questions = Question.all.paginate(:per_page => 20)
   end
 
   def new
@@ -10,6 +10,10 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html
     end
+  end
+
+  def show
+
   end
 
   def create
