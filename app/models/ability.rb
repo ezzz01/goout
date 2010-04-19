@@ -15,6 +15,8 @@ class Ability
         can :mark_as_deleted, :all
         can :vote_for, :all
         can :vote_against, :all
+        can :unvote_for, :all
+        can :unvote_against, :all
 
         if user.try(:username)
           can :create, [Activity, Post, Concept, Revision]

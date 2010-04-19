@@ -46,7 +46,7 @@ class AnswersController < ApplicationController
           page.replace_html "answers_for_question_#{@question.id}",
                 :partial => "answers/answer",
                 :collection => @question.answers.find(:all, :order => "(vote_for - vote_against) DESC, created_at DESC", :limit => 3)
-
+          page.replace_html "votebutton_for_#{@answer.id}", :partial => 'unvote_for', :locals => {:answer_id => @answer.id }
         end
       end
   end
@@ -62,8 +62,22 @@ class AnswersController < ApplicationController
           page.replace_html "answers_for_question_#{@question.id}",
                 :partial => "answers/answer",
                 :collection => @question.answers.find(:all, :order => "vote_for DESC, created_at DESC", :limit => 3)
+          page.replace_html "votebutton_against_#{@answer.id}", :partial => 'unvote_against', :locals => {:answer_id => @answer.id }
         end
       end
   end
 
+  def unvote_for
+    @answer = Answer.find(params[:answer_id])
+    render :update do |page|
+      page.replace_html "votebutton_for_#{@answer.id}", :partial => 'vote_for', :locals => {:answer_id => @answer.id }
+    end
+  end
+
+  def unvote_against
+    @answer = Answer.find(params[:answer_id])
+    render :update do |page|
+      page.replace_html "votebutton_against_#{@answer.id}", :partial => 'vote_against', :locals => {:answer_id => @answer.id }
+    end
+  end
 end

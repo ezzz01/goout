@@ -31,14 +31,15 @@
   :new_exchange_program => "Sukurti naują mainų programą",
   :new_activity_area => "Sukurti naują veiklos sritį",
 
-  :+ => "+",
-  :- => "-",
   :back => "Atgal",
   :show => "Rodyti",
   :answer => "Atsakyti",
   :all_answers => "Visi atsakymai",
   :new_answer => "Naujas atsakymas",
   :first_3_answers => "Paskutiniai atsakymai:",
+  :vote_for_answer => "Balsuoti už atsakymą. Paspaudus dar kartą balsas bus atšauktas",
+  :vote_against_answer => "Balsuoti prieš atsakymą. Paspaudus dar kartą balsas bus atšauktas",
+  :revoke_vote => "Paspaudus dar kartą balsas bus atšauktas",
 
   #activity types
   :full_study => "Pilnos studijos",
