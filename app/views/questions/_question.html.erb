@@ -16,7 +16,7 @@
     <h4><%= t(:first_3_answers) %></h4>
   <% end %>
   <div id="answers_for_question_<%= question.id %>">
-    <%= render :partial => "answers/answer", :collection => question.answers.find(:all, :order => "(vote_for - vote_against) DESC, created_at DESC", :limit => 3) %>
+    <%= render :partial => "answers/answer", :collection => question.answers.find(:all, :order => "created_at DESC", :limit => 3) %>
   </div>
 
   <div id="new_answer_form_for_question_<%= question.id %>"></div>

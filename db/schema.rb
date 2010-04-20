@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100417204400) do
+ActiveRecord::Schema.define(:version => 20100420211246) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(:version => 20100417204400) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.integer  "vote_for"
-    t.integer  "vote_against"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -179,6 +177,15 @@ ActiveRecord::Schema.define(:version => 20100417204400) do
     t.string   "current_login_ip"
     t.string   "surname"
     t.integer  "current_country"
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "voteable_id",   :default => 0, :null => false
+    t.integer  "user_id",       :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "voteable_type"
+    t.integer  "vote"
   end
 
   create_table "wiki_references", :force => true do |t|

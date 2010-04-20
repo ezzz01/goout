@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :userroles, :class_name => "UserRole"
   has_many :roles, :through => :userroles
-
+  has_many :votes, :dependent => :nullify
+ 
   attr_accessor :remember_me
   attr_accessor :current_password
   attr_accessor :admin
@@ -125,6 +126,18 @@ class User < ActiveRecord::Base
     self.password_confirmation = params[:user][:password_confirmation]
     valid?
     errors.add(:current_password, I18n.t(:not_correct))
+  end
+
+  def voted_for?(voteable)
+    0 < Vote.count(:all, :conditions => [ "user_id = ? AND vote = ? AND voteable_id = ?", self.id, 1, voteable.id ])
+  end
+
+  def voted_against?(voteable)
+    0 < Vote.count(:all, :conditions => [ "user_id = ? AND vote = ? AND voteable_id = ? ", self.id, "-1", voteable.id ])
+  end
+
+  def voted_on?(voteable)
+    0 < Vote.count(:all, :conditions => [ "user_id = ? AND voteable_id = ? ", self.id, voteable.id ])
   end
 
   private

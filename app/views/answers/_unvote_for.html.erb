@@ -1,1 +1,1 @@
-<%= link_to_remote image_tag("arrow_up2.png"), :url => {:controller => "answers", :action => "unvote_for", :answer_id => answer_id }, :html => { :title => t(:revoke_vote) } %>
+<%= link_to_remote image_tag("arrow_up2.png"), :url => {:controller => "answers", :action => "unvote_for", :answer_id => answer.id }, :html => { :title => t(:revoke_vote) } %>

@@ -40,6 +40,7 @@
   :vote_for_answer => "Balsuoti už atsakymą. Paspaudus dar kartą balsas bus atšauktas",
   :vote_against_answer => "Balsuoti prieš atsakymą. Paspaudus dar kartą balsas bus atšauktas",
   :revoke_vote => "Paspaudus dar kartą balsas bus atšauktas",
+  :log_in_to_vote => "Prisijunkite, jei norite balsuoti",
 
   #activity types
   :full_study => "Pilnos studijos",

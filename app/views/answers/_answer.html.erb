@@ -1,21 +1,33 @@
 <div class="<%= type == :long ? 'answer' : 'answer_short' %>" id="answer_<%= answer.id %>">
-  <div id="votebutton_for_<%= answer.id %>">
-    <%= render :partial => 'answers/vote_for', :locals => {:answer_id => answer.id } %>
-    <span id="votes_for_<%= answer.id %>"><%= answer.try(:vote_for) %></span>
-  </div>
+
+  <span id="votebutton_for_<%= answer.id %>">
+    <% if try(:current_user) %>
+      <%= render :partial => 'answers/vote_logic', :locals => {:forr_against => :forr, :answer => answer } %>
+    <% else %>
+      <%= image_tag("arrow_up.png", :alt => t(:log_in_to_vote), :title => t(:log_in_to_vote)) %>
+    <% end %>
+  </span>
+  <span id="votes_for_<%= answer.id %>"><%= answer.votes_for %></span>
+
   <% if type == :long  %>
-  <%= profile_for(answer.user) %>
-  <span class="post_date"><%= h answer.created_at.as_lt_words %></span>
-  <% end %>
-  <div>
-  <% if type == :long %>
-    <%= sanitize answer.body  %>
-  <% else %>
-    <%= sanitize truncate(answer.body, :length => 80, :ommision => "...") %>
-  <% end %>
+    <%= profile_for(answer.user) %>
+    <span class="post_date"><%= h answer.created_at.as_lt_words %></span>
+    <% end %>
+    <div>
+    <% if type == :long %>
+      <%= sanitize answer.body  %>
+    <% else %>
+      <%= sanitize truncate(answer.body, :length => 80, :ommision => "...") %>
+    <% end %>
   </div>
-  <div id="votebutton_against_<%= answer.id %>">
-    <%= render :partial => 'answers/vote_against', :locals => {:answer_id => answer.id } %>
-    <span id="vote_against_<%= answer.id %>"><%= answer.try(:vote_against) %></span>
-  </div>
+
+  <span id="votebutton_against_<%= answer.id %>">
+    <% if try(:current_user) %>
+      <%= render :partial => 'answers/vote_logic', :locals => {:forr_against => :against, :answer => answer } %>
+    <% else %>
+      <%= image_tag("arrow_down.png", :alt => t(:log_in_to_vote), :title => t(:log_in_to_vote)) %>
+    <% end %>
+  </span>
+  <span id="votes_against_<%= answer.id %>"><%= answer.votes_against %></span>
+
 </div>

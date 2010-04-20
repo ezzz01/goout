@@ -1,7 +1,8 @@
 class AnswersController < ApplicationController
   load_and_authorize_resource
   before_filter :load_question, :only => ["index", "new", "create"]
-
+  before_filter :find_answer, :only => ["vote_for", "vote_against", "unvote_for", "unvote_against"]
+  
  def index
     redirect_to question_path(@question)
  end
@@ -30,54 +31,65 @@ class AnswersController < ApplicationController
  def destroy
 
  end
-
- def load_question
-    @question = Question.find(params[:question_id])
-  end
-
+ 
   def vote_for
-    @answer = Answer.find(params[:answer_id])
-    @answer.vote_for = 0 if @answer.try(:vote_for).nil?
-    @question = @answer.question
-    votes_for = @answer.vote_for + 1
-      if @answer.update_attribute(:vote_for, votes_for)
-        render :update do |page|
-          page.replace_html "votes_for_#{@answer.id}", votes_for 
-          page.replace_html "answers_for_question_#{@question.id}",
-                :partial => "answers/answer",
-                :collection => @question.answers.find(:all, :order => "(vote_for - vote_against) DESC, created_at DESC", :limit => 3)
-          page.replace_html "votebutton_for_#{@answer.id}", :partial => 'unvote_for', :locals => {:answer_id => @answer.id }
-        end
-      end
+    vote_old = Vote.find(:first, :conditions => [ "voteable_id = ? AND user_id = ?", @answer.id, current_user.id ])
+    @answer.votes.delete(vote_old) if vote_old
+    vote = Vote.new(:vote => 1, :user => try(:current_user))
+    @answer.votes << vote
+    if @answer.save!
+      rerender_vote_buttons(@answer)
+    end
   end
 
   def vote_against
-    @answer = Answer.find(params[:answer_id])
-    @answer.vote_against = 0 if @answer.try(:vote_against).nil?
-    @question = @answer.question
-    vote_against = @answer.vote_against + 1
-      if @answer.update_attribute(:vote_against, vote_against)
-        render :update do |page|
-          page.replace_html "vote_against_#{@answer.id}", vote_against
-          page.replace_html "answers_for_question_#{@question.id}",
-                :partial => "answers/answer",
-                :collection => @question.answers.find(:all, :order => "vote_for DESC, created_at DESC", :limit => 3)
-          page.replace_html "votebutton_against_#{@answer.id}", :partial => 'unvote_against', :locals => {:answer_id => @answer.id }
-        end
-      end
+    vote_old = Vote.find(:first, :conditions => [ "voteable_id = ? AND user_id = ?", @answer.id, current_user.id ])
+    @answer.votes.delete(vote_old) if vote_old
+    vote = Vote.new(:vote => "-1", :user => try(:current_user))
+    @answer.votes << vote
+    if @answer.save!
+      rerender_vote_buttons(@answer)
+    end
   end
 
   def unvote_for
-    @answer = Answer.find(params[:answer_id])
-    render :update do |page|
-      page.replace_html "votebutton_for_#{@answer.id}", :partial => 'vote_for', :locals => {:answer_id => @answer.id }
+    vote = Vote.find(:first, :conditions => [ "voteable_id = ? AND vote = ? AND user_id = ? ", @answer.id, 1, current_user.id ])
+    @answer.votes.delete(vote) if vote
+    if @answer.save!
+      rerender_vote_buttons(@answer)
     end
   end
 
   def unvote_against
-    @answer = Answer.find(params[:answer_id])
-    render :update do |page|
-      page.replace_html "votebutton_against_#{@answer.id}", :partial => 'vote_against', :locals => {:answer_id => @answer.id }
+    vote = Vote.find(:first, :conditions => [ "voteable_id = ? AND vote = ? AND user_id = ? ", @answer.id, "-1", current_user.id ])
+    @answer.votes.delete(vote) if vote
+    if @answer.save!
+      rerender_vote_buttons(@answer)
     end
+  end
+
+  private
+
+  def load_question
+    @question = Question.find(params[:question_id])
+  end
+
+  def find_answer
+    @answer = Answer.find(params[:answer_id])
+  end
+
+  def rerender_vote_buttons(answer)
+     @question = answer.question
+     @sorted_answers = Answer.find_by_sql ["SELECT answers.*, sum(vote) as rating FROM `answers` Inner JOIN votes on votes.voteable_id = answers.id where answers.question_id = ? group by answers.id order by rating DESC LIMIT 3", @question.id]
+
+     render :update do |page|
+        page.replace_html "votes_for_#{answer.id}", answer.votes_for 
+        page.replace_html "votes_against_#{answer.id}", answer.votes_against
+        page.replace_html "answers_for_question_#{@question.id}",
+              :partial => "answers/answer",
+              :collection => @sorted_answers
+        page.replace_html "votebutton_for_#{answer.id}", :partial => 'answers/vote_logic', :locals => {:forr_against => :forr, :answer => answer }
+        page.replace_html "votebutton_against_#{answer.id}", :partial => 'answers/vote_logic', :locals => {:forr_against => :against, :answer => answer }
+      end
   end
 end

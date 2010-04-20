@@ -1,7 +1,7 @@
 <div id="posts">
   <%= sanitize @question.body %>
   <div class="answers" id="answers_for_question_<%=@question.id %>">
-    <%= render :partial => "answers/answer", :collection => @question.answers.find(:all, :order => "(vote_for - vote_against) DESC" ), :locals => {:type => :long} %>
+    <%= render :partial => "answers/answer", :collection => @question.answers.find(:all, :order => "created_at  DESC" ), :locals => {:type => :long} %>
   </div>
 
   <div id="add_answer_link_for_question_<%= @question.id %>">
