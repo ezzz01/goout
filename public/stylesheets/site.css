@@ -248,8 +248,8 @@ img {
 }
 
 span.span_separator {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.spacer {
@@ -271,4 +271,9 @@ div.spacer {
     margin: 4px;
     padding-left: 4px;
     border-top: 1px dashed;
+}
+
+h3.ask_question {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }

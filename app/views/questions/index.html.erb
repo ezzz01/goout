@@ -1,3 +1,19 @@
 <div class="paginator">
   <%= will_paginate @questions %>
 </div>
+
+<div id="main">
+<% for question in @questions %>
+  <%= render :partial => "questions/question_header", :locals => { :question => question } %>
+  <%= render :partial => "questions/question_body", :locals => { :question => question } %>
+  <%= render :partial => "questions/question_footer", :locals => { :question => question } %>
+<% end %>
+
+  <div class="paginator">
+    <%= will_paginate @questions %>
+  </div>
+
+</div>
+
+<div id="sidebar">
+</div>

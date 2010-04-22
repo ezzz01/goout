@@ -1,0 +1,19 @@
+<div class="blog_post_header">
+  <% if can? :update, question %>
+    <div style="margin: 5px; float:right">
+      <%= link_to t(:edit), edit_question_path(question) %>
+      <%= link_to t(:delete), question, :confirm => t(:are_you_sure), :method => :delete %>
+    </div>
+  <% end %>
+  <div>
+    <span class="avatar"><%= avatar_for(question.user) %></span>
+    <br />
+    <%= profile_for(question.try(:user)) %> 
+  </div>
+  <div>
+  <span class="post_date"><%= l question.created_at, :format => :long %></span>
+    <% unless question.try(:tag_list).try(:size) == 0 %>
+      <div> <%= render :partial => "posts/tag_list", :locals => {:question => question} %> </div>
+    <% end %>
+  </div>
+</div>

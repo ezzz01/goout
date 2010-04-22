@@ -152,6 +152,12 @@
   :friend_of => "Šių vartotojų draugas",
   :unable_to_add_friend => "Klaida pridedant draugą",
 
+  #questions
+  :full_question => "Pilnas klausimas",
+  :all_questions => "Visi klausimai",
+  :view_answers => "Peržiūrėti atsakymus",
+  :number_of_answers => "Atsakymų",
+
   #wiki
   :wiki_start_page => "Pirmas wiki puslapis",
   :categories => "Kategorijos",

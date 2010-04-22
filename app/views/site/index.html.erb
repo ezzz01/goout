@@ -5,7 +5,8 @@
 
 
 <div id="sidebar">
-  <h3><%= t(:ask_question) %></h3>
+  <h3 class="ask_question"><%= t(:ask_question) %></h3>
+  <%= link_to t(:all_questions), questions_path %>
     <%= render :partial => "questions/form" %>
   <div id="questions">
     <%= render :partial => "questions/question", :collection => Question.find(:all, :order => "created_at DESC", :limit => 5) %>

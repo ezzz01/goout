@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @title = t(:all_questions)
     @questions = Question.all.paginate(:per_page => 20)
   end
 
@@ -37,6 +38,7 @@ class QuestionsController < ApplicationController
     @question.destroy
     respond_to do |format|
       format.js
+      format.html { redirect_to questions_path }
     end
   end
 

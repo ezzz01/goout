@@ -12,6 +12,10 @@
   <% end %>
 </div>
   <div><%= sanitize truncate(question.body, :length => 150, :ommision => "...") %></div>
+   <% unless ( truncate(question.body, :length => 150).length == question.body.length) %>
+     <%= (link_to t(:full_question), question_path(question)) %>
+   <% end %>
+
   <% unless question.answers.empty? %>
     <h4><%= t(:first_3_answers) %></h4>
   <% end %>
@@ -24,8 +28,9 @@
   <span id="add_answer_link_for_question_<%= question.id %>">
     <%= link_to_remote t(:answer), { :url => new_question_answer_path(question), :method => :get} %>
   </span>
-  <% unless question.answers.empty? %>
+  <% unless question.answers.size < 4 %>
     <span class="span_separator">|</span>
     <%= (link_to t(:all_answers), question_path(question)) %>
   <% end %>
-</div>
+
+ </div>
