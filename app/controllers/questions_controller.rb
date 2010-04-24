@@ -14,10 +14,11 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
+    @title = truncate(@question.body, :length => 100, :ommision => "...")  
   end
 
   def create
+    @title = t(:new_question)
     @question = Question.new(params[:question])
     @question.user = try(:current_user)
     respond_to do |format|

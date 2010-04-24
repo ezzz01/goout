@@ -1,20 +1,20 @@
-<div class="<%= type == :long ? 'answer' : 'answer_short' %>" id="answer_<%= answer.id %>">
+<div class="<%= long == :long ? 'answer' : 'answer_short' %>" id="answer_<%= answer.id %>">
 
   <span id="votebutton_for_<%= answer.id %>">
     <% if try(:current_user) %>
-      <%= render :partial => 'answers/vote_logic', :locals => {:forr_against => :forr, :answer => answer } %>
+      <%= render :partial => 'answers/vote_logic', :locals => {:forr_against => :forr, :answer => answer, :long => long } %>
     <% else %>
       <%= image_tag("arrow_up.png", :alt => t(:log_in_to_vote), :title => t(:log_in_to_vote)) %>
     <% end %>
   </span>
   <span id="votes_for_<%= answer.id %>"><%= answer.votes_for %></span>
 
-  <% if type == :long  %>
+  <% if long == :long  %>
     <%= profile_for(answer.user) %>
     <span class="post_date"><%= h answer.created_at.as_lt_words %></span>
     <% end %>
     <div>
-    <% if type == :long %>
+    <% if long == :long %>
       <%= sanitize answer.body  %>
     <% else %>
       <%= sanitize truncate(answer.body, :length => 80, :ommision => "...") %>
@@ -23,7 +23,7 @@
 
   <span id="votebutton_against_<%= answer.id %>">
     <% if try(:current_user) %>
-      <%= render :partial => 'answers/vote_logic', :locals => {:forr_against => :against, :answer => answer } %>
+      <%= render :partial => 'answers/vote_logic', :locals => {:forr_against => :against, :answer => answer, :long => long } %>
     <% else %>
       <%= image_tag("arrow_down.png", :alt => t(:log_in_to_vote), :title => t(:log_in_to_vote)) %>
     <% end %>

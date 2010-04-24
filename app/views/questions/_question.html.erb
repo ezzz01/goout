@@ -20,7 +20,11 @@
     <h4><%= t(:first_3_answers) %></h4>
   <% end %>
   <div id="answers_for_question_<%= question.id %>">
-    <%= render :partial => "answers/answer", :collection => question.answers.find(:all, :order => "created_at DESC", :limit => 3) %>
+    <% if long == :long %>
+      <%= render :partial => "answers/answer", :collection => question.sorted_answers, :locals => {:long => long }%>
+    <% else %>
+      <%= render :partial => "answers/answer", :collection => question.sorted_answers(3), :locals => {:long => long } %>
+    <% end %>
   </div>
 
   <div id="new_answer_form_for_question_<%= question.id %>"></div>

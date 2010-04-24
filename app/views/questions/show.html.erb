@@ -2,8 +2,9 @@
   <div id="posts">
     <%= render :partial => "questions/question_header", :locals => { :question => @question } %>
     <%= render :partial => "questions/question_body", :locals => { :question => @question } %>
+    <h4><%= t(:all_answers) %>:</h4>
     <div class="answers" id="answers_for_question_<%=@question.id %>">
-      <%= render :partial => "answers/answer", :collection => @question.answers.find(:all, :order => "created_at  DESC" ), :locals => {:type => :long} %>
+      <%= render :partial => "answers/answer", :collection => @question.sorted_answers, :locals => {:long => :long} %>
     </div>
 
     <div id="add_answer_link_for_question_<%= @question.id %>">

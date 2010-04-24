@@ -11,4 +11,8 @@ class Question < ActiveRecord::Base
     self.id = question.id unless question.nil?
     not question.nil?
   end
+
+  def sorted_answers(limit=10000)
+    Answer.find_by_sql ["SELECT answers.*, IFNULL(sum(vote), 0) as rating FROM `answers` LEFT JOIN votes on votes.voteable_id = answers.id where answers.question_id = ? group by answers.id order by rating DESC LIMIT ?", self.id, limit]
+  end
 end

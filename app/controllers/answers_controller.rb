@@ -16,7 +16,11 @@ class AnswersController < ApplicationController
  def create
     @answer = @question.answers.build(params[:answer])
     @answer.user_id = (current_user.nil?)? nil : current_user.id 
-
+    if params[:long] == "true"
+      @long = :long
+    else
+      @long = :false
+    end
     respond_to do |format|
       if @answer.duplicate? or @answer.save
         format.html { redirect_to root_url }
@@ -80,14 +84,14 @@ class AnswersController < ApplicationController
 
   def rerender_vote_buttons(answer)
      @question = answer.question
-     @sorted_answers = Answer.find_by_sql ["SELECT answers.*, sum(vote) as rating FROM `answers` Inner JOIN votes on votes.voteable_id = answers.id where answers.question_id = ? group by answers.id order by rating DESC LIMIT 3", @question.id]
+     @sorted_answers = @question.sorted_answers
 
      render :update do |page|
         page.replace_html "votes_for_#{answer.id}", answer.votes_for 
         page.replace_html "votes_against_#{answer.id}", answer.votes_against
         page.replace_html "answers_for_question_#{@question.id}",
               :partial => "answers/answer",
-              :collection => @sorted_answers
+              :collection => @sorted_answers, :locals => {:long => :long }
         page.replace_html "votebutton_for_#{answer.id}", :partial => 'answers/vote_logic', :locals => {:forr_against => :forr, :answer => answer }
         page.replace_html "votebutton_against_#{answer.id}", :partial => 'answers/vote_logic', :locals => {:forr_against => :against, :answer => answer }
       end

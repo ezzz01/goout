@@ -9,6 +9,6 @@
   <%= link_to t(:all_questions), questions_path %>
     <%= render :partial => "questions/form" %>
   <div id="questions">
-    <%= render :partial => "questions/question", :collection => Question.find(:all, :order => "created_at DESC", :limit => 5) %>
+    <%= render :partial => "questions/question", :collection => Question.find(:all, :order => "created_at DESC", :limit => 5), :locals => {:long => false} %>
   </div>
 </div>

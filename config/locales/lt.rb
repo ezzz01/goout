@@ -134,7 +134,7 @@
   :will_be_edited_on_system => "Dėmesio, redaguoti galite tik go-out.lt saugomą įrašo kopiją, ne originalą!",
 
   #blog
-  :blog_posts => "Vartotojo {{username}} tinkaraščio įrašai", 
+  :blog_posts => "Vartotojo {{username}} tinklaraščio įrašai", 
   :add_new_post => "Sukurti naują įrašą",
   :edit_post => "Redaguoti įrašą '{{title}}'",
   :new_post => "Naujas įrašas", 
