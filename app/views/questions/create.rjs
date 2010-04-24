@@ -1,7 +1,7 @@
 page.select("form").first.reset
 page.replace_html "questions",
                 :partial => "questions/question",
-                :collection => Question.find(:all, :order => "created_at DESC", :limit => 5)
+                :collection => Question.find(:all, :order => "created_at DESC", :limit => 5), :locals => {:long => false}
 page.visual_effect :blind_down, "question_#{@question.id}", :duration => 2
 page.visual_effect :highlight, "question_#{@question.id}", :duration => 3
 flash.discard

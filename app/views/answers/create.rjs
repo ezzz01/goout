@@ -1,6 +1,6 @@
 page.visual_effect :blind_up, "new_answer_form_for_question_#{@question.id}"
 page.replace_html "answers_for_question_#{@question.id}",
                 :partial => "answers/answer",
-                :collection => (@long == :long)? @question.sorted_answers : @question.sorted_answers(3), :locals => {:long => @long} 
+                :collection => @question.sorted_answers, :locals => {:long => :long} 
 page.show "add_answer_link_for_question_#{@question.id}"
 flash.discard
