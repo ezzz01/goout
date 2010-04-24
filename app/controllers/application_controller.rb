@@ -54,9 +54,9 @@ class ApplicationController < ActionController::Base
   end
 
   def load_organizations(country_id)
-    universities = University.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )
-    companies = Company.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )
-    ngos = Ngo.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, session[:user_id] ], :order => 'concepts.type, concepts.title'  )
+    universities = University.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, current_user.id ], :order => 'concepts.type, concepts.title'  )
+    companies = Company.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, current_user.id ], :order => 'concepts.type, concepts.title'  )
+    ngos = Ngo.find_all_by_country_id(country_id, :conditions => ["pending = ? OR added_by = ?", 0, current_user.id ], :order => 'concepts.type, concepts.title'  )
    
     unis = Hash.new
     if universities.length > 0 

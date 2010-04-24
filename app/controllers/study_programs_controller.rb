@@ -58,7 +58,7 @@ class StudyProgramsController < ConceptsController
         format.html { redirect_to(@study_program) }
         format.xml  { render :xml => @study_program, :status => :created, :location => @study_program }
         format.js {
-            subject_area = SubjectArea.find(params[:study_program][:subject_area_id], :include => :study_programs, :order => 'concepts.title', :conditions => [ "concepts.pending = 0 OR concepts.added_by = ?", session[:user_id] ])
+            subject_area = SubjectArea.find(params[:study_program][:subject_area_id], :include => :study_programs, :order => 'concepts.title', :conditions => [ "concepts.pending = 0 OR concepts.added_by = ?", current_user.id ])
             render :update do |page|
                 page.replace_html 'study_program', :partial => 'activities/study_programs', :locals => {:id => params[:study_program][:subject_area_id] },  :object => subject_area.study_programs
                 page[:activity_study_program_id].set_style :width => "400px"

@@ -181,6 +181,7 @@
   :for_page => "puslapiui",
   :new_revision => "Nauja revizija",
   #errors
+  :error_on_saving => "Klaida išsaugant",
   :error_saving_university => "Klaida išsaugant. Gal toks universitetas jau yra?",
   :error_saving_organization => "Klaida išsaugant. Gal tokia organizacija jau yra?",
   :error_saving_exchange_program => "Klaida išsaugant. Gal tokia mainų programa jau yra?",

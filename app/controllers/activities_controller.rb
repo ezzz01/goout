@@ -22,13 +22,13 @@ class ActivitiesController < ApplicationController
     elsif(params[:my_type] == "internship")
         @activity = Internship.new(params[:activity])
     end
-    @user = User.find(session[:user_id]) 
+    @user = current_user 
     @activity.user_id = @user.id
     respond_to do |format|
       if @activity.save
         format.js 
       else
-        flash[:notice] = "Error on save"
+        flash[:notice] = t(:error_on_saving)
       end
     end
   end
