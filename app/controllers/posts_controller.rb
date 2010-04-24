@@ -15,7 +15,7 @@ class PostsController < ApplicationController
         @posts = @posts.paginate(:per_page => 20)
     end
 
-    @tags = @user.posts.tag_counts.sort{|x, y| x.name <=> y.name }
+    @tags = @user.posts.tag_counts.sort{|x, y| x.name.downcase <=> y.name.downcase }
 
     respond_to do |format|
       format.html 
