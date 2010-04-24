@@ -9,7 +9,7 @@ class Ability
       else
         can :read, :all
 
-        can :create, [Comment, User, Question, Answer]
+        can :create, [Comment, User, Question, Answer, Friendship]
 
         #workaroud for custom action via AJAX call. Permission is checked in action
         can :mark_as_deleted, :all
@@ -44,6 +44,10 @@ class Ability
 
         can :destroy, Comment do |comment|
             comment.try(:user) == user || comment.try(:post).try(:user) == user
+        end
+
+        can :destroy, Friendship do |friendship|
+            friendship.try(:user) == user
         end
 
       end

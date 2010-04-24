@@ -83,7 +83,7 @@
   <ul>
     <% for user in @user.inverse_friends %>
         <li>
-            <%= profile_for(friendship.friend.username) %>
+            <%= profile_for(user.username) %>
         </li>
     <% end %>
   </ul>
