@@ -10,7 +10,7 @@
     <div id="exchange_program" style="display: none" ></div>
     <div id="country">
         <%= f.label ("activity_country_id", t(:country)) %>
-        <%= collection_select("activity", :country_id, Country.find(:all, :order => :title), :id, :title, 
+        <%= collection_select(:activity, :country_id, Country.find(:all, :order => :title), :id, :title, 
         {:prompt   => t(:select_country)},
         {:style => "width: 400px;", :onchange => "#{remote_function(:url  => {:action => "update_organizations"},
          :with => "'country_id='+value")}"}  ) %>

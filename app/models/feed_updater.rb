@@ -11,7 +11,7 @@ class FeedUpdater < Post
  def self.update_feeds_cron
    @logfile = File.open(File.dirname(__FILE__) + "/../../log/feed_updater.log", 'a')    
    @logfile.sync = true
-   @feed_updater_log = FeedUpdaterLogger.new(@logfile) 
+   @feed_updater_log = CustomLogger.new(@logfile) 
    @feed_updater_log.info("Starting updating feeds")
    feeds_array = update_feed_addresses
 
@@ -38,7 +38,7 @@ class FeedUpdater < Post
  def self.update_feeds   
    @logfile = File.open(File.dirname(__FILE__) + "/../../log/feed_updater.log", 'a')    
    @logfile.sync = true
-   @feed_updater_log = FeedUpdaterLogger.new(@logfile) 
+   @feed_updater_log = CustomLogger.new(@logfile) 
    @feed_updater_log.info("Starting updating feeds")
    feeds_array = update_feed_addresses
    loop_and_update(feeds_array)

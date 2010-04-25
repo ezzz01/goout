@@ -1,6 +1,12 @@
 <div id="main">
   <h1><%= t(:start_page) %></h1>
   <%= @content.content %>
+  <h3><%= t(:last_wiki_updates) %></h3>
+  <div class="wiki_updates">
+    <% CustomLogger.last_entries.reverse!.each do |line| %>
+      <%=line + "<br />" %>
+    <% end %>
+  </div>
 </div>
 
 

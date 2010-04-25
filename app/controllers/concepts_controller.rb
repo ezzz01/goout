@@ -4,8 +4,6 @@ class ConceptsController < ApplicationController
  
   def load_page
     @page_name = params['id'] ? params['id'].purify : nil
-   # sekanti eilute reikalinga log'ams
-   # @page = @wiki.read_page(@web_name, @page_name) if @page_name
   end
 
   def index
@@ -66,6 +64,7 @@ class ConceptsController < ApplicationController
     @concept.revisions.last.concept = @concept
     respond_to do |format|
       if @concept.save
+        CustomLogger.wikilog.info(I18n.t(:added_new_concept, :user => current_user.username, :title => @concept.title))
         flash[:notice] = t(:page_was_successfully_created) 
         format.html { redirect_to(concept_path(@concept.title)) }
       else
@@ -89,6 +88,7 @@ class ConceptsController < ApplicationController
     wiki_references = renderer.update_references(rendering_result)
     respond_to do |format|
       if @concept.update_attributes(@updates) && @concept.update_attribute("wiki_references", wiki_references) 
+        CustomLogger.wikilog.info(I18n.t(:edited_concept, :user => current_user.username, :title => @concept.title))
         flash[:notice] = t(:page_was_successfully_updated)
         format.html { redirect_to(concept_path(@concept.title)) }
       else

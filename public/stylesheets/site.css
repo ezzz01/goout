@@ -277,3 +277,11 @@ h3.ask_question {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
+
+.wiki_updates {
+  width: 500px;
+  margin 4px;
+  padding: 4px;
+  border: 1px solid  #aaaaaa;
+  font-size: 12px;
+}

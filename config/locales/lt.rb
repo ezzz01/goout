@@ -133,6 +133,12 @@
   :will_be_deleted_on_system => "Dėmesio, įrašas bus ištrintas iš go-out.lt, bet ne iš pirminio šaltinio!",
   :will_be_edited_on_system => "Dėmesio, redaguoti galite tik go-out.lt saugomą įrašo kopiją, ne originalą!",
 
+  #log:
+  :last_wiki_updates => "Paskutiniai wiki pataisymai",
+  :added_new_concept => "{{user}} pridėjo naują puslapį \"{{title}}\"",
+  :deleted_new_concept => "{{user}} ištrynė puslapį \"{{title}}\"",
+  :edited_concept => "{{user}} redagavo puslapį \"{{title}}\"",
+
   #blog
   :blog_posts => "Vartotojo {{username}} tinklaraščio įrašai", 
   :add_new_post => "Sukurti naują įrašą",

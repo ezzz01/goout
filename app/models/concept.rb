@@ -3,6 +3,12 @@ class Concept < ActiveRecord::Base
   has_many :wiki_references, :order => 'referenced_name'
   validates_presence_of :title
   validates_uniqueness_of :title
+  
+  def self.wikilog
+    @@logfile ||= File.open(File.dirname(__FILE__) + "/../../log/wikilog.log", 'a')    
+    @@logfile.sync = true
+    CustomLogger.new(@@logfile)
+  end
 
  def new_revision=(revision_attributes)
    revisions.build(revision_attributes)
