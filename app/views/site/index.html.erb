@@ -3,7 +3,7 @@
   <%= @content.content %>
   <h3><%= t(:last_wiki_updates) %></h3>
   <div class="wiki_updates">
-    <% CustomLogger.last_entries.reverse!.each do |line| %>
+    <% CustomLogger.last_entries.each do |line| %>
       <%=line + "<br />" %>
     <% end %>
   </div>

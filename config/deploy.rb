@@ -45,6 +45,7 @@ end
 namespace :deploy do
    task :start do 
      run "#{try_sudo} touch #{File.join(current_path,'log','feed_updater.log')}"
+     run "#{try_sudo} touch #{File.join(current_path,'log','wikilog.log')}"
    end
    task :stop do ; end
    task :restart, :roles => :app, :except => { :no_release => true } do
