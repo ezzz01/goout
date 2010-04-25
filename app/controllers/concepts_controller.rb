@@ -41,6 +41,7 @@ class ConceptsController < ApplicationController
   # GET /concepts/new
   # GET /concepts/new.xml
   def new
+    @include_wiki_form = :true
     @concept = Concept.new
     #if we came here over the wiki_link, the title can already be set 
     @concept.title = params[:title] if params[:title]
@@ -52,6 +53,7 @@ class ConceptsController < ApplicationController
 
   # GET /concepts/1/edit
   def edit
+    @include_wiki_form = :true
     @concept = Concept.find(params[:id])
     @current_revision = (@concept.revisions.empty?)? "" : @concept.revisions.last.content
   end

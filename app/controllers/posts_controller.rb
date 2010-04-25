@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @include_post_form = :true
     @post = Post.new
     @post.user = current_user 
     @title = t(:add_new_post)
@@ -44,6 +45,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @include_post_form = :true
     @post = Post.find(params[:id])
     @title = t(:edit_post, :title => @post.title)
   end

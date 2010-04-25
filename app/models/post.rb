@@ -21,5 +21,4 @@ class Post < ActiveRecord::Base
     not post.nil?
   end
 
-
 end

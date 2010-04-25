@@ -7,7 +7,7 @@
 <table>
 
 <% for user in @users %>
-    <tr>
+    <tr height="50px">
         <td><%= avatar_for(user) %></td> 
         <td><%= link_to user.username, user_profile_path(user.username) %></td>
         <% if can? :destroy, user %> 

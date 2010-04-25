@@ -285,3 +285,11 @@ h3.ask_question {
   border: 1px solid  #aaaaaa;
   font-size: 12px;
 }
+
+.user_row{
+  min-height: 50px;
+}
+
+.user_avatar{
+  min-width: 50px;
+}
